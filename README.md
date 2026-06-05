@@ -2,6 +2,8 @@
 
 `x402-catelog` 是 BankofAI 维护的公开 x402 服务目录仓库。一期不保存数据库，也不接收任何上游 API key、token、password、provider.yml 或 `.env`。
 
+社区提交流程和可复制命令见 [`examples/README.md`](examples/README.md)。
+
 服务方自己运行 gateway，向本仓库提交公开材料：
 
 - `providers/<fqn>/catalog.json`：前端、CLI、Agent 用的公开服务信息。
@@ -24,10 +26,19 @@ python3 scripts/validate.py
 python3 scripts/build.py
 ```
 
+## 本地搜索 Demo
+
+```bash
+x402-cli catalog search weather --catalog dist/catalog.json --json
+x402-cli catalog show acme-weather --catalog dist/catalog.json --json
+x402-cli catalog endpoints acme-weather --catalog dist/catalog.json --json
+x402-cli catalog pay-json acme-weather --catalog dist/catalog.json
+```
+
 ## 服务方提交流程
 
 1. 在自己的机器运行 gateway，密钥只留在本地 `provider.yml` 或环境变量中。
-2. 用 gateway 或 `x402-cli` 导出公开的 `catalog.json` 和 `pay.md`。
+2. 用 `x402-cli catalog export-gateway` 导出公开的 `catalog.json` 和 `pay.md`。
 3. 在本仓库新增 `providers/<fqn>/catalog.json` 与 `providers/<fqn>/pay.md`。
 4. 提交 PR，CI 通过后由定时任务或发布流程刷新 `dist/` 到 Catalog Server/CDN。
 
