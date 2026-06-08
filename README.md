@@ -3,6 +3,7 @@
 `x402-catelog` 是 BankofAI 维护的公开 x402 服务目录仓库。一期不保存数据库，也不接收任何上游 API key、token、password、provider.yml 或 `.env`。
 
 社区提交流程和可复制命令见 [`examples/README.md`](examples/README.md)。
+前端和测试环境调试流程见 [`TESTING.md`](TESTING.md)。
 
 服务方自己运行 gateway，向本仓库提交公开材料：
 
@@ -41,6 +42,24 @@ curl http://127.0.0.1:8088/api/catalog.json
 
 ```bash
 X402_CATALOG_PORT=8088 docker compose up -d catalog
+```
+
+前端本地开发默认使用：
+
+```text
+http://127.0.0.1:8088/api
+```
+
+主要接口：
+
+```text
+GET /api/status.json
+GET /api/catalog.json
+GET /api/providers/<fqn>.json
+GET /api/pay/<fqn>.json
+GET /api/pay/<fqn>.md
+GET /api/categories.json
+GET /api/search-index.json
 ```
 
 ## 本地搜索 Demo
