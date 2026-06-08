@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "fqn": "open-meteo-weather",
+  "title": "Open-Meteo Weather API",
+  "subtitle": "Coordinate-based current weather",
+  "description": "Current weather data from the public Open-Meteo API.",
+  "useCase": "Use for current weather lookup when latitude and longitude are already known.",
+  "i18n": {
+    "zh-CN": {
+      "title": "Open-Meteo 天气 API",
+      "subtitle": "按经纬度查询实时天气",
+      "description": "来自公开 Open-Meteo API 的实时天气数据。",
+      "useCase": "适合在已知经纬度时查询实时天气。"
+    }
+  },
+  "logo": "https://open-meteo.com/favicon.ico",
+  "category": "data",
+  "chains": ["eip155:97"],
+  "isFirstParty": false,
+  "isFeatured": true,
+  "featuredTags": ["weather", "open-data", "no-api-key"],
+  "serviceUrl": "https://gateway.bankofai.io/providers/open-meteo-weather",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/v1/forecast",
+      "url": "https://gateway.bankofai.io/providers/open-meteo-weather/v1/forecast",
+      "title": "Current Weather",
+      "subtitle": "Lookup by coordinates",
+      "description": "Current weather for latitude and longitude coordinates.",
+      "useCase": "Use when an app or agent needs current weather metrics for a known coordinate.",
+      "i18n": {
+        "zh-CN": {
+          "title": "实时天气",
+          "subtitle": "按经纬度查询",
+          "description": "查询指定经纬度的实时天气数据。",
+          "useCase": "适合应用或 Agent 已知坐标并需要实时天气指标时使用。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.001,
+      "maxPriceUsd": 0.001
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "loaded",
+    "payment": "verified-testnet",
+    "upstream": "verified"
+  }
+}

@@ -24,8 +24,33 @@
       "subtitle": "City-level weather lookup",
       "title": "Acme Weather API",
       "use_case": "Use for current weather lookup by city."
+    },
+    {
+      "category": "data",
+      "chains": [
+        "eip155:97"
+      ],
+      "description": "Current weather data from the public Open-Meteo API.",
+      "endpoints": [
+        {
+          "description": "Current weather for latitude and longitude coordinates.",
+          "method": "GET",
+          "path": "/v1/forecast",
+          "title": "Current Weather"
+        }
+      ],
+      "featured_tags": [
+        "weather",
+        "open-data",
+        "no-api-key"
+      ],
+      "fqn": "open-meteo-weather",
+      "service_url": "https://gateway.bankofai.io/providers/open-meteo-weather",
+      "subtitle": "Coordinate-based current weather",
+      "title": "Open-Meteo Weather API",
+      "use_case": "Use for current weather lookup when latitude and longitude are already known."
     }
   ],
-  "generated_at": "2026-06-05T08:07:08Z",
+  "generated_at": "2026-06-08T02:37:38Z",
   "version": 1
 }

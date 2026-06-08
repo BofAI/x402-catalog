@@ -1,11 +1,11 @@
 {
   "base_url": "https://catalog.bankofai.io/api",
-  "chain_count": 2,
+  "chain_count": 3,
   "first_party_count": 0,
   "frontend": {
     "categories": [
       {
-        "count": 1,
+        "count": 2,
         "id": "data"
       }
     ],
@@ -16,15 +16,20 @@
       },
       {
         "count": 1,
+        "id": "eip155:97"
+      },
+      {
+        "count": 1,
         "id": "tron:mainnet"
       }
     ],
     "featured_fqns": [
-      "acme-weather"
+      "acme-weather",
+      "open-meteo-weather"
     ]
   },
-  "generated_at": "2026-06-05T08:07:08Z",
-  "provider_count": 1,
+  "generated_at": "2026-06-08T02:37:38Z",
+  "provider_count": 2,
   "providers": [
     {
       "category": "data",
@@ -59,6 +64,40 @@
       "subtitle": "City-level weather lookup",
       "title": "Acme Weather API",
       "use_case": "Use for current weather lookup by city."
+    },
+    {
+      "category": "data",
+      "chains": [
+        "eip155:97"
+      ],
+      "description": "Current weather data from the public Open-Meteo API.",
+      "endpoint_count": 1,
+      "featured_tags": [
+        "weather",
+        "open-data",
+        "no-api-key"
+      ],
+      "fqn": "open-meteo-weather",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "来自公开 Open-Meteo API 的实时天气数据。",
+          "subtitle": "按经纬度查询实时天气",
+          "title": "Open-Meteo 天气 API",
+          "useCase": "适合在已知经纬度时查询实时天气。"
+        }
+      },
+      "is_featured": true,
+      "is_first_party": false,
+      "logo": "https://open-meteo.com/favicon.ico",
+      "max_price_usd": 0.001,
+      "min_price_usd": 0.001,
+      "service_url": "https://gateway.bankofai.io/providers/open-meteo-weather",
+      "sha": "ccff4c6326c66e3fa1884bed302d40d4a8bc9a39feb5955c37aea29d87025277",
+      "subtitle": "Coordinate-based current weather",
+      "title": "Open-Meteo Weather API",
+      "use_case": "Use for current weather lookup when latitude and longitude are already known."
     }
   ],
   "version": 1

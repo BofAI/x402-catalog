@@ -1,0 +1,32 @@
+{
+  "chains": [
+    "eip155:97"
+  ],
+  "description": "Current weather data from the public Open-Meteo API.",
+  "endpoints": [
+    {
+      "description": "Current weather for latitude and longitude coordinates.",
+      "max_price_usd": 0.001,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.001,
+      "path": "/v1/forecast",
+      "url": "https://gateway.bankofai.io/providers/open-meteo-weather/v1/forecast"
+    }
+  ],
+  "fqn": "open-meteo-weather",
+  "i18n": {
+    "zh-CN": {
+      "description": "来自公开 Open-Meteo API 的实时天气数据。",
+      "subtitle": "按经纬度查询实时天气",
+      "title": "Open-Meteo 天气 API",
+      "useCase": "适合在已知经纬度时查询实时天气。"
+    }
+  },
+  "service_url": "https://gateway.bankofai.io/providers/open-meteo-weather",
+  "sha": "ccff4c6326c66e3fa1884bed302d40d4a8bc9a39feb5955c37aea29d87025277",
+  "subtitle": "Coordinate-based current weather",
+  "title": "Open-Meteo Weather API",
+  "use_case": "Use for current weather lookup when latitude and longitude are already known.",
+  "version": 1
+}
