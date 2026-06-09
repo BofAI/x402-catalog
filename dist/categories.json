@@ -4,5 +4,11 @@
     "id": "data",
     "label": "Data",
     "label_zh": "数据"
+  },
+  {
+    "count": 1,
+    "id": "finance",
+    "label": "Finance",
+    "label_zh": "金融"
   }
 ]

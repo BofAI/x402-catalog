@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "fqn": "bankofai-site",
+  "title": "BANK OF AI Website",
+  "subtitle": "Official BANK OF AI website content",
+  "description": "Official BANK OF AI website content served through the x402 gateway.",
+  "useCase": "Use when an app or agent needs the official BANK OF AI homepage or site metadata.",
+  "i18n": {
+    "zh-CN": {
+      "title": "BANK OF AI 官网",
+      "subtitle": "BANK OF AI 官方网站内容",
+      "description": "通过 x402 Gateway 访问 BANK OF AI 官方网站内容。",
+      "useCase": "适合应用或 Agent 需要读取 BANK OF AI 官网首页或站点元信息时使用。"
+    }
+  },
+  "logo": "https://bankofai.io/favicon.ico",
+  "category": "finance",
+  "chains": ["eip155:97"],
+  "isFirstParty": true,
+  "isFeatured": true,
+  "featuredTags": ["bankofai", "website", "first-party"],
+  "serviceUrl": "https://gateway.bankofai.io/providers/bankofai-site",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/",
+      "url": "https://gateway.bankofai.io/providers/bankofai-site/",
+      "title": "Homepage",
+      "subtitle": "Official website HTML",
+      "description": "BANK OF AI homepage HTML.",
+      "useCase": "Use when an app or agent needs the official BANK OF AI homepage content.",
+      "i18n": {
+        "zh-CN": {
+          "title": "官网首页",
+          "subtitle": "官方网站 HTML",
+          "description": "BANK OF AI 官网首页 HTML。",
+          "useCase": "适合应用或 Agent 需要读取 BANK OF AI 官网首页内容时使用。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.001,
+      "maxPriceUsd": 0.001
+    },
+    {
+      "method": "GET",
+      "path": "/favicon.ico",
+      "url": "https://gateway.bankofai.io/providers/bankofai-site/favicon.ico",
+      "title": "Favicon",
+      "subtitle": "Website icon",
+      "description": "BANK OF AI favicon.",
+      "useCase": "Use when a client needs the BANK OF AI website icon.",
+      "i18n": {
+        "zh-CN": {
+          "title": "网站图标",
+          "subtitle": "官网 favicon",
+          "description": "BANK OF AI 官网 favicon。",
+          "useCase": "适合客户端需要展示 BANK OF AI 官网图标时使用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0,
+      "maxPriceUsd": 0
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "loaded",
+    "payment": "sandbox",
+    "upstream": "verified"
+  }
+}

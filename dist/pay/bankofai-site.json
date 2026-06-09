@@ -1,0 +1,55 @@
+{
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:97"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:97",
+      "kind": "bnb",
+      "label": "BNB Smart Chain Testnet",
+      "label_zh": "BNB 测试网"
+    }
+  ],
+  "description": "Official BANK OF AI website content served through the x402 gateway.",
+  "endpoints": [
+    {
+      "description": "BANK OF AI homepage HTML.",
+      "max_price_usd": 0.001,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.001,
+      "path": "/",
+      "url": "https://gateway.bankofai.io/providers/bankofai-site/"
+    },
+    {
+      "description": "BANK OF AI favicon.",
+      "max_price_usd": 0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0,
+      "path": "/favicon.ico",
+      "url": "https://gateway.bankofai.io/providers/bankofai-site/favicon.ico"
+    }
+  ],
+  "fqn": "bankofai-site",
+  "i18n": {
+    "zh-CN": {
+      "description": "通过 x402 Gateway 访问 BANK OF AI 官方网站内容。",
+      "subtitle": "BANK OF AI 官方网站内容",
+      "title": "BANK OF AI 官网",
+      "useCase": "适合应用或 Agent 需要读取 BANK OF AI 官网首页或站点元信息时使用。"
+    }
+  },
+  "main_title": "BANK OF AI Website",
+  "service_url": "https://gateway.bankofai.io/providers/bankofai-site",
+  "sha": "8e67115022d06b5f0f58b210a72fa8ce92a841ec183c4a85de1715f82598e178",
+  "sub_title": "BANK OF AI 官方网站内容",
+  "subtitle": "Official BANK OF AI website content",
+  "title": "BANK OF AI Website",
+  "title_zh": "BANK OF AI 官网",
+  "use_case": "Use when an app or agent needs the official BANK OF AI homepage or site metadata.",
+  "version": 1
+}

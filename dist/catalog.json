@@ -1,7 +1,7 @@
 {
   "base_url": "https://catalog.bankofai.io/api",
   "chain_count": 3,
-  "first_party_count": 0,
+  "first_party_count": 1,
   "frontend": {
     "categories": [
       {
@@ -9,6 +9,12 @@
         "id": "data",
         "label": "Data",
         "label_zh": "数据"
+      },
+      {
+        "count": 1,
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
       }
     ],
     "chains": [
@@ -20,7 +26,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 1,
+        "count": 2,
         "id": "eip155:97",
         "kind": "bnb",
         "label": "BNB Smart Chain Testnet",
@@ -36,11 +42,12 @@
     ],
     "featured_fqns": [
       "acme-weather",
-      "open-meteo-weather"
+      "open-meteo-weather",
+      "bankofai-site"
     ]
   },
-  "generated_at": "2026-06-08T04:52:12Z",
-  "provider_count": 2,
+  "generated_at": "2026-06-09T06:18:34Z",
+  "provider_count": 3,
   "providers": [
     {
       "category": "data",
@@ -154,6 +161,59 @@
       "title": "Open-Meteo Weather API",
       "title_zh": "Open-Meteo 天气 API",
       "use_case": "Use for current weather lookup when latitude and longitude are already known."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:97"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:97",
+          "kind": "bnb",
+          "label": "BNB Smart Chain Testnet",
+          "label_zh": "BNB 测试网"
+        }
+      ],
+      "description": "Official BANK OF AI website content served through the x402 gateway.",
+      "endpoint_count": 2,
+      "featured_tags": [
+        "bankofai",
+        "website",
+        "first-party"
+      ],
+      "fqn": "bankofai-site",
+      "has_free_tier": true,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 x402 Gateway 访问 BANK OF AI 官方网站内容。",
+          "subtitle": "BANK OF AI 官方网站内容",
+          "title": "BANK OF AI 官网",
+          "useCase": "适合应用或 Agent 需要读取 BANK OF AI 官网首页或站点元信息时使用。"
+        }
+      },
+      "is_featured": true,
+      "is_first_party": true,
+      "logo": "https://bankofai.io/favicon.ico",
+      "main_title": "BANK OF AI Website",
+      "max_price_usd": 0.001,
+      "min_price_usd": 0,
+      "service_url": "https://gateway.bankofai.io/providers/bankofai-site",
+      "sha": "8e67115022d06b5f0f58b210a72fa8ce92a841ec183c4a85de1715f82598e178",
+      "sub_title": "BANK OF AI 官方网站内容",
+      "subtitle": "Official BANK OF AI website content",
+      "title": "BANK OF AI Website",
+      "title_zh": "BANK OF AI 官网",
+      "use_case": "Use when an app or agent needs the official BANK OF AI homepage or site metadata."
     }
   ],
   "version": 1
