@@ -46,7 +46,7 @@ docker compose up -d catalog
 也可以直接使用 CI 推送的 Catalog 镜像：
 
 ```bash
-export X402_CATALOG_IMAGE=ghcr.io/bofai/x402-catelog:tn-test-20260609-bankofai-llm-api
+export X402_CATALOG_IMAGE=ghcr.io/bofai/x402-catelog:tn-test-20260609-bankofai-llm-api-images
 docker compose pull catalog
 docker compose up -d --no-build catalog
 ```
