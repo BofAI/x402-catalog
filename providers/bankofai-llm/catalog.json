@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "fqn": "bankofai-llm",
+  "title": "BANK OF AI LLM API",
+  "subtitle": "OpenAI-compatible LLM inference",
+  "description": "OpenAI-compatible LLM APIs provided by BANK OF AI.",
+  "useCase": "Use for model listing, chat completions, text completions, and embeddings.",
+  "i18n": {
+    "zh-CN": {
+      "title": "BANK OF AI 大模型 API",
+      "subtitle": "兼容 OpenAI 的大模型推理接口",
+      "description": "BANK OF AI 提供的 OpenAI-compatible 大模型 API。",
+      "useCase": "适合模型列表查询、聊天补全、文本补全和 Embedding。"
+    }
+  },
+  "logo": "https://bankofai.io/favicon.ico",
+  "category": "ai_ml",
+  "chains": ["eip155:97"],
+  "isFirstParty": true,
+  "isFeatured": true,
+  "featuredTags": ["bankofai", "llm", "openai-compatible", "first-party"],
+  "serviceUrl": "https://gateway.bankofai.io/providers/bankofai-llm",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/v1/models",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/models",
+      "title": "List Models",
+      "subtitle": "Available LLM models",
+      "description": "List available BANK OF AI LLM models.",
+      "useCase": "Use before generation calls to select an available model.",
+      "i18n": {
+        "zh-CN": {
+          "title": "模型列表",
+          "subtitle": "可用大模型",
+          "description": "查询 BANK OF AI 可用大模型列表。",
+          "useCase": "适合在生成调用前选择可用模型。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.001,
+      "maxPriceUsd": 0.001
+    },
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/chat/completions",
+      "title": "Chat Completions",
+      "subtitle": "Conversational generation",
+      "description": "Create a chat completion.",
+      "useCase": "Use for assistant-style conversational LLM inference.",
+      "i18n": {
+        "zh-CN": {
+          "title": "聊天补全",
+          "subtitle": "对话式生成",
+          "description": "创建聊天补全结果。",
+          "useCase": "适合 Agent 或应用进行对话式大模型推理。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.01,
+      "maxPriceUsd": 0.01
+    },
+    {
+      "method": "POST",
+      "path": "/v1/completions",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/completions",
+      "title": "Text Completions",
+      "subtitle": "Prompt completion",
+      "description": "Create a text completion.",
+      "useCase": "Use for legacy prompt-style text generation.",
+      "i18n": {
+        "zh-CN": {
+          "title": "文本补全",
+          "subtitle": "Prompt 文本生成",
+          "description": "创建文本补全结果。",
+          "useCase": "适合传统 prompt 风格的文本生成。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.01,
+      "maxPriceUsd": 0.01
+    },
+    {
+      "method": "POST",
+      "path": "/v1/embeddings",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/embeddings",
+      "title": "Embeddings",
+      "subtitle": "Vector embeddings",
+      "description": "Create text embeddings.",
+      "useCase": "Use for semantic search, retrieval, clustering, and vector indexing.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Embedding",
+          "subtitle": "向量表示",
+          "description": "创建文本 Embedding 向量。",
+          "useCase": "适合语义搜索、检索、聚类和向量索引。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.005,
+      "maxPriceUsd": 0.005
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "loaded",
+    "payment": "sandbox",
+    "upstream": "auth-required"
+  }
+}

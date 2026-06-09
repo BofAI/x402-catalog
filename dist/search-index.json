@@ -49,11 +49,11 @@
       "use_case": "Use for current weather lookup by city."
     },
     {
-      "category": "finance",
+      "category": "ai_ml",
       "category_meta": {
-        "id": "finance",
-        "label": "Finance",
-        "label_zh": "金融"
+        "id": "ai_ml",
+        "label": "AI/ML",
+        "label_zh": "AI / 机器学习"
       },
       "chain_kinds": [
         "bnb"
@@ -69,31 +69,44 @@
           "label_zh": "BNB 测试网"
         }
       ],
-      "description": "Official BANK OF AI website content served through the x402 gateway.",
+      "description": "OpenAI-compatible LLM APIs provided by BANK OF AI.",
       "endpoints": [
         {
-          "description": "BANK OF AI homepage HTML.",
+          "description": "List available BANK OF AI LLM models.",
           "method": "GET",
-          "path": "/",
-          "title": "Homepage"
+          "path": "/v1/models",
+          "title": "List Models"
         },
         {
-          "description": "BANK OF AI favicon.",
-          "method": "GET",
-          "path": "/favicon.ico",
-          "title": "Favicon"
+          "description": "Create a chat completion.",
+          "method": "POST",
+          "path": "/v1/chat/completions",
+          "title": "Chat Completions"
+        },
+        {
+          "description": "Create a text completion.",
+          "method": "POST",
+          "path": "/v1/completions",
+          "title": "Text Completions"
+        },
+        {
+          "description": "Create text embeddings.",
+          "method": "POST",
+          "path": "/v1/embeddings",
+          "title": "Embeddings"
         }
       ],
       "featured_tags": [
         "bankofai",
-        "website",
+        "llm",
+        "openai-compatible",
         "first-party"
       ],
-      "fqn": "bankofai-site",
-      "service_url": "https://gateway.bankofai.io/providers/bankofai-site",
-      "subtitle": "Official BANK OF AI website content",
-      "title": "BANK OF AI Website",
-      "use_case": "Use when an app or agent needs the official BANK OF AI homepage or site metadata."
+      "fqn": "bankofai-llm",
+      "service_url": "https://gateway.bankofai.io/providers/bankofai-llm",
+      "subtitle": "OpenAI-compatible LLM inference",
+      "title": "BANK OF AI LLM API",
+      "use_case": "Use for model listing, chat completions, text completions, and embeddings."
     },
     {
       "category": "data",
@@ -137,6 +150,6 @@
       "use_case": "Use for current weather lookup when latitude and longitude are already known."
     }
   ],
-  "generated_at": "2026-06-09T06:18:34Z",
+  "generated_at": "2026-06-09T06:59:58Z",
   "version": 1
 }

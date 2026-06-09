@@ -1,0 +1,142 @@
+{
+  "category": "ai_ml",
+  "category_meta": {
+    "id": "ai_ml",
+    "label": "AI/ML",
+    "label_zh": "AI / 机器学习"
+  },
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:97"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:97",
+      "kind": "bnb",
+      "label": "BNB Smart Chain Testnet",
+      "label_zh": "BNB 测试网"
+    }
+  ],
+  "description": "OpenAI-compatible LLM APIs provided by BANK OF AI.",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "description": "List available BANK OF AI LLM models.",
+      "i18n": {
+        "zh-CN": {
+          "description": "查询 BANK OF AI 可用大模型列表。",
+          "subtitle": "可用大模型",
+          "title": "模型列表",
+          "useCase": "适合在生成调用前选择可用模型。"
+        }
+      },
+      "max_price_usd": 0.001,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.001,
+      "path": "/v1/models",
+      "subtitle": "Available LLM models",
+      "title": "List Models",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/models",
+      "use_case": "Use before generation calls to select an available model."
+    },
+    {
+      "description": "Create a chat completion.",
+      "i18n": {
+        "zh-CN": {
+          "description": "创建聊天补全结果。",
+          "subtitle": "对话式生成",
+          "title": "聊天补全",
+          "useCase": "适合 Agent 或应用进行对话式大模型推理。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "POST",
+      "min_price_usd": 0.01,
+      "path": "/v1/chat/completions",
+      "subtitle": "Conversational generation",
+      "title": "Chat Completions",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/chat/completions",
+      "use_case": "Use for assistant-style conversational LLM inference."
+    },
+    {
+      "description": "Create a text completion.",
+      "i18n": {
+        "zh-CN": {
+          "description": "创建文本补全结果。",
+          "subtitle": "Prompt 文本生成",
+          "title": "文本补全",
+          "useCase": "适合传统 prompt 风格的文本生成。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "POST",
+      "min_price_usd": 0.01,
+      "path": "/v1/completions",
+      "subtitle": "Prompt completion",
+      "title": "Text Completions",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/completions",
+      "use_case": "Use for legacy prompt-style text generation."
+    },
+    {
+      "description": "Create text embeddings.",
+      "i18n": {
+        "zh-CN": {
+          "description": "创建文本 Embedding 向量。",
+          "subtitle": "向量表示",
+          "title": "Embedding",
+          "useCase": "适合语义搜索、检索、聚类和向量索引。"
+        }
+      },
+      "max_price_usd": 0.005,
+      "metered": true,
+      "method": "POST",
+      "min_price_usd": 0.005,
+      "path": "/v1/embeddings",
+      "subtitle": "Vector embeddings",
+      "title": "Embeddings",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/embeddings",
+      "use_case": "Use for semantic search, retrieval, clustering, and vector indexing."
+    }
+  ],
+  "featured_tags": [
+    "bankofai",
+    "llm",
+    "openai-compatible",
+    "first-party"
+  ],
+  "fqn": "bankofai-llm",
+  "has_free_tier": false,
+  "has_metering": true,
+  "i18n": {
+    "zh-CN": {
+      "description": "BANK OF AI 提供的 OpenAI-compatible 大模型 API。",
+      "subtitle": "兼容 OpenAI 的大模型推理接口",
+      "title": "BANK OF AI 大模型 API",
+      "useCase": "适合模型列表查询、聊天补全、文本补全和 Embedding。"
+    }
+  },
+  "is_featured": true,
+  "is_first_party": true,
+  "logo": "https://bankofai.io/favicon.ico",
+  "main_title": "BANK OF AI LLM API",
+  "max_price_usd": 0.01,
+  "min_price_usd": 0.001,
+  "service_url": "https://gateway.bankofai.io/providers/bankofai-llm",
+  "sha": "8cf9f220f663a0040e8c0057ac45f216511b8748f6e2e82d5cbb631ad2fceabd",
+  "status": {
+    "catalog": "listed",
+    "gateway": "loaded",
+    "payment": "sandbox",
+    "upstream": "auth-required"
+  },
+  "sub_title": "兼容 OpenAI 的大模型推理接口",
+  "subtitle": "OpenAI-compatible LLM inference",
+  "title": "BANK OF AI LLM API",
+  "title_zh": "BANK OF AI 大模型 API",
+  "use_case": "Use for model listing, chat completions, text completions, and embeddings."
+}
