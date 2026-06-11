@@ -15,7 +15,7 @@
   },
   "logo": "https://bankofai.io/favicon.ico",
   "category": "ai_ml",
-  "chains": ["eip155:97"],
+  "chains": ["eip155:97", "tron:nile"],
   "isFirstParty": true,
   "isFeatured": true,
   "featuredTags": ["bankofai", "llm", "openai-compatible", "first-party"],
@@ -24,7 +24,21 @@
     {
       "method": "GET",
       "path": "/v1/models",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/models",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/models",
+      "x402Routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/models"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/models"
+        }
+      ],
       "title": "List Models",
       "subtitle": "Available LLM models",
       "description": "Return the BANK OF AI models currently exposed by the gateway, including identifiers that can be used in subsequent generation requests.",
@@ -44,7 +58,21 @@
     {
       "method": "POST",
       "path": "/v1/chat/completions",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/chat/completions",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/chat/completions",
+      "x402Routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/chat/completions"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/chat/completions"
+        }
+      ],
       "title": "Chat Completions",
       "subtitle": "Conversational generation",
       "description": "Create an OpenAI-compatible chat completion from a messages array, model ID, and generation options.",
@@ -64,7 +92,21 @@
     {
       "method": "POST",
       "path": "/v1/messages",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/messages",
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/messages",
+      "x402Routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/messages"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/messages"
+        }
+      ],
       "title": "Messages",
       "subtitle": "Claude-compatible messages",
       "description": "Create a Claude-compatible response using an Anthropic-style messages payload.",

@@ -125,6 +125,7 @@ def detail_provider(payload: dict[str, Any], sha: str) -> dict[str, Any]:
             "metered": endpoint["metered"],
             "min_price_usd": endpoint["minPriceUsd"],
             "max_price_usd": endpoint["maxPriceUsd"],
+            **({"x402_routes": endpoint["x402Routes"]} if "x402Routes" in endpoint else {}),
         }
         for endpoint in payload["endpoints"]
     ]
@@ -168,6 +169,7 @@ def pay_json(payload: dict[str, Any], sha: str) -> dict[str, Any]:
                 "metered": endpoint["metered"],
                 "min_price_usd": endpoint["minPriceUsd"],
                 "max_price_usd": endpoint["maxPriceUsd"],
+                **({"x402_routes": endpoint["x402Routes"]} if "x402Routes" in endpoint else {}),
             }
             for endpoint in payload["endpoints"]
         ],
@@ -194,6 +196,7 @@ def search_doc(summary: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any
                 "path": endpoint["path"],
                 "title": endpoint["title"],
                 "description": endpoint["description"],
+                **({"x402_routes": endpoint["x402Routes"]} if "x402Routes" in endpoint else {}),
             }
             for endpoint in detail["endpoints"]
         ],

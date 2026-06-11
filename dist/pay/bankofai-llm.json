@@ -1,9 +1,11 @@
 {
   "chain_kinds": [
-    "bnb"
+    "bnb",
+    "tron"
   ],
   "chains": [
-    "eip155:97"
+    "eip155:97",
+    "tron:nile"
   ],
   "chains_meta": [
     {
@@ -11,6 +13,12 @@
       "kind": "bnb",
       "label": "BNB Smart Chain Testnet",
       "label_zh": "BNB 测试网"
+    },
+    {
+      "id": "tron:nile",
+      "kind": "tron",
+      "label": "TRON Nile Testnet",
+      "label_zh": "TRON Nile 测试网"
     }
   ],
   "description": "BANK OF AI LLM API provides paid access to first-party model inference through x402. It exposes model discovery, OpenAI-compatible chat completions, and Claude-compatible messages so agents, scripts, and applications can call LLMs without embedding an upstream BANK OF AI API key.",
@@ -22,7 +30,21 @@
       "method": "GET",
       "min_price_usd": 0.001,
       "path": "/v1/models",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/models"
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/models",
+      "x402_routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/models"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/models"
+        }
+      ]
     },
     {
       "description": "Create an OpenAI-compatible chat completion from a messages array, model ID, and generation options.",
@@ -31,7 +53,21 @@
       "method": "POST",
       "min_price_usd": 0.01,
       "path": "/v1/chat/completions",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/chat/completions"
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/chat/completions",
+      "x402_routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/chat/completions"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/chat/completions"
+        }
+      ]
     },
     {
       "description": "Create a Claude-compatible response using an Anthropic-style messages payload.",
@@ -40,7 +76,21 @@
       "method": "POST",
       "min_price_usd": 0.01,
       "path": "/v1/messages",
-      "url": "https://gateway.bankofai.io/providers/bankofai-llm/v1/messages"
+      "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/messages",
+      "x402_routes": [
+        {
+          "network": "eip155:97",
+          "provider": "bankofai-llm-bsc",
+          "scheme": "exact_permit",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-bsc/v1/messages"
+        },
+        {
+          "network": "tron:nile",
+          "provider": "bankofai-llm-tron-nile",
+          "scheme": "exact_gasfree",
+          "url": "https://gateway.bankofai.io/providers/bankofai-llm-tron-nile/v1/messages"
+        }
+      ]
     }
   ],
   "fqn": "bankofai-llm",
@@ -54,7 +104,7 @@
   },
   "main_title": "BANK OF AI LLM API",
   "service_url": "https://chat-stg.bankofai.io/chat",
-  "sha": "4dc0009d0b3df2320047520231aa388ad02bcc2d4def2334c71ce3d04410c29e",
+  "sha": "8e1b378373e0c6798c4cca698c8e85790d36d39f398caa96770fb99b92480054",
   "sub_title": "OpenAI-compatible LLM inference",
   "subtitle": "OpenAI-compatible LLM inference",
   "title": "BANK OF AI LLM API",

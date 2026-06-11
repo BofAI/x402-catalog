@@ -8,10 +8,12 @@
         "label_zh": "AI / 机器学习"
       },
       "chain_kinds": [
-        "bnb"
+        "bnb",
+        "tron"
       ],
       "chains": [
-        "eip155:97"
+        "eip155:97",
+        "tron:nile"
       ],
       "chains_meta": [
         {
@@ -19,6 +21,12 @@
           "kind": "bnb",
           "label": "BNB Smart Chain Testnet",
           "label_zh": "BNB 测试网"
+        },
+        {
+          "id": "tron:nile",
+          "kind": "tron",
+          "label": "TRON Nile Testnet",
+          "label_zh": "TRON Nile 测试网"
         }
       ],
       "description": "BANK OF AI LLM API provides paid access to first-party model inference through x402. It exposes model discovery, OpenAI-compatible chat completions, and Claude-compatible messages so agents, scripts, and applications can call LLMs without embedding an upstream BANK OF AI API key.",
@@ -55,6 +63,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs on-demand LLM inference with x402 payment. Start with /v1/models to choose a model, then call /v1/chat/completions for OpenAI-style requests or /v1/messages for Claude-style message payloads."
     }
   ],
-  "generated_at": "2026-06-11T04:23:35Z",
+  "generated_at": "2026-06-11T06:14:21Z",
   "version": 1
 }
