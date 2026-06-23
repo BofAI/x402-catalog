@@ -25,10 +25,10 @@
   "endpoints": [
     {
       "description": "All protocols with current TVL, category and chain breakdown",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/protocols",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols",
       "x402_routes": [
@@ -48,10 +48,10 @@
     },
     {
       "description": "Single protocol: historical TVL, fees, tokens, metadata",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/protocol/{slug}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}",
       "x402_routes": [
@@ -71,10 +71,10 @@
     },
     {
       "description": "Current total TVL of a protocol (lightweight)",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/tvl/{protocol}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}",
       "x402_routes": [
@@ -94,10 +94,10 @@
     },
     {
       "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/prices/current/{coins}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}",
       "x402_routes": [
@@ -117,10 +117,10 @@
     },
     {
       "description": "Historical USD price at a unix timestamp for one or many coins",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/prices/historical/{timestamp}/{coins}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}",
       "x402_routes": [
@@ -140,10 +140,10 @@
     },
     {
       "description": "Price chart (time series) for one or many coins",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/chart/{coins}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}",
       "x402_routes": [
@@ -163,10 +163,10 @@
     },
     {
       "description": "Percentage price change over a period for one or many coins",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/percentage/{coins}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}",
       "x402_routes": [
@@ -186,10 +186,10 @@
     },
     {
       "description": "All yield pools with current APY, TVL, chain, project and risk flags",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/pools",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/pools",
       "x402_routes": [
@@ -209,10 +209,10 @@
     },
     {
       "description": "Historical APY / TVL time series for a single pool id",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/chart/{pool}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}",
       "x402_routes": [
@@ -242,7 +242,7 @@
   },
   "main_title": "DefiLlama",
   "service_url": "https://defillama.com",
-  "sha": "bc254225409fb78f6d0ae7553a8a36b72d0c3c5d34eb55b63e3be7cd39d5ab70",
+  "sha": "4c5699a3d263059b438adc2788479ec0df1cca533b6997107cf464ad971bb07e",
   "sub_title": "Aggregated DeFi data - protocol TVL, fees & stablecoins, multi-chain token prices, and pool yields/APY.",
   "subtitle": "Aggregated DeFi data - protocol TVL, fees & stablecoins, multi-chain token prices, and pool yields/APY.",
   "title": "DefiLlama",

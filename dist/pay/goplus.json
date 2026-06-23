@@ -25,10 +25,10 @@
   "endpoints": [
     {
       "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/token_security/{chain_id}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}",
       "x402_routes": [
@@ -48,10 +48,10 @@
     },
     {
       "description": "Malicious-address check (sanctions, phishing, known scam)",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/address_security/{address}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}",
       "x402_routes": [
@@ -71,10 +71,10 @@
     },
     {
       "description": "Approval / allowance risk check for a spender contract",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/approval_security/{chain_id}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/approval_security/{chain_id}",
       "x402_routes": [
@@ -104,7 +104,7 @@
   },
   "main_title": "GoPlus",
   "service_url": "https://gopluslabs.io",
-  "sha": "d088287fd2f8d1e7d1c8e6c923204a57e546ab142dbe52c1abe4bad9c9d8d08b",
+  "sha": "6adb42b767156a6f97c30d6139e5240533470aefbe25a073f76123e168e0ff5b",
   "sub_title": "Pre-trade token & address security - honeypot, tax, mint/blacklist permissions and malicious-address checks.",
   "subtitle": "Pre-trade token & address security - honeypot, tax, mint/blacklist permissions and malicious-address checks.",
   "title": "GoPlus",

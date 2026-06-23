@@ -25,10 +25,10 @@
   "endpoints": [
     {
       "description": "Aggregated price quotation by asset symbol",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/v1/quotation/{symbol}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
       "x402_routes": [
@@ -48,10 +48,10 @@
     },
     {
       "description": "Aggregated price quotation by blockchain + contract address",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/v1/assetQuotation/{blockchain}/{address}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
       "x402_routes": [
@@ -81,7 +81,7 @@
   },
   "main_title": "DIA",
   "service_url": "https://www.diadata.org",
-  "sha": "37bbf3b3b42b421ec1271a214fb265f8a1f060db3b1d8d61e65af887794e0a32",
+  "sha": "93f9ca13c1986385dc7f14f4254563cfeda6a624d598f3ffcf876cb55388453c",
   "sub_title": "Decentralized, manipulation-resistant oracle prices aggregated from 80+ markets for 3,000+ assets.",
   "subtitle": "Decentralized, manipulation-resistant oracle prices aggregated from 80+ markets for 3,000+ assets.",
   "title": "DIA",

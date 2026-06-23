@@ -48,9 +48,9 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "metered": false,
-      "minPriceUsd": 0.0,
-      "maxPriceUsd": 0.0,
+      "metered": true,
+      "minPriceUsd": 1e-06,
+      "maxPriceUsd": 1e-06,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
@@ -82,9 +82,9 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "metered": false,
-      "minPriceUsd": 0.0,
-      "maxPriceUsd": 0.0,
+      "metered": true,
+      "minPriceUsd": 1e-06,
+      "maxPriceUsd": 1e-06,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
@@ -116,9 +116,9 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "metered": false,
-      "minPriceUsd": 0.0,
-      "maxPriceUsd": 0.0,
+      "metered": true,
+      "minPriceUsd": 1e-06,
+      "maxPriceUsd": 1e-06,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",

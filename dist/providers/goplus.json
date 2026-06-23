@@ -40,10 +40,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/token_security/{chain_id}",
       "subtitle": "/api/v1/token_security/{chain_id}",
       "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
@@ -74,10 +74,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/address_security/{address}",
       "subtitle": "/api/v1/address_security/{address}",
       "title": "Malicious-address check (sanctions, phishing, known scam)",
@@ -108,10 +108,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/api/v1/approval_security/{chain_id}",
       "subtitle": "/api/v1/approval_security/{chain_id}",
       "title": "Approval / allowance risk check for a spender contract",
@@ -142,8 +142,8 @@
     "free"
   ],
   "fqn": "goplus",
-  "has_free_tier": true,
-  "has_metering": false,
+  "has_free_tier": false,
+  "has_metering": true,
   "i18n": {
     "zh-CN": {
       "description": "通过 x402 网关调用 GoPlus 安全检测:扫描代币合约与钱包地址的貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址。适合 Agent 在兑换或转账前做安全筛查。数据来自 GoPlus。",
@@ -156,10 +156,10 @@
   "is_first_party": false,
   "logo": "https://gopluslabs.io/favicon.png",
   "main_title": "GoPlus",
-  "max_price_usd": 0.0,
-  "min_price_usd": 0.0,
+  "max_price_usd": 1e-06,
+  "min_price_usd": 1e-06,
   "service_url": "https://gopluslabs.io",
-  "sha": "d088287fd2f8d1e7d1c8e6c923204a57e546ab142dbe52c1abe4bad9c9d8d08b",
+  "sha": "6adb42b767156a6f97c30d6139e5240533470aefbe25a073f76123e168e0ff5b",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

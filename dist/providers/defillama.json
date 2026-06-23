@@ -40,10 +40,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/protocols",
       "subtitle": "/protocols",
       "title": "All protocols with current TVL, category and chain breakdown",
@@ -74,10 +74,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/protocol/{slug}",
       "subtitle": "/protocol/{slug}",
       "title": "Single protocol: historical TVL, fees, tokens, metadata",
@@ -108,10 +108,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/tvl/{protocol}",
       "subtitle": "/tvl/{protocol}",
       "title": "Current total TVL of a protocol (lightweight)",
@@ -142,10 +142,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/prices/current/{coins}",
       "subtitle": "/prices/current/{coins}",
       "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
@@ -176,10 +176,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/prices/historical/{timestamp}/{coins}",
       "subtitle": "/prices/historical/{timestamp}/{coins}",
       "title": "Historical USD price at a unix timestamp for one or many coins",
@@ -210,10 +210,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/chart/{coins}",
       "subtitle": "/chart/{coins}",
       "title": "Price chart (time series) for one or many coins",
@@ -244,10 +244,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/percentage/{coins}",
       "subtitle": "/percentage/{coins}",
       "title": "Percentage price change over a period for one or many coins",
@@ -278,10 +278,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/pools",
       "subtitle": "/pools",
       "title": "All yield pools with current APY, TVL, chain, project and risk flags",
@@ -312,10 +312,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/chart/{pool}",
       "subtitle": "/chart/{pool}",
       "title": "Historical APY / TVL time series for a single pool id",
@@ -346,8 +346,8 @@
     "free"
   ],
   "fqn": "defillama",
-  "has_free_tier": true,
-  "has_metering": false,
+  "has_free_tier": false,
+  "has_metering": true,
   "i18n": {
     "zh-CN": {
       "description": "通过 x402 网关聚合 DefiLlama 数据:协议 TVL、费用/收入与稳定币指标、多链现价与历史价格及图表、DeFi 资金池收益率/APY。免 key,适合 Agent 做 DeFi 研究、资金配置、定价与风险筛查。数据来自 DefiLlama。",
@@ -360,10 +360,10 @@
   "is_first_party": false,
   "logo": "https://defillama.com/favicon.ico",
   "main_title": "DefiLlama",
-  "max_price_usd": 0.0,
-  "min_price_usd": 0.0,
+  "max_price_usd": 1e-06,
+  "min_price_usd": 1e-06,
   "service_url": "https://defillama.com",
-  "sha": "bc254225409fb78f6d0ae7553a8a36b72d0c3c5d34eb55b63e3be7cd39d5ab70",
+  "sha": "4c5699a3d263059b438adc2788479ec0df1cca533b6997107cf464ad971bb07e",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

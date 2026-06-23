@@ -45,7 +45,7 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-06-23T08:14:11Z",
+  "generated_at": "2026-06-23T08:47:36Z",
   "provider_count": 5,
   "providers": [
     {
@@ -165,8 +165,8 @@
         "free"
       ],
       "fqn": "defillama",
-      "has_free_tier": true,
-      "has_metering": false,
+      "has_free_tier": false,
+      "has_metering": true,
       "i18n": {
         "zh-CN": {
           "description": "通过 x402 网关聚合 DefiLlama 数据:协议 TVL、费用/收入与稳定币指标、多链现价与历史价格及图表、DeFi 资金池收益率/APY。免 key,适合 Agent 做 DeFi 研究、资金配置、定价与风险筛查。数据来自 DefiLlama。",
@@ -179,10 +179,10 @@
       "is_first_party": false,
       "logo": "https://defillama.com/favicon.ico",
       "main_title": "DefiLlama",
-      "max_price_usd": 0.0,
-      "min_price_usd": 0.0,
+      "max_price_usd": 1e-06,
+      "min_price_usd": 1e-06,
       "service_url": "https://defillama.com",
-      "sha": "bc254225409fb78f6d0ae7553a8a36b72d0c3c5d34eb55b63e3be7cd39d5ab70",
+      "sha": "4c5699a3d263059b438adc2788479ec0df1cca533b6997107cf464ad971bb07e",
       "sub_title": "Aggregated DeFi data - protocol TVL, fees & stablecoins, multi-chain token prices, and pool yields/APY.",
       "subtitle": "Aggregated DeFi data - protocol TVL, fees & stablecoins, multi-chain token prices, and pool yields/APY.",
       "title": "DefiLlama",
@@ -230,8 +230,8 @@
         "free"
       ],
       "fqn": "dexscreener",
-      "has_free_tier": true,
-      "has_metering": false,
+      "has_free_tier": false,
+      "has_metering": true,
       "i18n": {
         "zh-CN": {
           "description": "通过 x402 网关获取 DexScreener 行情:搜索交易对、读取实时价格/流动性/成交量,并发现新上线与热门代币。适合 Agent 追踪新盘、动量与 meme 上新。数据来自 DexScreener。",
@@ -244,10 +244,10 @@
       "is_first_party": false,
       "logo": "https://dexscreener.com/favicon.ico",
       "main_title": "DexScreener",
-      "max_price_usd": 0.0,
-      "min_price_usd": 0.0,
+      "max_price_usd": 1e-06,
+      "min_price_usd": 1e-06,
       "service_url": "https://dexscreener.com",
-      "sha": "f2ef109202c033f861349b510574549b898b3906cc638606d2e62105d67e486c",
+      "sha": "6630ef5144075164c8003d787a2c0be534d86d19e31ca1511e46e61913ddc13f",
       "sub_title": "Real-time DEX pairs, prices, liquidity and newly launched tokens across major chains.",
       "subtitle": "Real-time DEX pairs, prices, liquidity and newly launched tokens across major chains.",
       "title": "DexScreener",
@@ -294,8 +294,8 @@
         "free"
       ],
       "fqn": "dia",
-      "has_free_tier": true,
-      "has_metering": false,
+      "has_free_tier": false,
+      "has_metering": true,
       "i18n": {
         "zh-CN": {
           "description": "通过 x402 网关获取 DIA 预言机价格:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价。适合 Agent 在估值、结算或风控中获取可验证参考价。数据来自 DIA。",
@@ -308,10 +308,10 @@
       "is_first_party": false,
       "logo": "https://www.diadata.org/favicon.png",
       "main_title": "DIA",
-      "max_price_usd": 0.0,
-      "min_price_usd": 0.0,
+      "max_price_usd": 1e-06,
+      "min_price_usd": 1e-06,
       "service_url": "https://www.diadata.org",
-      "sha": "37bbf3b3b42b421ec1271a214fb265f8a1f060db3b1d8d61e65af887794e0a32",
+      "sha": "93f9ca13c1986385dc7f14f4254563cfeda6a624d598f3ffcf876cb55388453c",
       "sub_title": "Decentralized, manipulation-resistant oracle prices aggregated from 80+ markets for 3,000+ assets.",
       "subtitle": "Decentralized, manipulation-resistant oracle prices aggregated from 80+ markets for 3,000+ assets.",
       "title": "DIA",
@@ -358,8 +358,8 @@
         "free"
       ],
       "fqn": "goplus",
-      "has_free_tier": true,
-      "has_metering": false,
+      "has_free_tier": false,
+      "has_metering": true,
       "i18n": {
         "zh-CN": {
           "description": "通过 x402 网关调用 GoPlus 安全检测:扫描代币合约与钱包地址的貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址。适合 Agent 在兑换或转账前做安全筛查。数据来自 GoPlus。",
@@ -372,10 +372,10 @@
       "is_first_party": false,
       "logo": "https://gopluslabs.io/favicon.png",
       "main_title": "GoPlus",
-      "max_price_usd": 0.0,
-      "min_price_usd": 0.0,
+      "max_price_usd": 1e-06,
+      "min_price_usd": 1e-06,
       "service_url": "https://gopluslabs.io",
-      "sha": "d088287fd2f8d1e7d1c8e6c923204a57e546ab142dbe52c1abe4bad9c9d8d08b",
+      "sha": "6adb42b767156a6f97c30d6139e5240533470aefbe25a073f76123e168e0ff5b",
       "sub_title": "Pre-trade token & address security - honeypot, tax, mint/blacklist permissions and malicious-address checks.",
       "subtitle": "Pre-trade token & address security - honeypot, tax, mint/blacklist permissions and malicious-address checks.",
       "title": "GoPlus",

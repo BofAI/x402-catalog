@@ -25,10 +25,10 @@
   "endpoints": [
     {
       "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/latest/dex/tokens/{tokenAddresses}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}",
       "x402_routes": [
@@ -48,10 +48,10 @@
     },
     {
       "description": "Search pairs by token name/symbol/address",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/latest/dex/search",
       "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search",
       "x402_routes": [
@@ -71,10 +71,10 @@
     },
     {
       "description": "Latest token profiles (new-launch / discovery radar)",
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/token-profiles/latest/v1",
       "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1",
       "x402_routes": [
@@ -104,7 +104,7 @@
   },
   "main_title": "DexScreener",
   "service_url": "https://dexscreener.com",
-  "sha": "f2ef109202c033f861349b510574549b898b3906cc638606d2e62105d67e486c",
+  "sha": "6630ef5144075164c8003d787a2c0be534d86d19e31ca1511e46e61913ddc13f",
   "sub_title": "Real-time DEX pairs, prices, liquidity and newly launched tokens across major chains.",
   "subtitle": "Real-time DEX pairs, prices, liquidity and newly launched tokens across major chains.",
   "title": "DexScreener",

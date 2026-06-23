@@ -40,10 +40,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/v1/quotation/{symbol}",
       "subtitle": "/v1/quotation/{symbol}",
       "title": "Aggregated price quotation by asset symbol",
@@ -74,10 +74,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/v1/assetQuotation/{blockchain}/{address}",
       "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
       "title": "Aggregated price quotation by blockchain + contract address",
@@ -108,8 +108,8 @@
     "free"
   ],
   "fqn": "dia",
-  "has_free_tier": true,
-  "has_metering": false,
+  "has_free_tier": false,
+  "has_metering": true,
   "i18n": {
     "zh-CN": {
       "description": "通过 x402 网关获取 DIA 预言机价格:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价。适合 Agent 在估值、结算或风控中获取可验证参考价。数据来自 DIA。",
@@ -122,10 +122,10 @@
   "is_first_party": false,
   "logo": "https://www.diadata.org/favicon.png",
   "main_title": "DIA",
-  "max_price_usd": 0.0,
-  "min_price_usd": 0.0,
+  "max_price_usd": 1e-06,
+  "min_price_usd": 1e-06,
   "service_url": "https://www.diadata.org",
-  "sha": "37bbf3b3b42b421ec1271a214fb265f8a1f060db3b1d8d61e65af887794e0a32",
+  "sha": "93f9ca13c1986385dc7f14f4254563cfeda6a624d598f3ffcf876cb55388453c",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

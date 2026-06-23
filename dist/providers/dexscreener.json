@@ -40,10 +40,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/latest/dex/tokens/{tokenAddresses}",
       "subtitle": "/latest/dex/tokens/{tokenAddresses}",
       "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
@@ -74,10 +74,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/latest/dex/search",
       "subtitle": "/latest/dex/search",
       "title": "Search pairs by token name/symbol/address",
@@ -108,10 +108,10 @@
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
-      "max_price_usd": 0.0,
-      "metered": false,
+      "max_price_usd": 1e-06,
+      "metered": true,
       "method": "GET",
-      "min_price_usd": 0.0,
+      "min_price_usd": 1e-06,
       "path": "/token-profiles/latest/v1",
       "subtitle": "/token-profiles/latest/v1",
       "title": "Latest token profiles (new-launch / discovery radar)",
@@ -143,8 +143,8 @@
     "free"
   ],
   "fqn": "dexscreener",
-  "has_free_tier": true,
-  "has_metering": false,
+  "has_free_tier": false,
+  "has_metering": true,
   "i18n": {
     "zh-CN": {
       "description": "通过 x402 网关获取 DexScreener 行情:搜索交易对、读取实时价格/流动性/成交量,并发现新上线与热门代币。适合 Agent 追踪新盘、动量与 meme 上新。数据来自 DexScreener。",
@@ -157,10 +157,10 @@
   "is_first_party": false,
   "logo": "https://dexscreener.com/favicon.ico",
   "main_title": "DexScreener",
-  "max_price_usd": 0.0,
-  "min_price_usd": 0.0,
+  "max_price_usd": 1e-06,
+  "min_price_usd": 1e-06,
   "service_url": "https://dexscreener.com",
-  "sha": "f2ef109202c033f861349b510574549b898b3906cc638606d2e62105d67e486c",
+  "sha": "6630ef5144075164c8003d787a2c0be534d86d19e31ca1511e46e61913ddc13f",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
