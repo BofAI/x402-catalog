@@ -1,0 +1,88 @@
+{
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:56"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:56",
+      "kind": "bnb",
+      "label": "BNB Chain",
+      "label_zh": "BNB Chain"
+    }
+  ],
+  "description": "Free x402 passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.",
+  "endpoints": [
+    {
+      "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/latest/dex/tokens/{tokenAddresses}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "dexscreener-dex-data-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}"
+        }
+      ]
+    },
+    {
+      "description": "Search pairs by token name/symbol/address",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/latest/dex/search",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/search",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "dexscreener-dex-data-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/search"
+        }
+      ]
+    },
+    {
+      "description": "Latest token profiles (new-launch / discovery radar)",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/token-profiles/latest/v1",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/token-profiles/latest/v1",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "dexscreener-dex-data-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/token-profiles/latest/v1"
+        }
+      ]
+    }
+  ],
+  "fqn": "dexscreener-dex-data-bsc",
+  "i18n": {
+    "zh-CN": {
+      "description": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)（BNB Chain） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+      "title": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)（BNB Chain）",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "main_title": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)",
+  "service_url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc",
+  "sha": "05b5c5ca9c466baf3def90224c954530fc42ba032ea2a68100486c7b19b85829",
+  "sub_title": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+  "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+  "title": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)",
+  "title_zh": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)（BNB Chain）",
+  "use_case": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+  "version": 1
+}

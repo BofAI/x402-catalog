@@ -37,15 +37,31 @@ jobs:
           test -f dist/categories.json
           test -f dist/search-index.json
 
-      - name: Check SunPump token launch provider is discoverable
+      - name: Check expected providers are discoverable
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
 
+          expected = {
+              "sunpump-token-launch",
+              "defillama-coins-price-bsc",
+              "defillama-coins-price-tron",
+              "defillama-tvl-bsc",
+              "defillama-tvl-tron",
+              "defillama-yields-bsc",
+              "defillama-yields-tron",
+              "dexscreener-dex-data-bsc",
+              "dexscreener-dex-data-tron",
+              "dia-price-bsc",
+              "dia-price-tron",
+              "goplus-token-security-bsc",
+              "goplus-token-security-tron",
+          }
           catalog = json.loads(Path("dist/catalog.json").read_text())
           fqns = {provider["fqn"] for provider in catalog["providers"]}
-          assert fqns == {"sunpump-token-launch"}, fqns
+          assert fqns == expected, fqns
+          assert catalog["provider_count"] == len(expected), catalog["provider_count"]
           PY
 
       - name: Upload static catalog snapshot
@@ -86,9 +102,15 @@ jobs:
           curl -fsS http://127.0.0.1:8088/api/catalog.json > /tmp/catalog.json
           curl -fsS http://127.0.0.1:8088/api/providers/sunpump-token-launch.json > /tmp/provider.json
           curl -fsS http://127.0.0.1:8088/api/pay/sunpump-token-launch.json > /tmp/pay.json
+          curl -fsS http://127.0.0.1:8088/api/providers/defillama-coins-price-bsc.json > /tmp/defillama-provider.json
+          curl -fsS http://127.0.0.1:8088/api/pay/defillama-coins-price-bsc.json > /tmp/defillama-pay.json
+          curl -fsS http://127.0.0.1:8088/api/pay/defillama-coins-price-bsc.md > /tmp/defillama-pay.md
           python3 -m json.tool /tmp/catalog.json > /dev/null
           python3 -m json.tool /tmp/provider.json > /dev/null
           python3 -m json.tool /tmp/pay.json > /dev/null
+          python3 -m json.tool /tmp/defillama-provider.json > /dev/null
+          python3 -m json.tool /tmp/defillama-pay.json > /dev/null
+          test -s /tmp/defillama-pay.md
 
       - name: Stop catalog container
         if: always()

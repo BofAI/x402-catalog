@@ -1,0 +1,120 @@
+{
+  "category": "finance",
+  "category_meta": {
+    "id": "finance",
+    "label": "Finance",
+    "label_zh": "金融"
+  },
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:56"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:56",
+      "kind": "bnb",
+      "label": "BNB Chain",
+      "label_zh": "BNB Chain"
+    }
+  ],
+  "description": "x402 passthrough for DefiLlama key-free yield data: APY across thousands of DeFi pools, plus per-pool historical APY/TVL. Yield-discovery and allocation data layer for agents. Data by DefiLlama.",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "description": "All yield pools with current APY, TVL, chain, project and risk flags",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/pools`，用于获取该接口对应的公开数据。",
+          "subtitle": "/pools",
+          "title": "All yield pools with current APY, TVL, chain, project and risk flags",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/pools",
+      "subtitle": "/pools",
+      "title": "All yield pools with current APY, TVL, chain, project and risk flags",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc/pools",
+      "use_case": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the defillama-yields-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-yields-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc/pools"
+        }
+      ]
+    },
+    {
+      "description": "Historical APY / TVL time series for a single pool id",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/chart/{pool}`，用于获取该接口对应的公开数据。",
+          "subtitle": "/chart/{pool}",
+          "title": "Historical APY / TVL time series for a single pool id",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/chart/{pool}",
+      "subtitle": "/chart/{pool}",
+      "title": "Historical APY / TVL time series for a single pool id",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc/chart/{pool}",
+      "use_case": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the defillama-yields-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-yields-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc/chart/{pool}"
+        }
+      ]
+    }
+  ],
+  "featured_tags": [
+    "defillama",
+    "yield",
+    "apy",
+    "defi",
+    "pools",
+    "free"
+  ],
+  "fqn": "defillama-yields-bsc",
+  "has_free_tier": true,
+  "has_metering": false,
+  "i18n": {
+    "zh-CN": {
+      "description": "DefiLlama 数据 API（BNB Chain） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+      "title": "DefiLlama 数据 API（BNB Chain）",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "is_featured": false,
+  "is_first_party": false,
+  "logo": "https://defillama.com/favicon.ico",
+  "main_title": "DefiLlama Yields / APY API (BSC x402)",
+  "max_price_usd": 0.0,
+  "min_price_usd": 0.0,
+  "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc",
+  "sha": "2a78aec990ee9559fec26f2bb6d682e3b48c19aa401a0a1eec1fdf0f62acb280",
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  },
+  "sub_title": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+  "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+  "title": "DefiLlama Yields / APY API (BSC x402)",
+  "title_zh": "DefiLlama 数据 API（BNB Chain）",
+  "use_case": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions."
+}

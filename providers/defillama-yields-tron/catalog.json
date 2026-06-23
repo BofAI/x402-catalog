@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "fqn": "defillama-yields-tron",
+  "title": "DefiLlama Yields / APY API (TRON x402)",
+  "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+  "description": "x402 passthrough for DefiLlama key-free yield data: APY across thousands of DeFi pools, plus per-pool historical APY/TVL. Yield-discovery and allocation data layer for agents. Data by DefiLlama.",
+  "useCase": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+  "i18n": {
+    "zh-CN": {
+      "title": "DefiLlama 数据 API（TRON）",
+      "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+      "description": "DefiLlama 数据 API（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "logo": "https://defillama.com/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "tron:mainnet"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "defillama",
+    "yield",
+    "apy",
+    "defi",
+    "pools",
+    "free"
+  ],
+  "serviceUrl": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/pools",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/pools",
+      "title": "All yield pools with current APY, TVL, chain, project and risk flags",
+      "subtitle": "/pools",
+      "description": "All yield pools with current APY, TVL, chain, project and risk flags",
+      "useCase": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the defillama-yields-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "All yield pools with current APY, TVL, chain, project and risk flags",
+          "subtitle": "/pools",
+          "description": "通过 gateway 调用 `/pools`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "defillama-yields-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/chart/{pool}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}",
+      "title": "Historical APY / TVL time series for a single pool id",
+      "subtitle": "/chart/{pool}",
+      "description": "Historical APY / TVL time series for a single pool id",
+      "useCase": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the defillama-yields-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Historical APY / TVL time series for a single pool id",
+          "subtitle": "/chart/{pool}",
+          "description": "通过 gateway 调用 `/chart/{pool}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "defillama-yields-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  }
+}

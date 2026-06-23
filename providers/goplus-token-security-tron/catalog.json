@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "fqn": "goplus-token-security-tron",
+  "title": "GoPlus Token & Address Security API (TRON x402, Free)",
+  "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+  "description": "Free x402 passthrough for GoPlus Security checks (token security / honeypot, malicious address, approval risk). Powered by GoPlus. Agent-native pre-trade risk control.",
+  "useCase": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+  "i18n": {
+    "zh-CN": {
+      "title": "GoPlus 代币安全 API（TRON）",
+      "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+      "description": "GoPlus 代币安全 API（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "logo": "https://gopluslabs.io/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "tron:mainnet"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "goplus",
+    "security",
+    "honeypot",
+    "risk",
+    "token-security",
+    "free"
+  ],
+  "serviceUrl": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/token_security/{chain_id}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}",
+      "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
+      "subtitle": "/api/v1/token_security/{chain_id}",
+      "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
+      "useCase": "Use this endpoint when an agent needs token security report (honeypot, taxes, owner privileges, holders) for one or more contracts through the goplus-token-security-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
+          "subtitle": "/api/v1/token_security/{chain_id}",
+          "description": "通过 gateway 调用 `/api/v1/token_security/{chain_id}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "goplus-token-security-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/address_security/{address}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}",
+      "title": "Malicious-address check (sanctions, phishing, known scam)",
+      "subtitle": "/api/v1/address_security/{address}",
+      "description": "Malicious-address check (sanctions, phishing, known scam)",
+      "useCase": "Use this endpoint when an agent needs malicious-address check (sanctions, phishing, known scam) through the goplus-token-security-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Malicious-address check (sanctions, phishing, known scam)",
+          "subtitle": "/api/v1/address_security/{address}",
+          "description": "通过 gateway 调用 `/api/v1/address_security/{address}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "goplus-token-security-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/approval_security/{chain_id}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/approval_security/{chain_id}",
+      "title": "Approval / allowance risk check for a spender contract",
+      "subtitle": "/api/v1/approval_security/{chain_id}",
+      "description": "Approval / allowance risk check for a spender contract",
+      "useCase": "Use this endpoint when an agent needs approval / allowance risk check for a spender contract through the goplus-token-security-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Approval / allowance risk check for a spender contract",
+          "subtitle": "/api/v1/approval_security/{chain_id}",
+          "description": "通过 gateway 调用 `/api/v1/approval_security/{chain_id}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "goplus-token-security-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/approval_security/{chain_id}"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  }
+}

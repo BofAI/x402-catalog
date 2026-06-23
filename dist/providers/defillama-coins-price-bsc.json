@@ -1,0 +1,176 @@
+{
+  "category": "finance",
+  "category_meta": {
+    "id": "finance",
+    "label": "Finance",
+    "label_zh": "金融"
+  },
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:56"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:56",
+      "kind": "bnb",
+      "label": "BNB Chain",
+      "label_zh": "BNB Chain"
+    }
+  ],
+  "description": "x402 passthrough for DefiLlama key-free token prices: current, historical, charts and % change across chains by contract address. Manipulation-resistant cross-check price source for agents. Data by DefiLlama.",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/prices/current/{coins}`，用于获取该接口对应的公开数据。",
+          "subtitle": "/prices/current/{coins}",
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/prices/current/{coins}",
+      "subtitle": "/prices/current/{coins}",
+      "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/current/{coins}",
+      "use_case": "Use this endpoint when an agent needs current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated) through the defillama-coins-price-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-coins-price-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/current/{coins}"
+        }
+      ]
+    },
+    {
+      "description": "Historical USD price at a unix timestamp for one or many coins",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/prices/historical/{timestamp}/{coins}`，用于获取该接口对应的公开数据。",
+          "subtitle": "/prices/historical/{timestamp}/{coins}",
+          "title": "Historical USD price at a unix timestamp for one or many coins",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/prices/historical/{timestamp}/{coins}",
+      "subtitle": "/prices/historical/{timestamp}/{coins}",
+      "title": "Historical USD price at a unix timestamp for one or many coins",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/historical/{timestamp}/{coins}",
+      "use_case": "Use this endpoint when an agent needs historical USD price at a unix timestamp for one or many coins through the defillama-coins-price-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-coins-price-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/historical/{timestamp}/{coins}"
+        }
+      ]
+    },
+    {
+      "description": "Price chart (time series) for one or many coins",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/chart/{coins}`，用于获取该接口对应的公开数据。",
+          "subtitle": "/chart/{coins}",
+          "title": "Price chart (time series) for one or many coins",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/chart/{coins}",
+      "subtitle": "/chart/{coins}",
+      "title": "Price chart (time series) for one or many coins",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/chart/{coins}",
+      "use_case": "Use this endpoint when an agent needs price chart (time series) for one or many coins through the defillama-coins-price-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-coins-price-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/chart/{coins}"
+        }
+      ]
+    },
+    {
+      "description": "Percentage price change over a period for one or many coins",
+      "i18n": {
+        "zh-CN": {
+          "description": "通过 gateway 调用 `/percentage/{coins}`，用于获取该接口对应的公开数据。",
+          "subtitle": "/percentage/{coins}",
+          "title": "Percentage price change over a period for one or many coins",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/percentage/{coins}",
+      "subtitle": "/percentage/{coins}",
+      "title": "Percentage price change over a period for one or many coins",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/percentage/{coins}",
+      "use_case": "Use this endpoint when an agent needs percentage price change over a period for one or many coins through the defillama-coins-price-bsc gateway route.",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "defillama-coins-price-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/percentage/{coins}"
+        }
+      ]
+    }
+  ],
+  "featured_tags": [
+    "defillama",
+    "price",
+    "oracle",
+    "historical",
+    "multichain",
+    "free"
+  ],
+  "fqn": "defillama-coins-price-bsc",
+  "has_free_tier": true,
+  "has_metering": false,
+  "i18n": {
+    "zh-CN": {
+      "description": "DefiLlama 数据 API（BNB Chain） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "subtitle": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change.",
+      "title": "DefiLlama 数据 API（BNB Chain）",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "is_featured": false,
+  "is_first_party": false,
+  "logo": "https://defillama.com/favicon.ico",
+  "main_title": "DefiLlama Token Price API (current / historical / chart) (BSC x402)",
+  "max_price_usd": 0.0,
+  "min_price_usd": 0.0,
+  "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc",
+  "sha": "d1e0e48a929a34bba104f8fa1d391f12faff0b1097f084d63f814f6cdc33b8cf",
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  },
+  "sub_title": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change.",
+  "subtitle": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change.",
+  "title": "DefiLlama Token Price API (current / historical / chart) (BSC x402)",
+  "title_zh": "DefiLlama 数据 API（BNB Chain）",
+  "use_case": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change."
+}

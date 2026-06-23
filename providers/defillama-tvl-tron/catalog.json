@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "fqn": "defillama-tvl-tron",
+  "title": "DefiLlama DeFi Data API (TVL / Fees / Stablecoins) (TRON x402, Free)",
+  "subtitle": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.",
+  "description": "Free x402 passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Key-free DeFi decision data layer for agents. Data by DefiLlama.",
+  "useCase": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.",
+  "i18n": {
+    "zh-CN": {
+      "title": "DefiLlama 数据 API（TRON）",
+      "subtitle": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.",
+      "description": "DefiLlama 数据 API（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "logo": "https://defillama.com/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "tron:mainnet"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "defillama",
+    "defi",
+    "tvl",
+    "fees",
+    "stablecoins",
+    "free"
+  ],
+  "serviceUrl": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/protocols",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols",
+      "title": "All protocols with current TVL, category and chain breakdown",
+      "subtitle": "/protocols",
+      "description": "All protocols with current TVL, category and chain breakdown",
+      "useCase": "Use this endpoint when an agent needs all protocols with current TVL, category and chain breakdown through the defillama-tvl-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "All protocols with current TVL, category and chain breakdown",
+          "subtitle": "/protocols",
+          "description": "通过 gateway 调用 `/protocols`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "defillama-tvl-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/protocol/{slug}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}",
+      "title": "Single protocol: historical TVL, fees, tokens, metadata",
+      "subtitle": "/protocol/{slug}",
+      "description": "Single protocol: historical TVL, fees, tokens, metadata",
+      "useCase": "Use this endpoint when an agent needs single protocol: historical TVL, fees, tokens, metadata through the defillama-tvl-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Single protocol: historical TVL, fees, tokens, metadata",
+          "subtitle": "/protocol/{slug}",
+          "description": "通过 gateway 调用 `/protocol/{slug}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "defillama-tvl-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tvl/{protocol}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}",
+      "title": "Current total TVL of a protocol (lightweight)",
+      "subtitle": "/tvl/{protocol}",
+      "description": "Current total TVL of a protocol (lightweight)",
+      "useCase": "Use this endpoint when an agent needs current total TVL of a protocol (lightweight) through the defillama-tvl-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Current total TVL of a protocol (lightweight)",
+          "subtitle": "/tvl/{protocol}",
+          "description": "通过 gateway 调用 `/tvl/{protocol}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "defillama-tvl-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  }
+}

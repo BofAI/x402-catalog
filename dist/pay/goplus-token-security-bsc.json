@@ -1,0 +1,88 @@
+{
+  "chain_kinds": [
+    "bnb"
+  ],
+  "chains": [
+    "eip155:56"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:56",
+      "kind": "bnb",
+      "label": "BNB Chain",
+      "label_zh": "BNB Chain"
+    }
+  ],
+  "description": "Free x402 passthrough for GoPlus Security checks (token security / honeypot, malicious address, approval risk). Powered by GoPlus. Agent-native pre-trade risk control.",
+  "endpoints": [
+    {
+      "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/api/v1/token_security/{chain_id}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "goplus-token-security-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}"
+        }
+      ]
+    },
+    {
+      "description": "Malicious-address check (sanctions, phishing, known scam)",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/api/v1/address_security/{address}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/address_security/{address}",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "goplus-token-security-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/address_security/{address}"
+        }
+      ]
+    },
+    {
+      "description": "Approval / allowance risk check for a spender contract",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/api/v1/approval_security/{chain_id}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/approval_security/{chain_id}",
+      "x402_routes": [
+        {
+          "network": "eip155:56",
+          "provider": "goplus-token-security-bsc",
+          "scheme": "exact_permit",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/approval_security/{chain_id}"
+        }
+      ]
+    }
+  ],
+  "fqn": "goplus-token-security-bsc",
+  "i18n": {
+    "zh-CN": {
+      "description": "GoPlus 代币安全 API（BNB Chain） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+      "title": "GoPlus 代币安全 API（BNB Chain）",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "main_title": "GoPlus Token & Address Security API (BSC x402, Free)",
+  "service_url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc",
+  "sha": "d1252cb56fa77693a605efc5014f0b022030f86c486415f7465645ddf88480c3",
+  "sub_title": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+  "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+  "title": "GoPlus Token & Address Security API (BSC x402, Free)",
+  "title_zh": "GoPlus 代币安全 API（BNB Chain）",
+  "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+  "version": 1
+}

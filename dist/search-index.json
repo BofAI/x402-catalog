@@ -8,6 +8,668 @@
         "label_zh": "金融"
       },
       "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "x402 passthrough for DefiLlama key-free token prices: current, historical, charts and % change across chains by contract address. Manipulation-resistant cross-check price source for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
+          "method": "GET",
+          "path": "/prices/current/{coins}",
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}"
+        },
+        {
+          "description": "Historical USD price at a unix timestamp for one or many coins",
+          "method": "GET",
+          "path": "/prices/historical/{timestamp}/{coins}",
+          "title": "Historical USD price at a unix timestamp for one or many coins"
+        },
+        {
+          "description": "Price chart (time series) for one or many coins",
+          "method": "GET",
+          "path": "/chart/{coins}",
+          "title": "Price chart (time series) for one or many coins"
+        },
+        {
+          "description": "Percentage price change over a period for one or many coins",
+          "method": "GET",
+          "path": "/percentage/{coins}",
+          "title": "Percentage price change over a period for one or many coins"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "price",
+        "oracle",
+        "historical",
+        "multichain",
+        "free"
+      ],
+      "fqn": "defillama-coins-price-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-bsc",
+      "subtitle": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change.",
+      "title": "DefiLlama Token Price API (current / historical / chart) (BSC x402)",
+      "use_case": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "x402 passthrough for DefiLlama key-free token prices: current, historical, charts and % change across chains by contract address. Manipulation-resistant cross-check price source for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
+          "method": "GET",
+          "path": "/prices/current/{coins}",
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}"
+        },
+        {
+          "description": "Historical USD price at a unix timestamp for one or many coins",
+          "method": "GET",
+          "path": "/prices/historical/{timestamp}/{coins}",
+          "title": "Historical USD price at a unix timestamp for one or many coins"
+        },
+        {
+          "description": "Price chart (time series) for one or many coins",
+          "method": "GET",
+          "path": "/chart/{coins}",
+          "title": "Price chart (time series) for one or many coins"
+        },
+        {
+          "description": "Percentage price change over a period for one or many coins",
+          "method": "GET",
+          "path": "/percentage/{coins}",
+          "title": "Percentage price change over a period for one or many coins"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "price",
+        "oracle",
+        "historical",
+        "multichain",
+        "free"
+      ],
+      "fqn": "defillama-coins-price-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron",
+      "subtitle": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change.",
+      "title": "DefiLlama Token Price API (current / historical / chart) (TRON x402)",
+      "use_case": "Use to get current or historical USD price for one or many tokens by {chain}:{address} (or coingecko:{id}), plus price charts and percent change."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "Free x402 passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Key-free DeFi decision data layer for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "All protocols with current TVL, category and chain breakdown",
+          "method": "GET",
+          "path": "/protocols",
+          "title": "All protocols with current TVL, category and chain breakdown"
+        },
+        {
+          "description": "Single protocol: historical TVL, fees, tokens, metadata",
+          "method": "GET",
+          "path": "/protocol/{slug}",
+          "title": "Single protocol: historical TVL, fees, tokens, metadata"
+        },
+        {
+          "description": "Current total TVL of a protocol (lightweight)",
+          "method": "GET",
+          "path": "/tvl/{protocol}",
+          "title": "Current total TVL of a protocol (lightweight)"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "defi",
+        "tvl",
+        "fees",
+        "stablecoins",
+        "free"
+      ],
+      "fqn": "defillama-tvl-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-bsc",
+      "subtitle": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.",
+      "title": "DefiLlama DeFi Data API (TVL / Fees / Stablecoins) (BSC x402, Free)",
+      "use_case": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "Free x402 passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Key-free DeFi decision data layer for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "All protocols with current TVL, category and chain breakdown",
+          "method": "GET",
+          "path": "/protocols",
+          "title": "All protocols with current TVL, category and chain breakdown"
+        },
+        {
+          "description": "Single protocol: historical TVL, fees, tokens, metadata",
+          "method": "GET",
+          "path": "/protocol/{slug}",
+          "title": "Single protocol: historical TVL, fees, tokens, metadata"
+        },
+        {
+          "description": "Current total TVL of a protocol (lightweight)",
+          "method": "GET",
+          "path": "/tvl/{protocol}",
+          "title": "Current total TVL of a protocol (lightweight)"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "defi",
+        "tvl",
+        "fees",
+        "stablecoins",
+        "free"
+      ],
+      "fqn": "defillama-tvl-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron",
+      "subtitle": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.",
+      "title": "DefiLlama DeFi Data API (TVL / Fees / Stablecoins) (TRON x402, Free)",
+      "use_case": "Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "x402 passthrough for DefiLlama key-free yield data: APY across thousands of DeFi pools, plus per-pool historical APY/TVL. Yield-discovery and allocation data layer for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "All yield pools with current APY, TVL, chain, project and risk flags",
+          "method": "GET",
+          "path": "/pools",
+          "title": "All yield pools with current APY, TVL, chain, project and risk flags"
+        },
+        {
+          "description": "Historical APY / TVL time series for a single pool id",
+          "method": "GET",
+          "path": "/chart/{pool}",
+          "title": "Historical APY / TVL time series for a single pool id"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "yield",
+        "apy",
+        "defi",
+        "pools",
+        "free"
+      ],
+      "fqn": "defillama-yields-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-bsc",
+      "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+      "title": "DefiLlama Yields / APY API (BSC x402)",
+      "use_case": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "x402 passthrough for DefiLlama key-free yield data: APY across thousands of DeFi pools, plus per-pool historical APY/TVL. Yield-discovery and allocation data layer for agents. Data by DefiLlama.",
+      "endpoints": [
+        {
+          "description": "All yield pools with current APY, TVL, chain, project and risk flags",
+          "method": "GET",
+          "path": "/pools",
+          "title": "All yield pools with current APY, TVL, chain, project and risk flags"
+        },
+        {
+          "description": "Historical APY / TVL time series for a single pool id",
+          "method": "GET",
+          "path": "/chart/{pool}",
+          "title": "Historical APY / TVL time series for a single pool id"
+        }
+      ],
+      "featured_tags": [
+        "defillama",
+        "yield",
+        "apy",
+        "defi",
+        "pools",
+        "free"
+      ],
+      "fqn": "defillama-yields-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron",
+      "subtitle": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions.",
+      "title": "DefiLlama Yields / APY API (TRON x402)",
+      "use_case": "Use to discover and compare DeFi yields: list all pools with current APY/TVL, or pull one pool's historical APY/TVL series for allocation decisions."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "Free x402 passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.",
+      "endpoints": [
+        {
+          "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+          "method": "GET",
+          "path": "/latest/dex/tokens/{tokenAddresses}",
+          "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses"
+        },
+        {
+          "description": "Search pairs by token name/symbol/address",
+          "method": "GET",
+          "path": "/latest/dex/search",
+          "title": "Search pairs by token name/symbol/address"
+        },
+        {
+          "description": "Latest token profiles (new-launch / discovery radar)",
+          "method": "GET",
+          "path": "/token-profiles/latest/v1",
+          "title": "Latest token profiles (new-launch / discovery radar)"
+        }
+      ],
+      "featured_tags": [
+        "dexscreener",
+        "dex",
+        "new-pairs",
+        "meme",
+        "liquidity",
+        "price",
+        "free"
+      ],
+      "fqn": "dexscreener-dex-data-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc",
+      "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+      "title": "DexScreener DEX Pairs & New-Listing API (BSC x402, Free)",
+      "use_case": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "Free x402 passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.",
+      "endpoints": [
+        {
+          "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+          "method": "GET",
+          "path": "/latest/dex/tokens/{tokenAddresses}",
+          "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses"
+        },
+        {
+          "description": "Search pairs by token name/symbol/address",
+          "method": "GET",
+          "path": "/latest/dex/search",
+          "title": "Search pairs by token name/symbol/address"
+        },
+        {
+          "description": "Latest token profiles (new-launch / discovery radar)",
+          "method": "GET",
+          "path": "/token-profiles/latest/v1",
+          "title": "Latest token profiles (new-launch / discovery radar)"
+        }
+      ],
+      "featured_tags": [
+        "dexscreener",
+        "dex",
+        "new-pairs",
+        "meme",
+        "liquidity",
+        "price",
+        "free"
+      ],
+      "fqn": "dexscreener-dex-data-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron",
+      "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+      "title": "DexScreener DEX Pairs & New-Listing API (TRON x402, Free)",
+      "use_case": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "Free x402 passthrough for DIA real-time token quotations (3000+ assets, 80+ markets, key-free). Manipulation-resistant price source for agents. Data by DIA.",
+      "endpoints": [
+        {
+          "description": "Aggregated price quotation by asset symbol",
+          "method": "GET",
+          "path": "/v1/quotation/{symbol}",
+          "title": "Aggregated price quotation by asset symbol"
+        },
+        {
+          "description": "Aggregated price quotation by blockchain + contract address",
+          "method": "GET",
+          "path": "/v1/assetQuotation/{blockchain}/{address}",
+          "title": "Aggregated price quotation by blockchain + contract address"
+        }
+      ],
+      "featured_tags": [
+        "dia",
+        "price",
+        "oracle",
+        "quotation",
+        "multi-source",
+        "free"
+      ],
+      "fqn": "dia-price-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc",
+      "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+      "title": "DIA Multi-Source Token Price API (BSC x402, Free)",
+      "use_case": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "Free x402 passthrough for DIA real-time token quotations (3000+ assets, 80+ markets, key-free). Manipulation-resistant price source for agents. Data by DIA.",
+      "endpoints": [
+        {
+          "description": "Aggregated price quotation by asset symbol",
+          "method": "GET",
+          "path": "/v1/quotation/{symbol}",
+          "title": "Aggregated price quotation by asset symbol"
+        },
+        {
+          "description": "Aggregated price quotation by blockchain + contract address",
+          "method": "GET",
+          "path": "/v1/assetQuotation/{blockchain}/{address}",
+          "title": "Aggregated price quotation by blockchain + contract address"
+        }
+      ],
+      "featured_tags": [
+        "dia",
+        "price",
+        "oracle",
+        "quotation",
+        "multi-source",
+        "free"
+      ],
+      "fqn": "dia-price-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron",
+      "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+      "title": "DIA Multi-Source Token Price API (TRON x402, Free)",
+      "use_case": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "bnb"
+      ],
+      "chains": [
+        "eip155:56"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:56",
+          "kind": "bnb",
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
+        }
+      ],
+      "description": "Free x402 passthrough for GoPlus Security checks (token security / honeypot, malicious address, approval risk). Powered by GoPlus. Agent-native pre-trade risk control.",
+      "endpoints": [
+        {
+          "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
+          "method": "GET",
+          "path": "/api/v1/token_security/{chain_id}",
+          "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more"
+        },
+        {
+          "description": "Malicious-address check (sanctions, phishing, known scam)",
+          "method": "GET",
+          "path": "/api/v1/address_security/{address}",
+          "title": "Malicious-address check (sanctions, phishing, known scam)"
+        },
+        {
+          "description": "Approval / allowance risk check for a spender contract",
+          "method": "GET",
+          "path": "/api/v1/approval_security/{chain_id}",
+          "title": "Approval / allowance risk check for a spender contract"
+        }
+      ],
+      "featured_tags": [
+        "goplus",
+        "security",
+        "honeypot",
+        "risk",
+        "token-security",
+        "free"
+      ],
+      "fqn": "goplus-token-security-bsc",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc",
+      "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+      "title": "GoPlus Token & Address Security API (BSC x402, Free)",
+      "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "tron"
+      ],
+      "chains": [
+        "tron:mainnet"
+      ],
+      "chains_meta": [
+        {
+          "id": "tron:mainnet",
+          "kind": "tron",
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
+        }
+      ],
+      "description": "Free x402 passthrough for GoPlus Security checks (token security / honeypot, malicious address, approval risk). Powered by GoPlus. Agent-native pre-trade risk control.",
+      "endpoints": [
+        {
+          "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
+          "method": "GET",
+          "path": "/api/v1/token_security/{chain_id}",
+          "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more"
+        },
+        {
+          "description": "Malicious-address check (sanctions, phishing, known scam)",
+          "method": "GET",
+          "path": "/api/v1/address_security/{address}",
+          "title": "Malicious-address check (sanctions, phishing, known scam)"
+        },
+        {
+          "description": "Approval / allowance risk check for a spender contract",
+          "method": "GET",
+          "path": "/api/v1/approval_security/{chain_id}",
+          "title": "Approval / allowance risk check for a spender contract"
+        }
+      ],
+      "featured_tags": [
+        "goplus",
+        "security",
+        "honeypot",
+        "risk",
+        "token-security",
+        "free"
+      ],
+      "fqn": "goplus-token-security-tron",
+      "service_url": "https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron",
+      "subtitle": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky.",
+      "title": "GoPlus Token & Address Security API (TRON x402, Free)",
+      "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
         "bnb",
         "tron"
       ],
@@ -43,7 +705,7 @@
           "label_zh": "BNB Chain"
         }
       ],
-      "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet and mainnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.",
+      "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet and mainnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nUse `x402-cli pay` against the route for the payment chain you want. For TRON Nile testnet:\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron-nile/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact_gasfree \\\n  --max-amount 0.001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402NileA\",\"symbol\":\"X4A17\",\"description\":\"x402 launch test\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nOther routes use the same JSON body: TRON Mainnet uses `sunpump-token-launch-tron` with `tron:mainnet`; BSC Testnet uses `sunpump-token-launch-bsc-testnet` with `eip155:97`; BSC Mainnet uses `sunpump-token-launch-bsc` with `eip155:56`.",
       "endpoints": [
         {
           "description": "Submit token metadata to SunPump after x402 payment settlement. `imageBase64` can carry a base64-encoded token image; when it is empty or omitted, SunPump generates an image automatically. The response includes SunPump status and token data such as token id, owner address, contract address, logo URL, create transaction hash, reserves, and market data when available.",
@@ -66,6 +728,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose the route matching the intended payment chain: TRON Nile, TRON Mainnet, BSC Testnet, or BSC Mainnet."
     }
   ],
-  "generated_at": "2026-06-17T03:08:27Z",
+  "generated_at": "2026-06-23T02:45:17Z",
   "version": 1
 }

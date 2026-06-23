@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "fqn": "dexscreener-dex-data-tron",
+  "title": "DexScreener DEX Pairs & New-Listing API (TRON x402, Free)",
+  "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+  "description": "Free x402 passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.",
+  "useCase": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+  "i18n": {
+    "zh-CN": {
+      "title": "DexScreener DEX Pairs & New-Listing API (TRON x402, Free)（TRON）",
+      "subtitle": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
+      "description": "DexScreener DEX Pairs & New-Listing API (TRON x402, Free)（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "logo": "https://dexscreener.com/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "tron:mainnet"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "dexscreener",
+    "dex",
+    "new-pairs",
+    "meme",
+    "liquidity",
+    "price",
+    "free"
+  ],
+  "serviceUrl": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/latest/dex/tokens/{tokenAddresses}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}",
+      "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+      "subtitle": "/latest/dex/tokens/{tokenAddresses}",
+      "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+      "useCase": "Use this endpoint when an agent needs all DEX pairs (price/liquidity/volume/fdv) for one or more token addresses through the dexscreener-dex-data-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+          "subtitle": "/latest/dex/tokens/{tokenAddresses}",
+          "description": "通过 gateway 调用 `/latest/dex/tokens/{tokenAddresses}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "dexscreener-dex-data-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/latest/dex/search",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search",
+      "title": "Search pairs by token name/symbol/address",
+      "subtitle": "/latest/dex/search",
+      "description": "Search pairs by token name/symbol/address",
+      "useCase": "Use this endpoint when an agent needs search pairs by token name/symbol/address through the dexscreener-dex-data-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Search pairs by token name/symbol/address",
+          "subtitle": "/latest/dex/search",
+          "description": "通过 gateway 调用 `/latest/dex/search`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "dexscreener-dex-data-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/token-profiles/latest/v1",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1",
+      "title": "Latest token profiles (new-launch / discovery radar)",
+      "subtitle": "/token-profiles/latest/v1",
+      "description": "Latest token profiles (new-launch / discovery radar)",
+      "useCase": "Use this endpoint when an agent needs latest token profiles (new-launch / discovery radar) through the dexscreener-dex-data-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Latest token profiles (new-launch / discovery radar)",
+          "subtitle": "/token-profiles/latest/v1",
+          "description": "通过 gateway 调用 `/token-profiles/latest/v1`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "dexscreener-dex-data-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  }
+}

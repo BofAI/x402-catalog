@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "fqn": "dia-price-tron",
+  "title": "DIA Multi-Source Token Price API (TRON x402, Free)",
+  "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+  "description": "Free x402 passthrough for DIA real-time token quotations (3000+ assets, 80+ markets, key-free). Manipulation-resistant price source for agents. Data by DIA.",
+  "useCase": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+  "i18n": {
+    "zh-CN": {
+      "title": "DIA 价格 API（TRON）",
+      "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+      "description": "DIA 价格 API（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "logo": "https://www.diadata.org/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "tron:mainnet"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "dia",
+    "price",
+    "oracle",
+    "quotation",
+    "multi-source",
+    "free"
+  ],
+  "serviceUrl": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/v1/quotation/{symbol}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
+      "title": "Aggregated price quotation by asset symbol",
+      "subtitle": "/v1/quotation/{symbol}",
+      "description": "Aggregated price quotation by asset symbol",
+      "useCase": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the dia-price-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Aggregated price quotation by asset symbol",
+          "subtitle": "/v1/quotation/{symbol}",
+          "description": "通过 gateway 调用 `/v1/quotation/{symbol}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "dia-price-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/assetQuotation/{blockchain}/{address}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
+      "title": "Aggregated price quotation by blockchain + contract address",
+      "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
+      "description": "Aggregated price quotation by blockchain + contract address",
+      "useCase": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the dia-price-tron gateway route.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Aggregated price quotation by blockchain + contract address",
+          "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
+          "description": "通过 gateway 调用 `/v1/assetQuotation/{blockchain}/{address}`，用于获取该接口对应的公开数据。",
+          "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
+        }
+      },
+      "metered": false,
+      "minPriceUsd": 0.0,
+      "maxPriceUsd": 0.0,
+      "x402Routes": [
+        {
+          "provider": "dia-price-tron",
+          "network": "tron:mainnet",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "free-route",
+    "upstream": "public"
+  }
+}

@@ -41,7 +41,7 @@
       "label_zh": "BNB Chain"
     }
   ],
-  "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet and mainnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.",
+  "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet and mainnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nUse `x402-cli pay` against the route for the payment chain you want. For TRON Nile testnet:\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron-nile/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact_gasfree \\\n  --max-amount 0.001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402NileA\",\"symbol\":\"X4A17\",\"description\":\"x402 launch test\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nOther routes use the same JSON body: TRON Mainnet uses `sunpump-token-launch-tron` with `tron:mainnet`; BSC Testnet uses `sunpump-token-launch-bsc-testnet` with `eip155:97`; BSC Mainnet uses `sunpump-token-launch-bsc` with `eip155:56`.",
   "endpoint_count": 1,
   "endpoints": [
     {
@@ -103,7 +103,7 @@
   "has_metering": true,
   "i18n": {
     "zh-CN": {
-      "description": "## 能做什么\n\nSunPump Agent 发币 API 允许 Agent、脚本和应用先完成 x402 支付，再把发币元数据提交给 SunPump。Gateway 在支付结算后把调用方的 JSON 请求体转发到 SunPump 发币接口。\n\n## 适合场景\n\n- 需要基于结构化元数据创建 meme token 或 agent token 的 Agent 工作流。\n- 希望用一次付费 API 调用完成发币的运营工具。\n- 在 TRON 和 BSC 的测试网、主网上使用同一套 SunPump 发币请求格式验证支付流程。\n\n## 请求格式\n\nPOST JSON 请求体包含 `name`、`symbol`、`description`、`imageBase64`、`twitterUrl`、`telegramUrl`、`websiteUrl` 和 `tweetUsername`。`name` 需要保持在 1-20 个字符内，并使用唯一 symbol。`imageBase64` 可以传入 base64 编码的 token 图片；如果为空或不传，SunPump 会自动生成图片。",
+      "description": "## 能做什么\n\nSunPump Agent 发币 API 允许 Agent、脚本和应用先完成 x402 支付，再把发币元数据提交给 SunPump。Gateway 在支付结算后把调用方的 JSON 请求体转发到 SunPump 发币接口。\n\n## 适合场景\n\n- 需要基于结构化元数据创建 meme token 或 agent token 的 Agent 工作流。\n- 希望用一次付费 API 调用完成发币的运营工具。\n- 在 TRON 和 BSC 的测试网、主网上使用同一套 SunPump 发币请求格式验证支付流程。\n\n## 请求格式\n\nPOST JSON 请求体包含 `name`、`symbol`、`description`、`imageBase64`、`twitterUrl`、`telegramUrl`、`websiteUrl` 和 `tweetUsername`。`name` 需要保持在 1-20 个字符内，并使用唯一 symbol。`imageBase64` 可以传入 base64 编码的 token 图片；如果为空或不传，SunPump 会自动生成图片。\n\n## 代码用法\n\n使用 `x402-cli pay` 调用目标支付链对应的路由。TRON Nile 测试网示例：\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron-nile/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact_gasfree \\\n  --max-amount 0.001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402NileA\",\"symbol\":\"X4A17\",\"description\":\"x402 launch test\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\n其他路由使用同一套 JSON 请求体：TRON 主网使用 `sunpump-token-launch-tron` 和 `tron:mainnet`；BSC 测试网使用 `sunpump-token-launch-bsc-testnet` 和 `eip155:97`；BSC 主网使用 `sunpump-token-launch-bsc` 和 `eip155:56`。",
       "subtitle": "通过 x402 付费调用 SunPump 发币接口",
       "title": "SunPump Agent 发币 API",
       "useCase": "适合应用、Agent 或 CLI 流程在 x402 支付成功后调用 SunPump 发币接口。根据支付链选择 TRON Nile、TRON 主网、BSC 测试网或 BSC 主网路由。"
@@ -116,7 +116,7 @@
   "max_price_usd": 0.001,
   "min_price_usd": 0.001,
   "service_url": "https://sunpump.meme",
-  "sha": "ff3344cef6f78375f930d998e3fb550edc6ecfa7ef19400da9fe053c365c9b7b",
+  "sha": "194b51ff9493dc0797a746c6106ec180b887c1c6743b254ee8aff944dc59b9c5",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

@@ -1,0 +1,71 @@
+{
+  "chain_kinds": [
+    "tron"
+  ],
+  "chains": [
+    "tron:mainnet"
+  ],
+  "chains_meta": [
+    {
+      "id": "tron:mainnet",
+      "kind": "tron",
+      "label": "TRON Mainnet",
+      "label_zh": "TRON 主网"
+    }
+  ],
+  "description": "Free x402 passthrough for DIA real-time token quotations (3000+ assets, 80+ markets, key-free). Manipulation-resistant price source for agents. Data by DIA.",
+  "endpoints": [
+    {
+      "description": "Aggregated price quotation by asset symbol",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/v1/quotation/{symbol}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
+      "x402_routes": [
+        {
+          "network": "tron:mainnet",
+          "provider": "dia-price-tron",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
+        }
+      ]
+    },
+    {
+      "description": "Aggregated price quotation by blockchain + contract address",
+      "max_price_usd": 0.0,
+      "metered": false,
+      "method": "GET",
+      "min_price_usd": 0.0,
+      "path": "/v1/assetQuotation/{blockchain}/{address}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
+      "x402_routes": [
+        {
+          "network": "tron:mainnet",
+          "provider": "dia-price-tron",
+          "scheme": "exact_gasfree",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
+        }
+      ]
+    }
+  ],
+  "fqn": "dia-price-tron",
+  "i18n": {
+    "zh-CN": {
+      "description": "DIA 价格 API（TRON） 通过 x402 gateway 提供公开数据访问，适合 Agent 在金融分析、交易研究、风险筛查和数据聚合流程中调用。",
+      "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+      "title": "DIA 价格 API（TRON）",
+      "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。"
+    }
+  },
+  "main_title": "DIA Multi-Source Token Price API (TRON x402, Free)",
+  "service_url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron",
+  "sha": "f38df358b5457060194c9f5e540cb0e1ab63ea6e366e567c41a6087e6138fb2f",
+  "sub_title": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+  "subtitle": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+  "title": "DIA Multi-Source Token Price API (TRON x402, Free)",
+  "title_zh": "DIA 价格 API（TRON）",
+  "use_case": "Use to get a real-time, multi-market aggregated USD price for a token by symbol or by blockchain+contract address.",
+  "version": 1
+}
