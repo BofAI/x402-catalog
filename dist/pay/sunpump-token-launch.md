@@ -25,7 +25,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tr
   --network tron:mainnet \
   --token USDT \
   --scheme exact_permit \
-  --max-amount 0.001 \
+  --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
@@ -38,7 +38,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bs
   --network eip155:56 \
   --token USDT \
   --scheme exact_permit \
-  --max-amount 0.001 \
+  --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402BscA","symbol":"X4B17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```

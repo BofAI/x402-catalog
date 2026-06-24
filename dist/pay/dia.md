@@ -10,7 +10,7 @@ x402-paid passthrough for DIA real-time token quotations (3000+ assets, 80+ mark
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact_permit`
 - Tags: dia, price, oracle, quotation, multi-source
-- Listed price: `0.001 USD` per request
+- Listed price: `0.000001 USD` per request
 
 ## When To Use
 

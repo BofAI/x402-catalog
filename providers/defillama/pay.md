@@ -10,7 +10,7 @@ x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin da
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact_permit`
 - Tags: defillama, defi, tvl, fees, stablecoins
-- Listed price: `0.001 USD` per request
+- Listed price: `0.000001 USD` per request
 
 ## When To Use
 

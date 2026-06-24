@@ -10,7 +10,7 @@ x402-paid passthrough for GoPlus Security checks (token security / honeypot, mal
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact_permit`
 - Tags: goplus, security, honeypot, risk, token-security
-- Listed price: `0.001 USD` per request
+- Listed price: `0.000001 USD` per request
 
 ## When To Use
 

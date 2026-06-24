@@ -10,7 +10,7 @@ x402-paid passthrough for DexScreener token/pair data, search and latest token p
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact_permit`
 - Tags: dexscreener, dex, new-pairs, meme, liquidity, price
-- Listed price: `0.001 USD` per request
+- Listed price: `0.000001 USD` per request
 
 ## When To Use
 
