@@ -96,7 +96,7 @@
   "fqn": "dexscreener",
   "i18n": {
     "zh-CN": {
-      "description": "## 能做什么\n\nDexScreener 行情的 x402 网关:搜索 DEX 交易对,读取实时价格/流动性/成交量,发现各主流链上新上线与热门代币,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 追踪新盘/meme 上新的 Agent 雷达。\n- 入场前查看动量与流动性。\n- 按代币地址或符号查交易对。\n\n## 接口\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — 通过 gateway 调用 `/latest/dex/tokens/{tokenAddresses}`，用于获取该接口对应的公开数据。\n- `GET /latest/dex/search` — 通过 gateway 调用 `/latest/dex/search`，用于获取该接口对应的公开数据。\n- `GET /token-profiles/latest/v1` — 通过 gateway 调用 `/token-profiles/latest/v1`，用于获取该接口对应的公开数据。\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
+      "description": "## 能做什么\n\nDexScreener 行情的 x402 网关:搜索 DEX 交易对,读取实时价格/流动性/成交量,发现各主流链上新上线与热门代币,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 追踪新盘/meme 上新的 Agent 雷达。\n- 入场前查看动量与流动性。\n- 按代币地址或符号查交易对。\n\n## 接口\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — 一个或多个代币地址的全部 DEX 交易对(价格/流动性/成交量/FDV)\n- `GET /latest/dex/search` — 按代币名称/符号/地址搜索交易对\n- `GET /token-profiles/latest/v1` — 最新代币档案(新发/发现雷达)\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
       "mainTitle": "实时 DEX 交易对、价格与新盘",
       "subtitle": "链上行情雷达:新盘、动量与流动性。",
       "title": "DexScreener",
@@ -106,7 +106,7 @@
   "main_title": "Real-time DEX pairs, prices & new listings",
   "main_title_zh": "实时 DEX 交易对、价格与新盘",
   "service_url": "https://dexscreener.com",
-  "sha": "0d6c9629ddcf77defc27cdfa877809379d49297cf4046c80d7814e499f462538",
+  "sha": "25be670c6b26ea797e0e345efb55ca5364f9998adb7387789260cdf32810fc68",
   "sub_title": "On-chain market radar for new pools, momentum and liquidity.",
   "sub_title_zh": "链上行情雷达:新盘、动量与流动性。",
   "subtitle": "On-chain market radar for new pools, momentum and liquidity.",

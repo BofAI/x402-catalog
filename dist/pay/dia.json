@@ -73,7 +73,7 @@
   "fqn": "dia",
   "i18n": {
     "zh-CN": {
-      "description": "## 能做什么\n\nDIA 预言机价格的 x402 网关:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 需要可验证参考价做估值或结算的 Agent。\n- 用抗操纵价格做风控/合规校验。\n- 与盘口现价交叉验证。\n\n## 接口\n\n- `GET /v1/quotation/{symbol}` — 通过 gateway 调用 `/v1/quotation/{symbol}`，用于获取该接口对应的公开数据。\n- `GET /v1/assetQuotation/{blockchain}/{address}` — 通过 gateway 调用 `/v1/assetQuotation/{blockchain}/{address}`，用于获取该接口对应的公开数据。\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
+      "description": "## 能做什么\n\nDIA 预言机价格的 x402 网关:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 需要可验证参考价做估值或结算的 Agent。\n- 用抗操纵价格做风控/合规校验。\n- 与盘口现价交叉验证。\n\n## 接口\n\n- `GET /v1/quotation/{symbol}` — 按资产符号聚合的价格报价\n- `GET /v1/assetQuotation/{blockchain}/{address}` — 按链 + 合约地址聚合的价格报价\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
       "mainTitle": "去中心化多源预言机价格",
       "subtitle": "可验证的参考价,用于估值、结算与风控。",
       "title": "DIA",
@@ -83,7 +83,7 @@
   "main_title": "Decentralized multi-source oracle prices",
   "main_title_zh": "去中心化多源预言机价格",
   "service_url": "https://www.diadata.org",
-  "sha": "cb6ba21918f40b8c2667c17a04cff7d3f8b193bd6004ab29e8e065435e4920a8",
+  "sha": "342d9185896a66d85aac8f2fe30b095c78b2677174816eaa1b26303842ec6631",
   "sub_title": "Verifiable reference prices for valuation, settlement and risk.",
   "sub_title_zh": "可验证的参考价,用于估值、结算与风控。",
   "subtitle": "Verifiable reference prices for valuation, settlement and risk.",

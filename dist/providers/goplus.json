@@ -34,7 +34,7 @@
       "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
       "i18n": {
         "zh-CN": {
-          "description": "通过 gateway 调用 `/api/v1/token_security/{chain_id}`，用于获取该接口对应的公开数据。",
+          "description": "代币安全报告(貔貅、买卖税、所有者权限、持币分布),支持单/多合约",
           "subtitle": "/api/v1/token_security/{chain_id}",
           "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
@@ -68,7 +68,7 @@
       "description": "Malicious-address check (sanctions, phishing, known scam)",
       "i18n": {
         "zh-CN": {
-          "description": "通过 gateway 调用 `/api/v1/address_security/{address}`，用于获取该接口对应的公开数据。",
+          "description": "恶意地址检测(制裁、钓鱼、已知诈骗)",
           "subtitle": "/api/v1/address_security/{address}",
           "title": "Malicious-address check (sanctions, phishing, known scam)",
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
@@ -102,7 +102,7 @@
       "description": "Approval / allowance risk check for a spender contract",
       "i18n": {
         "zh-CN": {
-          "description": "通过 gateway 调用 `/api/v1/approval_security/{chain_id}`，用于获取该接口对应的公开数据。",
+          "description": "授权/额度风险检测(针对 spender 合约)",
           "subtitle": "/api/v1/approval_security/{chain_id}",
           "title": "Approval / allowance risk check for a spender contract",
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
@@ -146,7 +146,7 @@
   "has_metering": true,
   "i18n": {
     "zh-CN": {
-      "description": "## 能做什么\n\nGoPlus 安全 API 的 x402 网关:扫描代币合约与钱包地址风险——貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 兑换前的安全筛查。\n- 转账或授权前的地址风险检查。\n- Agent 交易流中的自动尽调。\n\n## 接口\n\n- `GET /api/v1/token_security/{chain_id}` — 通过 gateway 调用 `/api/v1/token_security/{chain_id}`，用于获取该接口对应的公开数据。\n- `GET /api/v1/address_security/{address}` — 通过 gateway 调用 `/api/v1/address_security/{address}`，用于获取该接口对应的公开数据。\n- `GET /api/v1/approval_security/{chain_id}` — 通过 gateway 调用 `/api/v1/approval_security/{chain_id}`，用于获取该接口对应的公开数据。\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
+      "description": "## 能做什么\n\nGoPlus 安全 API 的 x402 网关:扫描代币合约与钱包地址风险——貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 兑换前的安全筛查。\n- 转账或授权前的地址风险检查。\n- Agent 交易流中的自动尽调。\n\n## 接口\n\n- `GET /api/v1/token_security/{chain_id}` — 代币安全报告(貔貅、买卖税、所有者权限、持币分布),支持单/多合约\n- `GET /api/v1/address_security/{address}` — 恶意地址检测(制裁、钓鱼、已知诈骗)\n- `GET /api/v1/approval_security/{chain_id}` — 授权/额度风险检测(针对 spender 合约)\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.001\n```",
       "mainTitle": "代币与地址安全风控检测",
       "subtitle": "交易前安全筛查:兑换、转账与授权。",
       "title": "GoPlus",
@@ -161,7 +161,7 @@
   "max_price_usd": 0.001,
   "min_price_usd": 0.001,
   "service_url": "https://gopluslabs.io",
-  "sha": "6fea3619d67c98e66d6f76365cf922a7dcf8fd84664c00435ae08476c60b4d87",
+  "sha": "b5293df239278ca559fc0eae20e9d6ba00c1d0dfe75e9f2d0baa27b44c5d319f",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
