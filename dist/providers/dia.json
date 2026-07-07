@@ -10,24 +10,24 @@
     "tron"
   ],
   "chains": [
-    "tron:mainnet",
-    "eip155:56"
+    "tron:nile",
+    "eip155:97"
   ],
   "chains_meta": [
     {
-      "id": "tron:mainnet",
+      "id": "tron:nile",
       "kind": "tron",
-      "label": "TRON Mainnet",
-      "label_zh": "TRON 主网"
+      "label": "TRON Nile Testnet",
+      "label_zh": "TRON Nile 测试网"
     },
     {
-      "id": "eip155:56",
+      "id": "eip155:97",
       "kind": "bnb",
-      "label": "BNB Chain",
-      "label_zh": "BNB Chain"
+      "label": "BNB Smart Chain Testnet",
+      "label_zh": "BNB 测试网"
     }
   ],
-  "description": "## What it does\n\nDIA oracle price feeds over x402: transparent, multi-source aggregated token quotations across 80+ CEX/DEX markets for 3,000+ assets, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents needing verifiable reference prices for valuation or settlement.\n- Manipulation-resistant pricing as a risk or compliance check.\n- Cross-checking a venue spot price against an independent oracle.\n\n## Endpoints\n\n- `GET /v1/quotation/{symbol}` — Aggregated price quotation by asset symbol\n- `GET /v1/assetQuotation/{blockchain}/{address}` — Aggregated price quotation by blockchain + contract address\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact_permit`) example:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.000001\n```\n\nBSC Mainnet (`eip155:56`, `exact_permit`) example:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\nPay on BSC Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.000001\n```",
+  "description": "## What it does\n\nDIA oracle price feeds over x402: transparent, multi-source aggregated token quotations across 80+ CEX/DEX markets for 3,000+ assets, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents needing verifiable reference prices for valuation or settlement.\n- Manipulation-resistant pricing as a risk or compliance check.\n- Cross-checking a venue spot price against an independent oracle.\n\n## Endpoints\n\n- `GET /v1/quotation/{symbol}` — Aggregated price quotation by asset symbol\n- `GET /v1/assetQuotation/{blockchain}/{address}` — Aggregated price quotation by blockchain + contract address\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
   "endpoint_count": 2,
   "endpoints": [
     {
@@ -47,20 +47,22 @@
       "path": "/v1/quotation/{symbol}",
       "subtitle": "/v1/quotation/{symbol}",
       "title": "Aggregated price quotation by asset symbol",
-      "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
       "use_case": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the dia-price-tron gateway route.",
       "x402_routes": [
         {
-          "network": "tron:mainnet",
+          "assetTransferMethod": "permit2",
+          "network": "tron:nile",
           "provider": "dia-price-tron",
-          "scheme": "exact_permit",
-          "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
+          "scheme": "exact",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
         },
         {
-          "network": "eip155:56",
+          "assetTransferMethod": "permit2",
+          "network": "eip155:97",
           "provider": "dia-price-bsc",
-          "scheme": "exact_permit",
-          "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}"
+          "scheme": "exact",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}"
         }
       ]
     },
@@ -81,20 +83,22 @@
       "path": "/v1/assetQuotation/{blockchain}/{address}",
       "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
       "title": "Aggregated price quotation by blockchain + contract address",
-      "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
+      "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
       "use_case": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the dia-price-tron gateway route.",
       "x402_routes": [
         {
-          "network": "tron:mainnet",
+          "assetTransferMethod": "permit2",
+          "network": "tron:nile",
           "provider": "dia-price-tron",
-          "scheme": "exact_permit",
-          "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
+          "scheme": "exact",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
         },
         {
-          "network": "eip155:56",
+          "assetTransferMethod": "permit2",
+          "network": "eip155:97",
           "provider": "dia-price-bsc",
-          "scheme": "exact_permit",
-          "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/assetQuotation/{blockchain}/{address}"
+          "scheme": "exact",
+          "url": "https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/assetQuotation/{blockchain}/{address}"
         }
       ]
     }
@@ -112,7 +116,7 @@
   "has_metering": true,
   "i18n": {
     "zh-CN": {
-      "description": "## 能做什么\n\nDIA 预言机价格的 x402 网关:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 需要可验证参考价做估值或结算的 Agent。\n- 用抗操纵价格做风控/合规校验。\n- 与盘口现价交叉验证。\n\n## 接口\n\n- `GET /v1/quotation/{symbol}` — 按资产符号聚合的价格报价\n- `GET /v1/assetQuotation/{blockchain}/{address}` — 按链 + 合约地址聚合的价格报价\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.000001\n```\n\nBSC 主网(`eip155:56`,`exact_permit`)示例:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 BSC 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact_permit \\\n  --max-amount 0.000001\n```",
+      "description": "## 能做什么\n\nDIA 预言机价格的 x402 网关:跨 80+ CEX/DEX 市场、覆盖 3000+ 资产的透明多源聚合报价,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 需要可验证参考价做估值或结算的 Agent。\n- 用抗操纵价格做风控/合规校验。\n- 与盘口现价交叉验证。\n\n## 接口\n\n- `GET /v1/quotation/{symbol}` — 按资产符号聚合的价格报价\n- `GET /v1/assetQuotation/{blockchain}/{address}` — 按链 + 合约地址聚合的价格报价\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON Nile 测试网(`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 TRON Nile 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC 测试网(`eip155:97`,`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\n使用 x402 CLI 在 BSC 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "mainTitle": "去中心化多源预言机价格",
       "subtitle": "可验证的参考价,用于估值、结算与风控。",
       "title": "DIA",
@@ -127,7 +131,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://www.diadata.org",
-  "sha": "f91a9b294fd852ebfec20b80ca41d3206e9a1eff0fee5b6ee6bf33aaef3f4e5b",
+  "sha": "6e28044296cbcf8588889e683042a78666ed2462e212d32616fcb1f8f9dbbbcb",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

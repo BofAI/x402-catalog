@@ -9,35 +9,35 @@ Use it when an agent, backend workflow, or CLI script has already validated the 
 - FQN: `sunpump-token-launch`
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
-- Chains: `tron:mainnet`, `eip155:56`
-- TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
-- BSC Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
+- Chains: `tron:nile`, `eip155:97`
+- TRON Nile Testnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
+- BSC Testnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
 ## CLI Quick Start
 
 Install or update the x402 CLI, then call the route matching the payment chain you want to use.
 
-TRON Mainnet:
+TRON Nile Testnet:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
+x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network tron:mainnet \
+  --network tron:nile \
   --token USDT \
-  --scheme exact_permit \
+  --scheme exact \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
-BSC Mainnet:
+BSC Testnet:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
+x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network eip155:56 \
+  --network eip155:97 \
   --token USDT \
-  --scheme exact_permit \
+  --scheme exact \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402BscA","symbol":"X4B17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'

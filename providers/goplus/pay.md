@@ -5,10 +5,10 @@ x402-paid passthrough for GoPlus Security checks (token security / honeypot, mal
 ## Service
 
 - FQN: `goplus-token-security-tron`
-- Gateway base: `https://x402-gateway.bankofai.io/providers/goplus-token-security-tron`
+- Gateway base: `https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron`
 - Category: `finance`
-- Chain: `tron:mainnet` (TRON)
-- Scheme: `exact_permit`
+- Chain: `tron:nile` (TRON)
+- Scheme: `exact` + `permit2`
 - Tags: goplus, security, honeypot, risk, token-security
 - Listed price: `0.000001 USD` per request
 
@@ -42,13 +42,13 @@ Approval / allowance risk check for a spender contract
 Call the catalog route with any HTTP client. Example:
 
 ```bash
-curl -sS 'https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....'
+curl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....'
 ```
 
 Equivalent route form:
 
 ```text
-GET https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....
+GET https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....
 ```
 
 ## Spend-Aware Usage

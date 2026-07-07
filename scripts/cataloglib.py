@@ -28,6 +28,8 @@ CATEGORIES = {
     "storage",
     "translation",
 }
+X402_SCHEMES = {"exact"}
+X402_ASSET_TRANSFER_METHODS = {"permit2"}
 SECRET_KEY_RE = re.compile(
     r"(api[_-]?key|secret|password|passwd|token|authorization|bearer|private[_-]?key|provider\.yml|\.env)",
     re.IGNORECASE,
@@ -126,6 +128,29 @@ def validate_i18n(obj: dict[str, Any], errors: list[str], *, path: str) -> None:
         require_string(zh, key, errors, path=f"{path}.i18n.zh-CN")
 
 
+def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: str) -> None:
+    routes = endpoint.get("x402Routes")
+    if routes is None:
+        return
+    if not isinstance(routes, list) or not routes:
+        errors.append(f"{path}.x402Routes must be a non-empty array when present")
+        return
+    for index, route in enumerate(routes):
+        route_path = f"{path}.x402Routes[{index}]"
+        if not isinstance(route, dict):
+            errors.append(f"{route_path} must be an object")
+            continue
+        for key in ("provider", "network", "scheme", "assetTransferMethod", "url"):
+            require_string(route, key, errors, path=route_path)
+        if route.get("scheme") not in X402_SCHEMES:
+            errors.append(f"{route_path}.scheme must be one of {sorted(X402_SCHEMES)}")
+        if route.get("assetTransferMethod") not in X402_ASSET_TRANSFER_METHODS:
+            errors.append(
+                f"{route_path}.assetTransferMethod must be one of "
+                f"{sorted(X402_ASSET_TRANSFER_METHODS)}"
+            )
+
+
 def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[str]:
     errors: list[str] = []
     if payload.get("version") != 1:
@@ -169,6 +194,7 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
             if max_price < min_price:
                 errors.append(f"{path}.maxPriceUsd must be >= minPriceUsd")
             validate_i18n(endpoint, errors, path=path)
+            validate_x402_routes(endpoint, errors, path=path)
 
     status = payload.get("status")
     if status is not None and not isinstance(status, dict):

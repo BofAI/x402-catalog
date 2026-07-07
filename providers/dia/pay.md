@@ -5,10 +5,10 @@ x402-paid passthrough for DIA real-time token quotations (3000+ assets, 80+ mark
 ## Service
 
 - FQN: `dia-price-tron`
-- Gateway base: `https://x402-gateway.bankofai.io/providers/dia-price-tron`
+- Gateway base: `https://tm-x402-gateway.bankofai.io/providers/dia-price-tron`
 - Category: `finance`
-- Chain: `tron:mainnet` (TRON)
-- Scheme: `exact_permit`
+- Chain: `tron:nile` (TRON)
+- Scheme: `exact` + `permit2`
 - Tags: dia, price, oracle, quotation, multi-source
 - Listed price: `0.000001 USD` per request
 
@@ -39,13 +39,13 @@ Aggregated price quotation by blockchain + contract address
 Call the catalog route with any HTTP client. Example:
 
 ```bash
-curl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/BTC'
+curl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/BTC'
 ```
 
 Equivalent route form:
 
 ```text
-GET https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/BTC
+GET https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/BTC
 ```
 
 ## Spend-Aware Usage

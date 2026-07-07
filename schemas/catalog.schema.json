@@ -47,7 +47,33 @@
           "metered",
           "minPriceUsd",
           "maxPriceUsd"
-        ]
+        ],
+        "properties": {
+          "x402Routes": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/x402Route" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "x402Route": {
+      "type": "object",
+      "required": [
+        "provider",
+        "network",
+        "scheme",
+        "assetTransferMethod",
+        "url"
+      ],
+      "properties": {
+        "provider": { "type": "string" },
+        "network": { "type": "string" },
+        "scheme": { "const": "exact" },
+        "assetTransferMethod": { "const": "permit2" },
+        "url": { "type": "string" }
       }
     }
   }
