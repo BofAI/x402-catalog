@@ -40,7 +40,7 @@
       "title": "Aggregated price quotation by asset symbol",
       "subtitle": "/v1/quotation/{symbol}",
       "description": "Aggregated price quotation by asset symbol",
-      "useCase": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the dia-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Aggregated price quotation by asset symbol",
@@ -76,7 +76,7 @@
       "title": "Aggregated price quotation by blockchain + contract address",
       "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
       "description": "Aggregated price quotation by blockchain + contract address",
-      "useCase": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the dia-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Aggregated price quotation by blockchain + contract address",

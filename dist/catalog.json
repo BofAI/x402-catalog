@@ -31,7 +31,7 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-07T03:31:34Z",
+  "generated_at": "2026-07-07T06:43:21Z",
   "provider_count": 5,
   "providers": [
     {
@@ -63,7 +63,7 @@
           "label_zh": "BNB 测试网"
         }
       ],
-      "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nUse `x402-cli pay` against the route for the testnet payment chain you want. TRON Nile Testnet example:\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402MainA\",\"symbol\":\"X4M17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nBSC Testnet uses `sunpump-token-launch-bsc` with `eip155:97` and the same JSON body.",
+      "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Nile and BSC Testnet payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
       "endpoint_count": 1,
       "featured_tags": [
         "sunpump",
@@ -77,28 +77,28 @@
       "has_metering": true,
       "i18n": {
         "zh-CN": {
-          "description": "## 能做什么\n\nSunPump Agent 发币 API 允许 Agent、脚本和应用先完成 x402 支付，再把发币元数据提交给 SunPump。Gateway 在支付结算后把调用方的 JSON 请求体转发到 SunPump 发币接口。\n\n## 适合场景\n\n- 需要基于结构化元数据创建 meme token 或 agent token 的 Agent 工作流。\n- 希望用一次付费 API 调用完成发币的运营工具。\n- 在 TRON 和 BSC 测试网上使用同一套 SunPump 发币请求格式验证支付流程。\n\n## 请求格式\n\nPOST JSON 请求体包含 `name`、`symbol`、`description`、`imageBase64`、`twitterUrl`、`telegramUrl`、`websiteUrl` 和 `tweetUsername`。`name` 需要保持在 1-20 个字符内，并使用唯一 symbol。`imageBase64` 可以传入 base64 编码的 token 图片；如果为空或不传，SunPump 会自动生成图片。\n\n## 代码用法\n\n使用 `x402-cli pay` 调用目标测试网支付链对应的路由。TRON Nile 测试网示例：\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402MainA\",\"symbol\":\"X4M17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nBSC 测试网使用 `sunpump-token-launch-bsc` 和 `eip155:97`，请求体相同。",
-          "mainTitle": "一次付费完成 Agent 代币发行(x402)",
-          "subtitle": "用结构化元数据一次付费发币(meme/Agent 代币)。",
+          "description": "## 当前状态\n\n这个 catalog 条目用于记录接入 x402 支付的 SunPump 发币路由。Gateway 已配置 TRON Nile 和 BSC Testnet 支付路由，但当前 SunPump 上游 POST 接口返回 `405 Not Allowed`。在 SunPump 发布或恢复可用发币 API 之前，不要把它用于实际创建 token。\n\n## 预期用途\n\n该路由原本用于在 x402 支付结算后提交发币元数据。上游 API 恢复后，调用方应 POST 包含 `name`、`symbol`、`description`、可选社交链接和可选图片数据的 JSON 元数据。\n\n## 调用说明\n\n上游不可用期间，只建议用于检查支付路由配置。付费调用可能完成结算，然后返回上游 `405 Not Allowed` 响应。",
+          "mainTitle": "已配置的 SunPump 发币路由，上游当前不可用",
+          "subtitle": "支付路由已配置，但上游 POST 当前返回 405。",
           "title": "SunPump",
-          "useCase": "适合应用、Agent 或 CLI 流程在 x402 支付成功后调用 SunPump 发币接口。根据测试网支付链选择 TRON Nile 测试网或 BSC 测试网路由。"
+          "useCase": "上游 SunPump 发币 API 不可用期间，仅用于检查已配置的 x402 支付路由。"
         }
       },
       "is_featured": true,
       "is_first_party": true,
       "logo": "https://sunpump.meme/favicon.ico",
-      "main_title": "One-call agent token launch, paid via x402",
-      "main_title_zh": "一次付费完成 Agent 代币发行(x402)",
+      "main_title": "Configured SunPump launch route, upstream currently unavailable",
+      "main_title_zh": "已配置的 SunPump 发币路由，上游当前不可用",
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://sunpump.meme",
-      "sha": "f783d8166f1c800deff76e24ef79011d3d0b9f26e19c43504281dcd3ec0257f5",
-      "sub_title": "Create a meme or agent token from structured metadata.",
-      "sub_title_zh": "用结构化元数据一次付费发币(meme/Agent 代币)。",
-      "subtitle": "Create a meme or agent token from structured metadata.",
+      "sha": "0619829020cb8a9e22ba4bd4a65fe3a41feefb99d5ec12dc0e0dc298d9dd26ba",
+      "sub_title": "Payment route exists, but the upstream POST endpoint returns 405.",
+      "sub_title_zh": "支付路由已配置，但上游 POST 当前返回 405。",
+      "subtitle": "Payment route exists, but the upstream POST endpoint returns 405.",
       "title": "SunPump",
       "title_zh": "SunPump",
-      "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose the route matching the intended testnet payment chain: TRON Nile Testnet or BSC Testnet."
+      "use_case": "Use this provider only to inspect the configured x402 payment route while the SunPump upstream launch API is unavailable."
     },
     {
       "category": "finance",
@@ -159,7 +159,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://defillama.com",
-      "sha": "84a6eb93993d59800e1569be18d335f03f599f6df28ca50f3f7a066071253b97",
+      "sha": "e6ef0b2930553b9433ec964d86e1f92851e5262794308f5c30df533170d65d5f",
       "sub_title": "Paid DeFi decision data for agent research, pricing and risk.",
       "sub_title_zh": "付费 DeFi 决策数据,供 Agent 研究、定价与风控。",
       "subtitle": "Paid DeFi decision data for agent research, pricing and risk.",
@@ -227,7 +227,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://dexscreener.com",
-      "sha": "9d400b610fdb4cf0b5a95db1b7f26829c3c32348cde06a568b76ecd80c959a3f",
+      "sha": "ceb4494d5c49e09ad2d2ef6deeb1348f2ad481e3bf38147d5818069d8d7006d8",
       "sub_title": "On-chain market radar for new pools, momentum and liquidity.",
       "sub_title_zh": "链上行情雷达:新盘、动量与流动性。",
       "subtitle": "On-chain market radar for new pools, momentum and liquidity.",
@@ -294,7 +294,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://www.diadata.org",
-      "sha": "6e28044296cbcf8588889e683042a78666ed2462e212d32616fcb1f8f9dbbbcb",
+      "sha": "f60b1db0258bebee839da8af7e4fa9ee66ca551d8b20a98eaac066594d408063",
       "sub_title": "Verifiable reference prices for valuation, settlement and risk.",
       "sub_title_zh": "可验证的参考价,用于估值、结算与风控。",
       "subtitle": "Verifiable reference prices for valuation, settlement and risk.",
@@ -331,7 +331,7 @@
           "label_zh": "BNB 测试网"
         }
       ],
-      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v1/approval_security/{chain_id}` — Approval / allowance risk check for a spender contract\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v2/token_approval_security/{chain_id}` — Token approval / allowance risk check for one or more wallet addresses; pass `addresses` as a query parameter\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/56?contract_addresses=0x64544969ed7EBf5f083679233325356EbE738930'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoint_count": 3,
       "featured_tags": [
         "goplus",
@@ -346,7 +346,7 @@
       "has_metering": true,
       "i18n": {
         "zh-CN": {
-          "description": "## 能做什么\n\nGoPlus 安全 API 的 x402 网关:扫描代币合约与钱包地址风险——貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 兑换前的安全筛查。\n- 转账或授权前的地址风险检查。\n- Agent 交易流中的自动尽调。\n\n## 接口\n\n- `GET /api/v1/token_security/{chain_id}` — 代币安全报告(貔貅、买卖税、所有者权限、持币分布),支持单/多合约\n- `GET /api/v1/address_security/{address}` — 恶意地址检测(制裁、钓鱼、已知诈骗)\n- `GET /api/v1/approval_security/{chain_id}` — 授权/额度风险检测(针对 spender 合约)\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON Nile 测试网(`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 TRON Nile 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC 测试网(`eip155:97`,`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}'\n```\n\n使用 x402 CLI 在 BSC 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+          "description": "## 能做什么\n\nGoPlus 安全 API 的 x402 网关:扫描代币合约与钱包地址风险——貔貅、买卖税、增发/黑名单/代理权限以及已知恶意地址,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 兑换前的安全筛查。\n- 转账或授权前的地址风险检查。\n- Agent 交易流中的自动尽调。\n\n## 接口\n\n- `GET /api/v1/token_security/{chain_id}` — 代币安全报告(貔貅、买卖税、所有者权限、持币分布),支持单/多合约\n- `GET /api/v1/address_security/{address}` — 恶意地址检测(制裁、钓鱼、已知诈骗)\n- `GET /api/v2/token_approval_security/{chain_id}` — 钱包授权/额度风险检测; 通过 `addresses` 查询参数传入一个或多个地址\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON Nile 测试网(`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf'\n```\n\n使用 x402 CLI 在 TRON Nile 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC 测试网(`eip155:97`,`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/56?contract_addresses=0x64544969ed7EBf5f083679233325356EbE738930'\n```\n\n使用 x402 CLI 在 BSC 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
           "mainTitle": "代币与地址安全风控检测",
           "subtitle": "交易前安全筛查:兑换、转账与授权。",
           "title": "GoPlus",
@@ -361,7 +361,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://gopluslabs.io",
-      "sha": "a04afe67ded3c6d9ebbc9477867cd67349606b8652e077ac671d0ce2fd6f8c3d",
+      "sha": "ed99e35b424c53d28f5ac7089d224a84e787ec2c7891a6f5fff99f1d0958d97c",
       "sub_title": "Pre-trade safety screening for swaps, transfers and approvals.",
       "sub_title_zh": "交易前安全筛查:兑换、转账与授权。",
       "subtitle": "Pre-trade safety screening for swaps, transfers and approvals.",

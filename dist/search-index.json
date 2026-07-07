@@ -53,7 +53,7 @@
           "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
           "method": "GET",
           "path": "/prices/current/{coins}",
-          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}"
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)"
         },
         {
           "description": "Historical USD price at a unix timestamp for one or many coins",
@@ -252,7 +252,7 @@
           "label_zh": "BNB 测试网"
         }
       ],
-      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v1/approval_security/{chain_id}` — Approval / allowance risk check for a spender contract\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v2/token_approval_security/{chain_id}` — Token approval / allowance risk check for one or more wallet addresses; pass `addresses` as a query parameter\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/56?contract_addresses=0x64544969ed7EBf5f083679233325356EbE738930'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoints": [
         {
           "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
@@ -267,10 +267,10 @@
           "title": "Malicious-address check (sanctions, phishing, known scam)"
         },
         {
-          "description": "Approval / allowance risk check for a spender contract",
+          "description": "Token approval / allowance risk check for one or more wallet addresses. Pass the `addresses` query parameter as required by GoPlus.",
           "method": "GET",
-          "path": "/api/v1/approval_security/{chain_id}",
-          "title": "Approval / allowance risk check for a spender contract"
+          "path": "/api/v2/token_approval_security/{chain_id}",
+          "title": "Token approval / allowance risk check for wallet addresses"
         }
       ],
       "featured_tags": [
@@ -316,13 +316,13 @@
           "label_zh": "BNB 测试网"
         }
       ],
-      "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Testnet payment flows across TRON and BSC while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nUse `x402-cli pay` against the route for the testnet payment chain you want. TRON Nile Testnet example:\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001 \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402MainA\",\"symbol\":\"X4M17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nBSC Testnet uses `sunpump-token-launch-bsc` with `eip155:97` and the same JSON body.",
+      "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Nile and BSC Testnet payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
       "endpoints": [
         {
-          "description": "Submit token metadata to SunPump after x402 payment settlement. `imageBase64` can carry a base64-encoded token image; when it is empty or omitted, SunPump generates an image automatically. The response includes SunPump status and token data such as token id, owner address, contract address, logo URL, create transaction hash, reserves, and market data when available.",
+          "description": "Configured SunPump launch route. The x402 payment route exists, but the current upstream POST endpoint returns `405 Not Allowed`, so token creation is unavailable.",
           "method": "POST",
           "path": "/pump-api/ai/agentTokenLaunch",
-          "title": "Launch Agent Token"
+          "title": "SunPump launch route unavailable"
         }
       ],
       "featured_tags": [
@@ -334,11 +334,11 @@
       ],
       "fqn": "sunpump-token-launch",
       "service_url": "https://sunpump.meme",
-      "subtitle": "Create a meme or agent token from structured metadata.",
+      "subtitle": "Payment route exists, but the upstream POST endpoint returns 405.",
       "title": "SunPump",
-      "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose the route matching the intended testnet payment chain: TRON Nile Testnet or BSC Testnet."
+      "use_case": "Use this provider only to inspect the configured x402 payment route while the SunPump upstream launch API is unavailable."
     }
   ],
-  "generated_at": "2026-07-07T03:31:34Z",
+  "generated_at": "2026-07-07T06:43:21Z",
   "version": 1
 }

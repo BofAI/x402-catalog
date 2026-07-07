@@ -40,7 +40,7 @@
       "title": "All protocols with current TVL, category and chain breakdown",
       "subtitle": "/protocols",
       "description": "All protocols with current TVL, category and chain breakdown",
-      "useCase": "Use this endpoint when an agent needs all protocols with current TVL, category and chain breakdown through the defillama-tvl-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs all protocols with current TVL, category and chain breakdown through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "All protocols with current TVL, category and chain breakdown",
@@ -76,7 +76,7 @@
       "title": "Single protocol: historical TVL, fees, tokens, metadata",
       "subtitle": "/protocol/{slug}",
       "description": "Single protocol: historical TVL, fees, tokens, metadata",
-      "useCase": "Use this endpoint when an agent needs single protocol: historical TVL, fees, tokens, metadata through the defillama-tvl-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs single protocol: historical TVL, fees, tokens, metadata through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Single protocol: historical TVL, fees, tokens, metadata",
@@ -112,7 +112,7 @@
       "title": "Current total TVL of a protocol (lightweight)",
       "subtitle": "/tvl/{protocol}",
       "description": "Current total TVL of a protocol (lightweight)",
-      "useCase": "Use this endpoint when an agent needs current total TVL of a protocol (lightweight) through the defillama-tvl-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs current total TVL of a protocol (lightweight) through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Current total TVL of a protocol (lightweight)",
@@ -145,13 +145,13 @@
       "method": "GET",
       "path": "/prices/current/{coins}",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}",
-      "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+      "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
       "subtitle": "/prices/current/{coins}",
       "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
-      "useCase": "Use this endpoint when an agent needs current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated) through the defillama-coins-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated) through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
-          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
           "subtitle": "/prices/current/{coins}",
           "description": "一个或多个代币的当前美元价(支持 {chain}:{address} 或 coingecko:{id},逗号分隔)",
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
@@ -184,7 +184,7 @@
       "title": "Historical USD price at a unix timestamp for one or many coins",
       "subtitle": "/prices/historical/{timestamp}/{coins}",
       "description": "Historical USD price at a unix timestamp for one or many coins",
-      "useCase": "Use this endpoint when an agent needs historical USD price at a unix timestamp for one or many coins through the defillama-coins-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs historical USD price at a unix timestamp for one or many coins through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Historical USD price at a unix timestamp for one or many coins",
@@ -220,7 +220,7 @@
       "title": "Price chart (time series) for one or many coins",
       "subtitle": "/chart/{coins}",
       "description": "Price chart (time series) for one or many coins",
-      "useCase": "Use this endpoint when an agent needs price chart (time series) for one or many coins through the defillama-coins-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs price chart (time series) for one or many coins through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Price chart (time series) for one or many coins",
@@ -256,7 +256,7 @@
       "title": "Percentage price change over a period for one or many coins",
       "subtitle": "/percentage/{coins}",
       "description": "Percentage price change over a period for one or many coins",
-      "useCase": "Use this endpoint when an agent needs percentage price change over a period for one or many coins through the defillama-coins-price-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs percentage price change over a period for one or many coins through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Percentage price change over a period for one or many coins",
@@ -292,7 +292,7 @@
       "title": "All yield pools with current APY, TVL, chain, project and risk flags",
       "subtitle": "/pools",
       "description": "All yield pools with current APY, TVL, chain, project and risk flags",
-      "useCase": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the defillama-yields-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "All yield pools with current APY, TVL, chain, project and risk flags",
@@ -328,7 +328,7 @@
       "title": "Historical APY / TVL time series for a single pool id",
       "subtitle": "/chart/{pool}",
       "description": "Historical APY / TVL time series for a single pool id",
-      "useCase": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the defillama-yields-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Historical APY / TVL time series for a single pool id",

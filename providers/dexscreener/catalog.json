@@ -41,7 +41,7 @@
       "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
       "subtitle": "/latest/dex/tokens/{tokenAddresses}",
       "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
-      "useCase": "Use this endpoint when an agent needs all DEX pairs (price/liquidity/volume/fdv) for one or more token addresses through the dexscreener-dex-data-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs all DEX pairs (price/liquidity/volume/fdv) for one or more token addresses through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
@@ -77,7 +77,7 @@
       "title": "Search pairs by token name/symbol/address",
       "subtitle": "/latest/dex/search",
       "description": "Search pairs by token name/symbol/address",
-      "useCase": "Use this endpoint when an agent needs search pairs by token name/symbol/address through the dexscreener-dex-data-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs search pairs by token name/symbol/address through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Search pairs by token name/symbol/address",
@@ -113,7 +113,7 @@
       "title": "Latest token profiles (new-launch / discovery radar)",
       "subtitle": "/token-profiles/latest/v1",
       "description": "Latest token profiles (new-launch / discovery radar)",
-      "useCase": "Use this endpoint when an agent needs latest token profiles (new-launch / discovery radar) through the dexscreener-dex-data-tron gateway route.",
+      "useCase": "Use this endpoint when an agent needs latest token profiles (new-launch / discovery radar) through the matching TRON or BSC gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Latest token profiles (new-launch / discovery radar)",

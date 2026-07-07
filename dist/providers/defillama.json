@@ -48,7 +48,7 @@
       "subtitle": "/protocols",
       "title": "All protocols with current TVL, category and chain breakdown",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols",
-      "use_case": "Use this endpoint when an agent needs all protocols with current TVL, category and chain breakdown through the defillama-tvl-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs all protocols with current TVL, category and chain breakdown through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -84,7 +84,7 @@
       "subtitle": "/protocol/{slug}",
       "title": "Single protocol: historical TVL, fees, tokens, metadata",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}",
-      "use_case": "Use this endpoint when an agent needs single protocol: historical TVL, fees, tokens, metadata through the defillama-tvl-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs single protocol: historical TVL, fees, tokens, metadata through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -120,7 +120,7 @@
       "subtitle": "/tvl/{protocol}",
       "title": "Current total TVL of a protocol (lightweight)",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}",
-      "use_case": "Use this endpoint when an agent needs current total TVL of a protocol (lightweight) through the defillama-tvl-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs current total TVL of a protocol (lightweight) through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -144,7 +144,7 @@
         "zh-CN": {
           "description": "一个或多个代币的当前美元价(支持 {chain}:{address} 或 coingecko:{id},逗号分隔)",
           "subtitle": "/prices/current/{coins}",
-          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
           "useCase": "适合 Agent 在分析、交易、风控或数据查询流程中按需调用。"
         }
       },
@@ -154,9 +154,9 @@
       "min_price_usd": 1e-06,
       "path": "/prices/current/{coins}",
       "subtitle": "/prices/current/{coins}",
-      "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}",
+      "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}",
-      "use_case": "Use this endpoint when an agent needs current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated) through the defillama-coins-price-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated) through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -192,7 +192,7 @@
       "subtitle": "/prices/historical/{timestamp}/{coins}",
       "title": "Historical USD price at a unix timestamp for one or many coins",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}",
-      "use_case": "Use this endpoint when an agent needs historical USD price at a unix timestamp for one or many coins through the defillama-coins-price-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs historical USD price at a unix timestamp for one or many coins through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -228,7 +228,7 @@
       "subtitle": "/chart/{coins}",
       "title": "Price chart (time series) for one or many coins",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}",
-      "use_case": "Use this endpoint when an agent needs price chart (time series) for one or many coins through the defillama-coins-price-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs price chart (time series) for one or many coins through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -264,7 +264,7 @@
       "subtitle": "/percentage/{coins}",
       "title": "Percentage price change over a period for one or many coins",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}",
-      "use_case": "Use this endpoint when an agent needs percentage price change over a period for one or many coins through the defillama-coins-price-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs percentage price change over a period for one or many coins through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -300,7 +300,7 @@
       "subtitle": "/pools",
       "title": "All yield pools with current APY, TVL, chain, project and risk flags",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/pools",
-      "use_case": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the defillama-yields-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs all yield pools with current APY, TVL, chain, project and risk flags through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -336,7 +336,7 @@
       "subtitle": "/chart/{pool}",
       "title": "Historical APY / TVL time series for a single pool id",
       "url": "https://tm-x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}",
-      "use_case": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the defillama-yields-tron gateway route.",
+      "use_case": "Use this endpoint when an agent needs historical APY / TVL time series for a single pool id through the matching TRON or BSC gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -383,7 +383,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://defillama.com",
-  "sha": "84a6eb93993d59800e1569be18d335f03f599f6df28ca50f3f7a066071253b97",
+  "sha": "e6ef0b2930553b9433ec964d86e1f92851e5262794308f5c30df533170d65d5f",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
