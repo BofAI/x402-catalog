@@ -11,9 +11,7 @@
   ],
   "chains": [
     "tron:mainnet",
-    "tron:nile",
-    "eip155:56",
-    "eip155:97"
+    "eip155:56"
   ],
   "chains_meta": [
     {
@@ -23,25 +21,13 @@
       "label_zh": "TRON 主网"
     },
     {
-      "id": "tron:nile",
-      "kind": "tron",
-      "label": "TRON Nile Testnet",
-      "label_zh": "TRON Nile 测试网"
-    },
-    {
       "id": "eip155:56",
       "kind": "bnb",
       "label": "BNB Chain",
       "label_zh": "BNB Chain"
-    },
-    {
-      "id": "eip155:97",
-      "kind": "bnb",
-      "label": "BNB Smart Chain Testnet",
-      "label_zh": "BNB 测试网"
     }
   ],
-  "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Mainnet/Nile and BNB Smart Chain payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
+  "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Mainnet and BNB Smart Chain payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
   "endpoint_count": 1,
   "endpoints": [
     {
@@ -73,21 +59,7 @@
         },
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:nile",
-          "provider": "sunpump-token-launch-tron",
-          "scheme": "exact",
-          "url": "https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
-        },
-        {
-          "assetTransferMethod": "permit2",
           "network": "eip155:56",
-          "provider": "sunpump-token-launch-bsc",
-          "scheme": "exact",
-          "url": "https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch"
-        },
-        {
-          "assetTransferMethod": "permit2",
-          "network": "eip155:97",
           "provider": "sunpump-token-launch-bsc",
           "scheme": "exact",
           "url": "https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch"
@@ -107,7 +79,7 @@
   "has_metering": true,
   "i18n": {
     "zh-CN": {
-      "description": "## 当前状态\n\n这个 catalog 条目用于记录接入 x402 支付的 SunPump 发币路由。Gateway 已配置 TRON Mainnet/Nile 和 BNB Smart Chain 支付路由，但当前 SunPump 上游 POST 接口返回 `405 Not Allowed`。在 SunPump 发布或恢复可用发币 API 之前，不要把它用于实际创建 token。\n\n## 预期用途\n\n该路由原本用于在 x402 支付结算后提交发币元数据。上游 API 恢复后，调用方应 POST 包含 `name`、`symbol`、`description`、可选社交链接和可选图片数据的 JSON 元数据。\n\n## 调用说明\n\n上游不可用期间，只建议用于检查支付路由配置。付费调用可能完成结算，然后返回上游 `405 Not Allowed` 响应。",
+      "description": "## 当前状态\n\n这个 catalog 条目用于记录接入 x402 支付的 SunPump 发币路由。Gateway 已配置 TRON Mainnet 和 BNB Smart Chain 支付路由，但当前 SunPump 上游 POST 接口返回 `405 Not Allowed`。在 SunPump 发布或恢复可用发币 API 之前，不要把它用于实际创建 token。\n\n## 预期用途\n\n该路由原本用于在 x402 支付结算后提交发币元数据。上游 API 恢复后，调用方应 POST 包含 `name`、`symbol`、`description`、可选社交链接和可选图片数据的 JSON 元数据。\n\n## 调用说明\n\n上游不可用期间，只建议用于检查支付路由配置。付费调用可能完成结算，然后返回上游 `405 Not Allowed` 响应。",
       "mainTitle": "已配置的 SunPump 发币路由，上游当前不可用",
       "subtitle": "支付路由已配置，但上游 POST 当前返回 405。",
       "title": "SunPump",
@@ -122,7 +94,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://sunpump.meme",
-  "sha": "c0735ba321739deba0fb81b7fcda9dc225e61cce8d9d8184930af3b4a53c1fe1",
+  "sha": "a512e5640592dd77302fc89def6df6cdaca5b2f00cafb373a7ef6bc15fa4028a",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
