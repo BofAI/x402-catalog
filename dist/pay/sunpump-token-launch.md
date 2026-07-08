@@ -10,7 +10,7 @@ Do not use this endpoint for production token creation until SunPump provides an
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
 - Chains: `tron:mainnet`, `eip155:56`
-- TRON Mainnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
+- TRON Mainnet/Nile gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
 - BNB Smart Chain gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
 ## Current Status
@@ -19,7 +19,7 @@ The x402 gateway route can issue a payment challenge, but the upstream SunPump e
 
 ## CLI Shape
 
-TRON Mainnet:
+TRON Mainnet/Nile:
 
 ```bash
 x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
