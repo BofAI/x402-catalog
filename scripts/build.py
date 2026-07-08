@@ -241,7 +241,7 @@ def main() -> int:
         (DIST_DIR / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
 
     summaries.sort(key=lambda item: (not item["is_featured"], item["category"], item["fqn"]))
-    base_url = "https://x402-catelog.bankofai.io/api"
+    base_url = "https://tm-x402-catalog.bankofai.io/api"
     catalog = {
         "version": 1,
         "generated_at": generated_at,
