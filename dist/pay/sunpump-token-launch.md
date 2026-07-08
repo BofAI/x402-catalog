@@ -9,9 +9,9 @@ Do not use this endpoint for production token creation until SunPump provides an
 - FQN: `sunpump-token-launch`
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
-- Chains: `tron:nile`, `eip155:97`
-- TRON Nile Testnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
-- BSC Testnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
+- Chains: `tron:mainnet`, `eip155:56`
+- TRON Mainnet gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
+- BNB Smart Chain gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
 ## Current Status
 
@@ -19,12 +19,12 @@ The x402 gateway route can issue a payment challenge, but the upstream SunPump e
 
 ## CLI Shape
 
-TRON Nile Testnet:
+TRON Mainnet:
 
 ```bash
 x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network tron:nile \
+  --network tron:mainnet \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001 \
@@ -32,12 +32,12 @@ x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
-BSC Testnet:
+BNB Smart Chain:
 
 ```bash
 x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network eip155:97 \
+  --network eip155:56 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001 \

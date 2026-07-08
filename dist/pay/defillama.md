@@ -7,7 +7,7 @@ x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin da
 - FQN: `defillama-tvl-tron`
 - Gateway base: `https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron`
 - Category: `finance`
-- Chain: `tron:nile` (TRON)
+- Chain: `tron:mainnet` (TRON)
 - Scheme: `exact` + `permit2`
 - Tags: defillama, defi, tvl, fees, stablecoins
 - Listed price: `0.000001 USD` per request

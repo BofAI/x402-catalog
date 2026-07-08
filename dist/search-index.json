@@ -12,24 +12,24 @@
         "tron"
       ],
       "chains": [
-        "tron:nile",
-        "eip155:97"
+        "tron:mainnet",
+        "eip155:56"
       ],
       "chains_meta": [
         {
-          "id": "tron:nile",
+          "id": "tron:mainnet",
           "kind": "tron",
-          "label": "TRON Nile Testnet",
-          "label_zh": "TRON Nile 测试网"
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
         },
         {
-          "id": "eip155:97",
+          "id": "eip155:56",
           "kind": "bnb",
-          "label": "BNB Smart Chain Testnet",
-          "label_zh": "BNB 测试网"
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
         }
       ],
-      "description": "## What it does\n\nDefiLlama gateway over x402: read protocol TVL, fees/revenue and stablecoin metrics, multi-chain current & historical token prices with charts, and DeFi pool yields/APY — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents doing DeFi research, allocation and risk screening that need TVL / fees / stablecoin data.\n- Pricing and valuation workflows that need multi-chain current and historical token prices.\n- Yield scouting across pools by APY, TVL and risk.\n\n## Endpoints\n\n- `GET /protocols` — All protocols with current TVL, category and chain breakdown\n- `GET /protocol/{slug}` — Single protocol: historical TVL, fees, tokens, metadata\n- `GET /tvl/{protocol}` — Current total TVL of a protocol (lightweight)\n- `GET /prices/current/{coins}` — Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)\n- `GET /prices/historical/{timestamp}/{coins}` — Historical USD price at a unix timestamp for one or many coins\n- `GET /chart/{coins}` — Price chart (time series) for one or many coins\n- `GET /percentage/{coins}` — Percentage price change over a period for one or many coins\n- `GET /pools` — All yield pools with current APY, TVL, chain, project and risk flags\n- `GET /chart/{pool}` — Historical APY / TVL time series for a single pool id\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nDefiLlama gateway over x402: read protocol TVL, fees/revenue and stablecoin metrics, multi-chain current & historical token prices with charts, and DeFi pool yields/APY — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents doing DeFi research, allocation and risk screening that need TVL / fees / stablecoin data.\n- Pricing and valuation workflows that need multi-chain current and historical token prices.\n- Yield scouting across pools by APY, TVL and risk.\n\n## Endpoints\n\n- `GET /protocols` — All protocols with current TVL, category and chain breakdown\n- `GET /protocol/{slug}` — Single protocol: historical TVL, fees, tokens, metadata\n- `GET /tvl/{protocol}` — Current total TVL of a protocol (lightweight)\n- `GET /prices/current/{coins}` — Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)\n- `GET /prices/historical/{timestamp}/{coins}` — Historical USD price at a unix timestamp for one or many coins\n- `GET /chart/{coins}` — Price chart (time series) for one or many coins\n- `GET /percentage/{coins}` — Percentage price change over a period for one or many coins\n- `GET /pools` — All yield pools with current APY, TVL, chain, project and risk flags\n- `GET /chart/{pool}` — Historical APY / TVL time series for a single pool id\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols'\n```\n\nPay on BNB Smart Chain with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoints": [
         {
           "description": "All protocols with current TVL, category and chain breakdown",
@@ -112,24 +112,24 @@
         "tron"
       ],
       "chains": [
-        "tron:nile",
-        "eip155:97"
+        "tron:mainnet",
+        "eip155:56"
       ],
       "chains_meta": [
         {
-          "id": "tron:nile",
+          "id": "tron:mainnet",
           "kind": "tron",
-          "label": "TRON Nile Testnet",
-          "label_zh": "TRON Nile 测试网"
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
         },
         {
-          "id": "eip155:97",
+          "id": "eip155:56",
           "kind": "bnb",
-          "label": "BNB Smart Chain Testnet",
-          "label_zh": "BNB 测试网"
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
         }
       ],
-      "description": "## What it does\n\nDexScreener market data over x402: search DEX trading pairs, read live price / liquidity / volume, and surface newly launched and trending tokens across major chains, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- New-pool / meme-launch radar for agents tracking fresh listings.\n- Momentum and liquidity checks before entering a position.\n- Pair lookups by token address or symbol.\n\n## Endpoints\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses\n- `GET /latest/dex/search` — Search pairs by token name/symbol/address\n- `GET /token-profiles/latest/v1` — Latest token profiles (new-launch / discovery radar)\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nDexScreener market data over x402: search DEX trading pairs, read live price / liquidity / volume, and surface newly launched and trending tokens across major chains, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- New-pool / meme-launch radar for agents tracking fresh listings.\n- Momentum and liquidity checks before entering a position.\n- Pair lookups by token address or symbol.\n\n## Endpoints\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses\n- `GET /latest/dex/search` — Search pairs by token name/symbol/address\n- `GET /token-profiles/latest/v1` — Latest token profiles (new-launch / discovery radar)\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on BNB Smart Chain with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoints": [
         {
           "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
@@ -177,24 +177,24 @@
         "tron"
       ],
       "chains": [
-        "tron:nile",
-        "eip155:97"
+        "tron:mainnet",
+        "eip155:56"
       ],
       "chains_meta": [
         {
-          "id": "tron:nile",
+          "id": "tron:mainnet",
           "kind": "tron",
-          "label": "TRON Nile Testnet",
-          "label_zh": "TRON Nile 测试网"
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
         },
         {
-          "id": "eip155:97",
+          "id": "eip155:56",
           "kind": "bnb",
-          "label": "BNB Smart Chain Testnet",
-          "label_zh": "BNB 测试网"
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
         }
       ],
-      "description": "## What it does\n\nDIA oracle price feeds over x402: transparent, multi-source aggregated token quotations across 80+ CEX/DEX markets for 3,000+ assets, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents needing verifiable reference prices for valuation or settlement.\n- Manipulation-resistant pricing as a risk or compliance check.\n- Cross-checking a venue spot price against an independent oracle.\n\n## Endpoints\n\n- `GET /v1/quotation/{symbol}` — Aggregated price quotation by asset symbol\n- `GET /v1/assetQuotation/{blockchain}/{address}` — Aggregated price quotation by blockchain + contract address\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nDIA oracle price feeds over x402: transparent, multi-source aggregated token quotations across 80+ CEX/DEX markets for 3,000+ assets, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents needing verifiable reference prices for valuation or settlement.\n- Manipulation-resistant pricing as a risk or compliance check.\n- Cross-checking a venue spot price against an independent oracle.\n\n## Endpoints\n\n- `GET /v1/quotation/{symbol}` — Aggregated price quotation by asset symbol\n- `GET /v1/assetQuotation/{blockchain}/{address}` — Aggregated price quotation by blockchain + contract address\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\nPay on BNB Smart Chain with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoints": [
         {
           "description": "Aggregated price quotation by asset symbol",
@@ -235,24 +235,24 @@
         "tron"
       ],
       "chains": [
-        "tron:nile",
-        "eip155:97"
+        "tron:mainnet",
+        "eip155:56"
       ],
       "chains_meta": [
         {
-          "id": "tron:nile",
+          "id": "tron:mainnet",
           "kind": "tron",
-          "label": "TRON Nile Testnet",
-          "label_zh": "TRON Nile 测试网"
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
         },
         {
-          "id": "eip155:97",
+          "id": "eip155:56",
           "kind": "bnb",
-          "label": "BNB Smart Chain Testnet",
-          "label_zh": "BNB 测试网"
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
         }
       ],
-      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v2/token_approval_security/{chain_id}` — Token approval / allowance risk check for one or more wallet addresses; pass `addresses` as a query parameter\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/56?contract_addresses=0x337610d27c682E347C9cD60BD4b3b107C9d34dDd'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## What it does\n\nGoPlus Security API over x402: scan token contracts and wallet addresses for risks — honeypots, buy/sell tax, mintable/blacklist/proxy permissions and known malicious addresses — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Pre-trade safety screening before a swap.\n- Wallet / address risk checks before transfers or approvals.\n- Automated due-diligence inside agent trading flows.\n\n## Endpoints\n\n- `GET /api/v1/token_security/{chain_id}` — Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts\n- `GET /api/v1/address_security/{address}` — Malicious-address check (sanctions, phishing, known scam)\n- `GET /api/v2/token_approval_security/{chain_id}` — Token approval / allowance risk check for one or more wallet addresses; pass `addresses` as a query parameter\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/56?contract_addresses=0x55d398326f99059fF775485246999027B3197955'\n```\n\nPay on BNB Smart Chain with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "endpoints": [
         {
           "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
@@ -299,24 +299,24 @@
         "tron"
       ],
       "chains": [
-        "tron:nile",
-        "eip155:97"
+        "tron:mainnet",
+        "eip155:56"
       ],
       "chains_meta": [
         {
-          "id": "tron:nile",
+          "id": "tron:mainnet",
           "kind": "tron",
-          "label": "TRON Nile Testnet",
-          "label_zh": "TRON Nile 测试网"
+          "label": "TRON Mainnet",
+          "label_zh": "TRON 主网"
         },
         {
-          "id": "eip155:97",
+          "id": "eip155:56",
           "kind": "bnb",
-          "label": "BNB Smart Chain Testnet",
-          "label_zh": "BNB 测试网"
+          "label": "BNB Chain",
+          "label_zh": "BNB Chain"
         }
       ],
-      "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Nile and BSC Testnet payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
+      "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Mainnet and BNB Smart Chain payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
       "endpoints": [
         {
           "description": "Configured SunPump launch route. The x402 payment route exists, but the current upstream POST endpoint returns `405 Not Allowed`, so token creation is unavailable.",
@@ -339,6 +339,6 @@
       "use_case": "Use this provider only to inspect the configured x402 payment route while the SunPump upstream launch API is unavailable."
     }
   ],
-  "generated_at": "2026-07-08T05:24:45Z",
+  "generated_at": "2026-07-08T08:50:40Z",
   "version": 1
 }

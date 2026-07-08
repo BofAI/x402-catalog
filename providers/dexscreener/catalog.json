@@ -4,13 +4,13 @@
   "title": "DexScreener",
   "mainTitle": "Real-time DEX pairs, prices & new listings",
   "subtitle": "On-chain market radar for new pools, momentum and liquidity.",
-  "description": "## What it does\n\nDexScreener market data over x402: search DEX trading pairs, read live price / liquidity / volume, and surface newly launched and trending tokens across major chains, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- New-pool / meme-launch radar for agents tracking fresh listings.\n- Momentum and liquidity checks before entering a position.\n- Pair lookups by token address or symbol.\n\n## Endpoints\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses\n- `GET /latest/dex/search` — Search pairs by token name/symbol/address\n- `GET /token-profiles/latest/v1` — Latest token profiles (new-launch / discovery radar)\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Nile Testnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on TRON Nile Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC Testnet (`eip155:97`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on BSC Testnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+  "description": "## What it does\n\nDexScreener market data over x402: search DEX trading pairs, read live price / liquidity / volume, and surface newly launched and trending tokens across major chains, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- New-pool / meme-launch radar for agents tracking fresh listings.\n- Momentum and liquidity checks before entering a position.\n- Pair lookups by token address or symbol.\n\n## Endpoints\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses\n- `GET /latest/dex/search` — Search pairs by token name/symbol/address\n- `GET /token-profiles/latest/v1` — Latest token profiles (new-launch / discovery radar)\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet (`exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\nPay on BNB Smart Chain with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
   "useCase": "Use to look up a token's DEX pairs/price/liquidity, search tokens, or pull the latest token profiles for new-launch / meme screening.",
   "i18n": {
     "zh-CN": {
       "title": "DexScreener",
       "subtitle": "链上行情雷达:新盘、动量与流动性。",
-      "description": "## 能做什么\n\nDexScreener 行情的 x402 网关:搜索 DEX 交易对,读取实时价格/流动性/成交量,发现各主流链上新上线与热门代币,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 追踪新盘/meme 上新的 Agent 雷达。\n- 入场前查看动量与流动性。\n- 按代币地址或符号查交易对。\n\n## 接口\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — 一个或多个代币地址的全部 DEX 交易对(价格/流动性/成交量/FDV)\n- `GET /latest/dex/search` — 按代币名称/符号/地址搜索交易对\n- `GET /token-profiles/latest/v1` — 最新代币档案(新发/发现雷达)\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON Nile 测试网(`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 TRON Nile 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:nile \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBSC 测试网(`eip155:97`,`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 BSC 测试网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:97 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
+      "description": "## 能做什么\n\nDexScreener 行情的 x402 网关:搜索 DEX 交易对,读取实时价格/流动性/成交量,发现各主流链上新上线与热门代币,一个 provider 覆盖 TRON 与 BSC。\n\n## 适合场景\n\n- 追踪新盘/meme 上新的 Agent 雷达。\n- 入场前查看动量与流动性。\n- 按代币地址或符号查交易对。\n\n## 接口\n\n- `GET /latest/dex/tokens/{tokenAddresses}` — 一个或多个代币地址的全部 DEX 交易对(价格/流动性/成交量/FDV)\n- `GET /latest/dex/search` — 按代币名称/符号/地址搜索交易对\n- `GET /token-profiles/latest/v1` — 最新代币档案(新发/发现雷达)\n\n## 调用示例\n\n这些是 x402 付费直通路由,通过 x402 支付后访问网关。TRON 主网(`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 TRON 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network tron:mainnet \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain 主网(`eip155:56`,`exact` + `permit2`)示例:\n\n```bash\ncurl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}'\n```\n\n使用 x402 CLI 在 BNB Smart Chain 主网付费(金额按 USD):\n\n```bash\nx402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
       "useCase": "适合需要链上金融、价格、收益、DEX 或安全数据的 Agent 工作流。",
       "mainTitle": "实时 DEX 交易对、价格与新盘"
     }
@@ -18,8 +18,8 @@
   "logo": "https://dexscreener.com/favicon.ico",
   "category": "finance",
   "chains": [
-    "tron:nile",
-    "eip155:97"
+    "tron:mainnet",
+    "eip155:56"
   ],
   "isFirstParty": false,
   "isFeatured": false,
@@ -56,14 +56,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:nile",
+          "network": "tron:mainnet",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
         },
         {
           "provider": "dexscreener-dex-data-bsc",
-          "network": "eip155:97",
+          "network": "eip155:56",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}"
@@ -92,14 +92,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:nile",
+          "network": "tron:mainnet",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
         },
         {
           "provider": "dexscreener-dex-data-bsc",
-          "network": "eip155:97",
+          "network": "eip155:56",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/search"
@@ -128,14 +128,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:nile",
+          "network": "tron:mainnet",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
         },
         {
           "provider": "dexscreener-dex-data-bsc",
-          "network": "eip155:97",
+          "network": "eip155:56",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/token-profiles/latest/v1"
