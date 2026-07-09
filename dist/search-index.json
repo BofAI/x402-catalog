@@ -35,55 +35,199 @@
           "description": "All protocols with current TVL, category and chain breakdown",
           "method": "GET",
           "path": "/protocols",
-          "title": "All protocols with current TVL, category and chain breakdown"
+          "title": "All protocols with current TVL, category and chain breakdown",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-tvl-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-tvl-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols"
+            }
+          ]
         },
         {
           "description": "Single protocol: historical TVL, fees, tokens, metadata",
           "method": "GET",
           "path": "/protocol/{slug}",
-          "title": "Single protocol: historical TVL, fees, tokens, metadata"
+          "title": "Single protocol: historical TVL, fees, tokens, metadata",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-tvl-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-tvl-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocol/{slug}"
+            }
+          ]
         },
         {
           "description": "Current total TVL of a protocol (lightweight)",
           "method": "GET",
           "path": "/tvl/{protocol}",
-          "title": "Current total TVL of a protocol (lightweight)"
+          "title": "Current total TVL of a protocol (lightweight)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-tvl-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-tvl-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/tvl/{protocol}"
+            }
+          ]
         },
         {
           "description": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
           "method": "GET",
           "path": "/prices/current/{coins}",
-          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)"
+          "title": "Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-coins-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-coins-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/current/{coins}"
+            }
+          ]
         },
         {
           "description": "Historical USD price at a unix timestamp for one or many coins",
           "method": "GET",
           "path": "/prices/historical/{timestamp}/{coins}",
-          "title": "Historical USD price at a unix timestamp for one or many coins"
+          "title": "Historical USD price at a unix timestamp for one or many coins",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-coins-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-coins-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/historical/{timestamp}/{coins}"
+            }
+          ]
         },
         {
           "description": "Price chart (time series) for one or many coins",
           "method": "GET",
           "path": "/chart/{coins}",
-          "title": "Price chart (time series) for one or many coins"
+          "title": "Price chart (time series) for one or many coins",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-coins-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-coins-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/chart/{coins}"
+            }
+          ]
         },
         {
           "description": "Percentage price change over a period for one or many coins",
           "method": "GET",
           "path": "/percentage/{coins}",
-          "title": "Percentage price change over a period for one or many coins"
+          "title": "Percentage price change over a period for one or many coins",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-coins-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-coins-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/percentage/{coins}"
+            }
+          ]
         },
         {
           "description": "All yield pools with current APY, TVL, chain, project and risk flags",
           "method": "GET",
           "path": "/pools",
-          "title": "All yield pools with current APY, TVL, chain, project and risk flags"
+          "title": "All yield pools with current APY, TVL, chain, project and risk flags",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-yields-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-yields-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/pools"
+            }
+          ]
         },
         {
           "description": "Historical APY / TVL time series for a single pool id",
           "method": "GET",
           "path": "/chart/{pool}",
-          "title": "Historical APY / TVL time series for a single pool id"
+          "title": "Historical APY / TVL time series for a single pool id",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "defillama-yields-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "defillama-yields-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/chart/{pool}"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -135,19 +279,67 @@
           "description": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
           "method": "GET",
           "path": "/latest/dex/tokens/{tokenAddresses}",
-          "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses"
+          "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "dexscreener-dex-data-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "dexscreener-dex-data-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}"
+            }
+          ]
         },
         {
           "description": "Search pairs by token name/symbol/address",
           "method": "GET",
           "path": "/latest/dex/search",
-          "title": "Search pairs by token name/symbol/address"
+          "title": "Search pairs by token name/symbol/address",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "dexscreener-dex-data-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "dexscreener-dex-data-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/search"
+            }
+          ]
         },
         {
           "description": "Latest token profiles (new-launch / discovery radar)",
           "method": "GET",
           "path": "/token-profiles/latest/v1",
-          "title": "Latest token profiles (new-launch / discovery radar)"
+          "title": "Latest token profiles (new-launch / discovery radar)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "dexscreener-dex-data-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "dexscreener-dex-data-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/token-profiles/latest/v1"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -200,13 +392,45 @@
           "description": "Aggregated price quotation by asset symbol",
           "method": "GET",
           "path": "/v1/quotation/{symbol}",
-          "title": "Aggregated price quotation by asset symbol"
+          "title": "Aggregated price quotation by asset symbol",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "dia-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "dia-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}"
+            }
+          ]
         },
         {
           "description": "Aggregated price quotation by blockchain + contract address",
           "method": "GET",
           "path": "/v1/assetQuotation/{blockchain}/{address}",
-          "title": "Aggregated price quotation by blockchain + contract address"
+          "title": "Aggregated price quotation by blockchain + contract address",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "dia-price-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "dia-price-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/assetQuotation/{blockchain}/{address}"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -258,19 +482,67 @@
           "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
           "method": "GET",
           "path": "/api/v1/token_security/{chain_id}",
-          "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more"
+          "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "goplus-token-security-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "goplus-token-security-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}"
+            }
+          ]
         },
         {
           "description": "Malicious-address check (sanctions, phishing, known scam)",
           "method": "GET",
           "path": "/api/v1/address_security/{address}",
-          "title": "Malicious-address check (sanctions, phishing, known scam)"
+          "title": "Malicious-address check (sanctions, phishing, known scam)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "goplus-token-security-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "goplus-token-security-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/address_security/{address}"
+            }
+          ]
         },
         {
           "description": "Token approval / allowance risk check for one or more wallet addresses. Pass the `addresses` query parameter as required by GoPlus.",
           "method": "GET",
           "path": "/api/v2/token_approval_security/{chain_id}",
-          "title": "Token approval / allowance risk check for wallet addresses"
+          "title": "Token approval / allowance risk check for wallet addresses",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "goplus-token-security-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "goplus-token-security-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v2/token_approval_security/{chain_id}"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -322,7 +594,23 @@
           "description": "Configured SunPump launch route. The x402 payment route exists, but the current upstream POST endpoint returns `405 Not Allowed`, so token creation is unavailable.",
           "method": "POST",
           "path": "/pump-api/ai/agentTokenLaunch",
-          "title": "SunPump launch route unavailable"
+          "title": "SunPump launch route unavailable",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "permit2",
+              "network": "tron:mainnet",
+              "provider": "sunpump-token-launch-tron",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
+            },
+            {
+              "assetTransferMethod": "permit2",
+              "network": "eip155:56",
+              "provider": "sunpump-token-launch-bsc",
+              "scheme": "exact",
+              "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -339,6 +627,6 @@
       "use_case": "Use this provider only to inspect the configured x402 payment route while the SunPump upstream launch API is unavailable."
     }
   ],
-  "generated_at": "2026-07-09T06:41:25Z",
+  "generated_at": "2026-07-09T08:43:43Z",
   "version": 1
 }
