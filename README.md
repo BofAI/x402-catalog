@@ -88,3 +88,5 @@ Provider FQNs should be stable, lowercase, and URL-safe.
 ## Repository Name
 
 The repository name intentionally remains `x402-catelog` for compatibility with the existing project and deployment references.
+
+- [JMT x402 Agent Tools](https://jmt-x402-proxy.jmthomasofficial.workers.dev) — 25 paid x402 endpoints on Base mainnet: web search, AI analysis, crypto/stock data, SEC filings, company intel, news, sentiment, macro dashboard. $0.001-$0.15/call USDC. Local LLM-powered.
