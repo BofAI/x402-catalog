@@ -5,7 +5,7 @@ x402-paid passthrough for DexScreener token/pair data, search and latest token p
 ## Service
 
 - FQN: `dexscreener-dex-data-tron`
-- Gateway base: `https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron`
+- Gateway base: `https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron`
 - Category: `finance`
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact` + `permit2`
@@ -43,13 +43,13 @@ Latest token profiles (new-launch / discovery radar)
 Call the catalog route with any HTTP client. Example:
 
 ```bash
-curl -sS 'https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN'
+curl -sS 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN'
 ```
 
 Equivalent route form:
 
 ```text
-GET https://tm-x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN
+GET https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN
 ```
 
 ## Spend-Aware Usage

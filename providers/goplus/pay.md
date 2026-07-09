@@ -5,7 +5,7 @@ x402-paid passthrough for GoPlus Security checks (token security / honeypot, mal
 ## Service
 
 - FQN: `goplus-token-security-tron`
-- Gateway base: `https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron`
+- Gateway base: `https://x402-gateway.bankofai.io/providers/goplus-token-security-tron`
 - Category: `finance`
 - Chain: `tron:mainnet` (TRON)
 - Scheme: `exact` + `permit2`
@@ -43,13 +43,13 @@ Token approval / allowance risk check for one or more wallet addresses. Pass `ad
 Call the catalog route with any HTTP client. Example:
 
 ```bash
-curl -sS 'https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....'
+curl -sS 'https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....'
 ```
 
 Equivalent route form:
 
 ```text
-GET https://tm-x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....
+GET https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....
 ```
 
 ## Spend-Aware Usage

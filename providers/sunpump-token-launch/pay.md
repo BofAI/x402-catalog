@@ -10,8 +10,8 @@ Do not use this endpoint for production token creation until SunPump provides an
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
 - Chains: `tron:mainnet`, `eip155:56`
-- TRON Mainnet/Nile gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
-- BNB Smart Chain gateway base: `https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
+- TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
+- BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
 ## Current Status
 
@@ -19,10 +19,10 @@ The x402 gateway route can issue a payment challenge, but the upstream SunPump e
 
 ## CLI Shape
 
-TRON Mainnet/Nile:
+TRON Mainnet:
 
 ```bash
-x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
   --method POST \
   --network tron:mainnet \
   --token USDT \
@@ -35,7 +35,7 @@ x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch
 BNB Smart Chain:
 
 ```bash
-x402-cli pay 'https://tm-x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
   --method POST \
   --network eip155:56 \
   --token USDT \
@@ -68,5 +68,5 @@ When SunPump restores or publishes an active launch API, the upstream response i
 - After SunPump restores an active route, the endpoint may have side effects: a successful paid call can create a token.
 - Validate metadata before paying. In particular, keep `name` within 1-20 characters.
 - You can provide your own token image with `imageBase64`; otherwise the launch service generates one.
-- Current listed prices are fixed per request across both testnet payment routes.
+- Current listed prices are fixed per request across both mainnet payment routes.
 - The public catalog does not contain gateway runtime secrets or wallet keys.
