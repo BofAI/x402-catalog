@@ -200,7 +200,7 @@ def search_doc(summary: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any
                 "path": endpoint["path"],
                 "title": endpoint["title"],
                 "description": endpoint["description"],
-                **({"x402_routes": endpoint["x402Routes"]} if "x402Routes" in endpoint else {}),
+                **({"x402_routes": endpoint["x402_routes"]} if "x402_routes" in endpoint else {}),
             }
             for endpoint in detail["endpoints"]
         ],
@@ -241,7 +241,7 @@ def main() -> int:
         (DIST_DIR / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
 
     summaries.sort(key=lambda item: (not item["is_featured"], item["category"], item["fqn"]))
-    base_url = "https://x402-catelog.bankofai.io/api"
+    base_url = "https://x402-catalog.bankofai.io/api"
     catalog = {
         "version": 1,
         "generated_at": generated_at,

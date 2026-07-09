@@ -1,6 +1,6 @@
 services:
   catalog:
-    image: ${X402_CATALOG_IMAGE:-bankofai/x402-catelog:test}
+    image: ${X402_CATALOG_IMAGE:-bankofai/x402-catelog:v20260709171701}
     build:
       context: .
       dockerfile: Dockerfile

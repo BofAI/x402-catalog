@@ -8,10 +8,16 @@ from pathlib import Path
 
 
 class CatalogHandler(SimpleHTTPRequestHandler):
+    def list_directory(self, path: str):
+        self.send_error(404, "File not found")
+        return None
+
     def end_headers(self) -> None:
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Referrer-Policy", "no-referrer")
         super().end_headers()
 
     def do_OPTIONS(self) -> None:

@@ -1,8 +1,8 @@
 # SunPump Agent Token Launch API
 
-SunPump Agent Token Launch API is an x402-paid gateway provider for launching a SunPump token from structured metadata. It exposes the same launch request shape across TRON and BSC payment routes.
+SunPump Agent Token Launch API is an x402-paid gateway provider entry for a SunPump launch route. The current upstream POST endpoint returns `405 Not Allowed`, so this route is documented as configured but not currently usable for successful token creation.
 
-Use it when an agent, backend workflow, or CLI script has already validated the launch metadata and is ready to create the token.
+Do not use this endpoint for production token creation until SunPump provides an active POST API path.
 
 ## Service
 
@@ -11,11 +11,13 @@ Use it when an agent, backend workflow, or CLI script has already validated the 
 - Category: `finance`
 - Chains: `tron:mainnet`, `eip155:56`
 - TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
-- BSC Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
+- BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
-## CLI Quick Start
+## Current Status
 
-Install or update the x402 CLI, then call the route matching the payment chain you want to use.
+The x402 gateway route can issue a payment challenge, but the upstream SunPump endpoint currently rejects POST requests. A paid call may settle and then return an upstream `405 Not Allowed` response.
+
+## CLI Shape
 
 TRON Mainnet:
 
@@ -24,20 +26,20 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tr
   --method POST \
   --network tron:mainnet \
   --token USDT \
-  --scheme exact_permit \
+  --scheme exact \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
-BSC Mainnet:
+BNB Smart Chain:
 
 ```bash
 x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
   --method POST \
   --network eip155:56 \
   --token USDT \
-  --scheme exact_permit \
+  --scheme exact \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402BscA","symbol":"X4B17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
@@ -47,7 +49,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bs
 
 ### POST /pump-api/ai/agentTokenLaunch
 
-Create a SunPump token from JSON metadata after x402 payment settlement.
+Configured launch route for JSON metadata after x402 payment settlement. It is currently blocked by the upstream `405 Not Allowed` response.
 
 Required request fields:
 
@@ -58,11 +60,12 @@ Required request fields:
 - `twitterUrl`, `telegramUrl`, `websiteUrl`: optional social links, or empty strings.
 - `tweetUsername`: optional tweet username, or an empty string.
 
-The upstream response returns SunPump status and token launch data such as token id, owner address, contract address, create transaction hash, logo URL, reserves, and market data when available.
+When SunPump restores or publishes an active launch API, the upstream response is expected to return launch status and token data. Until then, this endpoint should be treated as unavailable.
 
 ## Integration Notes
 
-- The endpoint has side effects: a successful paid call can create a token.
+- The endpoint is currently unavailable because the upstream POST route returns `405 Not Allowed`.
+- After SunPump restores an active route, the endpoint may have side effects: a successful paid call can create a token.
 - Validate metadata before paying. In particular, keep `name` within 1-20 characters.
 - You can provide your own token image with `imageBase64`; otherwise the launch service generates one.
 - Current listed prices are fixed per request across both mainnet payment routes.

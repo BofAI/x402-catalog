@@ -8,7 +8,7 @@ x402-paid passthrough for GoPlus Security checks (token security / honeypot, mal
 - Gateway base: `https://x402-gateway.bankofai.io/providers/goplus-token-security-tron`
 - Category: `finance`
 - Chain: `tron:mainnet` (TRON)
-- Scheme: `exact_permit`
+- Scheme: `exact` + `permit2`
 - Tags: goplus, security, honeypot, risk, token-security
 - Listed price: `0.000001 USD` per request
 
@@ -24,14 +24,15 @@ Token security report (honeypot, taxes, owner privileges, holders) for one or mo
 ### GET /api/v1/address_security/{address}
 
 Malicious-address check (sanctions, phishing, known scam)
-### GET /api/v1/approval_security/{chain_id}
+### GET /api/v2/token_approval_security/{chain_id}
 
-Approval / allowance risk check for a spender contract
+Token approval / allowance risk check for one or more wallet addresses. Pass `addresses` as a query parameter.
 
 ## Request Examples
 
 - `GET /providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=T....`
 - `GET /providers/goplus-token-security-tron/api/v1/address_security/T....`
+- `GET /providers/goplus-token-security-tron/api/v2/token_approval_security/728126428?addresses=T....`
 
 ## Response Shape
 
