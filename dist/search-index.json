@@ -588,13 +588,13 @@
           "label_zh": "BNB Chain"
         }
       ],
-      "description": "## Current status\n\nThis catalog entry tracks the SunPump launch route behind x402 payment. The gateway route is configured for TRON Mainnet and BNB Smart Chain payments, but the current SunPump upstream POST endpoint returns `405 Not Allowed`. Do not use it for successful token creation until SunPump publishes or restores an active launch API path.\n\n## Intended use\n\nThe route is intended to submit token launch metadata after x402 payment settlement. Once the upstream API is active, callers should POST JSON metadata with `name`, `symbol`, `description`, optional social URLs, and optional image data.\n\n## Code usage\n\nUse the route only for payment-route integration testing while the upstream remains unavailable. A paid call may settle and then return the upstream `405 Not Allowed` response.",
+      "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Mainnet payment flows across TRON and BNB Smart Chain while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nUse `x402-cli pay` against the route for the mainnet payment chain you want. TRON Mainnet and BNB Smart Chain routes are both available through the gateway.",
       "endpoints": [
         {
-          "description": "Configured SunPump launch route. The x402 payment route exists, but the current upstream POST endpoint returns `405 Not Allowed`, so token creation is unavailable.",
+          "description": "Submit token metadata to SunPump after x402 payment settlement. `imageBase64` can carry a base64-encoded token image; when it is empty or omitted, SunPump generates an image automatically. The response includes SunPump status and token data such as token id, owner address, contract address, logo URL, create transaction hash, reserves, and market data when available.",
           "method": "POST",
           "path": "/pump-api/ai/agentTokenLaunch",
-          "title": "SunPump launch route unavailable",
+          "title": "Launch Agent Token",
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
@@ -622,11 +622,11 @@
       ],
       "fqn": "sunpump-token-launch",
       "service_url": "https://sunpump.meme",
-      "subtitle": "Payment route exists, but the upstream POST endpoint returns 405.",
+      "subtitle": "Create a meme or agent token from structured metadata.",
       "title": "SunPump",
-      "use_case": "Use this provider only to inspect the configured x402 payment route while the SunPump upstream launch API is unavailable."
+      "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose the route matching the intended mainnet payment chain: TRON Mainnet or BNB Smart Chain."
     }
   ],
-  "generated_at": "2026-07-09T08:43:43Z",
+  "generated_at": "2026-07-10T07:15:40Z",
   "version": 1
 }

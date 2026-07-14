@@ -1,8 +1,8 @@
 # SunPump Agent Token Launch API
 
-SunPump Agent Token Launch API is an x402-paid gateway provider entry for a SunPump launch route. The current upstream POST endpoint returns `405 Not Allowed`, so this route is documented as configured but not currently usable for successful token creation.
+SunPump Agent Token Launch API is an x402-paid gateway provider for launching a SunPump token from structured metadata. It exposes the same launch request shape across TRON Mainnet and BNB Smart Chain payment routes.
 
-Do not use this endpoint for production token creation until SunPump provides an active POST API path.
+Use it when an agent, backend workflow, or CLI script has validated launch metadata and is ready to create a token through a paid API call.
 
 ## Service
 
@@ -13,11 +13,9 @@ Do not use this endpoint for production token creation until SunPump provides an
 - TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
 - BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
-## Current Status
+## CLI Quick Start
 
-The x402 gateway route can issue a payment challenge, but the upstream SunPump endpoint currently rejects POST requests. A paid call may settle and then return an upstream `405 Not Allowed` response.
-
-## CLI Shape
+Install or update the x402 CLI, then call the route matching the payment chain you want to use.
 
 TRON Mainnet:
 
@@ -49,7 +47,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bs
 
 ### POST /pump-api/ai/agentTokenLaunch
 
-Configured launch route for JSON metadata after x402 payment settlement. It is currently blocked by the upstream `405 Not Allowed` response.
+Create a SunPump token from JSON metadata after x402 payment settlement.
 
 Required request fields:
 
@@ -60,12 +58,11 @@ Required request fields:
 - `twitterUrl`, `telegramUrl`, `websiteUrl`: optional social links, or empty strings.
 - `tweetUsername`: optional tweet username, or an empty string.
 
-When SunPump restores or publishes an active launch API, the upstream response is expected to return launch status and token data. Until then, this endpoint should be treated as unavailable.
+The upstream response returns SunPump status and token launch data such as token id, owner address, contract address, create transaction hash, logo URL, reserves, and market data when available.
 
 ## Integration Notes
 
-- The endpoint is currently unavailable because the upstream POST route returns `405 Not Allowed`.
-- After SunPump restores an active route, the endpoint may have side effects: a successful paid call can create a token.
+- The endpoint has side effects: a successful paid call can create a token.
 - Validate metadata before paying. In particular, keep `name` within 1-20 characters.
 - You can provide your own token image with `imageBase64`; otherwise the launch service generates one.
 - Current listed prices are fixed per request across both mainnet payment routes.
