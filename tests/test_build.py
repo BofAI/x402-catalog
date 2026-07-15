@@ -21,6 +21,16 @@ def load_build_module():
     return module
 
 
+def load_cataloglib_module():
+    sys.path.insert(0, str(SCRIPTS))
+    module_path = SCRIPTS / "cataloglib.py"
+    spec = importlib.util.spec_from_file_location("cataloglib_test", module_path)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def route_count(payload: object, key: str) -> int:
     if isinstance(payload, dict):
         total = 0
@@ -36,6 +46,27 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
+        cataloglib = load_cataloglib_module()
+        endpoint = {
+            "x402Routes": [{
+                "provider": "demo",
+                "network": "tron:0xcd8690dc",
+                "scheme": "exact_gasfree",
+                "url": "https://gateway.example/providers/demo/v1",
+            }]
+        }
+        errors: list[str] = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertEqual(errors, [])
+
+        endpoint["x402Routes"][0]["network"] = "eip155:97"
+        endpoint["x402Routes"][0]["assetTransferMethod"] = "permit2"
+        errors = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("TRON" in error for error in errors))
+        self.assertTrue(any("must be omitted" in error for error in errors))
+
     def test_search_index_preserves_x402_routes(self) -> None:
         build = load_build_module()
         self.assertEqual(build.main(), 0)

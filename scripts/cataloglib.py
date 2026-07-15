@@ -28,7 +28,7 @@ CATEGORIES = {
     "storage",
     "translation",
 }
-X402_SCHEMES = {"exact"}
+X402_SCHEMES = {"exact", "exact_gasfree"}
 X402_ASSET_TRANSFER_METHODS = {"permit2"}
 SECRET_KEY_RE = re.compile(
     r"(api[_-]?key|secret|password|passwd|token|authorization|bearer|private[_-]?key|provider\.yml|\.env)",
@@ -140,15 +140,22 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
         if not isinstance(route, dict):
             errors.append(f"{route_path} must be an object")
             continue
-        for key in ("provider", "network", "scheme", "assetTransferMethod", "url"):
+        for key in ("provider", "network", "scheme", "url"):
             require_string(route, key, errors, path=route_path)
-        if route.get("scheme") not in X402_SCHEMES:
+        scheme = route.get("scheme")
+        if scheme not in X402_SCHEMES:
             errors.append(f"{route_path}.scheme must be one of {sorted(X402_SCHEMES)}")
-        if route.get("assetTransferMethod") not in X402_ASSET_TRANSFER_METHODS:
+        transfer_method = route.get("assetTransferMethod")
+        if scheme == "exact" and transfer_method not in X402_ASSET_TRANSFER_METHODS:
             errors.append(
                 f"{route_path}.assetTransferMethod must be one of "
                 f"{sorted(X402_ASSET_TRANSFER_METHODS)}"
             )
+        if scheme == "exact_gasfree":
+            if not str(route.get("network", "")).startswith("tron:"):
+                errors.append(f"{route_path}.exact_gasfree is supported only on TRON networks")
+            if transfer_method is not None:
+                errors.append(f"{route_path}.assetTransferMethod must be omitted for exact_gasfree")
 
 
 def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[str]:

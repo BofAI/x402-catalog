@@ -65,16 +65,30 @@
         "provider",
         "network",
         "scheme",
-        "assetTransferMethod",
         "url"
       ],
       "properties": {
         "provider": { "type": "string" },
         "network": { "type": "string" },
-        "scheme": { "const": "exact" },
+        "scheme": { "enum": ["exact", "exact_gasfree"] },
         "assetTransferMethod": { "const": "permit2" },
         "url": { "type": "string" }
-      }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "scheme": { "const": "exact" } } },
+          "then": { "required": ["assetTransferMethod"] }
+        },
+        {
+          "if": { "properties": { "scheme": { "const": "exact_gasfree" } } },
+          "then": {
+            "properties": {
+              "network": { "pattern": "^tron:" }
+            },
+            "not": { "required": ["assetTransferMethod"] }
+          }
+        }
+      ]
     }
   }
 }

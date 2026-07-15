@@ -40,13 +40,17 @@ CHAIN_META = {
         "label": "BNB Smart Chain Testnet",
         "label_zh": "BNB 测试网",
     },
-    "tron:mainnet": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
-    "tron:nile": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
-    "tron:shasta": {
+    "tron:0x2b6653dc": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
+    "tron:0xcd8690dc": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
+    "tron:0x94a9059e": {
         "kind": "tron",
         "label": "TRON Shasta Testnet",
         "label_zh": "TRON Shasta 测试网",
     },
+    # Legacy aliases remain readable while new entries use canonical CAIP-2 IDs.
+    "tron:mainnet": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
+    "tron:nile": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
+    "tron:shasta": {"kind": "tron", "label": "TRON Shasta Testnet", "label_zh": "TRON Shasta 测试网"},
 }
 
 
