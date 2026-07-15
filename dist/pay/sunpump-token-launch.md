@@ -10,7 +10,7 @@ Use it when an agent, backend workflow, or CLI script has validated launch metad
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
 - Chains: `tron:0x2b6653dc`, `eip155:56`
-- TRON schemes: `exact` + `permit2`, `exact_gasfree`
+- TRON schemes: `exact` + `permit2` (default), `exact_gasfree`
 - BNB Smart Chain scheme: `exact` + `permit2`
 - TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
 - BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
@@ -32,7 +32,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tr
   --method POST \
   --network tron:0x2b6653dc \
   --token USDT \
-  --scheme exact_gasfree \
+  --scheme exact \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'

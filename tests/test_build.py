@@ -62,9 +62,35 @@ class CatalogBuildTests(unittest.TestCase):
             self.assertIn("x402-cli pay", content)
             self.assertIn("--body", content)
             self.assertIn("--network tron:0x2b6653dc", content)
-            self.assertIn("--scheme exact_gasfree", content)
+            self.assertIn("exact_gasfree", content)
             self.assertIn("--network eip155:56", content)
             self.assertIn("--scheme exact", content)
+            self.assertNotIn("--scheme exact_gasfree", content)
+
+    def test_tron_docs_and_routes_default_to_permit2(self) -> None:
+        for path in (ROOT / "providers").glob("*/catalog.json"):
+            catalog = json.loads(path.read_text(encoding="utf-8"))
+            descriptions = [catalog["description"]]
+            descriptions.extend(
+                locale["description"]
+                for locale in catalog.get("i18n", {}).values()
+                if "description" in locale
+            )
+            for description in descriptions:
+                self.assertNotIn("--scheme exact_gasfree", description, path.name)
+
+            for endpoint in catalog["endpoints"]:
+                tron_routes = [
+                    route
+                    for route in endpoint.get("x402Routes", [])
+                    if route["network"].startswith("tron:")
+                ]
+                if not tron_routes:
+                    continue
+                self.assertEqual(tron_routes[0]["scheme"], "exact", path.name)
+                self.assertEqual(
+                    tron_routes[0].get("assetTransferMethod"), "permit2", path.name
+                )
 
     def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
         cataloglib = load_cataloglib_module()
