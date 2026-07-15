@@ -72,6 +72,8 @@
         "network": { "type": "string" },
         "scheme": { "enum": ["exact", "exact_gasfree"] },
         "assetTransferMethod": { "const": "permit2" },
+        "fee": false,
+        "feeConfig": false,
         "url": { "type": "string" }
       },
       "allOf": [

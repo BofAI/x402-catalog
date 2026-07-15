@@ -9,7 +9,9 @@ Use it when an agent, backend workflow, or CLI script has validated launch metad
 - FQN: `sunpump-token-launch`
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
-- Chains: `tron:mainnet`, `eip155:56`
+- Chains: `tron:0x2b6653dc`, `eip155:56`
+- TRON schemes: `exact` + `permit2`, `exact_gasfree`
+- BNB Smart Chain scheme: `exact` + `permit2`
 - TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
 - BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
 
@@ -20,17 +22,29 @@ Install or update the x402 CLI, then call the route matching the payment chain y
 TRON Mainnet:
 
 ```bash
+curl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
+  -H 'Content-Type: application/json' \
+  --data '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
+```
+
+```bash
 x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network tron:mainnet \
+  --network tron:0x2b6653dc \
   --token USDT \
-  --scheme exact \
+  --scheme exact_gasfree \
   --max-amount 0.000001 \
   --header 'Content-Type: application/json' \
   --body '{"name":"X402MainA","symbol":"X4M17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
 BNB Smart Chain:
+
+```bash
+curl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
+  -H 'Content-Type: application/json' \
+  --data '{"name":"X402BscA","symbol":"X4B17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
+```
 
 ```bash
 x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \

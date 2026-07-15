@@ -46,6 +46,8 @@ Payment routes support `scheme: exact` with `assetTransferMethod: permit2`, and
 TRON `scheme: exact_gasfree` without an asset transfer method. New TRON routes
 should use canonical CAIP-2 IDs such as `tron:0x2b6653dc` (mainnet) and
 `tron:0xcd8690dc` (Nile); legacy aliases remain readable during migration.
+With x402 SDK 1.0.1-beta.4, GasFree relayer costs are estimated by the client;
+catalog routes must not publish the legacy `fee` or `feeConfig` fields.
 
 Do not submit private configuration or secrets.
 

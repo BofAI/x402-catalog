@@ -46,6 +46,26 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_token_launch_docs_include_complete_payment_examples(self) -> None:
+        catalog = json.loads(
+            (ROOT / "providers" / "sunpump-token-launch" / "catalog.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        descriptions = [catalog["description"], catalog["i18n"]["zh-CN"]["description"]]
+        pay_doc = (ROOT / "providers" / "sunpump-token-launch" / "pay.md").read_text(
+            encoding="utf-8"
+        )
+
+        for content in [*descriptions, pay_doc]:
+            self.assertIn("curl -sS -X POST", content)
+            self.assertIn("x402-cli pay", content)
+            self.assertIn("--body", content)
+            self.assertIn("--network tron:0x2b6653dc", content)
+            self.assertIn("--scheme exact_gasfree", content)
+            self.assertIn("--network eip155:56", content)
+            self.assertIn("--scheme exact", content)
+
     def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
         cataloglib = load_cataloglib_module()
         endpoint = {
@@ -66,6 +86,13 @@ class CatalogBuildTests(unittest.TestCase):
         cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
         self.assertTrue(any("TRON" in error for error in errors))
         self.assertTrue(any("must be omitted" in error for error in errors))
+
+        endpoint["x402Routes"][0].pop("assetTransferMethod")
+        endpoint["x402Routes"][0]["network"] = "tron:0xcd8690dc"
+        endpoint["x402Routes"][0]["feeConfig"] = {"feeTo": "legacy"}
+        errors = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("1.0.1-beta.4" in error for error in errors))
 
     def test_search_index_preserves_x402_routes(self) -> None:
         build = load_build_module()

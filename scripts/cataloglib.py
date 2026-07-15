@@ -156,6 +156,11 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
                 errors.append(f"{route_path}.exact_gasfree is supported only on TRON networks")
             if transfer_method is not None:
                 errors.append(f"{route_path}.assetTransferMethod must be omitted for exact_gasfree")
+            for legacy_fee_key in ("fee", "feeConfig"):
+                if legacy_fee_key in route:
+                    errors.append(
+                        f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1-beta.4"
+                    )
 
 
 def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[str]:
