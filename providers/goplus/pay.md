@@ -7,7 +7,7 @@ x402-paid passthrough for GoPlus Security checks (token security / honeypot, mal
 - FQN: `goplus-token-security-tron`
 - Gateway base: `https://x402-gateway.bankofai.io/providers/goplus-token-security-tron`
 - Category: `finance`
-- Chain: `tron:mainnet` (TRON)
+- Chain: `tron:0x2b6653dc` (TRON)
 - Scheme: `exact` + `permit2`
 - Tags: goplus, security, honeypot, risk, token-security
 - Listed price: `0.000001 USD` per request

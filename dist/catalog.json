@@ -31,7 +31,7 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-15T07:21:08Z",
+  "generated_at": "2026-07-16T07:44:13Z",
   "provider_count": 5,
   "providers": [
     {
@@ -159,7 +159,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://defillama.com",
-      "sha": "7433e26f256f3827da9d106321120eda17f7b0a6c2261c115e52b0f576d37718",
+      "sha": "741ca8992a5c6abcc49488078adcfc81b6e5a90fb286a4d748e76ffe2f037a33",
       "sub_title": "Paid DeFi decision data for agent research, pricing and risk.",
       "sub_title_zh": "付费 DeFi 决策数据,供 Agent 研究、定价与风控。",
       "subtitle": "Paid DeFi decision data for agent research, pricing and risk.",
@@ -227,7 +227,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://dexscreener.com",
-      "sha": "3fa6ffbae0a4afc2e4e1bbdc50ac8e39ef0b22e1f51a98a458e3654f7bb32357",
+      "sha": "e10de63efac08de8621d490b146d26eea264792b32d8f97dbccf2cc381c07407",
       "sub_title": "On-chain market radar for new pools, momentum and liquidity.",
       "sub_title_zh": "链上行情雷达:新盘、动量与流动性。",
       "subtitle": "On-chain market radar for new pools, momentum and liquidity.",
@@ -294,7 +294,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://www.diadata.org",
-      "sha": "32e653105fbdcaaaf96217e4f9de6a927d17a832159a8a362fab9662cb644815",
+      "sha": "c04cd0af1dd6a8628ad96c4299ff6064c7fa6b5cb408f96f9dbcb1588daf96ae",
       "sub_title": "Verifiable reference prices for valuation, settlement and risk.",
       "sub_title_zh": "可验证的参考价,用于估值、结算与风控。",
       "subtitle": "Verifiable reference prices for valuation, settlement and risk.",
@@ -361,7 +361,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://gopluslabs.io",
-      "sha": "621c95cfd541d61bec155d56c997c8b1129fb9db8c671540b1cd118e833aa8a6",
+      "sha": "9687dda77ea229aaf70b25fb3fab4d32948723407738145747fe88c13cfa164a",
       "sub_title": "Pre-trade safety screening for swaps, transfers and approvals.",
       "sub_title_zh": "交易前安全筛查:兑换、转账与授权。",
       "subtitle": "Pre-trade safety screening for swaps, transfers and approvals.",
