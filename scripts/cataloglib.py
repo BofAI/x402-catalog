@@ -30,6 +30,7 @@ CATEGORIES = {
 }
 X402_SCHEMES = {"exact", "exact_gasfree"}
 X402_ASSET_TRANSFER_METHODS = {"permit2"}
+TRON_NETWORKS = {"tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"}
 SECRET_KEY_RE = re.compile(
     r"(api[_-]?key|secret|password|passwd|token|authorization|bearer|private[_-]?key|provider\.yml|\.env)",
     re.IGNORECASE,
@@ -142,6 +143,12 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
             continue
         for key in ("provider", "network", "scheme", "url"):
             require_string(route, key, errors, path=route_path)
+        network = str(route.get("network", ""))
+        if network.startswith("tron:") and network not in TRON_NETWORKS:
+            errors.append(
+                f"{route_path}.network must use a canonical TRON CAIP-2 ID: "
+                f"{sorted(TRON_NETWORKS)}"
+            )
         scheme = route.get("scheme")
         if scheme not in X402_SCHEMES:
             errors.append(f"{route_path}.scheme must be one of {sorted(X402_SCHEMES)}")
@@ -177,6 +184,8 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
     chains = payload.get("chains")
     if not isinstance(chains, list) or not chains or not all(isinstance(item, str) and item for item in chains):
         errors.append("$.chains must be a non-empty string array")
+    elif any(item.startswith("tron:") and item not in TRON_NETWORKS for item in chains):
+        errors.append(f"$.chains must use canonical TRON CAIP-2 IDs: {sorted(TRON_NETWORKS)}")
     for key in ("isFirstParty", "isFeatured"):
         require_bool(payload, key, errors, path="$")
     featured_tags = payload.get("featuredTags")

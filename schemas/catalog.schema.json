@@ -25,7 +25,7 @@
     "useCase": { "type": "string" },
     "logo": { "type": "string" },
     "category": { "type": "string" },
-    "chains": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "chains": { "type": "array", "items": { "$ref": "#/$defs/network" }, "minItems": 1 },
     "isFirstParty": { "type": "boolean" },
     "isFeatured": { "type": "boolean" },
     "featuredTags": { "type": "array", "items": { "type": "string" } },
@@ -59,6 +59,15 @@
     }
   },
   "$defs": {
+    "network": {
+      "type": "string",
+      "allOf": [
+        {
+          "if": { "pattern": "^tron:" },
+          "then": { "enum": ["tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"] }
+        }
+      ]
+    },
     "x402Route": {
       "type": "object",
       "required": [
@@ -69,7 +78,7 @@
       ],
       "properties": {
         "provider": { "type": "string" },
-        "network": { "type": "string" },
+        "network": { "$ref": "#/$defs/network" },
         "scheme": { "enum": ["exact", "exact_gasfree"] },
         "assetTransferMethod": { "const": "permit2" },
         "fee": false,

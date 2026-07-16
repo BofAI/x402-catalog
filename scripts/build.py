@@ -47,10 +47,6 @@ CHAIN_META = {
         "label": "TRON Shasta Testnet",
         "label_zh": "TRON Shasta 测试网",
     },
-    # Legacy aliases remain readable while new entries use canonical CAIP-2 IDs.
-    "tron:mainnet": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
-    "tron:nile": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
-    "tron:shasta": {"kind": "tron", "label": "TRON Shasta Testnet", "label_zh": "TRON Shasta 测试网"},
 }
 
 
