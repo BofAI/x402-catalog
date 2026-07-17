@@ -126,7 +126,7 @@ class CatalogBuildTests(unittest.TestCase):
         endpoint["x402Routes"][0]["feeConfig"] = {"feeTo": "legacy"}
         errors = []
         cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
-        self.assertTrue(any("1.0.1-beta.4" in error for error in errors))
+        self.assertTrue(any("x402 SDK 1.0.1" in error for error in errors))
 
         endpoint["x402Routes"][0].pop("feeConfig")
         endpoint["x402Routes"][0]["network"] = "tron:nile"

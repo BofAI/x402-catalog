@@ -166,7 +166,7 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
             for legacy_fee_key in ("fee", "feeConfig"):
                 if legacy_fee_key in route:
                     errors.append(
-                        f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1-beta.4"
+                        f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1"
                     )
 
 
