@@ -437,7 +437,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://defillama.com",
-  "sha": "741ca8992a5c6abcc49488078adcfc81b6e5a90fb286a4d748e76ffe2f037a33",
+  "sha": "40ff406374d93078368051297f5540a477b7645d88c524e7f666695d5817fd89",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

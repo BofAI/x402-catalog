@@ -186,7 +186,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://dexscreener.com",
-  "sha": "e10de63efac08de8621d490b146d26eea264792b32d8f97dbccf2cc381c07407",
+  "sha": "1899f430933c7fcdbd27ba9c2d60a03f8b294796dcb11a8b338e89d3fc0ce03c",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

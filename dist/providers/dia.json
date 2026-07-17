@@ -143,7 +143,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://www.diadata.org",
-  "sha": "c04cd0af1dd6a8628ad96c4299ff6064c7fa6b5cb408f96f9dbcb1588daf96ae",
+  "sha": "0c7e5edbae5b9f2daf90438cf5e491d57bb6edd7cfd5d5805d3d4bae3f28446e",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

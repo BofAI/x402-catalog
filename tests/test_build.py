@@ -46,6 +46,14 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_tron_pay_docs_cover_default_and_gasfree_schemes(self) -> None:
+        for path in (ROOT / "providers").glob("*/pay.md"):
+            content = path.read_text(encoding="utf-8")
+            self.assertIn("exact_gasfree", content, path.name)
+            self.assertIn("x402-cli pay", content, path.name)
+            self.assertIn("--network tron:0x2b6653dc", content, path.name)
+            self.assertIn("--scheme exact", content, path.name)
+
     def test_token_launch_docs_include_complete_payment_examples(self) -> None:
         catalog = json.loads(
             (ROOT / "providers" / "sunpump-token-launch" / "catalog.json").read_text(
