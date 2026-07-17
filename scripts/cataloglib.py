@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import os
 from urllib.parse import urlparse
 from datetime import UTC, datetime
 from pathlib import Path
@@ -51,6 +52,12 @@ class CatalogError(ValueError):
 
 
 def now_iso() -> str:
+    source_epoch = os.environ.get("SOURCE_DATE_EPOCH")
+    if source_epoch is not None:
+        try:
+            return datetime.fromtimestamp(int(source_epoch), UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        except ValueError as exc:
+            raise CatalogError("SOURCE_DATE_EPOCH must be an integer Unix timestamp") from exc
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
