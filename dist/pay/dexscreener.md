@@ -1,13 +1,13 @@
-# DexScreener DEX Pairs & New-Listing API (TRON x402, Paid)
+# DexScreener DEX Pairs & New-Listing API (TRON and BSC x402, Paid)
 
 x402-paid passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.
 
 ## Service
 
-- FQN: `dexscreener-dex-data-tron`
-- Gateway base: `https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron`
+- Catalog FQN: `dexscreener`
+- Gateway providers: `dexscreener-dex-data-tron`, `dexscreener-dex-data-bsc`
 - Category: `finance`
-- Chain: `tron:0x2b6653dc` (TRON)
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain)
 - Schemes: `exact` + `permit2` (default), `exact_gasfree`
 - Tags: dexscreener, dex, new-pairs, meme, liquidity, price
 - Listed price: `0.000001 USD` per request

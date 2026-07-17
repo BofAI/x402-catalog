@@ -185,7 +185,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://gopluslabs.io",
-  "sha": "aed103aca14f1a714c75a3185685c4949c0f170417983167d77d8e63ce5bdccb",
+  "sha": "0706e755ddb7afe8ad6dfa943d626b664cb34900ba1eb78e722a5b3302fb7b4b",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

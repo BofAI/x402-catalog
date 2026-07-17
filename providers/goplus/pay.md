@@ -1,13 +1,13 @@
-# GoPlus Token & Address Security API (TRON x402, Paid)
+# GoPlus Token & Address Security API (TRON and BSC x402, Paid)
 
 x402-paid passthrough for GoPlus Security checks (token security / honeypot, malicious address, approval risk). Powered by GoPlus. Agent-native pre-trade risk control.
 
 ## Service
 
-- FQN: `goplus-token-security-tron`
-- Gateway base: `https://x402-gateway.bankofai.io/providers/goplus-token-security-tron`
+- Catalog FQN: `goplus`
+- Gateway providers: `goplus-token-security-tron`, `goplus-token-security-bsc`
 - Category: `finance`
-- Chain: `tron:0x2b6653dc` (TRON)
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain)
 - Schemes: `exact` + `permit2` (default), `exact_gasfree`
 - Tags: goplus, security, honeypot, risk, token-security
 - Listed price: `0.000001 USD` per request

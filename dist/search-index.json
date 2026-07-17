@@ -735,6 +735,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose the route matching the intended mainnet payment chain: TRON Mainnet or BNB Smart Chain."
     }
   ],
-  "generated_at": "2026-07-17T12:17:09Z",
+  "generated_at": "2026-07-17T14:57:19Z",
   "version": 1
 }

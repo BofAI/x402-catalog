@@ -2,103 +2,86 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "x402 public catalog provider",
   "type": "object",
-  "required": [
-    "version",
-    "fqn",
-    "title",
-    "subtitle",
-    "description",
-    "useCase",
-    "i18n",
-    "logo",
-    "category",
-    "chains",
-    "serviceUrl",
-    "endpoints"
-  ],
+  "additionalProperties": false,
+  "required": ["version", "fqn", "title", "subtitle", "description", "useCase", "i18n", "logo", "category", "chains", "isFirstParty", "isFeatured", "featuredTags", "serviceUrl", "endpoints"],
   "properties": {
     "version": { "const": 1 },
     "fqn": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,62}$" },
-    "title": { "type": "string" },
-    "subtitle": { "type": "string" },
-    "description": { "type": "string" },
-    "useCase": { "type": "string" },
-    "logo": { "type": "string" },
-    "category": { "type": "string" },
-    "chains": { "type": "array", "items": { "$ref": "#/$defs/network" }, "minItems": 1 },
+    "title": { "$ref": "#/$defs/text" },
+    "mainTitle": { "$ref": "#/$defs/text" },
+    "subtitle": { "$ref": "#/$defs/text" },
+    "description": { "$ref": "#/$defs/text" },
+    "useCase": { "$ref": "#/$defs/text" },
+    "i18n": { "$ref": "#/$defs/i18n" },
+    "logo": { "$ref": "#/$defs/text" },
+    "category": { "enum": ["ai_ml", "cloud", "compute", "data", "devtools", "finance", "identity", "media", "messaging", "other", "productivity", "search", "security", "shopping", "storage", "translation"] },
+    "chains": { "type": "array", "items": { "$ref": "#/$defs/network" }, "minItems": 1, "uniqueItems": true },
     "isFirstParty": { "type": "boolean" },
     "isFeatured": { "type": "boolean" },
-    "featuredTags": { "type": "array", "items": { "type": "string" } },
-    "serviceUrl": { "type": "string" },
-    "endpoints": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": [
-          "method",
-          "path",
-          "url",
-          "title",
-          "subtitle",
-          "description",
-          "useCase",
-          "i18n",
-          "metered",
-          "minPriceUsd",
-          "maxPriceUsd"
-        ],
-        "properties": {
-          "x402Routes": {
-            "type": "array",
-            "minItems": 1,
-            "items": { "$ref": "#/$defs/x402Route" }
-          }
-        }
-      }
-    }
+    "featuredTags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "serviceUrl": { "$ref": "#/$defs/httpsUrl" },
+    "endpoints": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/endpoint" } },
+    "status": { "type": "object" }
   },
   "$defs": {
+    "text": { "type": "string", "minLength": 1 },
+    "httpsUrl": { "type": "string", "pattern": "^https://" },
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "subtitle", "description", "useCase"],
+      "properties": {
+        "title": { "$ref": "#/$defs/text" },
+        "mainTitle": { "$ref": "#/$defs/text" },
+        "subtitle": { "$ref": "#/$defs/text" },
+        "description": { "$ref": "#/$defs/text" },
+        "useCase": { "$ref": "#/$defs/text" }
+      }
+    },
+    "i18n": {
+      "type": "object",
+      "required": ["zh-CN"],
+      "properties": { "zh-CN": { "$ref": "#/$defs/localized" } },
+      "additionalProperties": { "$ref": "#/$defs/localized" }
+    },
     "network": {
       "type": "string",
-      "allOf": [
-        {
-          "if": { "pattern": "^tron:" },
-          "then": { "enum": ["tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"] }
-        }
-      ]
+      "minLength": 1,
+      "allOf": [{ "if": { "pattern": "^tron:" }, "then": { "enum": ["tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"] } }]
+    },
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path", "url", "title", "subtitle", "description", "useCase", "i18n", "metered", "minPriceUsd", "maxPriceUsd"],
+      "properties": {
+        "method": { "type": "string", "pattern": "^[A-Z]+$" },
+        "path": { "type": "string", "pattern": "^/" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "title": { "$ref": "#/$defs/text" },
+        "subtitle": { "$ref": "#/$defs/text" },
+        "description": { "$ref": "#/$defs/text" },
+        "useCase": { "$ref": "#/$defs/text" },
+        "i18n": { "$ref": "#/$defs/i18n" },
+        "metered": { "type": "boolean" },
+        "minPriceUsd": { "type": "number", "minimum": 0 },
+        "maxPriceUsd": { "type": "number", "minimum": 0 },
+        "x402Routes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/x402Route" } }
+      }
     },
     "x402Route": {
       "type": "object",
-      "required": [
-        "provider",
-        "network",
-        "scheme",
-        "url"
-      ],
+      "additionalProperties": false,
+      "required": ["provider", "network", "scheme", "url"],
       "properties": {
-        "provider": { "type": "string" },
+        "provider": { "$ref": "#/$defs/text" },
         "network": { "$ref": "#/$defs/network" },
         "scheme": { "enum": ["exact", "exact_gasfree"] },
         "assetTransferMethod": { "const": "permit2" },
-        "fee": false,
-        "feeConfig": false,
-        "url": { "type": "string" }
+        "url": { "$ref": "#/$defs/httpsUrl" }
       },
       "allOf": [
-        {
-          "if": { "properties": { "scheme": { "const": "exact" } } },
-          "then": { "required": ["assetTransferMethod"] }
-        },
-        {
-          "if": { "properties": { "scheme": { "const": "exact_gasfree" } } },
-          "then": {
-            "properties": {
-              "network": { "pattern": "^tron:" }
-            },
-            "not": { "required": ["assetTransferMethod"] }
-          }
-        }
+        { "if": { "properties": { "scheme": { "const": "exact" } }, "required": ["scheme"] }, "then": { "required": ["assetTransferMethod"] } },
+        { "if": { "properties": { "scheme": { "const": "exact_gasfree" } }, "required": ["scheme"] }, "then": { "properties": { "network": { "pattern": "^tron:" } }, "not": { "required": ["assetTransferMethod"] } } }
       ]
     }
   }

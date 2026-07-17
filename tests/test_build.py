@@ -134,6 +134,27 @@ class CatalogBuildTests(unittest.TestCase):
         cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
         self.assertTrue(any("canonical TRON CAIP-2" in error for error in errors))
 
+    def test_malformed_route_types_are_reported_without_crashing(self) -> None:
+        cataloglib = load_cataloglib_module()
+        endpoint = {"x402Routes": [{
+            "provider": "demo", "network": "tron:0xcd8690dc",
+            "scheme": {}, "assetTransferMethod": [], "url": "https://example.test/v1",
+        }]}
+        errors: list[str] = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("scheme must be one of" in error for error in errors))
+
+    def test_legacy_fee_fields_and_null_gasfree_transfer_are_rejected(self) -> None:
+        cataloglib = load_cataloglib_module()
+        for route in (
+            {"provider": "demo", "network": "eip155:56", "scheme": "exact", "assetTransferMethod": "permit2", "feeConfig": {}},
+            {"provider": "demo", "network": "tron:0xcd8690dc", "scheme": "exact_gasfree", "assetTransferMethod": None},
+        ):
+            route["url"] = "https://example.test/v1"
+            errors: list[str] = []
+            cataloglib.validate_x402_routes({"x402Routes": [route]}, errors, path="$.endpoints[0]")
+            self.assertTrue(errors)
+
     def test_search_index_preserves_x402_routes(self) -> None:
         build = load_build_module()
         self.assertEqual(build.main(), 0)

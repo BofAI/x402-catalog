@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from urllib.parse import urlparse
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -31,6 +32,7 @@ CATEGORIES = {
 X402_SCHEMES = {"exact", "exact_gasfree"}
 X402_ASSET_TRANSFER_METHODS = {"permit2"}
 TRON_NETWORKS = {"tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"}
+SCHEMA_PATH = ROOT / "schemas" / "catalog.schema.json"
 SECRET_KEY_RE = re.compile(
     r"(api[_-]?key|secret|password|passwd|token|authorization|bearer|private[_-]?key|provider\.yml|\.env)",
     re.IGNORECASE,
@@ -150,10 +152,13 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
                 f"{sorted(TRON_NETWORKS)}"
             )
         scheme = route.get("scheme")
-        if scheme not in X402_SCHEMES:
+        if not isinstance(scheme, str) or scheme not in X402_SCHEMES:
             errors.append(f"{route_path}.scheme must be one of {sorted(X402_SCHEMES)}")
         transfer_method = route.get("assetTransferMethod")
-        if scheme == "exact" and transfer_method not in X402_ASSET_TRANSFER_METHODS:
+        if scheme == "exact" and (
+            not isinstance(transfer_method, str)
+            or transfer_method not in X402_ASSET_TRANSFER_METHODS
+        ):
             errors.append(
                 f"{route_path}.assetTransferMethod must be one of "
                 f"{sorted(X402_ASSET_TRANSFER_METHODS)}"
@@ -161,17 +166,34 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
         if scheme == "exact_gasfree":
             if not str(route.get("network", "")).startswith("tron:"):
                 errors.append(f"{route_path}.exact_gasfree is supported only on TRON networks")
-            if transfer_method is not None:
+            if "assetTransferMethod" in route:
                 errors.append(f"{route_path}.assetTransferMethod must be omitted for exact_gasfree")
-            for legacy_fee_key in ("fee", "feeConfig"):
-                if legacy_fee_key in route:
-                    errors.append(
-                        f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1"
-                    )
+        for legacy_fee_key in ("fee", "feeConfig"):
+            if legacy_fee_key in route:
+                errors.append(
+                    f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1"
+                )
+
+
+def validate_schema(payload: dict[str, Any], errors: list[str]) -> None:
+    try:
+        from jsonschema import Draft202012Validator
+    except ImportError:
+        errors.append("jsonschema dependency is required; install requirements.txt")
+        return
+    schema = json_load(SCHEMA_PATH)
+    validator = Draft202012Validator(schema)
+    for error in sorted(validator.iter_errors(payload), key=lambda item: list(item.absolute_path)):
+        location = "$" + "".join(
+            f"[{part}]" if isinstance(part, int) else f".{part}"
+            for part in error.absolute_path
+        )
+        errors.append(f"{location}: {error.message}")
 
 
 def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[str]:
     errors: list[str] = []
+    validate_schema(payload, errors)
     if payload.get("version") != 1:
         errors.append("$.version must be 1")
     fqn = require_string(payload, "fqn", errors, path="$")
@@ -197,6 +219,7 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
     if not isinstance(endpoints, list) or not endpoints:
         errors.append("$.endpoints must be a non-empty array")
     else:
+        seen_routes: set[tuple[str, str, str, str]] = set()
         for index, endpoint in enumerate(endpoints):
             if not isinstance(endpoint, dict):
                 errors.append(f"$.endpoints[{index}] must be an object")
@@ -216,6 +239,16 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
                 errors.append(f"{path}.maxPriceUsd must be >= minPriceUsd")
             validate_i18n(endpoint, errors, path=path)
             validate_x402_routes(endpoint, errors, path=path)
+            for route in endpoint.get("x402Routes", []):
+                if not isinstance(route, dict):
+                    continue
+                network = route.get("network")
+                if isinstance(network, str) and isinstance(chains, list) and network not in chains:
+                    errors.append(f"{path}.x402Routes network {network!r} is missing from $.chains")
+                identity = tuple(str(route.get(key, "")) for key in ("provider", "network", "scheme", "url"))
+                if identity in seen_routes:
+                    errors.append(f"{path}.x402Routes contains duplicate route {identity!r}")
+                seen_routes.add(identity)
 
     status = payload.get("status")
     if status is not None and not isinstance(status, dict):
@@ -242,7 +275,11 @@ def load_validated_providers() -> list[tuple[Path, dict[str, Any], str]]:
         except Exception as exc:
             failures.append(f"{catalog_path.relative_to(ROOT)} invalid json: {exc}")
             continue
-        errors = validate_provider(payload, provider_dir=provider_dir)
+        try:
+            errors = validate_provider(payload, provider_dir=provider_dir)
+        except Exception as exc:
+            failures.append(f"{catalog_path.relative_to(ROOT)} validation failed: {exc}")
+            continue
         if errors:
             failures.extend(f"{catalog_path.relative_to(ROOT)}: {error}" for error in errors)
             continue
