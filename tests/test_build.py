@@ -21,6 +21,16 @@ def load_build_module():
     return module
 
 
+def load_cataloglib_module():
+    sys.path.insert(0, str(SCRIPTS))
+    module_path = SCRIPTS / "cataloglib.py"
+    spec = importlib.util.spec_from_file_location("cataloglib_test", module_path)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def route_count(payload: object, key: str) -> int:
     if isinstance(payload, dict):
         total = 0
@@ -36,6 +46,115 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_tron_pay_docs_cover_default_and_gasfree_schemes(self) -> None:
+        for path in (ROOT / "providers").glob("*/pay.md"):
+            content = path.read_text(encoding="utf-8")
+            self.assertIn("exact_gasfree", content, path.name)
+            self.assertIn("x402-cli pay", content, path.name)
+            self.assertIn("--network tron:0x2b6653dc", content, path.name)
+            self.assertIn("--scheme exact", content, path.name)
+
+    def test_token_launch_docs_include_complete_payment_examples(self) -> None:
+        catalog = json.loads(
+            (ROOT / "providers" / "sunpump-token-launch" / "catalog.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        descriptions = [catalog["description"], catalog["i18n"]["zh-CN"]["description"]]
+        pay_doc = (ROOT / "providers" / "sunpump-token-launch" / "pay.md").read_text(
+            encoding="utf-8"
+        )
+
+        for content in [*descriptions, pay_doc]:
+            self.assertIn("curl -sS -X POST", content)
+            self.assertIn("x402-cli pay", content)
+            self.assertIn("--body", content)
+            self.assertIn("--network tron:0x2b6653dc", content)
+            self.assertIn("exact_gasfree", content)
+            self.assertIn("--network eip155:56", content)
+            self.assertIn("--scheme exact", content)
+            self.assertNotIn("--scheme exact_gasfree", content)
+
+    def test_tron_docs_and_routes_default_to_permit2(self) -> None:
+        for path in (ROOT / "providers").glob("*/catalog.json"):
+            catalog = json.loads(path.read_text(encoding="utf-8"))
+            descriptions = [catalog["description"]]
+            descriptions.extend(
+                locale["description"]
+                for locale in catalog.get("i18n", {}).values()
+                if "description" in locale
+            )
+            for description in descriptions:
+                self.assertNotIn("--scheme exact_gasfree", description, path.name)
+
+            for endpoint in catalog["endpoints"]:
+                tron_routes = [
+                    route
+                    for route in endpoint.get("x402Routes", [])
+                    if route["network"].startswith("tron:")
+                ]
+                if not tron_routes:
+                    continue
+                self.assertEqual(tron_routes[0]["scheme"], "exact", path.name)
+                self.assertEqual(
+                    tron_routes[0].get("assetTransferMethod"), "permit2", path.name
+                )
+
+    def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
+        cataloglib = load_cataloglib_module()
+        endpoint = {
+            "x402Routes": [{
+                "provider": "demo",
+                "network": "tron:0xcd8690dc",
+                "scheme": "exact_gasfree",
+                "url": "https://gateway.example/providers/demo/v1",
+            }]
+        }
+        errors: list[str] = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertEqual(errors, [])
+
+        endpoint["x402Routes"][0]["network"] = "eip155:97"
+        endpoint["x402Routes"][0]["assetTransferMethod"] = "permit2"
+        errors = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("TRON" in error for error in errors))
+        self.assertTrue(any("must be omitted" in error for error in errors))
+
+        endpoint["x402Routes"][0].pop("assetTransferMethod")
+        endpoint["x402Routes"][0]["network"] = "tron:0xcd8690dc"
+        endpoint["x402Routes"][0]["feeConfig"] = {"feeTo": "legacy"}
+        errors = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("x402 SDK 1.0.1" in error for error in errors))
+
+        endpoint["x402Routes"][0].pop("feeConfig")
+        endpoint["x402Routes"][0]["network"] = "tron:nile"
+        errors = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("canonical TRON CAIP-2" in error for error in errors))
+
+    def test_malformed_route_types_are_reported_without_crashing(self) -> None:
+        cataloglib = load_cataloglib_module()
+        endpoint = {"x402Routes": [{
+            "provider": "demo", "network": "tron:0xcd8690dc",
+            "scheme": {}, "assetTransferMethod": [], "url": "https://example.test/v1",
+        }]}
+        errors: list[str] = []
+        cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
+        self.assertTrue(any("scheme must be one of" in error for error in errors))
+
+    def test_legacy_fee_fields_and_null_gasfree_transfer_are_rejected(self) -> None:
+        cataloglib = load_cataloglib_module()
+        for route in (
+            {"provider": "demo", "network": "eip155:56", "scheme": "exact", "assetTransferMethod": "permit2", "feeConfig": {}},
+            {"provider": "demo", "network": "tron:0xcd8690dc", "scheme": "exact_gasfree", "assetTransferMethod": None},
+        ):
+            route["url"] = "https://example.test/v1"
+            errors: list[str] = []
+            cataloglib.validate_x402_routes({"x402Routes": [route]}, errors, path="$.endpoints[0]")
+            self.assertTrue(errors)
+
     def test_search_index_preserves_x402_routes(self) -> None:
         build = load_build_module()
         self.assertEqual(build.main(), 0)

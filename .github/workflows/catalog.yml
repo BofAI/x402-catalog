@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install validation dependencies
+        run: pip install --requirement requirements.txt
+
       - name: Validate public provider files
         run: python3 scripts/validate.py
 
@@ -40,20 +43,14 @@ jobs:
           test -f dist/categories.json
           test -f dist/search-index.json
 
-      - name: Check expected providers are discoverable
+      - name: Check providers are discoverable
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
 
-          expected = {
-              "sunpump-token-launch",
-              "defillama",
-              "dexscreener",
-              "dia",
-              "goplus",
-          }
           catalog = json.loads(Path("dist/catalog.json").read_text())
+          expected = {path.parent.name for path in Path("providers").glob("*/catalog.json")}
           fqns = {provider["fqn"] for provider in catalog["providers"]}
           assert fqns == expected, fqns
           assert catalog["provider_count"] == len(expected), catalog["provider_count"]

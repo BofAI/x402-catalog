@@ -1,14 +1,14 @@
-# DefiLlama DeFi Data API (TVL / Fees / Stablecoins) (TRON x402, Paid)
+# DefiLlama DeFi Data API (TRON and BSC x402, Paid)
 
 x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Paid DeFi decision data layer for agents. Data by DefiLlama.
 
 ## Service
 
-- FQN: `defillama-tvl-tron`
-- Gateway base: `https://x402-gateway.bankofai.io/providers/defillama-tvl-tron`
+- Catalog FQN: `defillama`
+- Gateway providers: `defillama-tvl-tron`, `defillama-tvl-bsc`
 - Category: `finance`
-- Chain: `tron:mainnet` (TRON)
-- Scheme: `exact` + `permit2`
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain)
+- Schemes: `exact` + `permit2` (default), `exact_gasfree`
 - Tags: defillama, defi, tvl, fees, stablecoins
 - Listed price: `0.000001 USD` per request
 
@@ -28,6 +28,10 @@ Single protocol: historical TVL, fees, tokens, metadata
 
 Current total TVL of a protocol (lightweight)
 
+### Prices and yields
+
+The catalog also publishes current/historical prices, price charts, percentage changes, yield pools, and pool-history endpoints. Use the matching `x402Routes` entry in the machine-readable pay JSON for the selected chain.
+
 ## Request Examples
 
 - `GET /providers/defillama-tvl-tron/protocols`
@@ -44,6 +48,16 @@ Call the catalog route with any HTTP client. Example:
 
 ```bash
 curl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols'
+```
+
+Pay with the default TRON Permit2 scheme:
+
+```bash
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \
+  --network tron:0x2b6653dc \
+  --token USDT \
+  --scheme exact \
+  --max-amount 0.000001
 ```
 
 Equivalent route form:

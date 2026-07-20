@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import shutil
+import tempfile
+from pathlib import Path
 from typing import Any
 
 from cataloglib import (
@@ -40,9 +42,9 @@ CHAIN_META = {
         "label": "BNB Smart Chain Testnet",
         "label_zh": "BNB 测试网",
     },
-    "tron:mainnet": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
-    "tron:nile": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
-    "tron:shasta": {
+    "tron:0x2b6653dc": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
+    "tron:0xcd8690dc": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
+    "tron:0x94a9059e": {
         "kind": "tron",
         "label": "TRON Shasta Testnet",
         "label_zh": "TRON Shasta 测试网",
@@ -214,8 +216,7 @@ def main() -> int:
         print(str(exc))
         return 1
 
-    if DIST_DIR.exists():
-        shutil.rmtree(DIST_DIR)
+    build_dir = Path(tempfile.mkdtemp(prefix=".dist-", dir=DIST_DIR.parent))
     generated_at = now_iso()
     summaries: list[dict[str, Any]] = []
     details: list[dict[str, Any]] = []
@@ -235,10 +236,10 @@ def main() -> int:
             used_chains[chain] = used_chains.get(chain, 0) + 1
 
         fqn = summary["fqn"]
-        json_dump(DIST_DIR / "providers" / f"{fqn}.json", detail)
-        json_dump(DIST_DIR / "pay" / f"{fqn}.json", pay_json(payload, sha))
-        (DIST_DIR / "pay").mkdir(parents=True, exist_ok=True)
-        (DIST_DIR / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
+        json_dump(build_dir / "providers" / f"{fqn}.json", detail)
+        json_dump(build_dir / "pay" / f"{fqn}.json", pay_json(payload, sha))
+        (build_dir / "pay").mkdir(parents=True, exist_ok=True)
+        (build_dir / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
 
     summaries.sort(key=lambda item: (not item["is_featured"], item["category"], item["fqn"]))
     base_url = "https://x402-catalog.bankofai.io/api"
@@ -263,11 +264,11 @@ def main() -> int:
         },
         "providers": summaries,
     }
-    json_dump(DIST_DIR / "catalog.json", catalog)
-    json_dump(DIST_DIR / "categories.json", catalog["frontend"]["categories"])
-    json_dump(DIST_DIR / "search-index.json", {"version": 1, "generated_at": generated_at, "documents": search_docs})
+    json_dump(build_dir / "catalog.json", catalog)
+    json_dump(build_dir / "categories.json", catalog["frontend"]["categories"])
+    json_dump(build_dir / "search-index.json", {"version": 1, "generated_at": generated_at, "documents": search_docs})
     json_dump(
-        DIST_DIR / "status.json",
+        build_dir / "status.json",
         {
             "version": 1,
             "generated_at": generated_at,
@@ -275,6 +276,22 @@ def main() -> int:
             "status": "ok",
         },
     )
+    backup = DIST_DIR.with_name(f".{DIST_DIR.name}.old")
+    if backup.exists():
+        shutil.rmtree(backup)
+    if DIST_DIR.exists():
+        DIST_DIR.rename(backup)
+    try:
+        build_dir.rename(DIST_DIR)
+    except Exception:
+        if backup.exists() and not DIST_DIR.exists():
+            backup.rename(DIST_DIR)
+        raise
+    finally:
+        if backup.exists():
+            shutil.rmtree(backup)
+        if build_dir.exists():
+            shutil.rmtree(build_dir)
     print(f"built {len(summaries)} provider(s) into {DIST_DIR.relative_to(DIST_DIR.parent)}")
     return 0
 
