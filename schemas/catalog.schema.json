@@ -76,7 +76,7 @@
         "provider": { "$ref": "#/$defs/text" },
         "network": { "$ref": "#/$defs/network" },
         "scheme": { "enum": ["exact", "exact_gasfree"] },
-        "assetTransferMethod": { "const": "permit2" },
+        "assetTransferMethod": { "enum": ["eip3009", "permit2"] },
         "url": { "$ref": "#/$defs/httpsUrl" }
       },
       "allOf": [

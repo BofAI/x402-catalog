@@ -19,7 +19,8 @@
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "isFirstParty": false,
   "isFeatured": false,
@@ -50,8 +51,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
@@ -60,7 +61,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
         },
-{
+        {
           "provider": "goplus-token-security-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -72,6 +73,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/token_security/{chain_id}"
+        },
+        {
+          "provider": "goplus-token-security-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-base-sepolia/api/v1/token_security/{chain_id}"
         }
       ]
     },
@@ -92,8 +100,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
@@ -102,7 +110,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
         },
-{
+        {
           "provider": "goplus-token-security-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -114,6 +122,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v1/address_security/{address}"
+        },
+        {
+          "provider": "goplus-token-security-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-base-sepolia/api/v1/address_security/{address}"
         }
       ]
     },
@@ -134,8 +149,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
@@ -144,7 +159,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
         },
-{
+        {
           "provider": "goplus-token-security-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -156,6 +171,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-bsc/api/v2/token_approval_security/{chain_id}"
+        },
+        {
+          "provider": "goplus-token-security-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-base-sepolia/api/v2/token_approval_security/{chain_id}"
         }
       ]
     }

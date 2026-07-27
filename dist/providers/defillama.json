@@ -6,12 +6,14 @@
     "label_zh": "金融"
   },
   "chain_kinds": [
+    "base",
     "bnb",
     "tron"
   ],
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "chains_meta": [
     {
@@ -25,6 +27,12 @@
       "kind": "bnb",
       "label": "BNB Chain",
       "label_zh": "BNB Chain"
+    },
+    {
+      "id": "eip155:84532",
+      "kind": "base",
+      "label": "Base Sepolia",
+      "label_zh": "Base Sepolia 测试网"
     }
   ],
   "description": "## What it does\n\nDefiLlama gateway over x402: read protocol TVL, fees/revenue and stablecoin metrics, multi-chain current & historical token prices with charts, and DeFi pool yields/APY — through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents doing DeFi research, allocation and risk screening that need TVL / fees / stablecoin data.\n- Pricing and valuation workflows that need multi-chain current and historical token prices.\n- Yield scouting across pools by APY, TVL and risk.\n\n## Endpoints\n\n- `GET /protocols` — All protocols with current TVL, category and chain breakdown\n- `GET /protocol/{slug}` — Single protocol: historical TVL, fees, tokens, metadata\n- `GET /tvl/{protocol}` — Current total TVL of a protocol (lightweight)\n- `GET /prices/current/{coins}` — Current USD price for one or many coins ({chain}:{address} or coingecko:{id}, comma-separated)\n- `GET /prices/historical/{timestamp}/{coins}` — Historical USD price at a unix timestamp for one or many coins\n- `GET /chart/{coins}` — Price chart (time series) for one or many coins\n- `GET /percentage/{coins}` — Percentage price change over a period for one or many coins\n- `GET /pools` — All yield pools with current APY, TVL, chain, project and risk flags\n- `GET /chart/{pool}` — Historical APY / TVL time series for a single pool id\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet supports `exact` + `permit2` and `exact_gasfree`; Permit2 is the default and `exact_gasfree` remains optional:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \\\n  --method GET \\\n  --network tron:0x2b6653dc \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain Mainnet (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols'\n```\n\nPay on BNB Smart Chain Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
@@ -69,6 +77,13 @@
           "provider": "defillama-tvl-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-tvl-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/protocols"
         }
       ]
     },
@@ -111,6 +126,13 @@
           "provider": "defillama-tvl-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocol/{slug}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-tvl-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/protocol/{slug}"
         }
       ]
     },
@@ -153,6 +175,13 @@
           "provider": "defillama-tvl-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/tvl/{protocol}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-tvl-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/tvl/{protocol}"
         }
       ]
     },
@@ -195,6 +224,13 @@
           "provider": "defillama-coins-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/current/{coins}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-coins-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/prices/current/{coins}"
         }
       ]
     },
@@ -237,6 +273,13 @@
           "provider": "defillama-coins-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/historical/{timestamp}/{coins}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-coins-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/prices/historical/{timestamp}/{coins}"
         }
       ]
     },
@@ -279,6 +322,13 @@
           "provider": "defillama-coins-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/chart/{coins}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-coins-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/chart/{coins}"
         }
       ]
     },
@@ -321,6 +371,13 @@
           "provider": "defillama-coins-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/percentage/{coins}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-coins-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/percentage/{coins}"
         }
       ]
     },
@@ -363,6 +420,13 @@
           "provider": "defillama-yields-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/pools"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-yields-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-base-sepolia/pools"
         }
       ]
     },
@@ -405,6 +469,13 @@
           "provider": "defillama-yields-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/chart/{pool}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "defillama-yields-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-base-sepolia/chart/{pool}"
         }
       ]
     }
@@ -437,7 +508,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://defillama.com",
-  "sha": "9d2f8959f0ee85bfff5f19bf61fa6b6bc90005af09e18d06097ffbe30a3ad717",
+  "sha": "82f8b14bab8b666dbaabddcd3905d8742f517b89097daade30943508b66f155b",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

@@ -100,6 +100,25 @@ class CatalogBuildTests(unittest.TestCase):
                     tron_routes[0].get("assetTransferMethod"), "permit2", path.name
                 )
 
+    def test_all_providers_publish_base_sepolia_eip3009_routes(self) -> None:
+        route_count = 0
+        for path in (ROOT / "providers").glob("*/catalog.json"):
+            catalog = json.loads(path.read_text(encoding="utf-8"))
+            self.assertIn("eip155:84532", catalog["chains"], path.name)
+            for endpoint in catalog["endpoints"]:
+                base_routes = [
+                    route
+                    for route in endpoint.get("x402Routes", [])
+                    if route["network"] == "eip155:84532"
+                ]
+                self.assertEqual(len(base_routes), 1, f"{path.name}: {endpoint['path']}")
+                self.assertEqual(base_routes[0]["scheme"], "exact", path.name)
+                self.assertEqual(
+                    base_routes[0]["assetTransferMethod"], "eip3009", path.name
+                )
+                route_count += 1
+        self.assertEqual(route_count, 18)
+
     def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
         cataloglib = load_cataloglib_module()
         endpoint = {

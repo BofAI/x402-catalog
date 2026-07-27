@@ -19,7 +19,8 @@
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "isFirstParty": false,
   "isFeatured": false,
@@ -51,8 +52,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
@@ -61,7 +62,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
         },
-{
+        {
           "provider": "dexscreener-dex-data-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -73,6 +74,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/tokens/{tokenAddresses}"
+        },
+        {
+          "provider": "dexscreener-dex-data-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base-sepolia/latest/dex/tokens/{tokenAddresses}"
         }
       ]
     },
@@ -93,8 +101,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
@@ -103,7 +111,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
         },
-{
+        {
           "provider": "dexscreener-dex-data-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -115,6 +123,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/latest/dex/search"
+        },
+        {
+          "provider": "dexscreener-dex-data-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base-sepolia/latest/dex/search"
         }
       ]
     },
@@ -135,8 +150,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
@@ -145,7 +160,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
         },
-{
+        {
           "provider": "dexscreener-dex-data-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -157,6 +172,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-bsc/token-profiles/latest/v1"
+        },
+        {
+          "provider": "dexscreener-dex-data-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base-sepolia/token-profiles/latest/v1"
         }
       ]
     }

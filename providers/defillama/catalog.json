@@ -19,7 +19,8 @@
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "isFirstParty": false,
   "isFeatured": false,
@@ -50,8 +51,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
@@ -60,7 +61,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
         },
-{
+        {
           "provider": "defillama-tvl-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -72,6 +73,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocols"
+        },
+        {
+          "provider": "defillama-tvl-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/protocols"
         }
       ]
     },
@@ -92,8 +100,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
@@ -102,7 +110,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
         },
-{
+        {
           "provider": "defillama-tvl-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -114,6 +122,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/protocol/{slug}"
+        },
+        {
+          "provider": "defillama-tvl-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/protocol/{slug}"
         }
       ]
     },
@@ -134,8 +149,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
@@ -144,7 +159,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
         },
-{
+        {
           "provider": "defillama-tvl-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -156,6 +171,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-bsc/tvl/{protocol}"
+        },
+        {
+          "provider": "defillama-tvl-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-base-sepolia/tvl/{protocol}"
         }
       ]
     },
@@ -176,8 +198,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
@@ -186,7 +208,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
         },
-{
+        {
           "provider": "defillama-coins-price-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -198,6 +220,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/current/{coins}"
+        },
+        {
+          "provider": "defillama-coins-price-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/prices/current/{coins}"
         }
       ]
     },
@@ -218,8 +247,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
@@ -228,7 +257,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
         },
-{
+        {
           "provider": "defillama-coins-price-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -240,6 +269,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/prices/historical/{timestamp}/{coins}"
+        },
+        {
+          "provider": "defillama-coins-price-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/prices/historical/{timestamp}/{coins}"
         }
       ]
     },
@@ -260,8 +296,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
@@ -270,7 +306,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
         },
-{
+        {
           "provider": "defillama-coins-price-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -282,6 +318,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/chart/{coins}"
+        },
+        {
+          "provider": "defillama-coins-price-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/chart/{coins}"
         }
       ]
     },
@@ -302,8 +345,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
@@ -312,7 +355,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
         },
-{
+        {
           "provider": "defillama-coins-price-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -324,6 +367,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-bsc/percentage/{coins}"
+        },
+        {
+          "provider": "defillama-coins-price-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/percentage/{coins}"
         }
       ]
     },
@@ -344,8 +394,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-yields-tron",
@@ -354,7 +404,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
         },
-{
+        {
           "provider": "defillama-yields-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -366,6 +416,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/pools"
+        },
+        {
+          "provider": "defillama-yields-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-base-sepolia/pools"
         }
       ]
     },
@@ -386,8 +443,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06,
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001,
       "x402Routes": [
         {
           "provider": "defillama-yields-tron",
@@ -396,7 +453,7 @@
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
         },
-{
+        {
           "provider": "defillama-yields-tron",
           "network": "tron:0x2b6653dc",
           "scheme": "exact_gasfree",
@@ -408,6 +465,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-bsc/chart/{pool}"
+        },
+        {
+          "provider": "defillama-yields-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-base-sepolia/chart/{pool}"
         }
       ]
     }

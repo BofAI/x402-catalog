@@ -19,7 +19,8 @@
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "isFirstParty": true,
   "isFeatured": true,
@@ -56,6 +57,13 @@
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch"
+        },
+        {
+          "provider": "sunpump-token-launch-base-sepolia",
+          "network": "eip155:84532",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base-sepolia/pump-api/ai/agentTokenLaunch"
         }
       ],
       "title": "Launch Agent Token",
@@ -71,8 +79,8 @@
         }
       },
       "metered": true,
-      "minPriceUsd": 1e-06,
-      "maxPriceUsd": 1e-06
+      "minPriceUsd": 0.000001,
+      "maxPriceUsd": 0.000001
     }
   ],
   "status": {

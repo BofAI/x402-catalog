@@ -1,11 +1,13 @@
 {
   "chain_kinds": [
+    "base",
     "bnb",
     "tron"
   ],
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "chains_meta": [
     {
@@ -19,6 +21,12 @@
       "kind": "bnb",
       "label": "BNB Chain",
       "label_zh": "BNB Chain"
+    },
+    {
+      "id": "eip155:84532",
+      "kind": "base",
+      "label": "Base Sepolia",
+      "label_zh": "Base Sepolia 测试网"
     }
   ],
   "description": "## What it does\n\nSunPump Agent Token Launch API lets agents, scripts, and applications pay with x402 and submit token launch metadata to SunPump. The gateway forwards the caller's JSON payload to the SunPump launch endpoint after payment settlement.\n\n## Best for\n\n- Agent workflows that need to create a meme or agent token from structured metadata.\n- Operator tools that want one paid API call for token creation.\n- Mainnet payment flows across TRON and BNB Smart Chain while using the same SunPump launch request shape.\n\n## Request shape\n\nPOST a JSON body with `name`, `symbol`, `description`, `imageBase64`, `twitterUrl`, `telegramUrl`, `websiteUrl`, and `tweetUsername`. Keep `name` within 1-20 characters and use a unique symbol. `imageBase64` may include a base64-encoded token image; if it is empty or omitted, SunPump generates an image automatically.\n\n## Code usage\n\nTRON Mainnet defaults to `exact` + `permit2` and also supports `exact_gasfree`. First inspect the payment requirements:\n\n```bash\ncurl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \\\n  -H 'Content-Type: application/json' \\\n  --data '{\"name\":\"X402MainA\",\"symbol\":\"X4M17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\nThen pay and submit the launch request with x402 CLI:\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402MainA\",\"symbol\":\"X4M17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}' \\\n  --network tron:0x2b6653dc \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain Mainnet supports `exact` + `permit2`:\n\n```bash\ncurl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \\\n  -H 'Content-Type: application/json' \\\n  --data '{\"name\":\"X402BscA\",\"symbol\":\"X4B17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}'\n```\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \\\n  --method POST \\\n  --header 'Content-Type: application/json' \\\n  --body '{\"name\":\"X402BscA\",\"symbol\":\"X4B17\",\"description\":\"x402 launch\",\"imageBase64\":\"\",\"twitterUrl\":\"\",\"telegramUrl\":\"\",\"websiteUrl\":\"\",\"tweetUsername\":\"\"}' \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
@@ -51,6 +59,13 @@
           "provider": "sunpump-token-launch-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "sunpump-token-launch-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base-sepolia/pump-api/ai/agentTokenLaunch"
         }
       ]
     }
@@ -68,7 +83,7 @@
   "main_title": "One-call agent token launch, paid via x402",
   "main_title_zh": "一次付费完成 Agent 代币发行",
   "service_url": "https://sunpump.meme",
-  "sha": "1a4ecbb9d5276cc298c1e547871931290d0d6091f861552a8a67264fe51053e6",
+  "sha": "ab948e5db9605d8926fea908737f287c62af55b47c1800d61d6de831f7cd476f",
   "sub_title": "Create a meme or agent token from structured metadata.",
   "sub_title_zh": "用结构化元数据一次付费发币。",
   "subtitle": "Create a meme or agent token from structured metadata.",

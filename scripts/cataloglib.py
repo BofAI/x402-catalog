@@ -31,7 +31,7 @@ CATEGORIES = {
     "translation",
 }
 X402_SCHEMES = {"exact", "exact_gasfree"}
-X402_ASSET_TRANSFER_METHODS = {"permit2"}
+X402_ASSET_TRANSFER_METHODS = {"eip3009", "permit2"}
 TRON_NETWORKS = {"tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"}
 SCHEMA_PATH = ROOT / "schemas" / "catalog.schema.json"
 SECRET_KEY_RE = re.compile(

@@ -6,12 +6,14 @@
     "label_zh": "金融"
   },
   "chain_kinds": [
+    "base",
     "bnb",
     "tron"
   ],
   "chains": [
     "tron:0x2b6653dc",
-    "eip155:56"
+    "eip155:56",
+    "eip155:84532"
   ],
   "chains_meta": [
     {
@@ -25,6 +27,12 @@
       "kind": "bnb",
       "label": "BNB Chain",
       "label_zh": "BNB Chain"
+    },
+    {
+      "id": "eip155:84532",
+      "kind": "base",
+      "label": "Base Sepolia",
+      "label_zh": "Base Sepolia 测试网"
     }
   ],
   "description": "## What it does\n\nDIA oracle price feeds over x402: transparent, multi-source aggregated token quotations across 80+ CEX/DEX markets for 3,000+ assets, through one provider with TRON and BSC payment routes.\n\n\n## Best for\n\n- Agents needing verifiable reference prices for valuation or settlement.\n- Manipulation-resistant pricing as a risk or compliance check.\n- Cross-checking a venue spot price against an independent oracle.\n\n## Endpoints\n\n- `GET /v1/quotation/{symbol}` — Aggregated price quotation by asset symbol\n- `GET /v1/assetQuotation/{blockchain}/{address}` — Aggregated price quotation by blockchain + contract address\n\n## Code usage\n\nThese routes are x402-paid passthroughs. Use x402 payment for gateway access. TRON Mainnet supports `exact` + `permit2` and `exact_gasfree`; Permit2 is the default and `exact_gasfree` remains optional:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}'\n```\n\nPay on TRON Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network tron:0x2b6653dc \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```\n\nBNB Smart Chain Mainnet (`eip155:56`, `exact` + `permit2`) example:\n\n```bash\ncurl -sS 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}'\n```\n\nPay on BNB Smart Chain Mainnet with the x402 CLI (amount in USD):\n\n```bash\nx402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}' \\\n  --method GET \\\n  --network eip155:56 \\\n  --token USDT \\\n  --scheme exact \\\n  --max-amount 0.000001\n```",
@@ -69,6 +77,13 @@
           "provider": "dia-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/quotation/{symbol}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "dia-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/dia-price-base-sepolia/v1/quotation/{symbol}"
         }
       ]
     },
@@ -111,6 +126,13 @@
           "provider": "dia-price-bsc",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/dia-price-bsc/v1/assetQuotation/{blockchain}/{address}"
+        },
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:84532",
+          "provider": "dia-price-base-sepolia",
+          "scheme": "exact",
+          "url": "https://x402-gateway.bankofai.io/providers/dia-price-base-sepolia/v1/assetQuotation/{blockchain}/{address}"
         }
       ]
     }
@@ -143,7 +165,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://www.diadata.org",
-  "sha": "690c10cd5bc17d9ec73585717d712250d4bd431eea2d6b807b8b6c95954b4a30",
+  "sha": "bb12ba9853687c0ef49b3bfed234e69901adfaace8219d3b76ae17475d734c23",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
