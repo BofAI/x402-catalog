@@ -1,14 +1,14 @@
-# DIA Multi-Source Token Price API (TRON, BSC and Base Sepolia x402, Paid)
+# DIA Multi-Source Token Price API (TRON, BSC and Base Mainnet x402, Paid)
 
 x402-paid passthrough for DIA real-time token quotations (3000+ assets, 80+ markets, keyless). Manipulation-resistant price source for agents. Data by DIA.
 
 ## Service
 
 - Catalog FQN: `dia`
-- Gateway providers: `dia-price-tron`, `dia-price-bsc`, `dia-price-base-sepolia`
+- Gateway providers: `dia-price-tron`, `dia-price-bsc`, `dia-price-base`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:84532` (Base Sepolia)
-- Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Sepolia uses `exact` + USDC EIP-3009
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
+- Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
 - Tags: dia, price, oracle, quotation, multi-source
 - Listed price: `0.000001 USD` per request
 
@@ -58,11 +58,11 @@ Equivalent route form:
 GET https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/BTC
 ```
 
-### Base Sepolia
+### Base Mainnet
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-base-sepolia/v1/quotation/BTC' \
-  --network eip155:84532 \
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/dia-price-base/v1/quotation/BTC' \
+  --network eip155:8453 \
   --token USDC \
   --scheme exact \
   --max-amount 0.000001

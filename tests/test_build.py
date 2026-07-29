@@ -100,33 +100,40 @@ class CatalogBuildTests(unittest.TestCase):
                     tron_routes[0].get("assetTransferMethod"), "permit2", path.name
                 )
 
-    def test_all_providers_publish_base_sepolia_eip3009_routes(self) -> None:
+    def test_all_providers_publish_base_mainnet_eip3009_routes(self) -> None:
         route_count = 0
         for path in (ROOT / "providers").glob("*/catalog.json"):
             catalog = json.loads(path.read_text(encoding="utf-8"))
-            self.assertIn("eip155:84532", catalog["chains"], path.name)
+            self.assertIn("eip155:8453", catalog["chains"], path.name)
+            self.assertNotIn("eip155:84532", catalog["chains"], path.name)
             for endpoint in catalog["endpoints"]:
                 base_routes = [
                     route
                     for route in endpoint.get("x402Routes", [])
-                    if route["network"] == "eip155:84532"
+                    if route["network"] == "eip155:8453"
                 ]
                 self.assertEqual(len(base_routes), 1, f"{path.name}: {endpoint['path']}")
                 self.assertEqual(base_routes[0]["scheme"], "exact", path.name)
                 self.assertEqual(
                     base_routes[0]["assetTransferMethod"], "eip3009", path.name
                 )
+                self.assertTrue(
+                    base_routes[0]["provider"].endswith("-base"), path.name
+                )
+                self.assertNotIn("sepolia", base_routes[0]["url"].lower(), path.name)
                 route_count += 1
         self.assertEqual(route_count, 18)
 
-    def test_all_provider_pay_docs_cover_base_sepolia(self) -> None:
+    def test_all_provider_pay_docs_cover_base_mainnet(self) -> None:
         for path in (ROOT / "providers").glob("*/pay.md"):
             content = path.read_text(encoding="utf-8")
-            self.assertIn("Base Sepolia", content, path.name)
-            self.assertIn("eip155:84532", content, path.name)
-            self.assertIn("-base-sepolia", content, path.name)
+            self.assertIn("Base Mainnet", content, path.name)
+            self.assertIn("eip155:8453", content, path.name)
+            self.assertIn("-base", content, path.name)
             self.assertIn("USDC", content, path.name)
             self.assertIn("EIP-3009", content, path.name)
+            self.assertNotIn("Sepolia", content, path.name)
+            self.assertNotIn("eip155:84532", content, path.name)
 
     def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
         cataloglib = load_cataloglib_module()

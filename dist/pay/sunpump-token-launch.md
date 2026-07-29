@@ -1,6 +1,6 @@
 # SunPump Agent Token Launch API
 
-SunPump Agent Token Launch API is an x402-paid gateway provider for launching a TRON Mainnet SunPump token from structured metadata. It exposes the same launch request shape across TRON Mainnet, BNB Smart Chain and Base Sepolia payment routes.
+SunPump Agent Token Launch API is an x402-paid gateway provider for launching a TRON Mainnet SunPump token from structured metadata. It exposes the same launch request shape across TRON Mainnet, BNB Smart Chain and Base Mainnet payment routes.
 
 Use it when an agent, backend workflow, or CLI script has validated launch metadata and is ready to create a token through a paid API call.
 
@@ -9,13 +9,13 @@ Use it when an agent, backend workflow, or CLI script has validated launch metad
 - FQN: `sunpump-token-launch`
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
-- Payment chains: `tron:0x2b6653dc`, `eip155:56`, `eip155:84532`
+- Payment chains: `tron:0x2b6653dc`, `eip155:56`, `eip155:8453`
 - TRON schemes: `exact` + `permit2` (default), `exact_gasfree`
 - BNB Smart Chain scheme: `exact` + `permit2`
-- Base Sepolia scheme: `exact` + official testnet USDC EIP-3009
+- Base Mainnet scheme: `exact` + official USDC EIP-3009
 - TRON Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron`
 - BNB Smart Chain gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc`
-- Base Sepolia gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base-sepolia`
+- Base Mainnet gateway base: `https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base`
 
 ## CLI Quick Start
 
@@ -59,12 +59,12 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bs
   --body '{"name":"X402BscA","symbol":"X4B17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
-Base Sepolia:
+Base Mainnet:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base-sepolia/pump-api/ai/agentTokenLaunch' \
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base/pump-api/ai/agentTokenLaunch' \
   --method POST \
-  --network eip155:84532 \
+  --network eip155:8453 \
   --token USDC \
   --scheme exact \
   --max-amount 0.000001 \
@@ -72,7 +72,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-ba
   --body '{"name":"X402BaseA","symbol":"X4BA17","description":"x402 launch","imageBase64":"","twitterUrl":"","telegramUrl":"","websiteUrl":"","tweetUsername":""}'
 ```
 
-The Base Sepolia route changes only the payment network. A successful call still creates a token on TRON Mainnet.
+The Base Mainnet route changes only the payment network. A successful call still creates a token on TRON Mainnet.
 
 ## Endpoint
 

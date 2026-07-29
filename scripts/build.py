@@ -36,10 +36,10 @@ CATEGORY_META = {
 }
 
 CHAIN_META = {
-    "eip155:84532": {
+    "eip155:8453": {
         "kind": "base",
-        "label": "Base Sepolia",
-        "label_zh": "Base Sepolia 测试网",
+        "label": "Base Mainnet",
+        "label_zh": "Base 主网",
     },
     "eip155:56": {"kind": "bnb", "label": "BNB Chain", "label_zh": "BNB Chain"},
     "eip155:97": {
