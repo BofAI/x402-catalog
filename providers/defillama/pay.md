@@ -1,6 +1,6 @@
 # DefiLlama DeFi Data API (TRON, BSC and Base Mainnet x402, Paid)
 
-x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Paid DeFi decision data layer for agents. Data by DefiLlama.
+x402-paid passthrough for DefiLlama protocol TVL and metadata. Paid DeFi decision data layer for agents. Data by DefiLlama.
 
 ## Service
 
@@ -9,12 +9,12 @@ x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin da
 - Category: `finance`
 - Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
 - Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
-- Tags: defillama, defi, tvl, fees, stablecoins
+- Tags: defillama, defi, tvl, prices, yields
 - Listed price: `0.000001 USD` per request
 
 ## When To Use
 
-Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research, allocation or risk screening.
+Use to read protocol TVL and metadata for DeFi research, allocation or risk screening.
 
 ## Endpoint Summary
 
@@ -23,7 +23,7 @@ Use to read protocol TVL, fees/revenue and stablecoin metrics for DeFi research,
 All protocols with current TVL, category and chain breakdown
 ### GET /protocol/{slug}
 
-Single protocol: historical TVL, fees, tokens, metadata
+Single protocol: historical TVL, tokens and metadata
 ### GET /tvl/{protocol}
 
 Current total TVL of a protocol (lightweight)
@@ -40,7 +40,7 @@ The catalog also publishes current/historical prices, price charts, percentage c
 
 ## Response Shape
 
-- Returns DefiLlama JSON: protocol list with tvl/chainTvls/category, or a single protocol's historical TVL, fees and metadata.
+- Returns DefiLlama JSON: protocol list with tvl/chainTvls/category, or a single protocol's historical TVL and metadata.
 
 ## Code Usage
 
@@ -81,7 +81,7 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-coins-price-b
 ## Spend-Aware Usage
 
 - Prefer per-protocol endpoints (/protocol/{slug}, /tvl/{protocol}) over the full /protocols dump to keep payloads small.
-- Cache TVL/fees results; these update on the order of minutes, not seconds.
+- Cache TVL results; these update on the order of minutes, not seconds.
 
 ## When Not To Use
 

@@ -41,7 +41,7 @@
       "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
       "subtitle": "/api/v1/token_security/{chain_id}",
       "description": "Token security report (honeypot, taxes, owner privileges, holders) for one or more contracts",
-      "useCase": "Use this endpoint when an agent needs token security report (honeypot, taxes, owner privileges, holders) for one or more contracts through the matching TRON or BSC gateway route.",
+      "useCase": "Use this endpoint when an agent needs token security report (honeypot, taxes, owner privileges, holders) for one or more contracts through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
@@ -90,7 +90,7 @@
       "title": "Malicious-address check (sanctions, phishing, known scam)",
       "subtitle": "/api/v1/address_security/{address}",
       "description": "Malicious-address check (sanctions, phishing, known scam)",
-      "useCase": "Use this endpoint when an agent needs malicious-address check (sanctions, phishing, known scam) through the matching TRON or BSC gateway route.",
+      "useCase": "Use this endpoint when an agent needs malicious-address check (sanctions, phishing, known scam) through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Malicious-address check (sanctions, phishing, known scam)",
@@ -139,7 +139,7 @@
       "title": "Token approval / allowance risk check for wallet addresses",
       "subtitle": "/api/v2/token_approval_security/{chain_id}?addresses={addresses}",
       "description": "Token approval / allowance risk check for one or more wallet addresses. Pass the `addresses` query parameter as required by GoPlus.",
-      "useCase": "Use this endpoint when an agent needs approval / allowance risk checks for wallet addresses through the matching TRON or BSC gateway route.",
+      "useCase": "Use this endpoint when an agent needs approval / allowance risk checks for wallet addresses through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "i18n": {
         "zh-CN": {
           "title": "Token approval / allowance risk check for wallet addresses",

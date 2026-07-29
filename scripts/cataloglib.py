@@ -61,7 +61,7 @@ def now_iso() -> str:
     return datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
-def json_load(path: Path) -> dict[str, Any]:
+def json_load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -182,7 +182,7 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
                 )
 
 
-def validate_schema(payload: dict[str, Any], errors: list[str]) -> None:
+def validate_schema(payload: Any, errors: list[str]) -> None:
     try:
         from jsonschema import Draft202012Validator
     except ImportError:
@@ -198,9 +198,11 @@ def validate_schema(payload: dict[str, Any], errors: list[str]) -> None:
         errors.append(f"{location}: {error.message}")
 
 
-def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[str]:
+def validate_provider(payload: Any, *, provider_dir: Path) -> list[str]:
     errors: list[str] = []
     validate_schema(payload, errors)
+    if not isinstance(payload, dict):
+        return errors
     if payload.get("version") != 1:
         errors.append("$.version must be 1")
     fqn = require_string(payload, "fqn", errors, path="$")
@@ -246,7 +248,8 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
                 errors.append(f"{path}.maxPriceUsd must be >= minPriceUsd")
             validate_i18n(endpoint, errors, path=path)
             validate_x402_routes(endpoint, errors, path=path)
-            for route in endpoint.get("x402Routes", []):
+            routes = endpoint.get("x402Routes")
+            for route in routes if isinstance(routes, list) else []:
                 if not isinstance(route, dict):
                     continue
                 network = route.get("network")
@@ -257,9 +260,6 @@ def validate_provider(payload: dict[str, Any], *, provider_dir: Path) -> list[st
                     errors.append(f"{path}.x402Routes contains duplicate route {identity!r}")
                 seen_routes.add(identity)
 
-    status = payload.get("status")
-    if status is not None and not isinstance(status, dict):
-        errors.append("$.status must be an object")
     scan_public_payload(payload, errors, path="$")
     pay_md = provider_dir / "pay.md"
     if not pay_md.exists():

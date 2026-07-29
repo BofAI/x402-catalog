@@ -56,7 +56,7 @@
       "subtitle": "/api/v1/token_security/{chain_id}",
       "title": "Token security report (honeypot, taxes, owner privileges, holders) for one or more",
       "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}",
-      "use_case": "Use this endpoint when an agent needs token security report (honeypot, taxes, owner privileges, holders) for one or more contracts through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs token security report (honeypot, taxes, owner privileges, holders) for one or more contracts through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -105,7 +105,7 @@
       "subtitle": "/api/v1/address_security/{address}",
       "title": "Malicious-address check (sanctions, phishing, known scam)",
       "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}",
-      "use_case": "Use this endpoint when an agent needs malicious-address check (sanctions, phishing, known scam) through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs malicious-address check (sanctions, phishing, known scam) through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -154,7 +154,7 @@
       "subtitle": "/api/v2/token_approval_security/{chain_id}?addresses={addresses}",
       "title": "Token approval / allowance risk check for wallet addresses",
       "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}",
-      "use_case": "Use this endpoint when an agent needs approval / allowance risk checks for wallet addresses through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs approval / allowance risk checks for wallet addresses through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -214,7 +214,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://gopluslabs.io",
-  "sha": "311b9ce8cea0c44b2b5b2f8ef2017419392dcd584e16f02c66627b47c1b9a3e1",
+  "sha": "5d9cf5dbfcc8d6413ea6ec8056047ab29fe5bb165e0d3191d22dc9d83345ff41",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

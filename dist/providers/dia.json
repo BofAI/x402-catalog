@@ -56,7 +56,7 @@
       "subtitle": "/v1/quotation/{symbol}",
       "title": "Aggregated price quotation by asset symbol",
       "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}",
-      "use_case": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs aggregated price quotation by asset symbol through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -105,7 +105,7 @@
       "subtitle": "/v1/assetQuotation/{blockchain}/{address}",
       "title": "Aggregated price quotation by blockchain + contract address",
       "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}",
-      "use_case": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs aggregated price quotation by blockchain + contract address through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -165,7 +165,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://www.diadata.org",
-  "sha": "6cef0f7b0b76e5e2821aa12b638ca23ba3c1184d289c8f264608457b7c07f13f",
+  "sha": "10ff2698a6f462a4cdff71538f20a6bcb17dc77dbf0132374fd001a85858b347",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

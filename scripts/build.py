@@ -93,9 +93,9 @@ def snake_provider(payload: dict[str, Any], sha: str) -> dict[str, Any]:
         "title": payload["title"],
         "title_zh": zh.get("title") or payload["title"],
         "main_title_zh": zh.get("mainTitle") or (payload.get("mainTitle") or payload["title"]),
-        "sub_title_zh": zh.get("subtitle") or (payload.get("subTitle") or payload["subtitle"]),
+        "sub_title_zh": zh.get("subtitle") or payload["subtitle"],
         "main_title": payload.get("mainTitle") or payload["title"],
-        "sub_title": payload.get("subTitle") or payload["subtitle"],
+        "sub_title": payload["subtitle"],
         "subtitle": payload["subtitle"],
         "description": payload["description"],
         "use_case": payload["useCase"],
@@ -159,9 +159,9 @@ def pay_json(payload: dict[str, Any], sha: str) -> dict[str, Any]:
         "title": payload["title"],
         "title_zh": zh.get("title") or payload["title"],
         "main_title_zh": zh.get("mainTitle") or (payload.get("mainTitle") or payload["title"]),
-        "sub_title_zh": zh.get("subtitle") or (payload.get("subTitle") or payload["subtitle"]),
+        "sub_title_zh": zh.get("subtitle") or payload["subtitle"],
         "main_title": payload.get("mainTitle") or payload["title"],
-        "sub_title": payload.get("subTitle") or payload["subtitle"],
+        "sub_title": payload["subtitle"],
         "subtitle": payload["subtitle"],
         "description": payload["description"],
         "use_case": payload["useCase"],
@@ -215,87 +215,89 @@ def search_doc(summary: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any
 
 
 def main() -> int:
+    build_dir: Path | None = None
     try:
         providers = load_validated_providers()
-    except CatalogError as exc:
-        print(str(exc))
-        return 1
+        generated_at = now_iso()
+        build_dir = Path(tempfile.mkdtemp(prefix=".dist-", dir=DIST_DIR.parent))
+        summaries: list[dict[str, Any]] = []
+        details: list[dict[str, Any]] = []
+        search_docs: list[dict[str, Any]] = []
+        used_categories: dict[str, int] = {}
+        used_chains: dict[str, int] = {}
 
-    build_dir = Path(tempfile.mkdtemp(prefix=".dist-", dir=DIST_DIR.parent))
-    generated_at = now_iso()
-    summaries: list[dict[str, Any]] = []
-    details: list[dict[str, Any]] = []
-    search_docs: list[dict[str, Any]] = []
-    used_categories: dict[str, int] = {}
-    used_chains: dict[str, int] = {}
+        for provider_dir, payload, pay_md in providers:
+            sha = content_sha(payload, pay_md)
+            summary = snake_provider(payload, sha)
+            detail = detail_provider(payload, sha)
+            summaries.append(summary)
+            details.append(detail)
+            search_docs.append(search_doc(summary, detail))
+            used_categories[summary["category"]] = used_categories.get(summary["category"], 0) + 1
+            for chain in summary["chains"]:
+                used_chains[chain] = used_chains.get(chain, 0) + 1
 
-    for provider_dir, payload, pay_md in providers:
-        sha = content_sha(payload, pay_md)
-        summary = snake_provider(payload, sha)
-        detail = detail_provider(payload, sha)
-        summaries.append(summary)
-        details.append(detail)
-        search_docs.append(search_doc(summary, detail))
-        used_categories[summary["category"]] = used_categories.get(summary["category"], 0) + 1
-        for chain in summary["chains"]:
-            used_chains[chain] = used_chains.get(chain, 0) + 1
+            fqn = summary["fqn"]
+            json_dump(build_dir / "providers" / f"{fqn}.json", detail)
+            json_dump(build_dir / "pay" / f"{fqn}.json", pay_json(payload, sha))
+            (build_dir / "pay").mkdir(parents=True, exist_ok=True)
+            (build_dir / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
 
-        fqn = summary["fqn"]
-        json_dump(build_dir / "providers" / f"{fqn}.json", detail)
-        json_dump(build_dir / "pay" / f"{fqn}.json", pay_json(payload, sha))
-        (build_dir / "pay").mkdir(parents=True, exist_ok=True)
-        (build_dir / "pay" / f"{fqn}.md").write_text(pay_md, encoding="utf-8")
-
-    summaries.sort(key=lambda item: (not item["is_featured"], item["category"], item["fqn"]))
-    base_url = "https://x402-catalog.bankofai.io/api"
-    catalog = {
-        "version": 1,
-        "generated_at": generated_at,
-        "provider_count": len(summaries),
-        "first_party_count": sum(1 for provider in summaries if provider["is_first_party"]),
-        "chain_count": len(used_chains),
-        "base_url": base_url,
-        "frontend": {
-            "featured_fqns": [provider["fqn"] for provider in summaries if provider["is_featured"]],
-            "categories": [
-                {**category_meta(category), "count": used_categories.get(category, 0)}
-                for category in sorted(CATEGORIES)
-                if used_categories.get(category, 0)
-            ],
-            "chains": [
-                {**chain_meta(chain), "count": count}
-                for chain, count in sorted(used_chains.items())
-            ],
-        },
-        "providers": summaries,
-    }
-    json_dump(build_dir / "catalog.json", catalog)
-    json_dump(build_dir / "categories.json", catalog["frontend"]["categories"])
-    json_dump(build_dir / "search-index.json", {"version": 1, "generated_at": generated_at, "documents": search_docs})
-    json_dump(
-        build_dir / "status.json",
-        {
+        summaries.sort(key=lambda item: (not item["is_featured"], item["category"], item["fqn"]))
+        base_url = "https://x402-catalog.bankofai.io/api"
+        catalog = {
             "version": 1,
             "generated_at": generated_at,
             "provider_count": len(summaries),
-            "status": "ok",
-        },
-    )
-    backup = DIST_DIR.with_name(f".{DIST_DIR.name}.old")
-    if backup.exists():
-        shutil.rmtree(backup)
-    if DIST_DIR.exists():
-        DIST_DIR.rename(backup)
-    try:
-        build_dir.rename(DIST_DIR)
-    except Exception:
-        if backup.exists() and not DIST_DIR.exists():
-            backup.rename(DIST_DIR)
-        raise
-    finally:
+            "first_party_count": sum(1 for provider in summaries if provider["is_first_party"]),
+            "chain_count": len(used_chains),
+            "base_url": base_url,
+            "frontend": {
+                "featured_fqns": [provider["fqn"] for provider in summaries if provider["is_featured"]],
+                "categories": [
+                    {**category_meta(category), "count": used_categories.get(category, 0)}
+                    for category in sorted(CATEGORIES)
+                    if used_categories.get(category, 0)
+                ],
+                "chains": [
+                    {**chain_meta(chain), "count": count}
+                    for chain, count in sorted(used_chains.items())
+                ],
+            },
+            "providers": summaries,
+        }
+        json_dump(build_dir / "catalog.json", catalog)
+        json_dump(build_dir / "categories.json", catalog["frontend"]["categories"])
+        json_dump(build_dir / "search-index.json", {"version": 1, "generated_at": generated_at, "documents": search_docs})
+        json_dump(
+            build_dir / "status.json",
+            {
+                "version": 1,
+                "generated_at": generated_at,
+                "provider_count": len(summaries),
+                "status": "ok",
+            },
+        )
+        backup = DIST_DIR.with_name(f".{DIST_DIR.name}.old")
         if backup.exists():
             shutil.rmtree(backup)
-        if build_dir.exists():
+        if DIST_DIR.exists():
+            DIST_DIR.rename(backup)
+        try:
+            build_dir.rename(DIST_DIR)
+            build_dir = None
+        except Exception:
+            if backup.exists() and not DIST_DIR.exists():
+                backup.rename(DIST_DIR)
+            raise
+        finally:
+            if backup.exists():
+                shutil.rmtree(backup)
+    except CatalogError as exc:
+        print(str(exc))
+        return 1
+    finally:
+        if build_dir is not None and build_dir.exists():
             shutil.rmtree(build_dir)
     print(f"built {len(summaries)} provider(s) into {DIST_DIR.relative_to(DIST_DIR.parent)}")
     return 0

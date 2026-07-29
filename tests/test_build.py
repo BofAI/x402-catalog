@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
+import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -46,6 +48,63 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_invalid_top_level_catalog_types_are_reported_without_crashing(self) -> None:
+        cataloglib = load_cataloglib_module()
+        provider_dir = ROOT / "providers" / "defillama"
+        for payload in (None, [], "invalid", 42):
+            errors = cataloglib.validate_provider(payload, provider_dir=provider_dir)
+            self.assertTrue(errors)
+            self.assertTrue(any("not of type 'object'" in error for error in errors))
+
+    def test_invalid_x402_routes_containers_are_reported_without_crashing(self) -> None:
+        cataloglib = load_cataloglib_module()
+        provider_dir = ROOT / "providers" / "defillama"
+        source = json.loads((provider_dir / "catalog.json").read_text(encoding="utf-8"))
+        for routes in (None, 42, {"provider": "invalid"}):
+            payload = json.loads(json.dumps(source))
+            payload["endpoints"][0]["x402Routes"] = routes
+            errors = cataloglib.validate_provider(payload, provider_dir=provider_dir)
+            self.assertTrue(errors)
+            self.assertTrue(any("x402Routes" in error for error in errors))
+
+    def test_build_failure_is_clean_and_removes_temporary_directory(self) -> None:
+        before = set(ROOT.glob(".dist-*"))
+        env = dict(os.environ)
+        env["SOURCE_DATE_EPOCH"] = "not-an-integer"
+        result = subprocess.run(
+            [sys.executable, str(SCRIPTS / "build.py")],
+            cwd=ROOT,
+            env=env,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("SOURCE_DATE_EPOCH must be an integer", result.stdout)
+        self.assertNotIn("Traceback", result.stdout + result.stderr)
+        self.assertEqual(set(ROOT.glob(".dist-*")), before)
+
+    def test_endpoint_use_cases_cover_all_published_mainnet_routes(self) -> None:
+        route_copy_count = 0
+        for path in (ROOT / "providers").glob("*/catalog.json"):
+            catalog = json.loads(path.read_text(encoding="utf-8"))
+            for endpoint in catalog["endpoints"]:
+                self.assertNotIn("TRON or BSC", endpoint["useCase"], path.name)
+                if "matching TRON" in endpoint["useCase"]:
+                    self.assertIn("Base Mainnet", endpoint["useCase"], path.name)
+                    route_copy_count += 1
+        self.assertEqual(route_copy_count, 17)
+
+    def test_defillama_does_not_claim_unpublished_capabilities(self) -> None:
+        provider_dir = ROOT / "providers" / "defillama"
+        catalog = json.loads((provider_dir / "catalog.json").read_text(encoding="utf-8"))
+        public_copy = json.dumps(catalog, ensure_ascii=False).lower()
+        public_copy += (provider_dir / "pay.md").read_text(encoding="utf-8").lower()
+        self.assertNotIn("fees", public_copy)
+        self.assertNotIn("stablecoin", public_copy)
+        self.assertNotIn("费用", public_copy)
+        self.assertNotIn("稳定币", public_copy)
+
     def test_tron_pay_docs_cover_default_and_gasfree_schemes(self) -> None:
         for path in (ROOT / "providers").glob("*/pay.md"):
             content = path.read_text(encoding="utf-8")

@@ -56,7 +56,7 @@
       "subtitle": "/latest/dex/tokens/{tokenAddresses}",
       "title": "All DEX pairs (price/liquidity/volume/fdv) for one or more token addresses",
       "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}",
-      "use_case": "Use this endpoint when an agent needs all DEX pairs (price/liquidity/volume/fdv) for one or more token addresses through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs all DEX pairs (price/liquidity/volume/fdv) for one or more token addresses through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -105,7 +105,7 @@
       "subtitle": "/latest/dex/search",
       "title": "Search pairs by token name/symbol/address",
       "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search",
-      "use_case": "Use this endpoint when an agent needs search pairs by token name/symbol/address through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs search pairs by token name/symbol/address through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -154,7 +154,7 @@
       "subtitle": "/token-profiles/latest/v1",
       "title": "Latest token profiles (new-launch / discovery radar)",
       "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1",
-      "use_case": "Use this endpoint when an agent needs latest token profiles (new-launch / discovery radar) through the matching TRON or BSC gateway route.",
+      "use_case": "Use this endpoint when an agent needs latest token profiles (new-launch / discovery radar) through the matching TRON, BNB Smart Chain, or Base Mainnet gateway route.",
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
@@ -215,7 +215,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://dexscreener.com",
-  "sha": "e611efb333870b75ed80df1ab945d4cb2f14c01850e0146cff46a6b0cdb80de0",
+  "sha": "4fb7b625e4788757e5935c8e3c47a72e6ddbc903b293c9287ed6744d869b33b0",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
