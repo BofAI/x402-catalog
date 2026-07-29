@@ -119,6 +119,15 @@ class CatalogBuildTests(unittest.TestCase):
                 route_count += 1
         self.assertEqual(route_count, 18)
 
+    def test_all_provider_pay_docs_cover_base_sepolia(self) -> None:
+        for path in (ROOT / "providers").glob("*/pay.md"):
+            content = path.read_text(encoding="utf-8")
+            self.assertIn("Base Sepolia", content, path.name)
+            self.assertIn("eip155:84532", content, path.name)
+            self.assertIn("-base-sepolia", content, path.name)
+            self.assertIn("USDC", content, path.name)
+            self.assertIn("EIP-3009", content, path.name)
+
     def test_gasfree_routes_are_tron_only_and_omit_permit2(self) -> None:
         cataloglib = load_cataloglib_module()
         endpoint = {

@@ -1,14 +1,14 @@
-# DefiLlama DeFi Data API (TRON and BSC x402, Paid)
+# DefiLlama DeFi Data API (TRON, BSC and Base Sepolia x402, Paid)
 
 x402-paid passthrough for DefiLlama protocol TVL, fees/revenue and stablecoin data. Paid DeFi decision data layer for agents. Data by DefiLlama.
 
 ## Service
 
 - Catalog FQN: `defillama`
-- Gateway providers: `defillama-tvl-tron`, `defillama-tvl-bsc`
+- Gateway providers: `defillama-tvl-tron`, `defillama-tvl-bsc`, `defillama-tvl-base-sepolia`, `defillama-coins-price-base-sepolia`, `defillama-yields-base-sepolia`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain)
-- Schemes: `exact` + `permit2` (default), `exact_gasfree`
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:84532` (Base Sepolia)
+- Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Sepolia uses `exact` + USDC EIP-3009
 - Tags: defillama, defi, tvl, fees, stablecoins
 - Listed price: `0.000001 USD` per request
 
@@ -64,6 +64,18 @@ Equivalent route form:
 
 ```text
 GET https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols
+```
+
+### Base Sepolia
+
+Base Sepolia payments use official testnet USDC with x402 `exact` and EIP-3009:
+
+```bash
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-coins-price-base-sepolia/prices/current/coingecko:bitcoin' \
+  --network eip155:84532 \
+  --token USDC \
+  --scheme exact \
+  --max-amount 0.000001
 ```
 
 ## Spend-Aware Usage
