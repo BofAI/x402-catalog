@@ -1,14 +1,14 @@
-# DexScreener DEX Pairs & New-Listing API (TRON and BSC x402, Paid)
+# DexScreener DEX Pairs & New-Listing API (TRON, BSC and Base Mainnet x402, Paid)
 
 x402-paid passthrough for DexScreener token/pair data, search and latest token profiles. New-launch / meme radar data for trading agents. Data by DexScreener.
 
 ## Service
 
 - Catalog FQN: `dexscreener`
-- Gateway providers: `dexscreener-dex-data-tron`, `dexscreener-dex-data-bsc`
+- Gateway providers: `dexscreener-dex-data-tron`, `dexscreener-dex-data-bsc`, `dexscreener-dex-data-base`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain)
-- Schemes: `exact` + `permit2` (default), `exact_gasfree`
+- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
+- Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
 - Tags: dexscreener, dex, new-pairs, meme, liquidity, price
 - Listed price: `0.000001 USD` per request
 
@@ -60,6 +60,16 @@ Equivalent route form:
 
 ```text
 GET https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN
+```
+
+### Base Mainnet
+
+```bash
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base/latest/dex/search?q=USDC' \
+  --network eip155:8453 \
+  --token USDC \
+  --scheme exact \
+  --max-amount 0.000001
 ```
 
 ## Spend-Aware Usage

@@ -42,8 +42,8 @@ Provider metadata should describe the public service surface only:
 - pricing summary
 - localized display metadata when available
 
-Payment routes support `scheme: exact` with `assetTransferMethod: permit2`, and
-TRON `scheme: exact_gasfree` without an asset transfer method. New TRON routes
+Payment routes support `scheme: exact` with `assetTransferMethod: eip3009` or
+`permit2`, and TRON `scheme: exact_gasfree` without an asset transfer method. New TRON routes
 should use canonical CAIP-2 IDs such as `tron:0x2b6653dc` (mainnet) and
 `tron:0xcd8690dc` (Nile). Legacy aliases such as `tron:nile` are rejected; use canonical CAIP-2 IDs.
 With x402 SDK 1.0.1, GasFree relayer costs are estimated by the client;
@@ -81,6 +81,18 @@ GET /api/pay/<provider-fqn>.md
 ```
 
 `catalog.json` is the primary index for catalog UIs and agent discovery. Provider detail pages can use `providers/<provider-fqn>.json`, while CLI and agent payment flows can use `pay/<provider-fqn>.json` or `pay/<provider-fqn>.md`.
+
+`status.json` reports whether the static catalog build completed and how many
+providers it contains. A provider detail's `status` object is declared
+metadata, not a live health check:
+
+- `catalog`: whether the public entry is listed.
+- `gateway`: whether a gateway route is configured.
+- `payment`: the declared payment availability (`paid-route`, `mainnet`,
+  `testnet`, or `unknown`).
+- `upstream`: the declared upstream access mode.
+
+Runtime availability must be checked against the gateway and upstream service.
 
 ## Submitting a Provider
 

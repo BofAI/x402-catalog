@@ -26,22 +26,22 @@ This repository stores public discovery data for x402 providers. It does not
 store provider secrets, upstream API keys, private gateway configuration, or
 `provider.yml` files.
 
-## Demo Provider
+## Provider Layout
 
-The included demo provider is:
+Each submitted provider uses this layout:
 
 ```text
-providers/acme-weather/catalog.json
-providers/acme-weather/pay.md
+providers/<fqn>/catalog.json
+providers/<fqn>/pay.md
 ```
 
 Generated static output:
 
 ```text
 dist/catalog.json
-dist/providers/acme-weather.json
-dist/pay/acme-weather.json
-dist/pay/acme-weather.md
+dist/providers/<fqn>.json
+dist/pay/<fqn>.json
+dist/pay/<fqn>.md
 dist/search-index.json
 dist/status.json
 ```
@@ -52,8 +52,8 @@ The provider runs their own gateway first, then exports public files:
 
 ```bash
 x402-cli catalog export-gateway https://gateway.example.com \
-  --provider acme-weather \
-  --output-dir providers/acme-weather
+  --provider <fqn> \
+  --output-dir providers/<fqn>
 ```
 
 The output must contain only:
@@ -94,8 +94,8 @@ python3 scripts/build.py
 Expected output:
 
 ```text
-validated 1 provider(s)
-built 1 provider(s) into dist
+validated 5 provider(s)
+built 5 provider(s) into dist
 ```
 
 ## 4. Consumer Search
@@ -103,10 +103,10 @@ built 1 provider(s) into dist
 After build, consumers and agents can search:
 
 ```bash
-x402-cli catalog search weather --catalog dist/catalog.json --json
-x402-cli catalog show acme-weather --catalog dist/catalog.json --json
-x402-cli catalog endpoints acme-weather --catalog dist/catalog.json --json
-x402-cli catalog pay-json acme-weather --catalog dist/catalog.json
+x402-cli catalog search defi --catalog dist/catalog.json --json
+x402-cli catalog show defillama --catalog dist/catalog.json --json
+x402-cli catalog endpoints defillama --catalog dist/catalog.json --json
+x402-cli catalog pay-json defillama --catalog dist/catalog.json
 ```
 
 ## 5. Frontend Usage

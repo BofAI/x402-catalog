@@ -21,7 +21,7 @@
     "featuredTags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "serviceUrl": { "$ref": "#/$defs/httpsUrl" },
     "endpoints": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/endpoint" } },
-    "status": { "type": "object" }
+    "status": { "$ref": "#/$defs/status" }
   },
   "$defs": {
     "text": { "type": "string", "minLength": 1 },
@@ -48,6 +48,17 @@
       "type": "string",
       "minLength": 1,
       "allOf": [{ "if": { "pattern": "^tron:" }, "then": { "enum": ["tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"] } }]
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalog", "gateway", "payment", "upstream"],
+      "properties": {
+        "catalog": { "enum": ["listed", "unlisted"] },
+        "gateway": { "enum": ["configured", "unknown", "unavailable"] },
+        "payment": { "enum": ["paid-route", "mainnet", "testnet", "unknown"] },
+        "upstream": { "enum": ["public", "authenticated", "unknown", "unavailable"] }
+      }
     },
     "endpoint": {
       "type": "object",
@@ -76,7 +87,7 @@
         "provider": { "$ref": "#/$defs/text" },
         "network": { "$ref": "#/$defs/network" },
         "scheme": { "enum": ["exact", "exact_gasfree"] },
-        "assetTransferMethod": { "const": "permit2" },
+        "assetTransferMethod": { "enum": ["eip3009", "permit2"] },
         "url": { "$ref": "#/$defs/httpsUrl" }
       },
       "allOf": [
