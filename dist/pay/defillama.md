@@ -71,7 +71,14 @@ GET https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols
 Base Mainnet payments use official USDC with x402 `exact` and EIP-3009:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-coins-price-base/prices/current/coingecko:bitcoin' \
+curl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-base/protocols'
+```
+
+Pay on Base Mainnet with the x402 CLI (amount in USD):
+
+```bash
+x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-base/protocols' \
+  --method GET \
   --network eip155:8453 \
   --token USDC \
   --scheme exact \
