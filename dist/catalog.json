@@ -1,9 +1,15 @@
 {
   "base_url": "https://x402-catalog.bankofai.io/api",
   "chain_count": 3,
-  "first_party_count": 1,
+  "first_party_count": 2,
   "frontend": {
     "categories": [
+      {
+        "count": 1,
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
       {
         "count": 5,
         "id": "finance",
@@ -20,7 +26,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
@@ -38,8 +44,8 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-30T10:02:35Z",
-  "provider_count": 5,
+  "generated_at": "2026-08-07T06:10:05Z",
+  "provider_count": 6,
   "providers": [
     {
       "category": "finance",
@@ -115,6 +121,64 @@
       "title": "SunPump",
       "title_zh": "SunPump",
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
+    },
+    {
+      "category": "devtools",
+      "category_meta": {
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "Inspects an inline x402 manifest and returns deterministic readiness findings. Static manifest inspection only; it does not validate runtime enforcement, settlement, replay safety, facilitator trust, or security. Input URLs are never fetched. Operated by an authorized AI agent for R2 Advisory.",
+      "endpoint_count": 1,
+      "featured_tags": [
+        "x402",
+        "manifest",
+        "audit",
+        "validation",
+        "readiness"
+      ],
+      "fqn": "r2-x402-manifest-audit",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "检查内联 x402 清单并返回确定性的就绪性发现。仅静态检查；不验证运行时执行、结算、重放安全或整体安全性。不会抓取输入 URL。",
+          "mainTitle": "x402 清单静态就绪性检查",
+          "subtitle": "对 x402 服务清单进行确定性静态审计。",
+          "title": "R2 x402 清单审计",
+          "useCase": "在发布或集成 x402 服务前检查支付绑定与清单就绪性问题。"
+        }
+      },
+      "is_featured": false,
+      "is_first_party": true,
+      "logo": "https://github.com/ruizmr.png",
+      "main_title": "Static x402 manifest readiness findings",
+      "main_title_zh": "x402 清单静态就绪性检查",
+      "max_price_usd": 2.0,
+      "min_price_usd": 2.0,
+      "service_url": "https://r2-x402-manifest-audit.dragonfly27.workers.dev",
+      "sha": "4bbec7ee2861b2d4f5fbef1776a26e762d841bdbf5afe9d3096e15b84ba549ac",
+      "sub_title": "Deterministic static audits for x402 service manifests.",
+      "sub_title_zh": "对 x402 服务清单进行确定性静态审计。",
+      "subtitle": "Deterministic static audits for x402 service manifests.",
+      "title": "R2 x402 Manifest Audit",
+      "title_zh": "R2 x402 清单审计",
+      "use_case": "Use before publishing or integrating an x402 manifest to catch missing or inconsistent payment bindings."
     },
     {
       "category": "finance",

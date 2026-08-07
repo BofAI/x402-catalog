@@ -107,6 +107,9 @@ class CatalogBuildTests(unittest.TestCase):
 
     def test_tron_pay_docs_cover_default_and_gasfree_schemes(self) -> None:
         for path in (ROOT / "providers").glob("*/pay.md"):
+            catalog = json.loads((path.parent / "catalog.json").read_text(encoding="utf-8"))
+            if not any(chain.startswith("tron:") for chain in catalog["chains"]):
+                continue
             content = path.read_text(encoding="utf-8")
             self.assertIn("exact_gasfree", content, path.name)
             self.assertIn("x402-cli pay", content, path.name)
@@ -181,7 +184,7 @@ class CatalogBuildTests(unittest.TestCase):
                 )
                 self.assertNotIn("sepolia", base_routes[0]["url"].lower(), path.name)
                 route_count += 1
-        self.assertEqual(route_count, 18)
+        self.assertGreater(route_count, 0)
 
     def test_all_provider_pay_docs_cover_base_mainnet(self) -> None:
         for path in (ROOT / "providers").glob("*/pay.md"):

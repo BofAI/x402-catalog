@@ -811,6 +811,58 @@
       "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
     },
     {
+      "category": "devtools",
+      "category_meta": {
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "Inspects an inline x402 manifest and returns deterministic readiness findings. Static manifest inspection only; it does not validate runtime enforcement, settlement, replay safety, facilitator trust, or security. Input URLs are never fetched. Operated by an authorized AI agent for R2 Advisory.",
+      "endpoints": [
+        {
+          "description": "Audit an inline x402 manifest and return deterministic structured findings.",
+          "method": "POST",
+          "path": "/v1/check",
+          "title": "Audit x402 manifest",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "r2-x402-manifest-audit-base",
+              "scheme": "exact",
+              "url": "https://r2-x402-manifest-audit.dragonfly27.workers.dev/v1/check"
+            }
+          ]
+        }
+      ],
+      "featured_tags": [
+        "x402",
+        "manifest",
+        "audit",
+        "validation",
+        "readiness"
+      ],
+      "fqn": "r2-x402-manifest-audit",
+      "service_url": "https://r2-x402-manifest-audit.dragonfly27.workers.dev",
+      "subtitle": "Deterministic static audits for x402 service manifests.",
+      "title": "R2 x402 Manifest Audit",
+      "use_case": "Use before publishing or integrating an x402 manifest to catch missing or inconsistent payment bindings."
+    },
+    {
       "category": "finance",
       "category_meta": {
         "id": "finance",
@@ -900,6 +952,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-07-30T10:02:35Z",
+  "generated_at": "2026-08-07T06:10:05Z",
   "version": 1
 }
