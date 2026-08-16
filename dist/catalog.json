@@ -5,7 +5,7 @@
   "frontend": {
     "categories": [
       {
-        "count": 5,
+        "count": 6,
         "id": "finance",
         "label": "Finance",
         "label_zh": "金融"
@@ -20,7 +20,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
@@ -38,8 +38,8 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-30T10:02:35Z",
-  "provider_count": 5,
+  "generated_at": "2026-08-16T16:51:13Z",
+  "provider_count": 6,
   "providers": [
     {
       "category": "finance",
@@ -115,6 +115,64 @@
       "title": "SunPump",
       "title_zh": "SunPump",
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
+    },
+    {
+      "category": "finance",
+      "category_meta": {
+        "id": "finance",
+        "label": "Finance",
+        "label_zh": "金融"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nOfficial Colombian Tasa Representativa del Mercado (USD/COP) from Superintendencia Financiera (datos.gov.co dataset mcec-87by), served as prepaid x402 JSON on Base USDC.\n\n## Best for\n\n- Agents that need the official Colombian peso FX print, not a synthetic mid-market rate.\n- Settlement, invoicing, and COP-denominated pricing workflows.\n\n## Endpoints\n\n- `GET /trm` — current official TRM USD/COP with validity window and source.\n\n## Code usage\n\nUnpaid GET returns HTTP 402. Pay $0.005 USDC on Base (`eip155:8453`, exact + EIP-3009).\n\n```bash\ncurl -sS -D- https://x402.lagaceta.net/trm\n```\n",
+      "endpoint_count": 1,
+      "featured_tags": [
+        "trm",
+        "colombia",
+        "fx",
+        "usd-cop",
+        "finance"
+      ],
+      "fqn": "colombia-trm",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "## 能做什么\n\n官方哥伦比亚 TRM（USD/COP），来自 Superintendencia Financiera（datos.gov.co mcec-87by），通过 Base USDC 的 x402 预付 JSON 提供。\n\n## 接口\n\n- `GET /trm` — 当前官方 TRM USD/COP。",
+          "mainTitle": "官方哥伦比亚美元/比索 TRM",
+          "subtitle": "官方 Superintendencia Financiera 每日美元/哥伦比亚比索。",
+          "title": "哥伦比亚 TRM",
+          "useCase": "当 Agent 需要哥伦比亚官方每日美元兑比索 TRM 时使用。"
+        }
+      },
+      "is_featured": false,
+      "is_first_party": false,
+      "logo": "https://lagaceta.net/favicon.ico",
+      "main_title": "Official Colombian USD/COP TRM",
+      "main_title_zh": "官方哥伦比亚美元/比索 TRM",
+      "max_price_usd": 0.005,
+      "min_price_usd": 0.005,
+      "service_url": "https://x402.lagaceta.net/trm",
+      "sha": "54692016e45df2fd80defe55948069bc1286b38ea86231422381151c197d2ce9",
+      "sub_title": "Prepaid official Superintendencia Financiera daily USD/COP.",
+      "sub_title_zh": "官方 Superintendencia Financiera 每日美元/哥伦比亚比索。",
+      "subtitle": "Prepaid official Superintendencia Financiera daily USD/COP.",
+      "title": "Colombia TRM",
+      "title_zh": "哥伦比亚 TRM",
+      "use_case": "Use when an agent needs the official Colombian Superintendencia Financiera daily USD/COP TRM as prepaid JSON."
     },
     {
       "category": "finance",

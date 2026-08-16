@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "fqn": "colombia-trm",
+  "title": "Colombia TRM",
+  "mainTitle": "Official Colombian USD/COP TRM",
+  "subtitle": "Prepaid official Superintendencia Financiera daily USD/COP.",
+  "description": "## What it does\n\nOfficial Colombian Tasa Representativa del Mercado (USD/COP) from Superintendencia Financiera (datos.gov.co dataset mcec-87by), served as prepaid x402 JSON on Base USDC.\n\n## Best for\n\n- Agents that need the official Colombian peso FX print, not a synthetic mid-market rate.\n- Settlement, invoicing, and COP-denominated pricing workflows.\n\n## Endpoints\n\n- `GET /trm` — current official TRM USD/COP with validity window and source.\n\n## Code usage\n\nUnpaid GET returns HTTP 402. Pay $0.005 USDC on Base (`eip155:8453`, exact + EIP-3009).\n\n```bash\ncurl -sS -D- https://x402.lagaceta.net/trm\n```\n",
+  "useCase": "Use when an agent needs the official Colombian Superintendencia Financiera daily USD/COP TRM as prepaid JSON.",
+  "i18n": {
+    "zh-CN": {
+      "title": "哥伦比亚 TRM",
+      "mainTitle": "官方哥伦比亚美元/比索 TRM",
+      "subtitle": "官方 Superintendencia Financiera 每日美元/哥伦比亚比索。",
+      "description": "## 能做什么\n\n官方哥伦比亚 TRM（USD/COP），来自 Superintendencia Financiera（datos.gov.co mcec-87by），通过 Base USDC 的 x402 预付 JSON 提供。\n\n## 接口\n\n- `GET /trm` — 当前官方 TRM USD/COP。",
+      "useCase": "当 Agent 需要哥伦比亚官方每日美元兑比索 TRM 时使用。"
+    }
+  },
+  "logo": "https://lagaceta.net/favicon.ico",
+  "category": "finance",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "trm",
+    "colombia",
+    "fx",
+    "usd-cop",
+    "finance"
+  ],
+  "serviceUrl": "https://x402.lagaceta.net/trm",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/trm",
+      "url": "https://x402.lagaceta.net/trm",
+      "title": "Official Colombian USD/COP TRM",
+      "subtitle": "/trm",
+      "description": "Official Superintendencia Financiera daily USD/COP as JSON.",
+      "useCase": "Use when an agent needs the official Colombian USD/COP TRM.",
+      "i18n": {
+        "zh-CN": {
+          "title": "官方哥伦比亚美元/比索 TRM",
+          "subtitle": "/trm",
+          "description": "Superintendencia Financiera 每日官方 USD/COP JSON。",
+          "useCase": "当 Agent 需要哥伦比亚官方 TRM 时调用。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.005,
+      "maxPriceUsd": 0.005,
+      "x402Routes": [
+        {
+          "provider": "colombia-trm",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402.lagaceta.net/trm"
+        }
+      ]
+    }
+  ]
+}
