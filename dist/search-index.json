@@ -811,6 +811,58 @@
       "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
     },
     {
+      "category": "ai_ml",
+      "category_meta": {
+        "id": "ai_ml",
+        "label": "AI/ML",
+        "label_zh": "AI / 机器学习"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "GPT-5.6 Luna Standard is an OpenAI-compatible chat completion endpoint for concise answers, routing decisions, extraction helpers, and buyer-owned agent trials. It runs on a self-hosted gateway and accepts x402 exact EIP-3009 USDC payments on Base Mainnet.",
+      "endpoints": [
+        {
+          "description": "Send an OpenAI-compatible messages array and receive one GPT-5.6 Luna Standard response. The live x402 challenge is the source of truth for the exact payment amount and receipt.",
+          "method": "POST",
+          "path": "/v1/chat/completions/standard",
+          "title": "GPT-5.6 Luna Standard chat completion",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "gpt55-standard",
+              "scheme": "exact",
+              "url": "https://gpt55.558686.xyz/v1/chat/completions/standard"
+            }
+          ]
+        }
+      ],
+      "featured_tags": [
+        "gpt-5.6-luna",
+        "openai-compatible",
+        "x402",
+        "base-usdc",
+        "agent-ready"
+      ],
+      "fqn": "gpt55-standard",
+      "service_url": "https://gpt55.558686.xyz/x402/service",
+      "subtitle": "Short answers, routing decisions, extraction helpers, and agent trials paid per request.",
+      "title": "GPT-5.6 Luna Standard",
+      "use_case": "Use when an agent needs one concise text result without an API key, account, subscription, or pre-funded platform balance."
+    },
+    {
       "category": "finance",
       "category_meta": {
         "id": "finance",
@@ -900,6 +952,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-07-30T10:02:35Z",
+  "generated_at": "2026-08-25T21:18:08Z",
   "version": 1
 }

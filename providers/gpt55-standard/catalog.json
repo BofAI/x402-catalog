@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "fqn": "gpt55-standard",
+  "title": "GPT-5.6 Luna Standard",
+  "mainTitle": "OpenAI-compatible GPT-5.6 Luna chat over x402",
+  "subtitle": "Short answers, routing decisions, extraction helpers, and agent trials paid per request.",
+  "description": "GPT-5.6 Luna Standard is an OpenAI-compatible chat completion endpoint for concise answers, routing decisions, extraction helpers, and buyer-owned agent trials. It runs on a self-hosted gateway and accepts x402 exact EIP-3009 USDC payments on Base Mainnet.",
+  "useCase": "Use when an agent needs one concise text result without an API key, account, subscription, or pre-funded platform balance.",
+  "i18n": {
+    "zh-CN": {
+      "title": "GPT-5.6 Luna Standard",
+      "mainTitle": "通过 x402 调用 OpenAI 兼容的 GPT-5.6 Luna",
+      "subtitle": "按请求支付,适合短答案、路由决策、提取和 Agent 试用。",
+      "description": "GPT-5.6 Luna Standard 是 OpenAI 兼容的 chat completion 接口,用于简洁回答、路由决策、提取辅助和 Agent 试用。服务运行在自托管网关上,通过 Base 主网 x402 exact EIP-3009 USDC 按请求结算。",
+      "useCase": "适合 Agent 在无需 API key、账号、订阅或平台余额的情况下获取一次文本结果。"
+    }
+  },
+  "logo": "https://gpt55.558686.xyz/favicon.ico",
+  "category": "ai_ml",
+  "chains": ["eip155:8453"],
+  "isFirstParty": true,
+  "isFeatured": false,
+  "featuredTags": ["gpt-5.6-luna", "openai-compatible", "x402", "base-usdc", "agent-ready"],
+  "serviceUrl": "https://gpt55.558686.xyz/x402/service",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/v1/chat/completions/standard",
+      "url": "https://gpt55.558686.xyz/v1/chat/completions/standard",
+      "title": "GPT-5.6 Luna Standard chat completion",
+      "subtitle": "One OpenAI-compatible response per x402 payment",
+      "description": "Send an OpenAI-compatible messages array and receive one GPT-5.6 Luna Standard response. The live x402 challenge is the source of truth for the exact payment amount and receipt.",
+      "useCase": "Use for concise mainstream answers, routing decisions, extraction helpers, and buyer-owned agent trials.",
+      "i18n": {
+        "zh-CN": {
+          "title": "GPT-5.6 Luna Standard 对话补全",
+          "subtitle": "每次 x402 支付获取一条 OpenAI 兼容响应",
+          "description": "发送 OpenAI 兼容的 messages 数组并获取一条 GPT-5.6 Luna Standard 响应。实时 x402 challenge 是准确支付金额和回执的唯一依据。",
+          "useCase": "适合简洁回答、路由决策、提取辅助和 Agent 试用。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.00293,
+      "maxPriceUsd": 0.00293,
+      "x402Routes": [
+        {
+          "provider": "gpt55-standard",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://gpt55.558686.xyz/v1/chat/completions/standard"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "paid-route",
+    "upstream": "public"
+  }
+}

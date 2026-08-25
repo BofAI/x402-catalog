@@ -1,5 +1,11 @@
 [
   {
+    "count": 1,
+    "id": "ai_ml",
+    "label": "AI/ML",
+    "label_zh": "AI / 机器学习"
+  },
+  {
     "count": 5,
     "id": "finance",
     "label": "Finance",

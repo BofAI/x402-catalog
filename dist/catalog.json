@@ -1,9 +1,15 @@
 {
   "base_url": "https://x402-catalog.bankofai.io/api",
   "chain_count": 3,
-  "first_party_count": 1,
+  "first_party_count": 2,
   "frontend": {
     "categories": [
+      {
+        "count": 1,
+        "id": "ai_ml",
+        "label": "AI/ML",
+        "label_zh": "AI / 机器学习"
+      },
       {
         "count": 5,
         "id": "finance",
@@ -20,7 +26,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
@@ -38,8 +44,8 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-30T10:02:35Z",
-  "provider_count": 5,
+  "generated_at": "2026-08-25T21:18:08Z",
+  "provider_count": 6,
   "providers": [
     {
       "category": "finance",
@@ -115,6 +121,64 @@
       "title": "SunPump",
       "title_zh": "SunPump",
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
+    },
+    {
+      "category": "ai_ml",
+      "category_meta": {
+        "id": "ai_ml",
+        "label": "AI/ML",
+        "label_zh": "AI / 机器学习"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "GPT-5.6 Luna Standard is an OpenAI-compatible chat completion endpoint for concise answers, routing decisions, extraction helpers, and buyer-owned agent trials. It runs on a self-hosted gateway and accepts x402 exact EIP-3009 USDC payments on Base Mainnet.",
+      "endpoint_count": 1,
+      "featured_tags": [
+        "gpt-5.6-luna",
+        "openai-compatible",
+        "x402",
+        "base-usdc",
+        "agent-ready"
+      ],
+      "fqn": "gpt55-standard",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "GPT-5.6 Luna Standard 是 OpenAI 兼容的 chat completion 接口,用于简洁回答、路由决策、提取辅助和 Agent 试用。服务运行在自托管网关上,通过 Base 主网 x402 exact EIP-3009 USDC 按请求结算。",
+          "mainTitle": "通过 x402 调用 OpenAI 兼容的 GPT-5.6 Luna",
+          "subtitle": "按请求支付,适合短答案、路由决策、提取和 Agent 试用。",
+          "title": "GPT-5.6 Luna Standard",
+          "useCase": "适合 Agent 在无需 API key、账号、订阅或平台余额的情况下获取一次文本结果。"
+        }
+      },
+      "is_featured": false,
+      "is_first_party": true,
+      "logo": "https://gpt55.558686.xyz/favicon.ico",
+      "main_title": "OpenAI-compatible GPT-5.6 Luna chat over x402",
+      "main_title_zh": "通过 x402 调用 OpenAI 兼容的 GPT-5.6 Luna",
+      "max_price_usd": 0.00293,
+      "min_price_usd": 0.00293,
+      "service_url": "https://gpt55.558686.xyz/x402/service",
+      "sha": "fc54a6f116385a38ab90aa3a7ceac9fd08879445f8646df62a86b370def9ebe8",
+      "sub_title": "Short answers, routing decisions, extraction helpers, and agent trials paid per request.",
+      "sub_title_zh": "按请求支付,适合短答案、路由决策、提取和 Agent 试用。",
+      "subtitle": "Short answers, routing decisions, extraction helpers, and agent trials paid per request.",
+      "title": "GPT-5.6 Luna Standard",
+      "title_zh": "GPT-5.6 Luna Standard",
+      "use_case": "Use when an agent needs one concise text result without an API key, account, subscription, or pre-funded platform balance."
     },
     {
       "category": "finance",
