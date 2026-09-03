@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "fqn": "shinemnemos",
+  "title": "ShineMnemos",
+  "mainTitle": "Grounded memory for AI agents",
+  "subtitle": "Memory your agent cannot skip: every answer passes the knowledge graph and returns a verdict.",
+  "description": "## What it does\n\nShineMnemos is a grounded memory layer for AI agents: every answer must pass through the knowledge graph (grounded by default — no pre-pass, no credit) and comes back with a verdict (grounded / partial / ungrounded) plus the sentences the model made up. Every fact passes a truth gate on write (six checks, stored at 4 of 6), recall reads provenance back, and every pass lands in an append-only journal. Open source (Apache-2.0), Python standard library only, self-host free.\n\n\n## Best for\n\n- Agents that must not emit unverified facts and need the verdict as a field.\n- Teams that want memory as one SQLite file — copy, diff, delete.\n- Developers who want graph-first answers: memory_answer returns the answer from the graph with zero generation tokens, or llm_required.\n\n## Endpoints\n\n- `POST /api/payg/quote` — Pay-per-call checkout: N memory ops at 0.0035 USDC each (intro price, -30%), USDC on Base.\n- `POST /api/plans/{id}/challenge` — Plan checkout: Free / Solo $19 / Pro $49 / Team $149 / Scale $499 per month (annual -40%), USDC on Base.",
+  "useCase": "Grounded memory for AI agents: write through a truth gate, recall with provenance, audit every pass. Paid plans or pay-per-call in USDC on Base.",
+  "i18n": {
+    "zh-CN": {
+      "title": "ShineMnemos",
+      "mainTitle": "面向 AI 智能体的有依据记忆",
+      "subtitle": "每个答案都经过知识图谱校验并返回可信度判定。",
+      "description": "ShineMnemos 是 AI 智能体的记忆层：答案必须通过知识图谱（默认开启 grounding），返回 grounded/partial/ungrounded 判定。写入经过六项检查（4/6 通过才存储），附有出处与追加式日志。开源（Apache-2.0），可自托管。",
+      "useCase": "为 AI 智能体提供有依据的记忆：写入经过真值门，召回带出处，每次调用可审计。"
+    },
+    "en": {
+      "title": "ShineMnemos",
+      "mainTitle": "Grounded memory for AI agents",
+      "subtitle": "Every answer passes the knowledge graph and returns a verdict.",
+      "description": "ShineMnemos is a memory layer for AI agents: answers pass the knowledge graph by default, facts pass a truth gate on write, provenance is read back on recall, and every pass is journaled. Apache-2.0, self-host free.",
+      "useCase": "Grounded memory for AI agents: write through a truth gate, recall with provenance, audit every pass."
+    }
+  },
+  "logo": "https://shinegang.click/assets/logo-trans.png",
+  "category": "ai_ml",
+  "chains": ["eip155:8453"],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": ["memory", "mcp", "grounded", "x402"],
+  "serviceUrl": "https://shinegang.click",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/payg/quote",
+      "url": "https://shinegang.click/api/payg/quote",
+      "title": "Pay-per-call memory ops",
+      "subtitle": "N memory ops at 0.0035 USDC each (intro -30%), USDC on Base.",
+      "description": "x402 checkout for pay-as-you-go memory ops. The server answers with a 402 challenge (amount = N x 0.0035 USDC, payTo on Base); pay, then complete with the tx hash and the ops land on the account balance.",
+      "useCase": "Agents that run occasionally: prepaid memory ops without a subscription.",
+      "i18n": {
+        "zh-CN": { "title": "按次付费记忆操作", "subtitle": "每次 0.0035 USDC（Base 上 USDC）", "description": "按次付费记忆操作的 x402 结账。", "useCase": "偶尔运行的智能体：无需订阅的预付记忆操作。" }
+      },
+      "metered": true,
+      "minPriceUsd": 0.0035,
+      "maxPriceUsd": 0.0035
+    },
+    {
+      "method": "POST",
+      "path": "/api/plans/{id}/challenge",
+      "url": "https://shinegang.click/api/plans/solo/challenge",
+      "title": "Plan checkout (Free to Scale)",
+      "subtitle": "Solo $19 / Pro $49 / Team $149 / Scale $499 per month, annual -40%, USDC on Base.",
+      "description": "x402 checkout for hosted plans. Monthly or annual (40% off), prorated upgrades (pay only the difference for the days left). The server answers with a 402 challenge and activates the plan on-chain.",
+      "useCase": "Agents that run 24/7 and need limits, seats and a journal.",
+      "i18n": {
+        "zh-CN": { "title": "套餐结账（Free 到 Scale）", "subtitle": "Solo $19 / Pro $49 / Team $149 / Scale $499 每月，年付 -40%", "description": "托管套餐的 x402 结账，支持按比例升级。", "useCase": "需要限额与日志的常驻智能体。" }
+      },
+      "metered": false,
+      "minPriceUsd": 19,
+      "maxPriceUsd": 499
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "unknown",
+    "payment": "mainnet",
+    "upstream": "public"
+  }
+}
