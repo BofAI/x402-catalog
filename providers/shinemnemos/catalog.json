@@ -24,12 +24,39 @@
   },
   "logo": "https://shinegang.click/assets/logo-trans.png",
   "category": "ai_ml",
-  "chains": ["eip155:8453"],
+  "chains": [
+    "eip155:8453"
+  ],
   "isFirstParty": false,
   "isFeatured": false,
-  "featuredTags": ["memory", "mcp", "grounded", "x402"],
+  "featuredTags": [
+    "memory",
+    "mcp",
+    "grounded",
+    "x402"
+  ],
   "serviceUrl": "https://shinegang.click",
   "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/memory/search",
+      "url": "https://shinegang.click/api/memory/search",
+      "title": "Memory search (grounded)",
+      "subtitle": "Search the memory graph with a verdict; 0.0035 USDC per call, free preview endpoint.",
+      "description": "Grounded memory search over x402: the server answers with an HTTP 402 challenge (0.0035 USDC on Base); pay, complete via /api/payg/complete. Free preview: GET /api/memory/search/preview?query=...",
+      "useCase": "Agents that need memory answers with grounded/partial/ungrounded verdicts.",
+      "i18n": {
+        "zh-CN": {
+          "title": "记忆搜索（有依据）",
+          "subtitle": "带判定依据的记忆图搜索，每次 0.0035 USDC",
+          "description": "通过 x402 的有依据记忆搜索；免费预览端点。",
+          "useCase": "需要带判定记忆答案的智能体。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.0035,
+      "maxPriceUsd": 0.0035
+    },
     {
       "method": "POST",
       "path": "/api/payg/quote",
@@ -39,7 +66,12 @@
       "description": "x402 checkout for pay-as-you-go memory ops. The server answers with a 402 challenge (amount = N x 0.0035 USDC, payTo on Base); pay, then complete with the tx hash and the ops land on the account balance.",
       "useCase": "Agents that run occasionally: prepaid memory ops without a subscription.",
       "i18n": {
-        "zh-CN": { "title": "按次付费记忆操作", "subtitle": "每次 0.0035 USDC（Base 上 USDC）", "description": "按次付费记忆操作的 x402 结账。", "useCase": "偶尔运行的智能体：无需订阅的预付记忆操作。" }
+        "zh-CN": {
+          "title": "按次付费记忆操作",
+          "subtitle": "每次 0.0035 USDC（Base 上 USDC）",
+          "description": "按次付费记忆操作的 x402 结账。",
+          "useCase": "偶尔运行的智能体：无需订阅的预付记忆操作。"
+        }
       },
       "metered": true,
       "minPriceUsd": 0.0035,
@@ -54,7 +86,12 @@
       "description": "x402 checkout for hosted plans. Monthly or annual (40% off), prorated upgrades (pay only the difference for the days left). The server answers with a 402 challenge and activates the plan on-chain.",
       "useCase": "Agents that run 24/7 and need limits, seats and a journal.",
       "i18n": {
-        "zh-CN": { "title": "套餐结账（Free 到 Scale）", "subtitle": "Solo $19 / Pro $49 / Team $149 / Scale $499 每月，年付 -40%", "description": "托管套餐的 x402 结账，支持按比例升级。", "useCase": "需要限额与日志的常驻智能体。" }
+        "zh-CN": {
+          "title": "套餐结账（Free 到 Scale）",
+          "subtitle": "Solo $19 / Pro $49 / Team $149 / Scale $499 每月，年付 -40%",
+          "description": "托管套餐的 x402 结账，支持按比例升级。",
+          "useCase": "需要限额与日志的常驻智能体。"
+        }
       },
       "metered": false,
       "minPriceUsd": 19,
