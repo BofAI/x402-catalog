@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "fqn": "render402",
+  "title": "Render402",
+  "mainTitle": "Generate MiniMax H3 video with one x402 payment",
+  "subtitle": "Agent-ready AI video generation paid in USDC on Base",
+  "description": "## What it does\n\nRender402 gives agents a direct x402-paid API for MiniMax H3 video generation. It supports text-to-video, reference-image video, first-and-last-frame animation, and audio-driven lip sync.\n\n## Best for\n\n- Agents that need to create video without managing a conventional API subscription.\n- Automated media workflows that prefer exact per-request USDC payments.\n- Text, image, frame, and lip-sync generation through one endpoint.\n\n## Discovery\n\nRead the public OpenAPI document, pricing schedule, model list, and capability matrix before paying. Submit a unique `Idempotency-Key`; the first request returns the exact x402 payment requirement, and the paid retry creates the generation job.",
+  "useCase": "Use Render402 when an agent needs to generate a short AI video and pay per request in USDC on Base. Text-to-video can be called directly; image, frame, and lip-sync modes first use the public upload flow to obtain asset IDs.",
+  "i18n": {
+    "zh-CN": {
+      "title": "Render402",
+      "mainTitle": "一次 x402 支付生成 MiniMax H3 视频",
+      "subtitle": "面向 Agent、使用 Base USDC 按次付费的 AI 视频生成服务",
+      "description": "## 能做什么\n\nRender402 为 Agent 提供直接通过 x402 付费的 MiniMax H3 视频生成 API，支持文生视频、参考图生视频、首尾帧动画和音频驱动口型同步。\n\n## 适合场景\n\n- 不想管理传统 API 订阅、需要生成视频的 Agent。\n- 希望使用 USDC 按次精确支付的自动化媒体工作流。\n- 通过一个端点完成文本、图片、首尾帧和口型同步生成。\n\n## 发现与调用\n\n支付前先读取公开的 OpenAPI 文档、价格表、模型列表和能力矩阵。提交唯一的 `Idempotency-Key`；第一次请求会返回准确的 x402 支付要求，携带支付证明重试后创建生成任务。",
+      "useCase": "当 Agent 需要生成短视频并在 Base 上使用 USDC 按次支付时调用 Render402。文生视频可直接调用；图片、首尾帧和口型同步模式需先通过公开上传流程取得素材 ID。"
+    }
+  },
+  "logo": "https://render402.xyz/favicon.svg",
+  "category": "media",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": true,
+  "isFeatured": false,
+  "featuredTags": [
+    "ai-video",
+    "video-generation",
+    "minimax-h3",
+    "x402",
+    "base-usdc"
+  ],
+  "serviceUrl": "https://api.render402.xyz",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/v1/generate",
+      "url": "https://api.render402.xyz/v1/generate",
+      "title": "Generate AI Video",
+      "subtitle": "Create text, image, frame, or lip-sync video",
+      "description": "Create a MiniMax H3 video generation job after exact x402 payment. Price is calculated from duration, resolution, and whether uploaded media is referenced. The accepted response includes status and output URLs for polling and retrieval.",
+      "useCase": "Call this endpoint after selecting a supported generation mode from the public capability matrix and preparing any required image or audio assets.",
+      "i18n": {
+        "zh-CN": {
+          "title": "生成 AI 视频",
+          "subtitle": "创建文本、图片、首尾帧或口型同步视频",
+          "description": "通过 x402 精确支付后创建 MiniMax H3 视频生成任务。价格根据时长、分辨率以及是否引用上传素材计算。受理响应会返回用于轮询和获取成品的状态及输出地址。",
+          "useCase": "从公开能力矩阵选择支持的生成模式，并准备好所需图片或音频素材后调用此端点。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.018,
+      "maxPriceUsd": 0.905,
+      "x402Routes": [
+        {
+          "network": "eip155:8453",
+          "provider": "render402-base",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.render402.xyz/v1/generate"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "mainnet",
+    "upstream": "authenticated"
+  }
+}

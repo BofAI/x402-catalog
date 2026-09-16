@@ -811,6 +811,58 @@
       "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
     },
     {
+      "category": "media",
+      "category_meta": {
+        "id": "media",
+        "label": "Media",
+        "label_zh": "媒体"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nRender402 gives agents a direct x402-paid API for MiniMax H3 video generation. It supports text-to-video, reference-image video, first-and-last-frame animation, and audio-driven lip sync.\n\n## Best for\n\n- Agents that need to create video without managing a conventional API subscription.\n- Automated media workflows that prefer exact per-request USDC payments.\n- Text, image, frame, and lip-sync generation through one endpoint.\n\n## Discovery\n\nRead the public OpenAPI document, pricing schedule, model list, and capability matrix before paying. Submit a unique `Idempotency-Key`; the first request returns the exact x402 payment requirement, and the paid retry creates the generation job.",
+      "endpoints": [
+        {
+          "description": "Create a MiniMax H3 video generation job after exact x402 payment. Price is calculated from duration, resolution, and whether uploaded media is referenced. The accepted response includes status and output URLs for polling and retrieval.",
+          "method": "POST",
+          "path": "/v1/generate",
+          "title": "Generate AI Video",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "render402-base",
+              "scheme": "exact",
+              "url": "https://api.render402.xyz/v1/generate"
+            }
+          ]
+        }
+      ],
+      "featured_tags": [
+        "ai-video",
+        "video-generation",
+        "minimax-h3",
+        "x402",
+        "base-usdc"
+      ],
+      "fqn": "render402",
+      "service_url": "https://api.render402.xyz",
+      "subtitle": "Agent-ready AI video generation paid in USDC on Base",
+      "title": "Render402",
+      "use_case": "Use Render402 when an agent needs to generate a short AI video and pay per request in USDC on Base. Text-to-video can be called directly; image, frame, and lip-sync modes first use the public upload flow to obtain asset IDs."
+    },
+    {
       "category": "finance",
       "category_meta": {
         "id": "finance",
@@ -900,6 +952,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-07-30T10:02:35Z",
+  "generated_at": "2026-09-16T10:43:30Z",
   "version": 1
 }
