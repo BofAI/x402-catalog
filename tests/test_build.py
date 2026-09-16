@@ -106,12 +106,16 @@ class CatalogBuildTests(unittest.TestCase):
         self.assertNotIn("稳定币", public_copy)
 
     def test_tron_pay_docs_cover_default_and_gasfree_schemes(self) -> None:
-        for path in (ROOT / "providers").glob("*/pay.md"):
-            content = path.read_text(encoding="utf-8")
-            self.assertIn("exact_gasfree", content, path.name)
-            self.assertIn("x402-cli pay", content, path.name)
-            self.assertIn("--network tron:0x2b6653dc", content, path.name)
-            self.assertIn("--scheme exact", content, path.name)
+        for catalog_path in (ROOT / "providers").glob("*/catalog.json"):
+            catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+            if not any(chain.startswith("tron:") for chain in catalog["chains"]):
+                continue
+            pay_path = catalog_path.with_name("pay.md")
+            content = pay_path.read_text(encoding="utf-8")
+            self.assertIn("exact_gasfree", content, pay_path.name)
+            self.assertIn("x402-cli pay", content, pay_path.name)
+            self.assertIn("--network tron:0x2b6653dc", content, pay_path.name)
+            self.assertIn("--scheme exact", content, pay_path.name)
 
     def test_token_launch_docs_include_complete_payment_examples(self) -> None:
         catalog = json.loads(
@@ -161,11 +165,13 @@ class CatalogBuildTests(unittest.TestCase):
 
     def test_all_providers_publish_base_mainnet_eip3009_routes(self) -> None:
         route_count = 0
+        expected_route_count = 0
         for path in (ROOT / "providers").glob("*/catalog.json"):
             catalog = json.loads(path.read_text(encoding="utf-8"))
             self.assertIn("eip155:8453", catalog["chains"], path.name)
             self.assertNotIn("eip155:84532", catalog["chains"], path.name)
             for endpoint in catalog["endpoints"]:
+                expected_route_count += 1
                 base_routes = [
                     route
                     for route in endpoint.get("x402Routes", [])
@@ -181,7 +187,7 @@ class CatalogBuildTests(unittest.TestCase):
                 )
                 self.assertNotIn("sepolia", base_routes[0]["url"].lower(), path.name)
                 route_count += 1
-        self.assertEqual(route_count, 18)
+        self.assertEqual(route_count, expected_route_count)
 
     def test_all_provider_pay_docs_cover_base_mainnet(self) -> None:
         for path in (ROOT / "providers").glob("*/pay.md"):

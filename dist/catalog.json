@@ -1,7 +1,7 @@
 {
   "base_url": "https://x402-catalog.bankofai.io/api",
   "chain_count": 3,
-  "first_party_count": 1,
+  "first_party_count": 2,
   "frontend": {
     "categories": [
       {
@@ -9,6 +9,12 @@
         "id": "finance",
         "label": "Finance",
         "label_zh": "金融"
+      },
+      {
+        "count": 1,
+        "id": "media",
+        "label": "Media",
+        "label_zh": "媒体"
       }
     ],
     "chains": [
@@ -20,7 +26,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
@@ -38,8 +44,8 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-07-30T10:02:35Z",
-  "provider_count": 5,
+  "generated_at": "2026-09-16T10:43:30Z",
+  "provider_count": 6,
   "providers": [
     {
       "category": "finance",
@@ -414,6 +420,64 @@
       "title": "GoPlus",
       "title_zh": "GoPlus",
       "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
+    },
+    {
+      "category": "media",
+      "category_meta": {
+        "id": "media",
+        "label": "Media",
+        "label_zh": "媒体"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nRender402 gives agents a direct x402-paid API for MiniMax H3 video generation. It supports text-to-video, reference-image video, first-and-last-frame animation, and audio-driven lip sync.\n\n## Best for\n\n- Agents that need to create video without managing a conventional API subscription.\n- Automated media workflows that prefer exact per-request USDC payments.\n- Text, image, frame, and lip-sync generation through one endpoint.\n\n## Discovery\n\nRead the public OpenAPI document, pricing schedule, model list, and capability matrix before paying. Submit a unique `Idempotency-Key`; the first request returns the exact x402 payment requirement, and the paid retry creates the generation job.",
+      "endpoint_count": 1,
+      "featured_tags": [
+        "ai-video",
+        "video-generation",
+        "minimax-h3",
+        "x402",
+        "base-usdc"
+      ],
+      "fqn": "render402",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "## 能做什么\n\nRender402 为 Agent 提供直接通过 x402 付费的 MiniMax H3 视频生成 API，支持文生视频、参考图生视频、首尾帧动画和音频驱动口型同步。\n\n## 适合场景\n\n- 不想管理传统 API 订阅、需要生成视频的 Agent。\n- 希望使用 USDC 按次精确支付的自动化媒体工作流。\n- 通过一个端点完成文本、图片、首尾帧和口型同步生成。\n\n## 发现与调用\n\n支付前先读取公开的 OpenAPI 文档、价格表、模型列表和能力矩阵。提交唯一的 `Idempotency-Key`；第一次请求会返回准确的 x402 支付要求，携带支付证明重试后创建生成任务。",
+          "mainTitle": "一次 x402 支付生成 MiniMax H3 视频",
+          "subtitle": "面向 Agent、使用 Base USDC 按次付费的 AI 视频生成服务",
+          "title": "Render402",
+          "useCase": "当 Agent 需要生成短视频并在 Base 上使用 USDC 按次支付时调用 Render402。文生视频可直接调用；图片、首尾帧和口型同步模式需先通过公开上传流程取得素材 ID。"
+        }
+      },
+      "is_featured": false,
+      "is_first_party": true,
+      "logo": "https://render402.xyz/favicon.svg",
+      "main_title": "Generate MiniMax H3 video with one x402 payment",
+      "main_title_zh": "一次 x402 支付生成 MiniMax H3 视频",
+      "max_price_usd": 0.905,
+      "min_price_usd": 0.018,
+      "service_url": "https://api.render402.xyz",
+      "sha": "433b0eb1e0f954233fcbfd684ac100d1d0baa8ab43e1f0a7bf87dbc8190a84db",
+      "sub_title": "Agent-ready AI video generation paid in USDC on Base",
+      "sub_title_zh": "面向 Agent、使用 Base USDC 按次付费的 AI 视频生成服务",
+      "subtitle": "Agent-ready AI video generation paid in USDC on Base",
+      "title": "Render402",
+      "title_zh": "Render402",
+      "use_case": "Use Render402 when an agent needs to generate a short AI video and pay per request in USDC on Base. Text-to-video can be called directly; image, frame, and lip-sync modes first use the public upload flow to obtain asset IDs."
     }
   ],
   "version": 1
