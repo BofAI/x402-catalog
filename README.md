@@ -44,12 +44,34 @@ Provider metadata should describe the public service surface only:
 
 Payment routes support `scheme: exact` with `assetTransferMethod: eip3009` or
 `permit2`, and TRON `scheme: exact_gasfree` without an asset transfer method. New TRON routes
-should use canonical CAIP-2 IDs such as `tron:0x2b6653dc` (mainnet) and
-`tron:0xcd8690dc` (Nile). Legacy aliases such as `tron:nile` are rejected; use canonical CAIP-2 IDs.
-With x402 SDK 1.0.1, GasFree relayer costs are estimated by the client;
+must use the decimal CAIP-2 IDs from `@bankofai/x402-tron@2.0.0`:
+`tron:728126428` (mainnet), `tron:3448148188` (Nile), and
+`tron:2494104990` (Shasta). This applies to both `chains` and route `network`
+fields. Legacy hexadecimal IDs such as `tron:0x2b6653dc` and human-readable
+aliases such as `tron:nile` are rejected.
+With the current x402 SDK, GasFree relayer costs are estimated by the client;
 catalog routes must not publish the legacy `fee` or `feeConfig` fields.
 
 Do not submit private configuration or secrets.
+
+## Development and Release Flow
+
+1. Create each feature or fix branch from the latest `develop`.
+2. Complete development, validate provider data, rebuild `dist/`, pass the tests,
+   and merge the reviewed PR into `develop`.
+3. After CI passes on `develop`, tag that commit with `test-v*` to publish the
+   Docker `test` image, then deploy it to TN. TN releases must come from
+   `develop`, not an unmerged feature branch.
+4. Complete TN acceptance before preparing the production release. Commit the
+   final generated snapshot and release version references, validate the release
+   candidate, then tag and publish it with `v*`. This repository has no npm
+   package version.
+5. After the production release succeeds, merge the released commit into `main`.
+6. Merge `main` back into `develop`, including the released snapshot, version
+   references, and fixes, before starting the next development branch.
+
+When introducing this workflow to a repository without `develop`, initialize
+`develop` from the current `main` once.
 
 ## Build
 
