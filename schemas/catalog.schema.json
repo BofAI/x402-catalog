@@ -47,7 +47,7 @@
     "network": {
       "type": "string",
       "minLength": 1,
-      "allOf": [{ "if": { "pattern": "^tron:" }, "then": { "enum": ["tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"] } }]
+      "allOf": [{ "if": { "pattern": "^tron:" }, "then": { "enum": ["tron:728126428", "tron:3448148188", "tron:2494104990"] } }]
     },
     "status": {
       "type": "object",

@@ -7,7 +7,7 @@ x402-paid passthrough for DefiLlama protocol TVL and metadata. Paid DeFi decisio
 - Catalog FQN: `defillama`
 - Gateway providers: `defillama-tvl-tron`, `defillama-tvl-bsc`, `defillama-tvl-base`, `defillama-coins-price-base`, `defillama-yields-base`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
+- Chains: `tron:728126428` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
 - Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
 - Tags: defillama, defi, tvl, prices, yields
 - Listed price: `0.000001 USD` per request
@@ -54,7 +54,7 @@ Pay with the default TRON Permit2 scheme:
 
 ```bash
 x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \
-  --network tron:0x2b6653dc \
+  --network tron:728126428 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001
