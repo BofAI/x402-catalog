@@ -57,12 +57,17 @@ Do not submit private configuration or secrets.
 ## Development and Release Flow
 
 1. Create each feature or fix branch from the latest `develop`.
-2. Complete development, validate provider data, rebuild `dist/`, and pass the tests.
-3. Commit the generated snapshot and any release version references, then tag
-   and publish the tested release commit. A `v*` tag triggers the Docker
-   release workflow; this repository has no npm package version.
-4. After the release succeeds, merge the released branch into `main`.
-5. Merge `main` back into `develop`, including the released snapshot, version
+2. Complete development, validate provider data, rebuild `dist/`, pass the tests,
+   and merge the reviewed PR into `develop`.
+3. After CI passes on `develop`, tag that commit with `test-v*` to publish the
+   Docker `test` image, then deploy it to TN. TN releases must come from
+   `develop`, not an unmerged feature branch.
+4. Complete TN acceptance before preparing the production release. Commit the
+   final generated snapshot and release version references, validate the release
+   candidate, then tag and publish it with `v*`. This repository has no npm
+   package version.
+5. After the production release succeeds, merge the released commit into `main`.
+6. Merge `main` back into `develop`, including the released snapshot, version
    references, and fixes, before starting the next development branch.
 
 When introducing this workflow to a repository without `develop`, initialize
