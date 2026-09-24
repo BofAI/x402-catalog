@@ -15,7 +15,7 @@
       "mainTitle": "代币与地址安全风控检测"
     }
   },
-  "logo": "https://gopluslabs.io/favicon.png",
+  "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/9baa1640ca9b282d0f558f2b1bd4cc0c0a20d19c/assets/logos/goplus.jpg",
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
