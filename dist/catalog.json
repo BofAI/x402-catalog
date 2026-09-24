@@ -1,6 +1,6 @@
 {
   "base_url": "https://x402-catalog.bankofai.io/api",
-  "chain_count": 4,
+  "chain_count": 3,
   "first_party_count": 2,
   "frontend": {
     "categories": [
@@ -26,18 +26,11 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
         "label_zh": "Base 主网"
-      },
-      {
-        "count": 1,
-        "id": "eip155:84532",
-        "kind": "evm",
-        "label": "eip155:84532",
-        "label_zh": "eip155:84532"
       },
       {
         "count": 5,
@@ -51,7 +44,7 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-09-24T03:32:38Z",
+  "generated_at": "2026-09-24T04:04:11Z",
   "provider_count": 6,
   "providers": [
     {
@@ -436,20 +429,20 @@
         "label_zh": "媒体"
       },
       "chain_kinds": [
-        "evm"
+        "base"
       ],
       "chains": [
-        "eip155:84532"
+        "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "eip155:84532",
-          "kind": "evm",
-          "label": "eip155:84532",
-          "label_zh": "eip155:84532"
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
         }
       ],
-      "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base Sepolia (testnet), settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under 100 words): $0.01\n- Short essays/briefs: $0.05\n- Prose/long-form: $0.10\n\nThree fragments ($0.01) and one long-form prose essay ($0.10) are live; no short essays/briefs are published yet.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:84532 --token USDC --scheme exact --max-amount 0.01\n```\n\nNote: Penny Press currently settles on Base Sepolia (testnet). A Base mainnet route will be added once facilitator support is confirmed.",
+      "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under 100 words): $0.01\n- Short essays/briefs: $0.05\n- Prose/long-form: $0.10\n\nThree fragments ($0.01) and one long-form prose essay ($0.10) are live; no short essays/briefs are published yet.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
       "endpoint_count": 4,
       "featured_tags": [
         "essays",
@@ -463,7 +456,7 @@
       "has_metering": true,
       "i18n": {
         "zh-CN": {
-          "description": "## 能做什么\n\nPenny Press 是一个匿名印记，发表关于自由、真相和我们周围结构的原创作品。人类在 `/read/{slug}` 免费阅读每篇文章；机器和 AI Agent 通过 x402 协议按以下层级付费阅读，以 Base Sepolia 测试网上的 USDC 结算，直接进入出版物钱包。无需账户、无需 API 密钥：请求文章，收到 `402 Payment Required` 质询，完成支付后携带支付凭证重试即可。\n\n## 定价层级\n\n机器阅读按篇幅计价：\n\n- 残篇 Fragments（少于 100 词）：0.01 美元\n- 短文/简报 Short essays/briefs：0.05 美元\n- 长文 Prose/long-form：0.10 美元\n\n目前已上线三篇残篇（单价 0.01 美元）和一篇长文（单价 0.10 美元）；短文/简报尚未发布。\n\n## 适合场景\n\n- 需要关于自由、真相和我们周围结构的短篇原创作品作为阅读或输入材料的 Agent。\n- 希望用真实在线付费端点测试 x402 机器间支付流程的开发者。\n- 对按便士计价、机器可读的出版物感兴趣的人。\n\n## 请求格式\n\n`GET https://www.pennypress.org/essays/{slug}`，无请求体。首次响应恒为 HTTP 402，携带支付条款（价格、网络、收款地址、方案）。按 x402 流程支付后，携带支付凭证重复请求，即可收到 Markdown 格式的文章。",
+          "description": "## 能做什么\n\nPenny Press 是一个匿名印记，发表关于自由、真相和我们周围结构的原创作品。人类在 `/read/{slug}` 免费阅读每篇文章；机器和 AI Agent 通过 x402 协议按以下层级付费阅读，以 Base 主网上的 USDC 结算，直接进入出版物钱包。无需账户、无需 API 密钥：请求文章，收到 `402 Payment Required` 质询，完成支付后携带支付凭证重试即可。\n\n## 定价层级\n\n机器阅读按篇幅计价：\n\n- 残篇 Fragments（少于 100 词）：0.01 美元\n- 短文/简报 Short essays/briefs：0.05 美元\n- 长文 Prose/long-form：0.10 美元\n\n目前已上线三篇残篇（单价 0.01 美元）和一篇长文（单价 0.10 美元）；短文/简报尚未发布。\n\n## 适合场景\n\n- 需要关于自由、真相和我们周围结构的短篇原创作品作为阅读或输入材料的 Agent。\n- 希望用真实在线付费端点测试 x402 机器间支付流程的开发者。\n- 对按便士计价、机器可读的出版物感兴趣的人。\n\n## 请求格式\n\n`GET https://www.pennypress.org/essays/{slug}`，无请求体。首次响应恒为 HTTP 402，携带支付条款（价格、网络、收款地址、方案）。按 x402 流程支付后，携带支付凭证重复请求，即可收到 Markdown 格式的文章。",
           "subtitle": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
           "title": "Penny Press",
           "useCase": "适合 Agent 希望阅读关于自由、真相和我们周围结构的短篇原创作品（残篇 0.01 USDC/次，短文/简报 0.05 USDC/次，长文 0.10 USDC/次），或希望用真实端点测试 x402 支付流程的场景。"
@@ -477,7 +470,7 @@
       "max_price_usd": 0.1,
       "min_price_usd": 0.01,
       "service_url": "https://www.pennypress.org",
-      "sha": "cd1c333d379aad2299a057b5ad31adf90c203eae60cd381f21ab6f49fb25619b",
+      "sha": "74e303d438b06c36c7eacfab4166d87cb38387a30a1dd6b63fc942991c02f0e2",
       "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
       "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
       "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
