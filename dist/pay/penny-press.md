@@ -14,7 +14,7 @@ material, or when testing x402 payment flows against a live endpoint.
 - Short essays/briefs: $0.05
 - Prose/long-form: $0.10
 
-Three fragments ($0.01) and one long-form prose essay ($0.10) are live;
+Four fragments ($0.01) and one long-form prose essay ($0.10) are live;
 no short essays/briefs are published yet.
 
 ## Service
@@ -40,6 +40,7 @@ with the payment proof to receive the piece as Markdown.
 | An Untamed Wilderness | `https://www.pennypress.org/essays/untamed-wilderness` | $0.01 |
 | Thermodynamic Proof | `https://www.pennypress.org/essays/thermodynamic-proof` | $0.01 |
 | Techno-Feudalism at the UN: Corporate Capture and the Geopolitics of AI | `https://www.pennypress.org/essays/techno-feudalism-un` | $0.10 |
+| Small Change | `https://www.pennypress.org/essays/small-change` | $0.01 |
 
 Machine-readable catalog: `https://www.pennypress.org/essays` (free).
 Humans read free: `https://www.pennypress.org/read/{slug}`.
