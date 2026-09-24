@@ -15,7 +15,7 @@
       "mainTitle": "聚合 DeFi 数据 — TVL、价格、收益率"
     }
   },
-  "logo": "https://defillama.com/favicon.ico",
+  "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/3216d6457582db2165f894b98c9791684f7ff3a2/assets/logos/defillama.jpg",
   "category": "finance",
   "chains": [
     "tron:728126428",
