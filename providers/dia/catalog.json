@@ -15,7 +15,7 @@
       "mainTitle": "去中心化多源预言机价格"
     }
   },
-  "logo": "https://www.diadata.org/favicon.png",
+  "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/13979e6841d2e0f28bc71ca8b781ef4e56cb7dd0/assets/logos/dia.jpg",
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
