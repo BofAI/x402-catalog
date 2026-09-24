@@ -22,12 +22,11 @@ no short essays/briefs are published yet.
 - FQN: `penny-press`
 - Service URL: `https://www.pennypress.org`
 - Category: `media`
-- Payment chain: `eip155:84532` (Base Sepolia testnet)
+- Payment chain: `eip155:8453` (Base mainnet)
 - Scheme: `exact` + USDC (EIP-3009 transfer)
 - Settlement: direct to the publication wallet named in each 402 challenge
 
-Note: Penny Press currently settles on Base Sepolia (testnet). A Base mainnet
-route will be added once facilitator support is confirmed.
+Penny Press settles on Base mainnet (USDC) — verified live with real payments.
 
 ## Endpoints
 
@@ -51,8 +50,8 @@ Install or update the x402 CLI, then pay for the piece you want to read:
 
 ```bash
 x402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \
-  --network eip155:84532 --token USDC --scheme exact --max-amount 0.01
+  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01
 ```
 
-The CLI handles the 402 challenge, signs the USDC payment on Base Sepolia,
+The CLI handles the 402 challenge, signs the USDC payment on Base mainnet,
 and returns the piece text.
