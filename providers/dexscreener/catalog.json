@@ -15,7 +15,7 @@
       "mainTitle": "实时 DEX 交易对、价格与新盘"
     }
   },
-  "logo": "https://dexscreener.com/favicon.ico",
+  "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/9baa1640ca9b282d0f558f2b1bd4cc0c0a20d19c/assets/logos/dexscreener.jpg",
   "category": "finance",
   "chains": [
     "tron:0x2b6653dc",
