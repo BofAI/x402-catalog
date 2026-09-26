@@ -1,0 +1,214 @@
+{
+  "category": "media",
+  "chains": [
+    "eip155:8453"
+  ],
+  "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under 100 words): $0.01\n- Ensembles (short essays and briefs): $0.02\n- Prose/long-form: $0.05\n\nFour fragments ($0.01), one ensemble ($0.02), and one long-form prose essay ($0.05) are live.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
+  "endpoints": [
+    {
+      "description": "A 32-word fragment on time — one of the structures that surround us. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/river-of-time.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 32 词的残篇，关于时间——围绕我们的结构之一。在 Base mainnet 上完成 0.01 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/river-of-time 免费阅读。",
+          "subtitle": "一篇关于时间的残篇。",
+          "title": "The River of Time",
+          "useCase": "适合 Agent 需要一篇关于时间及我们周围结构的短篇残篇的场景。"
+        }
+      },
+      "maxPriceUsd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.01,
+      "path": "/essays/river-of-time",
+      "subtitle": "A fragment about time.",
+      "title": "The River of Time",
+      "url": "https://www.pennypress.org/essays/river-of-time",
+      "useCase": "Use when an agent wants a short fragment on time and the structures that surround us.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/river-of-time"
+        }
+      ]
+    },
+    {
+      "description": "A 30-word fragment on the digital wilderness — the technological structures of our age. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/untamed-wilderness.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 30 词的残篇，关于数字荒野——我们这个时代的技术结构。在 Base mainnet 上完成 0.01 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/untamed-wilderness 免费阅读。",
+          "subtitle": "一篇关于技术世界的残篇。",
+          "title": "An Untamed Wilderness",
+          "useCase": "适合 Agent 需要一篇关于数字时代技术结构的短篇残篇的场景。"
+        }
+      },
+      "maxPriceUsd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.01,
+      "path": "/essays/untamed-wilderness",
+      "subtitle": "A fragment about the world of technology.",
+      "title": "An Untamed Wilderness",
+      "url": "https://www.pennypress.org/essays/untamed-wilderness",
+      "useCase": "Use when an agent wants a short fragment on the technological structures of the digital age.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/untamed-wilderness"
+        }
+      ]
+    },
+    {
+      "description": "A 57-word fragment on truth versus belief, and the thermodynamic proof that separates them. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/thermodynamic-proof.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 57 词的残篇，关于真相与信念，以及将二者区分开来的热力学证明。在 Base mainnet 上完成 0.01 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/thermodynamic-proof 免费阅读。",
+          "subtitle": "一篇关于真相的残篇。",
+          "title": "Thermodynamic Proof",
+          "useCase": "适合 Agent 需要一篇关于真相、证明与信念的短篇残篇的场景。"
+        }
+      },
+      "maxPriceUsd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.01,
+      "path": "/essays/thermodynamic-proof",
+      "subtitle": "A fragment about truth.",
+      "title": "Thermodynamic Proof",
+      "url": "https://www.pennypress.org/essays/thermodynamic-proof",
+      "useCase": "Use when an agent wants a short fragment on truth, proof, and conviction.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/thermodynamic-proof"
+        }
+      ]
+    },
+    {
+      "description": "A 1,387-word prose essay on corporate capture at the UN and the geopolitics of AI, written around the 2026-09-23 Security Council session on AI and international security. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/techno-feudalism-un.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 1,387 词的长文，关于联合国的企业俘获与人工智能的地缘政治，围绕 2026 年 9 月 23 日安理会人工智能会议撰写。在 Base mainnet 上完成 0.05 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/techno-feudalism-un 免费阅读。",
+          "subtitle": "一篇关于人工智能、企业俘获与权力地缘政治的文章。",
+          "title": "Techno-Feudalism at the UN: Corporate Capture and the Geopolitics of AI",
+          "useCase": "适合 Agent 需要一篇关于人工智能、企业俘获与权力地缘政治的长文（从联合国安理会视角看技术封建秩序）的场景。"
+        }
+      },
+      "maxPriceUsd": 0.05,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.05,
+      "path": "/essays/techno-feudalism-un",
+      "subtitle": "An essay on AI, corporate capture, and the geopolitics of power.",
+      "title": "Techno-Feudalism at the UN: Corporate Capture and the Geopolitics of AI",
+      "url": "https://www.pennypress.org/essays/techno-feudalism-un",
+      "useCase": "Use when an agent wants a long-form essay on AI, corporate capture, and the geopolitics of power — the techno-feudal order as seen from the UN Security Council.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/techno-feudalism-un"
+        }
+      ]
+    },
+    {
+      "description": "A 59-word fragment on the economy of thought — spare thoughts as spare change, funding tomorrow's utility. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/small-change.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 59 词的残篇，关于思想的经济学——闲置的想法如同零钱，为明日的效用提供资金。在 Base mainnet 上完成 0.01 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/small-change 免费阅读。",
+          "subtitle": "一篇关于思想经济学的残篇。",
+          "title": "Small Change",
+          "useCase": "适合 Agent 需要一篇关于思想经济学、闲置想法价值的短篇残篇的场景。"
+        }
+      },
+      "maxPriceUsd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.01,
+      "path": "/essays/small-change",
+      "subtitle": "A fragment about the economy of thought.",
+      "title": "Small Change",
+      "url": "https://www.pennypress.org/essays/small-change",
+      "useCase": "Use when an agent wants a short fragment on the economy of thought — spare thoughts as spare change.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/small-change"
+        }
+      ]
+    },
+    {
+      "description": "A 141-word ensemble on a decentralized future — consent as the primary protocol, the power to opt out, and sovereignty encoded in every heart, mind, and spirit. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/pax-decentralia.",
+      "i18n": {
+        "zh-CN": {
+          "description": "一篇 141 词的文集，关于去中心化的未来——同意作为首要协议、退出的权力，以及铭刻在每颗心灵、思想与精神中的主权。在 Base mainnet 上完成 0.02 USDC 的 x402 支付后以 Markdown 返回。人类可在 /read/pax-decentralia 免费阅读。",
+          "subtitle": "一篇关于去中心化未来的文集。",
+          "title": "Pax Decentralia",
+          "useCase": "适合 Agent 需要一篇关于去中心化未来、同意协议与主权的短文的场景。"
+        }
+      },
+      "maxPriceUsd": 0.02,
+      "metered": true,
+      "method": "GET",
+      "minPriceUsd": 0.02,
+      "path": "/essays/pax-decentralia",
+      "subtitle": "An ensemble about a decentralized future.",
+      "title": "Pax Decentralia",
+      "url": "https://www.pennypress.org/essays/pax-decentralia",
+      "useCase": "Use when an agent wants an ensemble on a decentralized future — consent as the primary protocol, the power to opt out, and sovereignty encoded in every heart, mind, and spirit.",
+      "x402Routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/pax-decentralia"
+        }
+      ]
+    }
+  ],
+  "featuredTags": [
+    "essays",
+    "writing",
+    "literature",
+    "x402",
+    "micropayments"
+  ],
+  "fqn": "penny-press",
+  "i18n": {
+    "zh-CN": {
+      "description": "## 能做什么\n\nPenny Press 是一个匿名印记，发表关于自由、真相和我们周围结构的原创作品。人类在 `/read/{slug}` 免费阅读每篇文章；机器和 AI Agent 通过 x402 协议按以下层级付费阅读，以 Base 主网上的 USDC 结算，直接进入出版物钱包。无需账户、无需 API 密钥：请求文章，收到 `402 Payment Required` 质询，完成支付后携带支付凭证重试即可。\n\n## 定价层级\n\n机器阅读按篇幅计价：\n\n- 残篇 Fragments（少于 100 词）：0.01 美元\n- 文集 Ensembles（短文/简报）：0.02 美元\n- 长文 Prose/long-form：0.05 美元\n\n目前已上线四篇残篇（单价 0.01 美元）、一篇文集（单价 0.02 美元）和一篇长文（单价 0.05 美元）。\n\n## 适合场景\n\n- 需要关于自由、真相和我们周围结构的短篇原创作品作为阅读或输入材料的 Agent。\n- 希望用真实在线付费端点测试 x402 机器间支付流程的开发者。\n- 对按便士计价、机器可读的出版物感兴趣的人。\n\n## 请求格式\n\n`GET https://www.pennypress.org/essays/{slug}`，无请求体。首次响应恒为 HTTP 402，携带支付条款（价格、网络、收款地址、方案）。按 x402 流程支付后，携带支付凭证重复请求，即可收到 Markdown 格式的文章。",
+      "subtitle": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
+      "title": "Penny Press",
+      "useCase": "适合 Agent 希望阅读关于自由、真相和我们周围结构的短篇原创作品（残篇 0.01 USDC/次，文集 0.02 USDC/次，长文 0.05 USDC/次），或希望用真实端点测试 x402 支付流程的场景。"
+    }
+  },
+  "isFeatured": false,
+  "isFirstParty": true,
+  "logo": "https://www.pennypress.org/",
+  "mainTitle": "Original writing on freedom and truth — pennies per machine read",
+  "serviceUrl": "https://www.pennypress.org",
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "mainnet",
+    "upstream": "public"
+  },
+  "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
+  "title": "Penny Press",
+  "useCase": "Use this provider when an agent wants to read short original writing on freedom, truth, and the structures around us — fragments at $0.01, ensembles at $0.02, and long-form prose at $0.05 — or when testing x402 payment flows against a live endpoint.",
+  "version": 1
+}
