@@ -14,8 +14,7 @@ material, or when testing x402 payment flows against a live endpoint.
 - Ensembles (short essays and briefs): $0.02
 - Prose/long-form: $0.05
 
-Four fragments ($0.01) and one long-form prose essay ($0.05) are live;
-no ensembles are published yet.
+Four fragments ($0.01), one ensemble ($0.02), and one long-form prose essay ($0.05) are live.
 
 ## Service
 
@@ -41,6 +40,7 @@ with the payment proof to receive the piece as Markdown.
 | Thermodynamic Proof | `https://www.pennypress.org/essays/thermodynamic-proof` | $0.01 |
 | Techno-Feudalism at the UN: Corporate Capture and the Geopolitics of AI | `https://www.pennypress.org/essays/techno-feudalism-un` | $0.05 |
 | Small Change | `https://www.pennypress.org/essays/small-change` | $0.01 |
+| Pax Decentralia | `https://www.pennypress.org/essays/pax-decentralia` | $0.02 |
 
 Machine-readable catalog: `https://www.pennypress.org/essays` (free).
 Humans read free: `https://www.pennypress.org/read/{slug}`.
