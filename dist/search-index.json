@@ -831,7 +831,7 @@
           "label_zh": "Base 主网"
         }
       ],
-      "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under 100 words): $0.01\n- Short essays/briefs: $0.05\n- Prose/long-form: $0.10\n\nFour fragments ($0.01) and one long-form prose essay ($0.10) are live; no short essays/briefs are published yet.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
+      "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under 100 words): $0.01\n- Ensembles (short essays and briefs): $0.02\n- Prose/long-form: $0.05\n\nFour fragments ($0.01) and one long-form prose essay ($0.05) are live; no ensembles are published yet.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
       "endpoints": [
         {
           "description": "A 32-word fragment on time — one of the structures that surround us. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/river-of-time.",
@@ -879,7 +879,7 @@
           ]
         },
         {
-          "description": "A 1,387-word prose essay on corporate capture at the UN and the geopolitics of AI, written around the 2026-09-23 Security Council session on AI and international security. Returned as Markdown after a $0.10 USDC x402 payment on Base mainnet. Free for humans at /read/techno-feudalism-un.",
+          "description": "A 1,387-word prose essay on corporate capture at the UN and the geopolitics of AI, written around the 2026-09-23 Security Council session on AI and international security. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/techno-feudalism-un.",
           "method": "GET",
           "path": "/essays/techno-feudalism-un",
           "title": "Techno-Feudalism at the UN: Corporate Capture and the Geopolitics of AI",
@@ -920,7 +920,7 @@
       "service_url": "https://www.pennypress.org",
       "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
       "title": "Penny Press",
-      "use_case": "Use this provider when an agent wants to read short original writing on freedom, truth, and the structures around us — fragments at $0.01, short essays/briefs at $0.05, and long-form prose at $0.10 — or when testing x402 payment flows against a live endpoint."
+      "use_case": "Use this provider when an agent wants to read short original writing on freedom, truth, and the structures around us — fragments at $0.01, ensembles at $0.02, and long-form prose at $0.05 — or when testing x402 payment flows against a live endpoint."
     },
     {
       "category": "finance",
@@ -1012,6 +1012,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-09-24T20:13:43Z",
+  "generated_at": "2026-09-26T00:12:06Z",
   "version": 1
 }
