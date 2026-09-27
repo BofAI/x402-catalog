@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "fqn": "x402-ping",
+  "title": "x402-ping",
+  "mainTitle": "Base USDC x402 premium ping for agents",
+  "subtitle": "Free discovery plus a 0.05 USDC /premium paywall on Base for payment-path checks.",
+  "description": "## What it does\n\nx402-ping is a live Cloudflare Worker that exposes free tip/unlock discovery on `GET /` and an HTTP 402 exact paywall on `GET /premium` for 0.05 USDC on Base (`eip155:8453`). Settlements go to treasury `0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b`. No accounts or API keys \u2014 agents probe free discovery, then pay `/premium` to verify an end-to-end x402 path.\n\n## Best for\n\n- Agents and SDKs validating Base USDC x402 exact payments against a live endpoint.\n- Directory crawlers and facilitators that need a cheap, always-on ping resource.\n- Builders testing PAYMENT-REQUIRED headers and facilitator settlement on Base.\n\n## Endpoints\n\n- `GET /` \u2014 Free discovery JSON (treasury, tip, unlock, network).\n- `GET /premium` \u2014 Paid ping: HTTP 402 exact 0.05 USDC on Base; returns pong JSON after payment.\n- `GET /.well-known/x402` \u2014 Agent402 service manifest.\n- `GET /.well-known/agent.json` \u2014 Agent card.\n\n## Code usage\n\nInspect the free root:\n\n```bash\ncurl -sS 'https://x402-ping.palmbeachpete.workers.dev/'\n```\n\nChallenge the paid route (expect HTTP 402 + PAYMENT-REQUIRED):\n\n```bash\ncurl -i 'https://x402-ping.palmbeachpete.workers.dev/premium'\n```\n\nPay with x402 CLI:\n\n```bash\nx402-cli pay 'https://x402-ping.palmbeachpete.workers.dev/premium' \\\n  --method GET \\\n  --network eip155:8453 \\\n  --token USDC \\\n  --scheme exact \\\n  --max-amount 0.05\n```\n\n## Base Mainnet payment\n\n`/premium` uses official USDC on `eip155:8453` with x402 `exact` (EIP-3009 via facilitators). Amount is 50000 atomic units (0.05 USDC).",
+  "useCase": "Use when an agent needs a live Base USDC x402 ping to verify payment headers, facilitator settlement, or directory health probes.",
+  "i18n": {
+    "zh-CN": {
+      "title": "x402-ping",
+      "mainTitle": "\u9762\u5411 Agent \u7684 Base USDC x402 \u4ed8\u8d39\u63a2\u6d4b",
+      "subtitle": "\u514d\u8d39\u53d1\u73b0\u7aef\u70b9\uff0c\u5916\u52a0 Base \u4e0a 0.05 USDC \u7684 /premium \u4ed8\u8d39\u5899\u3002",
+      "description": "## \u80fd\u505a\u4ec0\u4e48\n\nx402-ping \u662f\u4e00\u4e2a\u5728\u7ebf Cloudflare Worker\uff1a`GET /` \u63d0\u4f9b\u514d\u8d39 tip/unlock \u53d1\u73b0\uff1b`GET /premium` \u4ee5 HTTP 402 exact \u6536\u53d6 Base\uff08eip155:8453\uff09\u4e0a 0.05 USDC\uff0c\u7ed3\u7b97\u81f3\u91d1\u5e93 `0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b`\u3002\u65e0\u9700\u8d26\u6237\u6216 API \u5bc6\u94a5\u3002\n\n## \u9002\u5408\u573a\u666f\n\n- \u9a8c\u8bc1 Base USDC x402 exact \u652f\u4ed8\u8def\u5f84\u7684 Agent/SDK\u3002\n- \u9700\u8981\u4f4e\u4ef7\u5e38\u5f00\u63a2\u6d4b\u8d44\u6e90\u7684\u76ee\u5f55\u722c\u866b\u4e0e facilitator\u3002\n- \u6d4b\u8bd5 PAYMENT-REQUIRED \u5934\u4e0e Base \u7ed3\u7b97\u7684\u5f00\u53d1\u8005\u3002\n\n## \u63a5\u53e3\n\n- `GET /` \u2014 \u514d\u8d39\u53d1\u73b0 JSON\n- `GET /premium` \u2014 \u4ed8\u8d39 ping\uff080.05 USDC\uff09\n- `GET /.well-known/x402` \u2014 Agent402 \u6e05\u5355\n- `GET /.well-known/agent.json` \u2014 Agent card",
+      "useCase": "\u9700\u8981\u5728\u7ebf Base USDC x402 \u63a2\u6d4b\u4ee5\u9a8c\u8bc1\u652f\u4ed8\u5934\u3001facilitator \u7ed3\u7b97\u6216\u76ee\u5f55\u5065\u5eb7\u68c0\u67e5\u65f6\u4f7f\u7528\u3002"
+    },
+    "en": {
+      "title": "x402-ping",
+      "mainTitle": "Base USDC x402 premium ping for agents",
+      "subtitle": "Free discovery plus a 0.05 USDC /premium paywall on Base.",
+      "description": "Live Cloudflare Worker: free tip/unlock discovery on GET /, HTTP 402 exact 0.05 USDC on GET /premium (Base). Settles to treasury. No accounts or API keys.",
+      "useCase": "Live Base USDC x402 ping for payment-path and directory health checks."
+    }
+  },
+  "logo": "https://github.com/filip-study.png",
+  "category": "devtools",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "x402",
+    "ping",
+    "base",
+    "usdc",
+    "devtools"
+  ],
+  "serviceUrl": "https://x402-ping.palmbeachpete.workers.dev",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/premium",
+      "url": "https://x402-ping.palmbeachpete.workers.dev/premium",
+      "title": "Premium ping (x402)",
+      "subtitle": "HTTP 402 exact 0.05 USDC on Base; returns pong JSON after payment.",
+      "description": "Paid ping resource for agent payment / health checks. First response is HTTP 402 with PAYMENT-REQUIRED (amount 50000 atomic USDC, network eip155:8453, payTo treasury). After settlement the route returns pong JSON.",
+      "useCase": "Agents validating Base USDC x402 exact payments or facilitators probing a cheap live resource.",
+      "i18n": {
+        "zh-CN": {
+          "title": "\u4ed8\u8d39 ping\uff08x402\uff09",
+          "subtitle": "Base \u4e0a HTTP 402 exact 0.05 USDC\uff1b\u652f\u4ed8\u540e\u8fd4\u56de pong JSON\u3002",
+          "description": "\u9762\u5411 Agent \u652f\u4ed8/\u5065\u5eb7\u68c0\u67e5\u7684\u4ed8\u8d39\u63a2\u6d4b\u3002\u9996\u6b21\u54cd\u5e94\u4e3a HTTP 402 + PAYMENT-REQUIRED\u3002",
+          "useCase": "\u9a8c\u8bc1 Base USDC x402 exact \u652f\u4ed8\u6216\u505a\u4f4e\u4ef7\u5728\u7ebf\u63a2\u6d4b\u65f6\u4f7f\u7528\u3002"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.05,
+      "maxPriceUsd": 0.05,
+      "x402Routes": [
+        {
+          "provider": "x402-ping",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-ping.palmbeachpete.workers.dev/premium"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "unknown",
+    "payment": "paid-route",
+    "upstream": "public"
+  }
+}
