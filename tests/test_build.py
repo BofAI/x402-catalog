@@ -109,8 +109,8 @@ class CatalogBuildTests(unittest.TestCase):
         for path in (ROOT / "providers").glob("*/pay.md"):
             content = path.read_text(encoding="utf-8")
             self.assertIn("exact_gasfree", content, path.name)
-            self.assertIn("x402-cli pay", content, path.name)
-            self.assertIn("--network tron:0x2b6653dc", content, path.name)
+            self.assertIn("wallet-cli x402 pay", content, path.name)
+            self.assertIn("--network tron:728126428", content, path.name)
             self.assertIn("--scheme exact", content, path.name)
 
     def test_token_launch_docs_include_complete_payment_examples(self) -> None:
@@ -126,9 +126,9 @@ class CatalogBuildTests(unittest.TestCase):
 
         for content in [*descriptions, pay_doc]:
             self.assertIn("curl -sS -X POST", content)
-            self.assertIn("x402-cli pay", content)
+            self.assertIn("wallet-cli x402 pay", content)
             self.assertIn("--body", content)
-            self.assertIn("--network tron:0x2b6653dc", content)
+            self.assertIn("--network tron:728126428", content)
             self.assertIn("exact_gasfree", content)
             self.assertIn("--network eip155:56", content)
             self.assertIn("--scheme exact", content)

@@ -40,6 +40,14 @@ Latest token profiles (new-launch / discovery radar)
 
 ## Code Usage
 
+Install or update Wallet CLI and configure an account before paying:
+
+```bash
+npm install -g @tron-walletcli/wallet-cli@4.14.0
+```
+
+The examples use the active account. Supply its master password through standard input for `--password-stdin`. `--max-amount` limits the payment in whole units of the selected token.
+
 Call the catalog route with any HTTP client. Example:
 
 ```bash
@@ -49,8 +57,9 @@ curl -sS 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/l
 Pay with the default TRON Permit2 scheme:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN' \
-  --network tron:0x2b6653dc \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search?q=SUN' \
+  --password-stdin \
+  --network tron:728126428 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001
@@ -65,7 +74,8 @@ GET https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/
 ### Base Mainnet
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base/latest/dex/search?q=USDC' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-base/latest/dex/search?q=USDC' \
+  --password-stdin \
   --network eip155:8453 \
   --token USDC \
   --scheme exact \
