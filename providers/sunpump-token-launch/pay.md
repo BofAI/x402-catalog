@@ -19,7 +19,15 @@ Use it when an agent, backend workflow, or CLI script has validated launch metad
 
 ## CLI Quick Start
 
-Install or update the x402 CLI, then call the route matching the payment chain you want to use.
+Install or update Wallet CLI and configure an account before paying:
+
+```bash
+npm install -g @tron-walletcli/wallet-cli@4.14.0
+```
+
+The examples use the active account. Supply its master password through standard input for `--password-stdin`. `--max-amount` limits the payment in whole units of the selected token.
+
+Call the route matching the payment chain you want to use.
 
 TRON Mainnet:
 
@@ -30,9 +38,10 @@ curl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launc
 ```
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch' \
+  --password-stdin \
   --method POST \
-  --network tron:0x2b6653dc \
+  --network tron:728126428 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001 \
@@ -49,7 +58,8 @@ curl -sS -X POST 'https://x402-gateway.bankofai.io/providers/sunpump-token-launc
 ```
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bsc/pump-api/ai/agentTokenLaunch' \
+  --password-stdin \
   --method POST \
   --network eip155:56 \
   --token USDT \
@@ -62,7 +72,8 @@ x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-bs
 Base Mainnet:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base/pump-api/ai/agentTokenLaunch' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/sunpump-token-launch-base/pump-api/ai/agentTokenLaunch' \
+  --password-stdin \
   --method POST \
   --network eip155:8453 \
   --token USDC \

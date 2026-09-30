@@ -40,6 +40,14 @@ Token approval / allowance risk check for one or more wallet addresses. Pass `ad
 
 ## Code Usage
 
+Install or update Wallet CLI and configure an account before paying:
+
+```bash
+npm install -g @tron-walletcli/wallet-cli@4.14.0
+```
+
+The examples use the active account. Supply its master password through standard input for `--password-stdin`. `--max-amount` limits the payment in whole units of the selected token.
+
 Call the catalog route with any HTTP client. Example:
 
 ```bash
@@ -49,8 +57,9 @@ curl -sS 'https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/
 Pay with the default TRON Permit2 scheme:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' \
-  --network tron:0x2b6653dc \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/728126428?contract_addresses=TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' \
+  --password-stdin \
+  --network tron:728126428 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001
@@ -65,7 +74,8 @@ GET https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1
 ### Base Mainnet
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/goplus-token-security-base/api/v1/address_security/0x0000000000000000000000000000000000000000' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/goplus-token-security-base/api/v1/address_security/0x0000000000000000000000000000000000000000' \
+  --password-stdin \
   --network eip155:8453 \
   --token USDC \
   --scheme exact \

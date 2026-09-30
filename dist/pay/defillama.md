@@ -44,6 +44,14 @@ The catalog also publishes current/historical prices, price charts, percentage c
 
 ## Code Usage
 
+Install or update Wallet CLI and configure an account before paying:
+
+```bash
+npm install -g @tron-walletcli/wallet-cli@4.14.0
+```
+
+The examples use the active account. Supply its master password through standard input for `--password-stdin`. `--max-amount` limits the payment in whole units of the selected token.
+
 Call the catalog route with any HTTP client. Example:
 
 ```bash
@@ -53,8 +61,9 @@ curl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol
 Pay with the default TRON Permit2 scheme:
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \
-  --network tron:0x2b6653dc \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols' \
+  --password-stdin \
+  --network tron:728126428 \
   --token USDT \
   --scheme exact \
   --max-amount 0.000001
@@ -74,10 +83,11 @@ Base Mainnet payments use official USDC with x402 `exact` and EIP-3009:
 curl -sS 'https://x402-gateway.bankofai.io/providers/defillama-tvl-base/protocols'
 ```
 
-Pay on Base Mainnet with the x402 CLI (amount in USD):
+Pay on Base Mainnet with the Wallet CLI (amount in the selected token):
 
 ```bash
-x402-cli pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-base/protocols' \
+wallet-cli x402 pay 'https://x402-gateway.bankofai.io/providers/defillama-tvl-base/protocols' \
+  --password-stdin \
   --method GET \
   --network eip155:8453 \
   --token USDC \
