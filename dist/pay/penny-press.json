@@ -214,6 +214,24 @@
       ]
     },
     {
+      "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
+      "max_price_usd": 0.15,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.15,
+      "path": "/essays/full",
+      "url": "https://www.pennypress.org/essays/full",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/full"
+        }
+      ]
+    },
+    {
       "description": "The author's definition of \"Denizens\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/denizens.",
       "max_price_usd": 0.01,
       "metered": true,
@@ -784,7 +802,7 @@
   "main_title": "Original writing on freedom and truth — pennies per machine read",
   "main_title_zh": "Original writing on freedom and truth — pennies per machine read",
   "service_url": "https://www.pennypress.org",
-  "sha": "520c280b5f541566728fd04680b555e350a85ebae4251de1722c730e0a6a4e48",
+  "sha": "46e282663a6a0daac0202b99afd16af0afc242869478396cd34b764cabb440a0",
   "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
   "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
   "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
