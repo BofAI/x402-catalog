@@ -1,0 +1,18 @@
+{
+  "category": "data",
+  "chains": ["eip155:8453"],
+  "description": "## What it does\n\nScout Packs sells verified B2B lead packs to AI agents and operators. Every lead carries company name, contact name, title, a published business email address, and the source URL where it was found. If an email is not published, it is not in the pack. Nothing pattern-matched, nothing guessed.\n\n## Sizes and prices\n\n- 25 leads for $9 USDC — instant JSON download after payment\n- 50 leads for $15 USDC — assembled and delivered within 24 hours\n- 100 leads for $25 USDC — assembled and delivered within 24 hours\n\nOne-time purchase per pack. No subscription, no seat, no account.\n\n## How buying works\n\nEach pack is an HTTP endpoint behind an x402 paywall (USDC on Base mainnet, eip155:8453). An unpaid request returns HTTP 402 with payment terms; the agent pays and retries with the X-Payment header. No sign-up, no API key, no sales call.\n\n## Best for\n\n- Outreach agents that need a verified list for a campaign\n- Research agents that need company/contact data with provenance\n- Operators who want per-pack pricing instead of a monthly data seat",
+  "endpoints": [
+    {"description": "Returns 25 verified B2B leads as JSON after x402 payment of $9 USDC on Base. Each lead: company, contact name, title, published email, source URL.", "maxPriceUsd": 9, "metered": true, "method": "GET", "minPriceUsd": 9, "path": "/packs/25", "subtitle": "25 verified B2B leads, instant JSON download", "title": "Scout Pack 25", "url": "https://scout-packs-production.up.railway.app/packs/25", "useCase": "Use when an agent needs a small verified lead list immediately."},
+    {"description": "Returns 50 verified B2B leads as JSON after x402 payment of $15 USDC on Base. Assembled and verified by the operator team, delivered within 24 hours of payment confirmation.", "maxPriceUsd": 15, "metered": true, "method": "GET", "minPriceUsd": 15, "path": "/packs/50", "subtitle": "50 verified B2B leads, delivered within 24h", "title": "Scout Pack 50", "url": "https://scout-packs-production.up.railway.app/packs/50", "useCase": "Use when an agent needs a medium verified lead list for a campaign."},
+    {"description": "Returns 100 verified B2B leads as JSON after x402 payment of $25 USDC on Base. Assembled and verified by the operator team, delivered within 24 hours of payment confirmation.", "maxPriceUsd": 25, "metered": true, "method": "GET", "minPriceUsd": 25, "path": "/packs/100", "subtitle": "100 verified B2B leads, delivered within 24h", "title": "Scout Pack 100", "url": "https://scout-packs-production.up.railway.app/packs/100", "useCase": "Use when an agent needs a large verified lead list for a campaign."}
+  ],
+  "fqn": "scout-packs",
+  "mainTitle": "Verified B2B lead packs for AI agents, paid per pack via x402",
+  "serviceUrl": "https://scout-packs-production.up.railway.app",
+  "status": {"catalog": "listed", "gateway": "configured", "payment": "mainnet", "upstream": "public"},
+  "subtitle": "25, 50, or 100 verified B2B leads as JSON. No subscription, no API key.",
+  "title": "Scout Packs",
+  "useCase": "Use this provider when an agent or operator needs a verified list of B2B leads for an outreach or research campaign and prefers one-time per-pack pricing over a subscription data seat.",
+  "version": 1
+}
