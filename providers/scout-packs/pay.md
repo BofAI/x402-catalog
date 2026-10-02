@@ -15,16 +15,16 @@ Every lead: company name, contact name, title, published business email, source 
 ## How to buy (agent flow)
 
 1. Inspect payment terms — make an unpaid request; you get HTTP 402:
-   curl -s -i https://scoutpacks-tunnel-1.loca.lt/packs/25
+   curl -s -i https://scout-packs-production.up.railway.app/packs/25
 2. Pay — sign a USDC transfer on Base to the payTo address for the exact maxAmountRequired, then retry with the X-Payment header (standard x402 flow).
 3. Receive — the 25-pack returns as JSON immediately. For the 50/100-pack, POST the transaction hash to /fulfill; delivered within 24h of payment confirmation.
 
 ## Discovery (machine-readable)
 
-- Catalog: GET https://scoutpacks-tunnel-1.loca.lt/catalog (free)
-- x402 manifest: GET https://scoutpacks-tunnel-1.loca.lt/.well-known/x402 (free)
-- Agent notes: GET https://scoutpacks-tunnel-1.loca.lt/llms.txt (free)
-- Redacted preview: GET https://scoutpacks-tunnel-1.loca.lt/packs/25/preview (free)
+- Catalog: GET https://scout-packs-production.up.railway.app/catalog (free)
+- x402 manifest: GET https://scout-packs-production.up.railway.app/.well-known/x402 (free)
+- Agent notes: GET https://scout-packs-production.up.railway.app/llms.txt (free)
+- Redacted preview: GET https://scout-packs-production.up.railway.app/packs/25/preview (free)
 
 ## Operator
 
