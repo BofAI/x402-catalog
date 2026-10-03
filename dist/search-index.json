@@ -999,6 +999,21 @@
           ]
         },
         {
+          "description": "A 130-word ensemble about the enemy within — the ego that severs us from community, and the borders we fabricate and refuse to cross. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/fabricated-frontiers.",
+          "method": "GET",
+          "path": "/essays/fabricated-frontiers",
+          "title": "Fabricated Frontiers",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/essays/fabricated-frontiers"
+            }
+          ]
+        },
+        {
           "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
           "method": "GET",
           "path": "/essays/full",
@@ -1582,6 +1597,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-10-01T17:33:54Z",
+  "generated_at": "2026-10-03T03:02:19Z",
   "version": 1
 }
