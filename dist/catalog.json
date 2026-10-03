@@ -44,7 +44,7 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-10-01T17:33:54Z",
+  "generated_at": "2026-10-03T03:02:19Z",
   "provider_count": 6,
   "providers": [
     {
@@ -443,7 +443,7 @@
         }
       ],
       "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under ~100 words): $0.01\n- Ensembles (100–600 words): $0.02\n- Prose/long-form (600+ words): $0.05\n\nNew pieces are published over time; all machine reads follow the tier schedule above.\n\n## Glossary lookups\n\nKey terms carry the author's own definitions, as used across the essays. Each definition is available to machines at `GET /glossary/{term}` for $0.01 (USDC on Base mainnet), or all definitions in one payment at `GET /glossary/full` for $0.25; humans read the same definitions free at `/read/glossary/{term}`, and the free term list lives at `/glossary`.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
-      "endpoint_count": 43,
+      "endpoint_count": 44,
       "featured_tags": [
         "essays",
         "writing",
@@ -470,7 +470,7 @@
       "max_price_usd": 0.25,
       "min_price_usd": 0.01,
       "service_url": "https://www.pennypress.org",
-      "sha": "46e282663a6a0daac0202b99afd16af0afc242869478396cd34b764cabb440a0",
+      "sha": "6faa6a7f0eaafe71b928405b401175ea1104294d3d2ca936844dc37b767aa55c",
       "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
       "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
       "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
