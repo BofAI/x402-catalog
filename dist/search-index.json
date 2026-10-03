@@ -1014,21 +1014,6 @@
           ]
         },
         {
-          "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
-          "method": "GET",
-          "path": "/essays/full",
-          "title": "Essays — full set",
-          "x402_routes": [
-            {
-              "assetTransferMethod": "eip3009",
-              "network": "eip155:8453",
-              "provider": "penny-press",
-              "scheme": "exact",
-              "url": "https://www.pennypress.org/essays/full"
-            }
-          ]
-        },
-        {
           "description": "The author's definition of \"Denizens\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/denizens.",
           "method": "GET",
           "path": "/glossary/denizens",
@@ -1597,6 +1582,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-10-03T03:02:19Z",
+  "generated_at": "2026-10-03T03:47:21Z",
   "version": 1
 }
