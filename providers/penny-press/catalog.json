@@ -325,6 +325,35 @@
    ]
   },
   {
+   "description": "A 130-word ensemble about the enemy within \u2014 the ego that severs us from community, and the borders we fabricate and refuse to cross. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/fabricated-frontiers.",
+   "i18n": {
+    "zh-CN": {
+     "description": "\u4e00\u7bc7 130 \u8bcd\u7684\u6587\u96c6\uff0c\u5173\u4e8e\u5185\u5728\u4e4b\u654c\u2014\u2014\u5c06\u6211\u4eec\u4e0e\u793e\u7fa4\u5272\u88c2\u7684\u81ea\u6211\uff0c\u4ee5\u53ca\u6211\u4eec\u865a\u6784\u53c8\u62d2\u7edd\u8de8\u8d8a\u7684\u8fb9\u754c\u3002\u5728 Base mainnet \u4e0a\u5b8c\u6210 0.02 USDC \u7684 x402 \u652f\u4ed8\u540e\u4ee5 Markdown \u8fd4\u56de\u3002\u4eba\u7c7b\u53ef\u5728 /read/fabricated-frontiers \u514d\u8d39\u9605\u8bfb\u3002",
+     "subtitle": "\u4e00\u7bc7\u5173\u4e8e\u5185\u5728\u4e4b\u654c\u7684\u6587\u96c6\u3002",
+     "title": "Fabricated Frontiers",
+     "useCase": "\u9002\u5408 Agent \u9700\u8981\u4e00\u7bc7\u5173\u4e8e\u5185\u5728\u4e4b\u654c\u3001\u81ea\u6211\u4e0e\u4eba\u4e3a\u8fb9\u754c\u7684\u77ed\u6587\u7684\u573a\u666f\u3002"
+    }
+   },
+   "maxPriceUsd": 0.02,
+   "metered": true,
+   "method": "GET",
+   "minPriceUsd": 0.02,
+   "path": "/essays/fabricated-frontiers",
+   "subtitle": "An ensemble about the enemy within.",
+   "title": "Fabricated Frontiers",
+   "url": "https://www.pennypress.org/essays/fabricated-frontiers",
+   "useCase": "Use when an agent wants an ensemble on the enemy within \u2014 ego, identity, and the fabricated borders between people.",
+   "x402Routes": [
+    {
+     "assetTransferMethod": "eip3009",
+     "network": "eip155:8453",
+     "provider": "penny-press",
+     "scheme": "exact",
+     "url": "https://www.pennypress.org/essays/fabricated-frontiers"
+    }
+   ]
+  },
+  {
    "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
    "i18n": {
     "zh-CN": {
@@ -334,10 +363,10 @@
      "useCase": "\u9002\u5408 Agent \u9700\u8981 Penny Press \u5b8c\u6574\u76ee\u5f55\u3001\u4e14\u5e0c\u671b\u4e00\u6b21\u4ed8\u6b3e\u83b7\u53d6\u5168\u90e8\u6587\u7ae0\u7684\u573a\u666f\u3002"
     }
    },
-   "maxPriceUsd": 0.15,
+   "maxPriceUsd": 0.17,
    "metered": true,
    "method": "GET",
-   "minPriceUsd": 0.15,
+   "minPriceUsd": 0.17,
    "path": "/essays/full",
    "subtitle": "The complete catalog \u2014 every piece in one payment.",
    "title": "Essays \u2014 full set",
