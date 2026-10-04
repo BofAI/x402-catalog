@@ -824,6 +824,78 @@
           "url": "https://www.pennypress.org/essays/the-last-witness"
         }
       ]
+    },
+    {
+      "description": "The author's definition of \"palaver\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/palaver.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/palaver",
+      "url": "https://www.pennypress.org/glossary/palaver",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/palaver"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"reparatory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/reparatory.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/reparatory",
+      "url": "https://www.pennypress.org/glossary/reparatory",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/reparatory"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"canonized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/canonized.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/canonized",
+      "url": "https://www.pennypress.org/glossary/canonized",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/canonized"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"venerable\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/venerable.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/venerable",
+      "url": "https://www.pennypress.org/glossary/venerable",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/venerable"
+        }
+      ]
     }
   ],
   "fqn": "penny-press",
@@ -838,7 +910,7 @@
   "main_title": "Original writing on freedom and truth — pennies per machine read",
   "main_title_zh": "Original writing on freedom and truth — pennies per machine read",
   "service_url": "https://www.pennypress.org",
-  "sha": "583031635125eadc9f7643849ddf8a6f3d690cd1fd1444dcbac6d4fe277622da",
+  "sha": "ff3064f2158a3e58d2d7073405f0d0d76c185c5ac8e99820ca87638e6f014f39",
   "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
   "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
   "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
