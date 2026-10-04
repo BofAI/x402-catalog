@@ -1507,6 +1507,66 @@
               "url": "https://www.pennypress.org/essays/the-last-witness"
             }
           ]
+        },
+        {
+          "description": "The author's definition of \"palaver\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/palaver.",
+          "method": "GET",
+          "path": "/glossary/palaver",
+          "title": "palaver",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/glossary/palaver"
+            }
+          ]
+        },
+        {
+          "description": "The author's definition of \"reparatory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/reparatory.",
+          "method": "GET",
+          "path": "/glossary/reparatory",
+          "title": "reparatory",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/glossary/reparatory"
+            }
+          ]
+        },
+        {
+          "description": "The author's definition of \"canonized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/canonized.",
+          "method": "GET",
+          "path": "/glossary/canonized",
+          "title": "canonized",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/glossary/canonized"
+            }
+          ]
+        },
+        {
+          "description": "The author's definition of \"venerable\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/venerable.",
+          "method": "GET",
+          "path": "/glossary/venerable",
+          "title": "venerable",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/glossary/venerable"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -1612,6 +1672,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-10-04T01:40:27Z",
+  "generated_at": "2026-10-04T01:59:09Z",
   "version": 1
 }
