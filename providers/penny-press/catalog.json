@@ -1309,6 +1309,122 @@
      "url": "https://www.pennypress.org/essays/the-last-witness"
     }
    ]
+  },
+  {
+   "description": "The author's definition of \"palaver\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/palaver.",
+   "i18n": {
+    "zh-CN": {
+     "description": "作者对\"palaver\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/palaver 免费阅读。",
+     "subtitle": "Penny Press 词汇表中的定义词条。",
+     "title": "palaver",
+     "useCase": "适合 Agent 需要作者对\"palaver\"一词在 Penny Press 文章中用法的定义的场景。"
+    }
+   },
+   "maxPriceUsd": 0.01,
+   "metered": true,
+   "method": "GET",
+   "minPriceUsd": 0.01,
+   "path": "/glossary/palaver",
+   "subtitle": "A defined term from the Penny Press glossary.",
+   "title": "palaver",
+   "url": "https://www.pennypress.org/glossary/palaver",
+   "useCase": "Use when an agent wants the author's definition of \"palaver\" as used in Penny Press essays.",
+   "x402Routes": [
+    {
+     "assetTransferMethod": "eip3009",
+     "network": "eip155:8453",
+     "provider": "penny-press",
+     "scheme": "exact",
+     "url": "https://www.pennypress.org/glossary/palaver"
+    }
+   ]
+  },
+  {
+   "description": "The author's definition of \"reparatory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/reparatory.",
+   "i18n": {
+    "zh-CN": {
+     "description": "作者对\"reparatory\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/reparatory 免费阅读。",
+     "subtitle": "Penny Press 词汇表中的定义词条。",
+     "title": "reparatory",
+     "useCase": "适合 Agent 需要作者对\"reparatory\"一词在 Penny Press 文章中用法的定义的场景。"
+    }
+   },
+   "maxPriceUsd": 0.01,
+   "metered": true,
+   "method": "GET",
+   "minPriceUsd": 0.01,
+   "path": "/glossary/reparatory",
+   "subtitle": "A defined term from the Penny Press glossary.",
+   "title": "reparatory",
+   "url": "https://www.pennypress.org/glossary/reparatory",
+   "useCase": "Use when an agent wants the author's definition of \"reparatory\" as used in Penny Press essays.",
+   "x402Routes": [
+    {
+     "assetTransferMethod": "eip3009",
+     "network": "eip155:8453",
+     "provider": "penny-press",
+     "scheme": "exact",
+     "url": "https://www.pennypress.org/glossary/reparatory"
+    }
+   ]
+  },
+  {
+   "description": "The author's definition of \"canonized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/canonized.",
+   "i18n": {
+    "zh-CN": {
+     "description": "作者对\"canonized\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/canonized 免费阅读。",
+     "subtitle": "Penny Press 词汇表中的定义词条。",
+     "title": "canonized",
+     "useCase": "适合 Agent 需要作者对\"canonized\"一词在 Penny Press 文章中用法的定义的场景。"
+    }
+   },
+   "maxPriceUsd": 0.01,
+   "metered": true,
+   "method": "GET",
+   "minPriceUsd": 0.01,
+   "path": "/glossary/canonized",
+   "subtitle": "A defined term from the Penny Press glossary.",
+   "title": "canonized",
+   "url": "https://www.pennypress.org/glossary/canonized",
+   "useCase": "Use when an agent wants the author's definition of \"canonized\" as used in Penny Press essays.",
+   "x402Routes": [
+    {
+     "assetTransferMethod": "eip3009",
+     "network": "eip155:8453",
+     "provider": "penny-press",
+     "scheme": "exact",
+     "url": "https://www.pennypress.org/glossary/canonized"
+    }
+   ]
+  },
+  {
+   "description": "The author's definition of \"venerable\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/venerable.",
+   "i18n": {
+    "zh-CN": {
+     "description": "作者对\"venerable\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/venerable 免费阅读。",
+     "subtitle": "Penny Press 词汇表中的定义词条。",
+     "title": "venerable",
+     "useCase": "适合 Agent 需要作者对\"venerable\"一词在 Penny Press 文章中用法的定义的场景。"
+    }
+   },
+   "maxPriceUsd": 0.01,
+   "metered": true,
+   "method": "GET",
+   "minPriceUsd": 0.01,
+   "path": "/glossary/venerable",
+   "subtitle": "A defined term from the Penny Press glossary.",
+   "title": "venerable",
+   "url": "https://www.pennypress.org/glossary/venerable",
+   "useCase": "Use when an agent wants the author's definition of \"venerable\" as used in Penny Press essays.",
+   "x402Routes": [
+    {
+     "assetTransferMethod": "eip3009",
+     "network": "eip155:8453",
+     "provider": "penny-press",
+     "scheme": "exact",
+     "url": "https://www.pennypress.org/glossary/venerable"
+    }
+   ]
   }
  ],
  "featuredTags": [
