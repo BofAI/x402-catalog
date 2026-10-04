@@ -47,11 +47,12 @@ with the payment proof to receive the piece as Markdown.
 | The Agentic Paradigm: How Artificial Intelligence Demobilizes Labour and Redefines the State | `https://www.pennypress.org/essays/the-agentic-paradigm` | $0.05 |
 | Root and Cable | `https://www.pennypress.org/essays/root-and-cable` | $0.01 |
 | Fabricated Frontiers | `https://www.pennypress.org/essays/fabricated-frontiers` | $0.02 |
-| Essays — full set (all pieces) | `https://www.pennypress.org/essays/full` | $0.17 |
+| The Last Witness | `https://www.pennypress.org/essays/the-last-witness` | $0.05 |
+| Essays — full set (all pieces) | `https://www.pennypress.org/essays/full` | $0.20 |
 
 Machine-readable catalog: `https://www.pennypress.org/essays` (free).
 Humans read free: `https://www.pennypress.org/read/{slug}`.
-Or get every piece in one payment: `https://www.pennypress.org/essays/full` ($0.17) — the bundle price stays below the combined per-piece total as the catalog grows; the 402 response states the current price.
+Or get every piece in one payment: `https://www.pennypress.org/essays/full` ($0.20) — the bundle price stays below the combined per-piece total as the catalog grows; the 402 response states the current price.
 
 ## Glossary
 
