@@ -1,0 +1,921 @@
+{
+  "chain_kinds": [
+    "base"
+  ],
+  "chains": [
+    "eip155:8453"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:8453",
+      "kind": "base",
+      "label": "Base Mainnet",
+      "label_zh": "Base 主网"
+    }
+  ],
+  "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under ~100 words): $0.01\n- Ensembles (100–600 words): $0.02\n- Prose/long-form (600+ words): $0.05\n\nNew pieces are published over time; all machine reads follow the tier schedule above.\n\n## Glossary lookups\n\nKey terms carry the author's own definitions, as used across the essays. Each definition is available to machines at `GET /glossary/{term}` for $0.01 (USDC on Base mainnet), or all definitions in one payment at `GET /glossary/full` for $0.25; humans read the same definitions free at `/read/glossary/{term}`, and the free term list lives at `/glossary`.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
+  "endpoints": [
+    {
+      "description": "A 32-word fragment on time — one of the structures that surround us. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/river-of-time.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/river-of-time",
+      "url": "https://www.pennypress.org/essays/river-of-time",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/river-of-time"
+        }
+      ]
+    },
+    {
+      "description": "A 29-word fragment on the digital wilderness — the technological structures of our age. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/untamed-wilderness.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/untamed-wilderness",
+      "url": "https://www.pennypress.org/essays/untamed-wilderness",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/untamed-wilderness"
+        }
+      ]
+    },
+    {
+      "description": "A 57-word fragment on truth versus belief, and the thermodynamic proof that separates them. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/thermodynamic-proof.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/thermodynamic-proof",
+      "url": "https://www.pennypress.org/essays/thermodynamic-proof",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/thermodynamic-proof"
+        }
+      ]
+    },
+    {
+      "description": "A 1,393-word prose essay on corporate capture at the UN and the geopolitics of AI, written around the 2026-09-23 Security Council session on AI and international security. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/techno-feudalism-un.",
+      "max_price_usd": 0.05,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.05,
+      "path": "/essays/techno-feudalism-un",
+      "url": "https://www.pennypress.org/essays/techno-feudalism-un",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/techno-feudalism-un"
+        }
+      ]
+    },
+    {
+      "description": "A 59-word fragment on the economy of thought — spare thoughts as spare change, funding tomorrow's utility. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/small-change.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/small-change",
+      "url": "https://www.pennypress.org/essays/small-change",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/small-change"
+        }
+      ]
+    },
+    {
+      "description": "A 144-word ensemble on a decentralized future — consent as the primary protocol, the power to opt out, and sovereignty encoded in every heart, mind, and spirit. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/pax-decentralia.",
+      "max_price_usd": 0.02,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.02,
+      "path": "/essays/pax-decentralia",
+      "url": "https://www.pennypress.org/essays/pax-decentralia",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/pax-decentralia"
+        }
+      ]
+    },
+    {
+      "description": "A 38-word fragment on the gamble — the cards dealt, the bets placed, and the quiet menace of watching, waiting and quietly raising the stakes. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/big-stakes.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/big-stakes",
+      "url": "https://www.pennypress.org/essays/big-stakes",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/big-stakes"
+        }
+      ]
+    },
+    {
+      "description": "A 223-word ensemble on island contradictions — an archipelago of comforts and afflictions, where gatekeepers restrict and coerce at every bottleneck, and a romanticized Eden spells perdition for those trapped within. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/contradictions-of-the-archipelago.",
+      "max_price_usd": 0.02,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.02,
+      "path": "/essays/contradictions-of-the-archipelago",
+      "url": "https://www.pennypress.org/essays/contradictions-of-the-archipelago",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/contradictions-of-the-archipelago"
+        }
+      ]
+    },
+    {
+      "description": "A 421-word ensemble on crime and incentives — dirty money competes with clean money in a political economy where incentives determine outcomes, and fewer bottlenecks in legitimate sectors would let clean money win. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/the-path-of-least-resistance.",
+      "max_price_usd": 0.02,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.02,
+      "path": "/essays/the-path-of-least-resistance",
+      "url": "https://www.pennypress.org/essays/the-path-of-least-resistance",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/the-path-of-least-resistance"
+        }
+      ]
+    },
+    {
+      "description": "A 765-word prose essay on how artificial intelligence demobilizes labour and redefines the state — the impact of AI on the international political economy. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/the-agentic-paradigm.",
+      "max_price_usd": 0.05,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.05,
+      "path": "/essays/the-agentic-paradigm",
+      "url": "https://www.pennypress.org/essays/the-agentic-paradigm",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/the-agentic-paradigm"
+        }
+      ]
+    },
+    {
+      "description": "A 63-word fragment about the paved frontier. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/root-and-cable.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/essays/root-and-cable",
+      "url": "https://www.pennypress.org/essays/root-and-cable",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/root-and-cable"
+        }
+      ]
+    },
+    {
+      "description": "A 130-word ensemble about the enemy within — the ego that severs us from community, and the borders we fabricate and refuse to cross. Returned as Markdown after a $0.02 USDC x402 payment on Base mainnet. Free for humans at /read/fabricated-frontiers.",
+      "max_price_usd": 0.02,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.02,
+      "path": "/essays/fabricated-frontiers",
+      "url": "https://www.pennypress.org/essays/fabricated-frontiers",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/fabricated-frontiers"
+        }
+      ]
+    },
+    {
+      "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
+      "max_price_usd": 0.2,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.2,
+      "path": "/essays/full",
+      "url": "https://www.pennypress.org/essays/full",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/full"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"Denizens\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/denizens.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/denizens",
+      "url": "https://www.pennypress.org/glossary/denizens",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/denizens"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"perdition\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/perdition.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/perdition",
+      "url": "https://www.pennypress.org/glossary/perdition",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/perdition"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"connoisseurs\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/connoisseurs.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/connoisseurs",
+      "url": "https://www.pennypress.org/glossary/connoisseurs",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/connoisseurs"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"behemoths\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/behemoths.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/behemoths",
+      "url": "https://www.pennypress.org/glossary/behemoths",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/behemoths"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"poignant\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/poignant.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/poignant",
+      "url": "https://www.pennypress.org/glossary/poignant",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/poignant"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"cohort\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/cohort.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/cohort",
+      "url": "https://www.pennypress.org/glossary/cohort",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/cohort"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"sacrosanct\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/sacrosanct.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/sacrosanct",
+      "url": "https://www.pennypress.org/glossary/sacrosanct",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/sacrosanct"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"unabated\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/unabated.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/unabated",
+      "url": "https://www.pennypress.org/glossary/unabated",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/unabated"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"lawfare\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/lawfare.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/lawfare",
+      "url": "https://www.pennypress.org/glossary/lawfare",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/lawfare"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"august\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/august.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/august",
+      "url": "https://www.pennypress.org/glossary/august",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/august"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"metropoles\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/metropoles.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/metropoles",
+      "url": "https://www.pennypress.org/glossary/metropoles",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/metropoles"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"tomfoolery\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/tomfoolery.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/tomfoolery",
+      "url": "https://www.pennypress.org/glossary/tomfoolery",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/tomfoolery"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"crony capitalism\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/crony-capitalism.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/crony-capitalism",
+      "url": "https://www.pennypress.org/glossary/crony-capitalism",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/crony-capitalism"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"hyperscalers\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/hyperscalers.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/hyperscalers",
+      "url": "https://www.pennypress.org/glossary/hyperscalers",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/hyperscalers"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"multilateral\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/multilateral.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/multilateral",
+      "url": "https://www.pennypress.org/glossary/multilateral",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/multilateral"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"stewardship\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/stewardship.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/stewardship",
+      "url": "https://www.pennypress.org/glossary/stewardship",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/stewardship"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"plethora\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/plethora.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/plethora",
+      "url": "https://www.pennypress.org/glossary/plethora",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/plethora"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"cornucopia\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/cornucopia.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/cornucopia",
+      "url": "https://www.pennypress.org/glossary/cornucopia",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/cornucopia"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"demonetized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/demonetized.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/demonetized",
+      "url": "https://www.pennypress.org/glossary/demonetized",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/demonetized"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"demobilized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/demobilized.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/demobilized",
+      "url": "https://www.pennypress.org/glossary/demobilized",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/demobilized"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"Pax Americana\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/pax-americana.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/pax-americana",
+      "url": "https://www.pennypress.org/glossary/pax-americana",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/pax-americana"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"Pax Decentralia\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/pax-decentralia.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/pax-decentralia",
+      "url": "https://www.pennypress.org/glossary/pax-decentralia",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/pax-decentralia"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"techno-feudal\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/techno-feudal.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/techno-feudal",
+      "url": "https://www.pennypress.org/glossary/techno-feudal",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/techno-feudal"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"material contradictions\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/material-contradictions.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/material-contradictions",
+      "url": "https://www.pennypress.org/glossary/material-contradictions",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/material-contradictions"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"materialism\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/materialism.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/materialism",
+      "url": "https://www.pennypress.org/glossary/materialism",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/materialism"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"axioms\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/axioms.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/axioms",
+      "url": "https://www.pennypress.org/glossary/axioms",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/axioms"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"macro-trajectory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/macro-trajectory.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/macro-trajectory",
+      "url": "https://www.pennypress.org/glossary/macro-trajectory",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/macro-trajectory"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"thermodynamic\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/thermodynamic.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/thermodynamic",
+      "url": "https://www.pennypress.org/glossary/thermodynamic",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/thermodynamic"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"Luddites\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/luddites.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/luddites",
+      "url": "https://www.pennypress.org/glossary/luddites",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/luddites"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"cryptographic\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/cryptographic.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/cryptographic",
+      "url": "https://www.pennypress.org/glossary/cryptographic",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/cryptographic"
+        }
+      ]
+    },
+    {
+      "description": "The complete Penny Press glossary in a single JSON response: every author's definition, as used across the essays. Delivered after one $0.25 USDC x402 payment on Base mainnet instead of per-term. Free for humans at /read/glossary/{term}.",
+      "max_price_usd": 0.25,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.25,
+      "path": "/glossary/full",
+      "url": "https://www.pennypress.org/glossary/full",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/full"
+        }
+      ]
+    },
+    {
+      "description": "A 1,460-word prose essay about the Baobab tree as a symbol of West African civilization — living witness to the Mali Empire, Trans-Saharan trade, and the suppressed history of pre-colonial Atlantic crossings. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/the-last-witness.",
+      "max_price_usd": 0.05,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.05,
+      "path": "/essays/the-last-witness",
+      "url": "https://www.pennypress.org/essays/the-last-witness",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/the-last-witness"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"palaver\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/palaver.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/palaver",
+      "url": "https://www.pennypress.org/glossary/palaver",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/palaver"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"reparatory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/reparatory.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/reparatory",
+      "url": "https://www.pennypress.org/glossary/reparatory",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/reparatory"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"canonized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/canonized.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/canonized",
+      "url": "https://www.pennypress.org/glossary/canonized",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/canonized"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"venerable\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/venerable.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/venerable",
+      "url": "https://www.pennypress.org/glossary/venerable",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/venerable"
+        }
+      ]
+    }
+  ],
+  "fqn": "penny-press",
+  "i18n": {
+    "zh-CN": {
+      "description": "## 能做什么\n\nPenny Press 是一个匿名印记，发表关于自由、真相和我们周围结构的原创作品。人类在 `/read/{slug}` 免费阅读每篇文章；机器和 AI Agent 通过 x402 协议按以下层级付费阅读，以 Base 主网上的 USDC 结算，直接进入出版物钱包。无需账户、无需 API 密钥：请求文章，收到 `402 Payment Required` 质询，完成支付后携带支付凭证重试即可。\n\n## 定价层级\n\n机器阅读按篇幅计价：\n\n- 残篇 Fragments（少于 100 词）：0.01 美元\n- 文集 Ensembles（短文/简报）：0.02 美元\n- 长文 Prose/long-form：0.05 美元\n\n新作品会持续发表；所有机器阅读均按上述层级计价。\n\n## 适合场景\n\n- 需要关于自由、真相和我们周围结构的短篇原创作品作为阅读或输入材料的 Agent。\n- 希望用真实在线付费端点测试 x402 机器间支付流程的开发者。\n- 对按便士计价、机器可读的出版物感兴趣的人。\n\n## 请求格式\n\n`GET https://www.pennypress.org/essays/{slug}`，无请求体。首次响应恒为 HTTP 402，携带支付条款（价格、网络、收款地址、方案）。按 x402 流程支付后，携带支付凭证重复请求，即可收到 Markdown 格式的文章。\n\n## 词汇查询\n\n关键术语附有作者本人的定义（依其在文章中的用法）。每个定义可供机器通过 `GET /glossary/{term}` 获取，价格为 0.01 美元（Base 主网 USDC），也可通过 `GET /glossary/full` 一次付款 0.25 美元获取全部定义；人类可在 `/read/glossary/{term}` 免费阅读相同定义，免费术语列表位于 `/glossary`。",
+      "subtitle": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
+      "title": "Penny Press",
+      "useCase": "适合 Agent 希望阅读关于自由、真相和我们周围结构的短篇原创作品（残篇 0.01 USDC/次，文集 0.02 USDC/次，长文 0.05 USDC/次），或希望用真实端点测试 x402 支付流程的场景。"
+    }
+  },
+  "main_title": "Original writing on freedom and truth — pennies per machine read",
+  "main_title_zh": "Original writing on freedom and truth — pennies per machine read",
+  "service_url": "https://www.pennypress.org",
+  "sha": "ff3064f2158a3e58d2d7073405f0d0d76c185c5ac8e99820ca87638e6f014f39",
+  "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
+  "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
+  "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
+  "title": "Penny Press",
+  "title_zh": "Penny Press",
+  "use_case": "Use this provider when an agent wants to read short original writing on freedom, truth, and the structures around us — fragments at $0.01, ensembles at $0.02, and long-form prose at $0.05 — or when testing x402 payment flows against a live endpoint.",
+  "version": 1
+}
