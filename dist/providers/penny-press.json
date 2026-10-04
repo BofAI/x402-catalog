@@ -20,7 +20,7 @@
     }
   ],
   "description": "## What it does\n\nPenny Press is a pseudonymous imprint for original writings on freedom, truth and the structures around us. Humans read every piece free at `/read/{slug}`; machines and AI agents pay per read through the x402 protocol, per the tier schedule below, in USDC on Base mainnet, settled directly to the publication wallet. No accounts, no API keys: request a piece, receive a `402 Payment Required` challenge, pay, and retry with the payment proof.\n\n## Pricing tiers\n\nMachine reads are priced by piece length:\n\n- Fragments (under ~100 words): $0.01\n- Ensembles (100–600 words): $0.02\n- Prose/long-form (600+ words): $0.05\n\nNew pieces are published over time; all machine reads follow the tier schedule above.\n\n## Glossary lookups\n\nKey terms carry the author's own definitions, as used across the essays. Each definition is available to machines at `GET /glossary/{term}` for $0.01 (USDC on Base mainnet), or all definitions in one payment at `GET /glossary/full` for $0.25; humans read the same definitions free at `/read/glossary/{term}`, and the free term list lives at `/glossary`.\n\n## Best for\n\n- Agents that want short, original writing on freedom, truth, and the structures around us — as reading or input material.\n- Builders testing x402 machine-to-machine payments against a real, live paywalled endpoint.\n- Anyone curious what a penny-priced, machine-readable press looks like.\n\n## Request shape\n\n`GET https://www.pennypress.org/essays/{slug}` with no body. The first response is always HTTP 402 carrying the payment terms (price, network, payTo, scheme). Pay per the x402 flow, then repeat the request with the payment proof to receive the piece as Markdown.\n\n## Code usage\n\nUse `x402-cli pay` against the essay URL:\n\n```bash\nx402-cli pay 'https://www.pennypress.org/essays/thermodynamic-proof' \\\n  --network eip155:8453 --token USDC --scheme exact --max-amount 0.01\n```\n\nPenny Press settles on Base mainnet (USDC) — verified live with real payments.",
-  "endpoint_count": 45,
+  "endpoint_count": 49,
   "endpoints": [
     {
       "description": "A 32-word fragment on time — one of the structures that surround us. Returned as Markdown after a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/river-of-time.",
@@ -1326,6 +1326,122 @@
           "url": "https://www.pennypress.org/essays/the-last-witness"
         }
       ]
+    },
+    {
+      "description": "The author's definition of \"palaver\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/palaver.",
+      "i18n": {
+        "zh-CN": {
+          "description": "作者对\"palaver\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/palaver 免费阅读。",
+          "subtitle": "Penny Press 词汇表中的定义词条。",
+          "title": "palaver",
+          "useCase": "适合 Agent 需要作者对\"palaver\"一词在 Penny Press 文章中用法的定义的场景。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/palaver",
+      "subtitle": "A defined term from the Penny Press glossary.",
+      "title": "palaver",
+      "url": "https://www.pennypress.org/glossary/palaver",
+      "use_case": "Use when an agent wants the author's definition of \"palaver\" as used in Penny Press essays.",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/palaver"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"reparatory\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/reparatory.",
+      "i18n": {
+        "zh-CN": {
+          "description": "作者对\"reparatory\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/reparatory 免费阅读。",
+          "subtitle": "Penny Press 词汇表中的定义词条。",
+          "title": "reparatory",
+          "useCase": "适合 Agent 需要作者对\"reparatory\"一词在 Penny Press 文章中用法的定义的场景。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/reparatory",
+      "subtitle": "A defined term from the Penny Press glossary.",
+      "title": "reparatory",
+      "url": "https://www.pennypress.org/glossary/reparatory",
+      "use_case": "Use when an agent wants the author's definition of \"reparatory\" as used in Penny Press essays.",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/reparatory"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"canonized\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/canonized.",
+      "i18n": {
+        "zh-CN": {
+          "description": "作者对\"canonized\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/canonized 免费阅读。",
+          "subtitle": "Penny Press 词汇表中的定义词条。",
+          "title": "canonized",
+          "useCase": "适合 Agent 需要作者对\"canonized\"一词在 Penny Press 文章中用法的定义的场景。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/canonized",
+      "subtitle": "A defined term from the Penny Press glossary.",
+      "title": "canonized",
+      "url": "https://www.pennypress.org/glossary/canonized",
+      "use_case": "Use when an agent wants the author's definition of \"canonized\" as used in Penny Press essays.",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/canonized"
+        }
+      ]
+    },
+    {
+      "description": "The author's definition of \"venerable\" as used in Penny Press essays. The definition itself is delivered after payment, as JSON following a $0.01 USDC x402 payment on Base mainnet. Free for humans at /read/glossary/venerable.",
+      "i18n": {
+        "zh-CN": {
+          "description": "作者对\"venerable\"一词在 Penny Press 文章中的定义。定义本身在付款后交付：在 Base 主网上完成 0.01 USDC 的 x402 支付后以 JSON 返回。人类可在 /read/glossary/venerable 免费阅读。",
+          "subtitle": "Penny Press 词汇表中的定义词条。",
+          "title": "venerable",
+          "useCase": "适合 Agent 需要作者对\"venerable\"一词在 Penny Press 文章中用法的定义的场景。"
+        }
+      },
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.01,
+      "path": "/glossary/venerable",
+      "subtitle": "A defined term from the Penny Press glossary.",
+      "title": "venerable",
+      "url": "https://www.pennypress.org/glossary/venerable",
+      "use_case": "Use when an agent wants the author's definition of \"venerable\" as used in Penny Press essays.",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/glossary/venerable"
+        }
+      ]
     }
   ],
   "featured_tags": [
@@ -1354,7 +1470,7 @@
   "max_price_usd": 0.25,
   "min_price_usd": 0.01,
   "service_url": "https://www.pennypress.org",
-  "sha": "583031635125eadc9f7643849ddf8a6f3d690cd1fd1444dcbac6d4fe277622da",
+  "sha": "ff3064f2158a3e58d2d7073405f0d0d76c185c5ac8e99820ca87638e6f014f39",
   "status": {
     "catalog": "listed",
     "gateway": "configured",
