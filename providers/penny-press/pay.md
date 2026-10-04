@@ -95,6 +95,10 @@ Or get all definitions in one payment: `https://www.pennypress.org/glossary/full
 | thermodynamic | `https://www.pennypress.org/glossary/thermodynamic` | $0.01 |
 | Luddites | `https://www.pennypress.org/glossary/luddites` | $0.01 |
 | cryptographic | `https://www.pennypress.org/glossary/cryptographic` | $0.01 |
+| palaver | `https://www.pennypress.org/glossary/palaver` | $0.01 |
+| reparatory | `https://www.pennypress.org/glossary/reparatory` | $0.01 |
+| canonized | `https://www.pennypress.org/glossary/canonized` | $0.01 |
+| venerable | `https://www.pennypress.org/glossary/venerable` | $0.01 |
 
 ## CLI Quick Start
 
