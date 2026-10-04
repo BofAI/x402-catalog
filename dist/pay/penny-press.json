@@ -233,10 +233,10 @@
     },
     {
       "description": "The complete Penny Press catalog in a single JSON response: every piece in full. Delivered after one USDC x402 payment on Base mainnet instead of per-piece. The bundle price is set below the combined per-piece total and recomputed as the catalog grows; the 402 response states the current price. Free for humans at /read/{slug}.",
-      "max_price_usd": 0.17,
+      "max_price_usd": 0.2,
       "metered": true,
       "method": "GET",
-      "min_price_usd": 0.17,
+      "min_price_usd": 0.2,
       "path": "/essays/full",
       "url": "https://www.pennypress.org/essays/full",
       "x402_routes": [
@@ -806,6 +806,24 @@
           "url": "https://www.pennypress.org/glossary/full"
         }
       ]
+    },
+    {
+      "description": "A 1,460-word prose essay about the Baobab tree as a symbol of West African civilization — living witness to the Mali Empire, Trans-Saharan trade, and the suppressed history of pre-colonial Atlantic crossings. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/the-last-witness.",
+      "max_price_usd": 0.05,
+      "metered": true,
+      "method": "GET",
+      "min_price_usd": 0.05,
+      "path": "/essays/the-last-witness",
+      "url": "https://www.pennypress.org/essays/the-last-witness",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "penny-press",
+          "scheme": "exact",
+          "url": "https://www.pennypress.org/essays/the-last-witness"
+        }
+      ]
     }
   ],
   "fqn": "penny-press",
@@ -820,7 +838,7 @@
   "main_title": "Original writing on freedom and truth — pennies per machine read",
   "main_title_zh": "Original writing on freedom and truth — pennies per machine read",
   "service_url": "https://www.pennypress.org",
-  "sha": "6faa6a7f0eaafe71b928405b401175ea1104294d3d2ca936844dc37b767aa55c",
+  "sha": "583031635125eadc9f7643849ddf8a6f3d690cd1fd1444dcbac6d4fe277622da",
   "sub_title": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
   "sub_title_zh": "关于自由与真相的匿名写作——人类免费读，机器通过 x402 按次付费阅读。",
   "subtitle": "Pseudonymous literary writing — free for humans, paid for machines via x402.",
