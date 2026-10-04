@@ -1492,6 +1492,21 @@
               "url": "https://www.pennypress.org/glossary/full"
             }
           ]
+        },
+        {
+          "description": "A 1,460-word prose essay about the Baobab tree as a symbol of West African civilization — living witness to the Mali Empire, Trans-Saharan trade, and the suppressed history of pre-colonial Atlantic crossings. Returned as Markdown after a $0.05 USDC x402 payment on Base mainnet. Free for humans at /read/the-last-witness.",
+          "method": "GET",
+          "path": "/essays/the-last-witness",
+          "title": "The Last Witness",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "penny-press",
+              "scheme": "exact",
+              "url": "https://www.pennypress.org/essays/the-last-witness"
+            }
+          ]
         }
       ],
       "featured_tags": [
@@ -1597,6 +1612,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-10-03T03:59:23Z",
+  "generated_at": "2026-10-04T01:40:27Z",
   "version": 1
 }
