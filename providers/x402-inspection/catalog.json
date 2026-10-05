@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "fqn": "x402-inspection",
+  "title": "x402 Inspection Services",
+  "mainTitle": "Machine-payable HTTP and x402 endpoint inspection",
+  "subtitle": "Agent-native endpoint diagnostics on Base mainnet.",
+  "description": "## What it does\n\nTwo x402-paid inspection services for AI agents. x402 Preflight audits a public HTTPS endpoint's unpaid x402 challenge. HTTP Inspect returns structured HTTP response metadata, redirect information, a bounded body preview, and x402 signals.\n\n## Best for\n\n- Checking whether a paid API exposes a usable x402 challenge before integration.\n- Inspecting public HTTPS endpoints from an agent workflow.\n- Collecting machine-readable status and response metadata without API keys.",
+  "useCase": "Use when an AI agent needs a low-cost preflight or HTTP inspection of a public HTTPS endpoint before integrating, routing, or debugging it.",
+  "i18n": {
+    "zh-CN": {
+      "title": "x402 检查服务",
+      "mainTitle": "面向 Agent 的 HTTP 与 x402 端点检查",
+      "subtitle": "运行在 Base 主网的机器可付费端点诊断服务。",
+      "description": "## 功能\n\n提供两个通过 x402 付费的 Agent 检查服务。x402 Preflight 用于审计公网 HTTPS 端点的未付费 x402 challenge；HTTP Inspect 返回结构化 HTTP 状态、重定向、有限正文预览及 x402 信号。\n\n## 适用场景\n\n- 集成付费 API 前检查 x402 challenge。\n- Agent 工作流中检查公网 HTTPS 端点。\n- 无需 API Key 获取机器可读的响应信息。",
+      "useCase": "适合 AI Agent 在集成、路由或调试公网 HTTPS 服务前，以低成本执行预检和 HTTP 检查。"
+    }
+  },
+  "logo": "https://github.com/ipdoctor961051-cyber.png",
+  "category": "devtools",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": true,
+  "isFeatured": false,
+  "featuredTags": [
+    "x402",
+    "http",
+    "inspection",
+    "devtools",
+    "agent-tools"
+  ],
+  "serviceUrl": "https://github.com/ipdoctor961051-cyber/x402-preflight",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/v1/audit",
+      "url": "https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit",
+      "title": "x402 challenge preflight audit",
+      "subtitle": "POST /v1/audit",
+      "description": "Probe a public HTTPS endpoint and report whether its unpaid response exposes a valid x402 challenge.",
+      "useCase": "Use before integrating or routing to an x402 service to inspect the unpaid payment challenge and response metadata.",
+      "i18n": {
+        "zh-CN": {
+          "title": "x402 challenge 预检",
+          "subtitle": "POST /v1/audit",
+          "description": "探测公网 HTTPS 端点，检查其未付费响应是否提供有效的 x402 challenge。",
+          "useCase": "适合在集成或路由到 x402 服务前检查付款 challenge 与响应元数据。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.01,
+      "maxPriceUsd": 0.01,
+      "x402Routes": [
+        {
+          "provider": "x402-preflight-mainnet",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/inspect",
+      "url": "https://x402-http-inspect.ipdoctor961051.workers.dev/v1/inspect",
+      "title": "HTTP endpoint inspection",
+      "subtitle": "POST /v1/inspect",
+      "description": "Inspect a public HTTPS endpoint and return status, redirect and content metadata, bounded body preview, and x402 signals.",
+      "useCase": "Use when an agent needs machine-readable HTTP diagnostics for a public endpoint without an API key.",
+      "i18n": {
+        "zh-CN": {
+          "title": "HTTP 端点检查",
+          "subtitle": "POST /v1/inspect",
+          "description": "检查公网 HTTPS 端点并返回状态码、重定向与内容元数据、有限正文预览及 x402 信号。",
+          "useCase": "适合 Agent 在无需 API Key 的情况下获取公网端点的机器可读 HTTP 诊断结果。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.01,
+      "maxPriceUsd": 0.01,
+      "x402Routes": [
+        {
+          "provider": "x402-http-inspect",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://x402-http-inspect.ipdoctor961051.workers.dev/v1/inspect"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "paid-route",
+    "upstream": "public"
+  }
+}

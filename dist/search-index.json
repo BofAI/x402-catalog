@@ -898,8 +898,75 @@
       "subtitle": "Create a meme or agent token from structured metadata.",
       "title": "SunPump",
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
+    },
+    {
+      "category": "devtools",
+      "category_meta": {
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nTwo x402-paid inspection services for AI agents. x402 Preflight audits a public HTTPS endpoint's unpaid x402 challenge. HTTP Inspect returns structured HTTP response metadata, redirect information, a bounded body preview, and x402 signals.\n\n## Best for\n\n- Checking whether a paid API exposes a usable x402 challenge before integration.\n- Inspecting public HTTPS endpoints from an agent workflow.\n- Collecting machine-readable status and response metadata without API keys.",
+      "endpoints": [
+        {
+          "description": "Probe a public HTTPS endpoint and report whether its unpaid response exposes a valid x402 challenge.",
+          "method": "POST",
+          "path": "/v1/audit",
+          "title": "x402 challenge preflight audit",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "x402-preflight-mainnet",
+              "scheme": "exact",
+              "url": "https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit"
+            }
+          ]
+        },
+        {
+          "description": "Inspect a public HTTPS endpoint and return status, redirect and content metadata, bounded body preview, and x402 signals.",
+          "method": "POST",
+          "path": "/v1/inspect",
+          "title": "HTTP endpoint inspection",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "x402-http-inspect",
+              "scheme": "exact",
+              "url": "https://x402-http-inspect.ipdoctor961051.workers.dev/v1/inspect"
+            }
+          ]
+        }
+      ],
+      "featured_tags": [
+        "x402",
+        "http",
+        "inspection",
+        "devtools",
+        "agent-tools"
+      ],
+      "fqn": "x402-inspection",
+      "service_url": "https://github.com/ipdoctor961051-cyber/x402-preflight",
+      "subtitle": "Agent-native endpoint diagnostics on Base mainnet.",
+      "title": "x402 Inspection Services",
+      "use_case": "Use when an AI agent needs a low-cost preflight or HTTP inspection of a public HTTPS endpoint before integrating, routing, or debugging it."
     }
   ],
-  "generated_at": "2026-09-28T10:06:02Z",
+  "generated_at": "2026-10-05T07:03:00Z",
   "version": 1
 }

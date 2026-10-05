@@ -1,0 +1,76 @@
+{
+  "chain_kinds": [
+    "base"
+  ],
+  "chains": [
+    "eip155:8453"
+  ],
+  "chains_meta": [
+    {
+      "id": "eip155:8453",
+      "kind": "base",
+      "label": "Base Mainnet",
+      "label_zh": "Base 主网"
+    }
+  ],
+  "description": "## What it does\n\nTwo x402-paid inspection services for AI agents. x402 Preflight audits a public HTTPS endpoint's unpaid x402 challenge. HTTP Inspect returns structured HTTP response metadata, redirect information, a bounded body preview, and x402 signals.\n\n## Best for\n\n- Checking whether a paid API exposes a usable x402 challenge before integration.\n- Inspecting public HTTPS endpoints from an agent workflow.\n- Collecting machine-readable status and response metadata without API keys.",
+  "endpoints": [
+    {
+      "description": "Probe a public HTTPS endpoint and report whether its unpaid response exposes a valid x402 challenge.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "POST",
+      "min_price_usd": 0.01,
+      "path": "/v1/audit",
+      "url": "https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "x402-preflight-mainnet",
+          "scheme": "exact",
+          "url": "https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit"
+        }
+      ]
+    },
+    {
+      "description": "Inspect a public HTTPS endpoint and return status, redirect and content metadata, bounded body preview, and x402 signals.",
+      "max_price_usd": 0.01,
+      "metered": true,
+      "method": "POST",
+      "min_price_usd": 0.01,
+      "path": "/v1/inspect",
+      "url": "https://x402-http-inspect.ipdoctor961051.workers.dev/v1/inspect",
+      "x402_routes": [
+        {
+          "assetTransferMethod": "eip3009",
+          "network": "eip155:8453",
+          "provider": "x402-http-inspect",
+          "scheme": "exact",
+          "url": "https://x402-http-inspect.ipdoctor961051.workers.dev/v1/inspect"
+        }
+      ]
+    }
+  ],
+  "fqn": "x402-inspection",
+  "i18n": {
+    "zh-CN": {
+      "description": "## 功能\n\n提供两个通过 x402 付费的 Agent 检查服务。x402 Preflight 用于审计公网 HTTPS 端点的未付费 x402 challenge；HTTP Inspect 返回结构化 HTTP 状态、重定向、有限正文预览及 x402 信号。\n\n## 适用场景\n\n- 集成付费 API 前检查 x402 challenge。\n- Agent 工作流中检查公网 HTTPS 端点。\n- 无需 API Key 获取机器可读的响应信息。",
+      "mainTitle": "面向 Agent 的 HTTP 与 x402 端点检查",
+      "subtitle": "运行在 Base 主网的机器可付费端点诊断服务。",
+      "title": "x402 检查服务",
+      "useCase": "适合 AI Agent 在集成、路由或调试公网 HTTPS 服务前，以低成本执行预检和 HTTP 检查。"
+    }
+  },
+  "main_title": "Machine-payable HTTP and x402 endpoint inspection",
+  "main_title_zh": "面向 Agent 的 HTTP 与 x402 端点检查",
+  "service_url": "https://github.com/ipdoctor961051-cyber/x402-preflight",
+  "sha": "b29b65798dd8d1239d73b320c5a9415074e42f67b8cc65309ba228297521ae15",
+  "sub_title": "Agent-native endpoint diagnostics on Base mainnet.",
+  "sub_title_zh": "运行在 Base 主网的机器可付费端点诊断服务。",
+  "subtitle": "Agent-native endpoint diagnostics on Base mainnet.",
+  "title": "x402 Inspection Services",
+  "title_zh": "x402 检查服务",
+  "use_case": "Use when an AI agent needs a low-cost preflight or HTTP inspection of a public HTTPS endpoint before integrating, routing, or debugging it.",
+  "version": 1
+}
