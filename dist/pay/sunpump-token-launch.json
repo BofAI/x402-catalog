@@ -5,13 +5,13 @@
     "tron"
   ],
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
   "chains_meta": [
     {
-      "id": "tron:0x2b6653dc",
+      "id": "tron:728126428",
       "kind": "tron",
       "label": "TRON Mainnet",
       "label_zh": "TRON 主网"
@@ -42,13 +42,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "sunpump-token-launch-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "sunpump-token-launch-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
@@ -83,7 +83,7 @@
   "main_title": "One-call agent token launch, paid via x402",
   "main_title_zh": "一次付费完成 Agent 代币发行",
   "service_url": "https://sunpump.meme",
-  "sha": "2b4c631d2b689dff2f516594f8cf85d72d5d74a95ad469aa9abd17e9c115f557",
+  "sha": "45f8e97114ed9dda73b5180b15cfffe7e661dec30ddfe273a4327c7888d4af89",
   "sub_title": "Create a meme or agent token from structured metadata.",
   "sub_title_zh": "用结构化元数据一次付费发币。",
   "subtitle": "Create a meme or agent token from structured metadata.",

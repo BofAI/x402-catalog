@@ -13,13 +13,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -47,13 +47,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
@@ -82,13 +82,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
@@ -117,13 +117,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-tvl-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
@@ -152,13 +152,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
@@ -187,13 +187,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
@@ -222,13 +222,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
@@ -257,13 +257,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-coins-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
@@ -292,13 +292,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-yields-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-yields-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
@@ -327,13 +327,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-yields-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "defillama-yields-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
@@ -380,13 +380,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -414,13 +414,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
@@ -449,13 +449,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
@@ -484,13 +484,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dexscreener-dex-data-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
@@ -540,13 +540,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -574,13 +574,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dia-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dia-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/quotation/{symbol}"
@@ -609,13 +609,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dia-price-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "dia-price-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/dia-price-tron/v1/assetQuotation/{blockchain}/{address}"
@@ -664,13 +664,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -698,13 +698,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
@@ -733,13 +733,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
@@ -768,13 +768,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "goplus-token-security-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
@@ -823,13 +823,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -857,13 +857,13 @@
           "x402_routes": [
             {
               "assetTransferMethod": "permit2",
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "sunpump-token-launch-tron",
               "scheme": "exact",
               "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
             },
             {
-              "network": "tron:0x2b6653dc",
+              "network": "tron:728126428",
               "provider": "sunpump-token-launch-tron",
               "scheme": "exact_gasfree",
               "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"

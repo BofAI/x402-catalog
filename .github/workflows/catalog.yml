@@ -3,7 +3,7 @@ name: catalog
 on:
   pull_request:
   push:
-    branches: [main, test/open-meteo-catalog-flow]
+    branches: [develop, main, test/open-meteo-catalog-flow]
     tags: ["test-v*", "v*"]
   schedule:
     - cron: "*/30 * * * *"

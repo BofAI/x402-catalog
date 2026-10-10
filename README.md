@@ -44,12 +44,34 @@ Provider metadata should describe the public service surface only:
 
 Payment routes support `scheme: exact` with `assetTransferMethod: eip3009` or
 `permit2`, and TRON `scheme: exact_gasfree` without an asset transfer method. New TRON routes
-should use canonical CAIP-2 IDs such as `tron:0x2b6653dc` (mainnet) and
-`tron:0xcd8690dc` (Nile). Legacy aliases such as `tron:nile` are rejected; use canonical CAIP-2 IDs.
-With x402 SDK 1.0.1, GasFree relayer costs are estimated by the client;
+must use the decimal CAIP-2 IDs supported by `@bankofai/x402-tron@2.0.0`:
+`tron:728126428` (mainnet), `tron:3448148188` (Nile), and
+`tron:2494104990` (Shasta). This applies to both `chains` and route `network`
+fields. Legacy hexadecimal IDs such as `tron:0x2b6653dc` and human-readable
+aliases such as `tron:nile` are rejected.
+With the current x402 SDK, GasFree relayer costs are estimated by the client;
 catalog routes must not publish the legacy `fee` or `feeConfig` fields.
 
 Do not submit private configuration or secrets.
+
+## Development and Release Flow
+
+1. Create feature and fix branches from the latest `develop`.
+2. Validate provider data, rebuild `dist/`, run the tests, and merge the reviewed
+   PR into `develop`.
+3. After CI passes on `develop`, tag that commit with `test-v*` to publish the
+   Docker `test` image. Deploy the image and environment-specific Provider
+   configuration to TN, then complete acceptance testing.
+4. Create `release/vX.Y.Z` from the accepted `develop` commit. Finalize and
+   validate the release snapshot on that branch, then tag it with `vX.Y.Z` and
+   publish the versioned Docker image and GitHub Release. This repository has
+   no npm package version; do not change the catalog schema `version` as a
+   release counter.
+5. Merge `release/vX.Y.Z` into `main` through a PR after the release succeeds.
+6. Merge `main` back into `develop` to synchronize release fixes and references.
+
+Tags identify immutable commits. Image publication alone does not confirm
+server deployment; verify the running service and its environment configuration.
 
 ## Build
 

@@ -18,7 +18,7 @@
   "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/3f08db1d132d864da1d6122a8d279458ce46fe9a/assets/logos/defillama.png",
   "category": "finance",
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
@@ -54,14 +54,14 @@
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
         },
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocols"
         },
@@ -103,14 +103,14 @@
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
         },
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/protocol/{slug}"
         },
@@ -152,14 +152,14 @@
       "x402Routes": [
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
         },
         {
           "provider": "defillama-tvl-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-tvl-tron/tvl/{protocol}"
         },
@@ -201,14 +201,14 @@
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
         },
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/current/{coins}"
         },
@@ -250,14 +250,14 @@
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
         },
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/prices/historical/{timestamp}/{coins}"
         },
@@ -299,14 +299,14 @@
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
         },
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/chart/{coins}"
         },
@@ -348,14 +348,14 @@
       "x402Routes": [
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
         },
         {
           "provider": "defillama-coins-price-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-coins-price-tron/percentage/{coins}"
         },
@@ -397,14 +397,14 @@
       "x402Routes": [
         {
           "provider": "defillama-yields-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
         },
         {
           "provider": "defillama-yields-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/pools"
         },
@@ -446,14 +446,14 @@
       "x402Routes": [
         {
           "provider": "defillama-yields-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
         },
         {
           "provider": "defillama-yields-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/defillama-yields-tron/chart/{pool}"
         },
