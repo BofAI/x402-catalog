@@ -11,13 +11,13 @@
     "tron"
   ],
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
   "chains_meta": [
     {
-      "id": "tron:0x2b6653dc",
+      "id": "tron:728126428",
       "kind": "tron",
       "label": "TRON Mainnet",
       "label_zh": "TRON 主网"
@@ -60,13 +60,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
@@ -109,13 +109,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
@@ -158,13 +158,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "dexscreener-dex-data-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
@@ -215,7 +215,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://dexscreener.com",
-  "sha": "ad5c6fad1d23fa5975676eccb18c278ec494887a3d1162040e20d86ceaddf7ed",
+  "sha": "789be7c801ecda09a1af2d853e1e7128637779acaeaf9b828ed5c1b45b10bd37",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

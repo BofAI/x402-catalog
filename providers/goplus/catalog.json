@@ -18,7 +18,7 @@
   "logo": "https://gopluslabs.io/favicon.png",
   "category": "finance",
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
@@ -56,14 +56,14 @@
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
         },
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
         },
@@ -105,14 +105,14 @@
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
         },
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
         },
@@ -154,14 +154,14 @@
       "x402Routes": [
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
         },
         {
           "provider": "goplus-token-security-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
         },

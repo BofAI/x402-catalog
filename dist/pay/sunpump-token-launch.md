@@ -9,7 +9,7 @@ Use it when an agent, backend workflow, or CLI script has validated launch metad
 - FQN: `sunpump-token-launch`
 - Service URL: `https://sunpump.meme`
 - Category: `finance`
-- Payment chains: `tron:0x2b6653dc`, `eip155:56`, `eip155:8453`
+- Payment chains: `tron:728126428`, `eip155:56`, `eip155:8453`
 - TRON schemes: `exact` + `permit2` (default), `exact_gasfree`
 - BNB Smart Chain scheme: `exact` + `permit2`
 - Base Mainnet scheme: `exact` + official USDC EIP-3009

@@ -11,13 +11,13 @@
     "tron"
   ],
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
   "chains_meta": [
     {
-      "id": "tron:0x2b6653dc",
+      "id": "tron:728126428",
       "kind": "tron",
       "label": "TRON Mainnet",
       "label_zh": "TRON 主网"
@@ -60,13 +60,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/token_security/{chain_id}"
@@ -109,13 +109,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v1/address_security/{address}"
@@ -158,13 +158,13 @@
       "x402_routes": [
         {
           "assetTransferMethod": "permit2",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "goplus-token-security-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/goplus-token-security-tron/api/v2/token_approval_security/{chain_id}"
@@ -214,7 +214,7 @@
   "max_price_usd": 1e-06,
   "min_price_usd": 1e-06,
   "service_url": "https://gopluslabs.io",
-  "sha": "bd289953567d83725baa554c8d5ca2037b1e31ad6a761171cebc031cd4beb3f0",
+  "sha": "e1ea446e5b1f9cbb078e395b63e68de31b43abde5a28a0842926290ba143e663",
   "status": {
     "catalog": "listed",
     "gateway": "configured",

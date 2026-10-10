@@ -47,9 +47,9 @@ CHAIN_META = {
         "label": "BNB Smart Chain Testnet",
         "label_zh": "BNB 测试网",
     },
-    "tron:0x2b6653dc": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
-    "tron:0xcd8690dc": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
-    "tron:0x94a9059e": {
+    "tron:728126428": {"kind": "tron", "label": "TRON Mainnet", "label_zh": "TRON 主网"},
+    "tron:3448148188": {"kind": "tron", "label": "TRON Nile Testnet", "label_zh": "TRON Nile 测试网"},
+    "tron:2494104990": {
         "kind": "tron",
         "label": "TRON Shasta Testnet",
         "label_zh": "TRON Shasta 测试网",

@@ -7,7 +7,7 @@ x402-paid passthrough for DexScreener token/pair data, search and latest token p
 - Catalog FQN: `dexscreener`
 - Gateway providers: `dexscreener-dex-data-tron`, `dexscreener-dex-data-bsc`, `dexscreener-dex-data-base`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
+- Chains: `tron:728126428` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
 - Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
 - Tags: dexscreener, dex, new-pairs, meme, liquidity, price
 - Listed price: `0.000001 USD` per request

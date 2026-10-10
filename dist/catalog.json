@@ -28,7 +28,7 @@
       },
       {
         "count": 5,
-        "id": "tron:0x2b6653dc",
+        "id": "tron:728126428",
         "kind": "tron",
         "label": "TRON Mainnet",
         "label_zh": "TRON 主网"
@@ -54,13 +54,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -108,7 +108,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://sunpump.meme",
-      "sha": "2b4c631d2b689dff2f516594f8cf85d72d5d74a95ad469aa9abd17e9c115f557",
+      "sha": "45f8e97114ed9dda73b5180b15cfffe7e661dec30ddfe273a4327c7888d4af89",
       "sub_title": "Create a meme or agent token from structured metadata.",
       "sub_title_zh": "用结构化元数据一次付费发币。",
       "subtitle": "Create a meme or agent token from structured metadata.",
@@ -129,13 +129,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -181,7 +181,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://defillama.com",
-      "sha": "ac7821d03641768fd804f3fab72365601111f65ef29da6cf2f82cf2c4ecbe7d6",
+      "sha": "209630721e9c8e6513a06789204786c98a9cd654e3c2cedcf58a66652b7f13eb",
       "sub_title": "Paid DeFi decision data for agent research, pricing and risk.",
       "sub_title_zh": "付费 DeFi 决策数据,供 Agent 研究、定价与风控。",
       "subtitle": "Paid DeFi decision data for agent research, pricing and risk.",
@@ -202,13 +202,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -257,7 +257,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://dexscreener.com",
-      "sha": "ad5c6fad1d23fa5975676eccb18c278ec494887a3d1162040e20d86ceaddf7ed",
+      "sha": "789be7c801ecda09a1af2d853e1e7128637779acaeaf9b828ed5c1b45b10bd37",
       "sub_title": "On-chain market radar for new pools, momentum and liquidity.",
       "sub_title_zh": "链上行情雷达:新盘、动量与流动性。",
       "subtitle": "On-chain market radar for new pools, momentum and liquidity.",
@@ -278,13 +278,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -332,7 +332,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://www.diadata.org",
-      "sha": "40e9424fea74799a7035e2736c63143ea26659192b91cb76a68860ec00e545fe",
+      "sha": "1cd2a27e7bb4a221dd99b656955da614b0522bfe60ab85a38849c3fd16743dc8",
       "sub_title": "Verifiable reference prices for valuation, settlement and risk.",
       "sub_title_zh": "可验证的参考价,用于估值、结算与风控。",
       "subtitle": "Verifiable reference prices for valuation, settlement and risk.",
@@ -353,13 +353,13 @@
         "tron"
       ],
       "chains": [
-        "tron:0x2b6653dc",
+        "tron:728126428",
         "eip155:56",
         "eip155:8453"
       ],
       "chains_meta": [
         {
-          "id": "tron:0x2b6653dc",
+          "id": "tron:728126428",
           "kind": "tron",
           "label": "TRON Mainnet",
           "label_zh": "TRON 主网"
@@ -407,7 +407,7 @@
       "max_price_usd": 1e-06,
       "min_price_usd": 1e-06,
       "service_url": "https://gopluslabs.io",
-      "sha": "bd289953567d83725baa554c8d5ca2037b1e31ad6a761171cebc031cd4beb3f0",
+      "sha": "e1ea446e5b1f9cbb078e395b63e68de31b43abde5a28a0842926290ba143e663",
       "sub_title": "Pre-trade safety screening for swaps, transfers and approvals.",
       "sub_title_zh": "交易前安全筛查:兑换、转账与授权。",
       "subtitle": "Pre-trade safety screening for swaps, transfers and approvals.",
