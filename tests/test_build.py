@@ -48,6 +48,40 @@ def route_count(payload: object, key: str) -> int:
 
 
 class CatalogBuildTests(unittest.TestCase):
+    def test_tron_decimal_networks_validate_and_render_labels(self) -> None:
+        cataloglib = load_cataloglib_module()
+        build = load_build_module()
+        provider_dir = ROOT / "providers" / "defillama"
+        source = json.loads((provider_dir / "catalog.json").read_text())
+        for network, legacy, label in (
+            ("tron:728126428", "tron:0x2b6653dc", "TRON Mainnet"),
+            ("tron:3448148188", "tron:0xcd8690dc", "TRON Nile Testnet"),
+            ("tron:2494104990", "tron:0x94a9059e", "TRON Shasta Testnet"),
+        ):
+            with self.subTest(network=network):
+                payload = json.loads(json.dumps(source))
+                payload["chains"] = [network]
+                for endpoint in payload["endpoints"]:
+                    endpoint["x402Routes"] = [
+                        dict(route, network=network)
+                        for route in endpoint["x402Routes"]
+                        if route["network"].startswith("tron:")
+                    ]
+                self.assertEqual(cataloglib.validate_provider(payload, provider_dir=provider_dir), [])
+                self.assertEqual(build.chain_meta(network)["label"], label)
+                self.assertEqual(build.chain_meta(network)["kind"], "tron")
+                for invalid in (legacy, "tron:nile", "tron:unknown", "tron:1"):
+                    payload["chains"] = [invalid]
+                    self.assertTrue(cataloglib.validate_provider(payload, provider_dir=provider_dir))
+                    payload["chains"] = [network]
+                    route = payload["endpoints"][0]["x402Routes"][0]
+                    route["network"] = invalid
+                    self.assertTrue(cataloglib.validate_provider(payload, provider_dir=provider_dir))
+                    errors = []
+                    cataloglib.validate_x402_routes({"x402Routes": [route]}, errors, path="$.endpoints[0]")
+                    self.assertTrue(any("canonical TRON CAIP-2" in error for error in errors))
+                    route["network"] = network
+
     def test_invalid_top_level_catalog_types_are_reported_without_crashing(self) -> None:
         cataloglib = load_cataloglib_module()
         provider_dir = ROOT / "providers" / "defillama"
@@ -199,7 +233,7 @@ class CatalogBuildTests(unittest.TestCase):
         endpoint = {
             "x402Routes": [{
                 "provider": "demo",
-                "network": "tron:0xcd8690dc",
+                "network": "tron:3448148188",
                 "scheme": "exact_gasfree",
                 "url": "https://gateway.example/providers/demo/v1",
             }]
@@ -216,11 +250,11 @@ class CatalogBuildTests(unittest.TestCase):
         self.assertTrue(any("must be omitted" in error for error in errors))
 
         endpoint["x402Routes"][0].pop("assetTransferMethod")
-        endpoint["x402Routes"][0]["network"] = "tron:0xcd8690dc"
+        endpoint["x402Routes"][0]["network"] = "tron:3448148188"
         endpoint["x402Routes"][0]["feeConfig"] = {"feeTo": "legacy"}
         errors = []
         cataloglib.validate_x402_routes(endpoint, errors, path="$.endpoints[0]")
-        self.assertTrue(any("x402 SDK 1.0.1" in error for error in errors))
+        self.assertTrue(any("the current x402 SDK" in error for error in errors))
 
         endpoint["x402Routes"][0].pop("feeConfig")
         endpoint["x402Routes"][0]["network"] = "tron:nile"
@@ -231,7 +265,7 @@ class CatalogBuildTests(unittest.TestCase):
     def test_malformed_route_types_are_reported_without_crashing(self) -> None:
         cataloglib = load_cataloglib_module()
         endpoint = {"x402Routes": [{
-            "provider": "demo", "network": "tron:0xcd8690dc",
+            "provider": "demo", "network": "tron:3448148188",
             "scheme": {}, "assetTransferMethod": [], "url": "https://example.test/v1",
         }]}
         errors: list[str] = []
@@ -242,7 +276,7 @@ class CatalogBuildTests(unittest.TestCase):
         cataloglib = load_cataloglib_module()
         for route in (
             {"provider": "demo", "network": "eip155:56", "scheme": "exact", "assetTransferMethod": "permit2", "feeConfig": {}},
-            {"provider": "demo", "network": "tron:0xcd8690dc", "scheme": "exact_gasfree", "assetTransferMethod": None},
+            {"provider": "demo", "network": "tron:3448148188", "scheme": "exact_gasfree", "assetTransferMethod": None},
         ):
             route["url"] = "https://example.test/v1"
             errors: list[str] = []

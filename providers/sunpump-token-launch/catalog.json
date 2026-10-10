@@ -18,7 +18,7 @@
   "logo": "https://sunpump.meme/favicon.ico",
   "category": "finance",
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
@@ -40,14 +40,14 @@
       "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch",
       "x402Routes": [
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "sunpump-token-launch-tron",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"
         },
         {
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "provider": "sunpump-token-launch-tron",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/sunpump-token-launch-tron/pump-api/ai/agentTokenLaunch"

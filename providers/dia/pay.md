@@ -7,7 +7,7 @@ x402-paid passthrough for DIA real-time token quotations (3000+ assets, 80+ mark
 - Catalog FQN: `dia`
 - Gateway providers: `dia-price-tron`, `dia-price-bsc`, `dia-price-base`
 - Category: `finance`
-- Chains: `tron:0x2b6653dc` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
+- Chains: `tron:728126428` (TRON), `eip155:56` (BNB Smart Chain), `eip155:8453` (Base Mainnet)
 - Schemes: TRON/BSC `exact` + Permit2; TRON also supports `exact_gasfree`; Base Mainnet uses `exact` + USDC EIP-3009
 - Tags: dia, price, oracle, quotation, multi-source
 - Listed price: `0.000001 USD` per request

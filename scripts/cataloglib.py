@@ -32,7 +32,7 @@ CATEGORIES = {
 }
 X402_SCHEMES = {"exact", "exact_gasfree"}
 X402_ASSET_TRANSFER_METHODS = {"eip3009", "permit2"}
-TRON_NETWORKS = {"tron:0x2b6653dc", "tron:0xcd8690dc", "tron:0x94a9059e"}
+TRON_NETWORKS = {"tron:728126428", "tron:3448148188", "tron:2494104990"}
 SCHEMA_PATH = ROOT / "schemas" / "catalog.schema.json"
 SECRET_KEY_RE = re.compile(
     r"(api[_-]?key|secret|password|passwd|token|authorization|bearer|private[_-]?key|provider\.yml|\.env)",
@@ -178,7 +178,7 @@ def validate_x402_routes(endpoint: dict[str, Any], errors: list[str], *, path: s
         for legacy_fee_key in ("fee", "feeConfig"):
             if legacy_fee_key in route:
                 errors.append(
-                    f"{route_path}.{legacy_fee_key} is not supported by x402 SDK 1.0.1"
+                    f"{route_path}.{legacy_fee_key} is not supported by the current x402 SDK"
                 )
 
 

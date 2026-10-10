@@ -18,7 +18,7 @@
   "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/3f08db1d132d864da1d6122a8d279458ce46fe9a/assets/logos/dexscreener.png",
   "category": "finance",
   "chains": [
-    "tron:0x2b6653dc",
+    "tron:728126428",
     "eip155:56",
     "eip155:8453"
   ],
@@ -57,14 +57,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
         },
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/tokens/{tokenAddresses}"
         },
@@ -106,14 +106,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
         },
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/latest/dex/search"
         },
@@ -155,14 +155,14 @@
       "x402Routes": [
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact",
           "assetTransferMethod": "permit2",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
         },
         {
           "provider": "dexscreener-dex-data-tron",
-          "network": "tron:0x2b6653dc",
+          "network": "tron:728126428",
           "scheme": "exact_gasfree",
           "url": "https://x402-gateway.bankofai.io/providers/dexscreener-dex-data-tron/token-profiles/latest/v1"
         },
