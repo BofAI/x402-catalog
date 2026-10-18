@@ -1,5 +1,11 @@
 [
   {
+    "count": 1,
+    "id": "devtools",
+    "label": "DevTools",
+    "label_zh": "开发工具"
+  },
+  {
     "count": 5,
     "id": "finance",
     "label": "Finance",

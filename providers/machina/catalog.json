@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "fqn": "machina",
+  "title": "Machina",
+  "mainTitle": "Utility APIs for AI agents — code scanning, email validation, PDF & web extraction",
+  "subtitle": "Pay-per-call utility endpoints for coding, outreach, research and compliance agents.",
+  "description": "## What it does\n\nMachina provides eight machine-to-machine utility endpoints on Base mainnet via x402. All services are rule-based, deterministic, and CPU-only — no AI/LLM inference, no upstream API costs.\n\n## Best for\n\n- Coding agents that need security and quality scans of Python source code.\n- Outreach and sales agents that validate email deliverability before sending.\n- Research agents that extract clean Markdown from PDFs or web pages.\n- Compliance and security agents that need domain WHOIS, DNS, SSL, and email authentication reports.\n\n## Endpoints\n\n- `POST /scan/python` — Scan Python code for security vulnerabilities, quality issues, complexity metrics, and known CVEs in dependencies.\n- `POST /validate/email` — Validate a single email: syntax, MX, disposable, role account, catch-all detection.\n- `POST /validate/email/bulk` — Validate up to 100 emails in one call.\n- `POST /domain/intel` — Full domain intelligence: WHOIS, DNS, SSL, SPF/DKIM/DMARC, tech stack.\n- `POST /pdf/extract` — Convert a PDF (up to 50 pages) to clean Markdown. Rule-based, no OCR.\n- `POST /pdf/extract/large` — Convert a large PDF (up to 200 pages) to Markdown.\n- `POST /url/extract` — Fetch a URL and return clean Markdown (up to 100K chars).\n\n## Code usage\n\nAll endpoints accept x402 payments on Base mainnet (USDC, EIP-3009):\n\n```bash\ncurl -X POST https://mach402.dev/url/extract \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"url\": \"https://example.com\"}'\n```\n\nWithout a payment header, you receive `HTTP 402` with the price. Attach a signed USDC payment in the `X-PAYMENT` header to get the response.",
+  "useCase": "Use when an agent needs to scan code for vulnerabilities, validate emails before outreach, profile a domain, or extract readable text from PDFs and web pages.",
+  "i18n": {
+    "zh-CN": {
+      "title": "Machina",
+      "subtitle": "按需付费的实用 API，适用于编码、外联、研究和合规 Agent。",
+      "description": "## 功能说明\n\nMachina 在 Base 主网上通过 x402 提供八个机器对机器的实用端点。所有服务均基于规则、确定性、仅 CPU 运行——无 AI/LLM 推理，无上游 API 成本。\n\n## 适合场景\n\n- 需要对 Python 源代码进行安全和质量扫描的编码 Agent。\n- 在发送前验证邮箱可达性的外联和销售 Agent。\n- 从 PDF 或网页中提取干净 Markdown 的研究 Agent。\n- 需要域名 WHOIS、DNS、SSL 和邮件认证报告的合规与安全 Agent。\n\n## 端点\n\n- `POST /scan/python` — 扫描 Python 代码的安全漏洞、质量问题、复杂度指标和已知 CVE。\n- `POST /validate/email` — 验证单个邮箱：语法、MX、一次性域名、角色账户、全接收检测。\n- `POST /validate/email/bulk` — 一次验证最多 100 个邮箱。\n- `POST /domain/intel` — 完整域名情报：WHOIS、DNS、SSL、SPF/DKIM/DMARC、技术栈。\n- `POST /pdf/extract` — 将 PDF（最多 50 页）转换为干净的 Markdown。基于规则，无 OCR。\n- `POST /pdf/extract/large` — 将大型 PDF（最多 200 页）转换为 Markdown。\n- `POST /url/extract` — 抓取 URL 并返回干净的 Markdown（最多 100K 字符）。",
+      "useCase": "适合 Agent 在扫描代码漏洞、验证邮箱、分析域名或从 PDF 和网页提取文本时使用。",
+      "mainTitle": "AI Agent 实用 API — 代码扫描、邮箱验证、PDF 和网页提取"
+    }
+  },
+  "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/main/assets/logos/machina.svg",
+  "category": "devtools",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": false,
+  "isFeatured": false,
+  "featuredTags": [
+    "machina",
+    "code-scanner",
+    "email-validation",
+    "pdf-extraction",
+    "domain-intel",
+    "paid"
+  ],
+  "serviceUrl": "https://mach402.dev",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/scan/python",
+      "url": "https://mach402.dev/scan/python",
+      "title": "Python code security and quality scanner",
+      "subtitle": "/scan/python",
+      "description": "Scan Python source code for security vulnerabilities (Bandit), quality issues (pylint), complexity metrics (radon), and known CVEs in dependencies (pip-audit). Max 10K lines / 500KB per call.",
+      "useCase": "Use when an agent needs to check Python code for security vulnerabilities, code quality, complexity, or dependency CVEs before deployment.",
+      "i18n": {
+        "zh-CN": {
+          "title": "Python 代码安全与质量扫描器",
+          "subtitle": "/scan/python",
+          "description": "扫描 Python 源代码的安全漏洞（Bandit）、质量问题（pylint）、复杂度指标（radon）和依赖中的已知 CVE（pip-audit）。每次最多 10K 行 / 500KB。",
+          "useCase": "适合 Agent 在部署前检查 Python 代码的安全漏洞、代码质量、复杂度或依赖 CVE。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.020,
+      "maxPriceUsd": 0.020,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/scan/python"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/validate/email",
+      "url": "https://mach402.dev/validate/email",
+      "title": "Single email validation",
+      "subtitle": "/validate/email",
+      "description": "Validate a single email address: syntax check, MX record lookup, disposable domain detection, role account detection, and catch-all detection. Returns a deliverability verdict.",
+      "useCase": "Use when an agent needs to verify an email address is deliverable before sending outreach or adding to a contact list.",
+      "i18n": {
+        "zh-CN": {
+          "title": "单个邮箱验证",
+          "subtitle": "/validate/email",
+          "description": "验证单个邮箱地址：语法检查、MX 记录查询、一次性域名检测、角色账户检测和全接收检测。返回可达性判定。",
+          "useCase": "适合 Agent 在发送外联或添加到联系人列表前验证邮箱地址是否可达。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.007,
+      "maxPriceUsd": 0.007,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/validate/email"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/validate/email/bulk",
+      "url": "https://mach402.dev/validate/email/bulk",
+      "title": "Bulk email validation (up to 100)",
+      "subtitle": "/validate/email/bulk",
+      "description": "Validate up to 100 email addresses in a single call. Same checks as single validation: syntax, MX, disposable, role account, catch-all. Returns per-email results.",
+      "useCase": "Use when an agent needs to validate a batch of emails efficiently, such as cleaning a prospect list before an outreach campaign.",
+      "i18n": {
+        "zh-CN": {
+          "title": "批量邮箱验证（最多 100 个）",
+          "subtitle": "/validate/email/bulk",
+          "description": "一次验证最多 100 个邮箱地址。与单个验证相同的检查：语法、MX、一次性域名、角色账户、全接收。返回逐个结果。",
+          "useCase": "适合 Agent 高效验证一批邮箱，例如在外联活动前清理潜在客户列表。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.500,
+      "maxPriceUsd": 0.500,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/validate/email/bulk"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/domain/intel",
+      "url": "https://mach402.dev/domain/intel",
+      "title": "Domain intelligence report",
+      "subtitle": "/domain/intel",
+      "description": "Full domain intelligence: WHOIS data (registrar, expiry, creation), DNS records (A, MX, NS, TXT), SSL certificate analysis, SPF/DKIM/DMARC email authentication check, and tech stack detection.",
+      "useCase": "Use when an agent needs to profile a domain for research, security assessment, compliance checking, or competitive intelligence.",
+      "i18n": {
+        "zh-CN": {
+          "title": "域名情报报告",
+          "subtitle": "/domain/intel",
+          "description": "完整域名情报：WHOIS 数据（注册商、到期日、创建日）、DNS 记录（A、MX、NS、TXT）、SSL 证书分析、SPF/DKIM/DMARC 邮件认证检查和技术栈检测。",
+          "useCase": "适合 Agent 在研究、安全评估、合规检查或竞争情报中分析域名。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.050,
+      "maxPriceUsd": 0.050,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/domain/intel"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pdf/extract",
+      "url": "https://mach402.dev/pdf/extract",
+      "title": "PDF to Markdown (up to 50 pages)",
+      "subtitle": "/pdf/extract",
+      "description": "Convert a PDF (up to 50 pages) to clean, structured Markdown text. Rule-based extraction via PyMuPDF — no OCR, no AI. Fast and deterministic. Use /pdf/inspect first to check page count.",
+      "useCase": "Use when an agent encounters a PDF (paper, report, filing, manual) and needs the text content as Markdown for further processing.",
+      "i18n": {
+        "zh-CN": {
+          "title": "PDF 转 Markdown（最多 50 页）",
+          "subtitle": "/pdf/extract",
+          "description": "将 PDF（最多 50 页）转换为干净、结构化的 Markdown 文本。基于规则的 PyMuPDF 提取——无 OCR，无 AI。快速确定性。可先用 /pdf/inspect 检查页数。",
+          "useCase": "适合 Agent 遇到 PDF（论文、报告、文件、手册）时将文本内容提取为 Markdown 以便进一步处理。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.050,
+      "maxPriceUsd": 0.050,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/pdf/extract"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pdf/extract/large",
+      "url": "https://mach402.dev/pdf/extract/large",
+      "title": "PDF to Markdown (up to 200 pages)",
+      "subtitle": "/pdf/extract/large",
+      "description": "Convert a large PDF (up to 200 pages) to clean Markdown text. Same rule-based extraction as /pdf/extract but for longer documents.",
+      "useCase": "Use when an agent needs to extract text from a long PDF document (over 50 pages) such as annual reports, legal filings, or technical manuals.",
+      "i18n": {
+        "zh-CN": {
+          "title": "PDF 转 Markdown（最多 200 页）",
+          "subtitle": "/pdf/extract/large",
+          "description": "将大型 PDF（最多 200 页）转换为干净的 Markdown 文本。与 /pdf/extract 相同的基于规则的提取，但支持更长文档。",
+          "useCase": "适合 Agent 从长 PDF 文档（超过 50 页）中提取文本，如年报、法律文件或技术手册。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.180,
+      "maxPriceUsd": 0.180,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/pdf/extract/large"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/url/extract",
+      "url": "https://mach402.dev/url/extract",
+      "title": "URL to Markdown extractor",
+      "subtitle": "/url/extract",
+      "description": "Fetch a URL and return clean Markdown text (up to 100K characters). Strips ads, navigation, boilerplate. Useful for research agents encountering web pages.",
+      "useCase": "Use when an agent needs readable text content from a web page, stripped of navigation, ads, and boilerplate HTML.",
+      "i18n": {
+        "zh-CN": {
+          "title": "URL 转 Markdown 提取器",
+          "subtitle": "/url/extract",
+          "description": "抓取 URL 并返回干净的 Markdown 文本（最多 100K 字符）。去除广告、导航和模板内容。适合研究 Agent 处理网页。",
+          "useCase": "适合 Agent 从网页中获取可读文本内容，去除导航、广告和 HTML 模板。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.005,
+      "maxPriceUsd": 0.005,
+      "x402Routes": [
+        {
+          "provider": "machina-base",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://mach402.dev/url/extract"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "configured",
+    "payment": "paid-route",
+    "upstream": "public"
+  }
+}
