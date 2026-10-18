@@ -811,6 +811,149 @@
       "use_case": "Use before buying a token, approving an allowance, or sending to an address: check if a token is a honeypot/scam, whether an address is malicious, and whether an approval is risky."
     },
     {
+      "category": "devtools",
+      "category_meta": {
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nMachina provides eight machine-to-machine utility endpoints on Base mainnet via x402. All services are rule-based, deterministic, and CPU-only — no AI/LLM inference, no upstream API costs.\n\n## Best for\n\n- Coding agents that need security and quality scans of Python source code.\n- Outreach and sales agents that validate email deliverability before sending.\n- Research agents that extract clean Markdown from PDFs or web pages.\n- Compliance and security agents that need domain WHOIS, DNS, SSL, and email authentication reports.\n\n## Endpoints\n\n- `POST /scan/python` — Scan Python code for security vulnerabilities, quality issues, complexity metrics, and known CVEs in dependencies.\n- `POST /validate/email` — Validate a single email: syntax, MX, disposable, role account, catch-all detection.\n- `POST /validate/email/bulk` — Validate up to 100 emails in one call.\n- `POST /domain/intel` — Full domain intelligence: WHOIS, DNS, SSL, SPF/DKIM/DMARC, tech stack.\n- `POST /pdf/extract` — Convert a PDF (up to 50 pages) to clean Markdown. Rule-based, no OCR.\n- `POST /pdf/extract/large` — Convert a large PDF (up to 200 pages) to Markdown.\n- `POST /url/extract` — Fetch a URL and return clean Markdown (up to 100K chars).\n\n## Code usage\n\nAll endpoints accept x402 payments on Base mainnet (USDC, EIP-3009):\n\n```bash\ncurl -X POST https://mach402.dev/url/extract \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"url\": \"https://example.com\"}'\n```\n\nWithout a payment header, you receive `HTTP 402` with the price. Attach a signed USDC payment in the `X-PAYMENT` header to get the response.",
+      "endpoints": [
+        {
+          "description": "Scan Python source code for security vulnerabilities (Bandit), quality issues (pylint), complexity metrics (radon), and known CVEs in dependencies (pip-audit). Max 10K lines / 500KB per call.",
+          "method": "POST",
+          "path": "/scan/python",
+          "title": "Python code security and quality scanner",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/scan/python"
+            }
+          ]
+        },
+        {
+          "description": "Validate a single email address: syntax check, MX record lookup, disposable domain detection, role account detection, and catch-all detection. Returns a deliverability verdict.",
+          "method": "POST",
+          "path": "/validate/email",
+          "title": "Single email validation",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/validate/email"
+            }
+          ]
+        },
+        {
+          "description": "Validate up to 100 email addresses in a single call. Same checks as single validation: syntax, MX, disposable, role account, catch-all. Returns per-email results.",
+          "method": "POST",
+          "path": "/validate/email/bulk",
+          "title": "Bulk email validation (up to 100)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/validate/email/bulk"
+            }
+          ]
+        },
+        {
+          "description": "Full domain intelligence: WHOIS data (registrar, expiry, creation), DNS records (A, MX, NS, TXT), SSL certificate analysis, SPF/DKIM/DMARC email authentication check, and tech stack detection.",
+          "method": "POST",
+          "path": "/domain/intel",
+          "title": "Domain intelligence report",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/domain/intel"
+            }
+          ]
+        },
+        {
+          "description": "Convert a PDF (up to 50 pages) to clean, structured Markdown text. Rule-based extraction via PyMuPDF — no OCR, no AI. Fast and deterministic. Use /pdf/inspect first to check page count.",
+          "method": "POST",
+          "path": "/pdf/extract",
+          "title": "PDF to Markdown (up to 50 pages)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/pdf/extract"
+            }
+          ]
+        },
+        {
+          "description": "Convert a large PDF (up to 200 pages) to clean Markdown text. Same rule-based extraction as /pdf/extract but for longer documents.",
+          "method": "POST",
+          "path": "/pdf/extract/large",
+          "title": "PDF to Markdown (up to 200 pages)",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/pdf/extract/large"
+            }
+          ]
+        },
+        {
+          "description": "Fetch a URL and return clean Markdown text (up to 100K characters). Strips ads, navigation, boilerplate. Useful for research agents encountering web pages.",
+          "method": "POST",
+          "path": "/url/extract",
+          "title": "URL to Markdown extractor",
+          "x402_routes": [
+            {
+              "assetTransferMethod": "eip3009",
+              "network": "eip155:8453",
+              "provider": "machina-base",
+              "scheme": "exact",
+              "url": "https://mach402.dev/url/extract"
+            }
+          ]
+        }
+      ],
+      "featured_tags": [
+        "machina",
+        "code-scanner",
+        "email-validation",
+        "pdf-extraction",
+        "domain-intel",
+        "paid"
+      ],
+      "fqn": "machina",
+      "service_url": "https://mach402.dev",
+      "subtitle": "Pay-per-call utility endpoints for coding, outreach, research and compliance agents.",
+      "title": "Machina",
+      "use_case": "Use when an agent needs to scan code for vulnerabilities, validate emails before outreach, profile a domain, or extract readable text from PDFs and web pages."
+    },
+    {
       "category": "finance",
       "category_meta": {
         "id": "finance",
@@ -900,6 +1043,6 @@
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
     }
   ],
-  "generated_at": "2026-09-28T10:06:02Z",
+  "generated_at": "2026-10-18T21:15:47Z",
   "version": 1
 }

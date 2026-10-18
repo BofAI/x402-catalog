@@ -5,6 +5,12 @@
   "frontend": {
     "categories": [
       {
+        "count": 1,
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      {
         "count": 5,
         "id": "finance",
         "label": "Finance",
@@ -20,7 +26,7 @@
         "label_zh": "BNB Chain"
       },
       {
-        "count": 5,
+        "count": 6,
         "id": "eip155:8453",
         "kind": "base",
         "label": "Base Mainnet",
@@ -38,8 +44,8 @@
       "sunpump-token-launch"
     ]
   },
-  "generated_at": "2026-09-28T10:06:02Z",
-  "provider_count": 5,
+  "generated_at": "2026-10-18T21:15:47Z",
+  "provider_count": 6,
   "providers": [
     {
       "category": "finance",
@@ -115,6 +121,65 @@
       "title": "SunPump",
       "title_zh": "SunPump",
       "use_case": "Use this provider when an app, agent, or CLI workflow needs to launch a SunPump token after a successful x402 payment. Choose a TRON Mainnet, BNB Smart Chain, or Base Mainnet payment route; every successful launch creates the token on TRON Mainnet."
+    },
+    {
+      "category": "devtools",
+      "category_meta": {
+        "id": "devtools",
+        "label": "DevTools",
+        "label_zh": "开发工具"
+      },
+      "chain_kinds": [
+        "base"
+      ],
+      "chains": [
+        "eip155:8453"
+      ],
+      "chains_meta": [
+        {
+          "id": "eip155:8453",
+          "kind": "base",
+          "label": "Base Mainnet",
+          "label_zh": "Base 主网"
+        }
+      ],
+      "description": "## What it does\n\nMachina provides eight machine-to-machine utility endpoints on Base mainnet via x402. All services are rule-based, deterministic, and CPU-only — no AI/LLM inference, no upstream API costs.\n\n## Best for\n\n- Coding agents that need security and quality scans of Python source code.\n- Outreach and sales agents that validate email deliverability before sending.\n- Research agents that extract clean Markdown from PDFs or web pages.\n- Compliance and security agents that need domain WHOIS, DNS, SSL, and email authentication reports.\n\n## Endpoints\n\n- `POST /scan/python` — Scan Python code for security vulnerabilities, quality issues, complexity metrics, and known CVEs in dependencies.\n- `POST /validate/email` — Validate a single email: syntax, MX, disposable, role account, catch-all detection.\n- `POST /validate/email/bulk` — Validate up to 100 emails in one call.\n- `POST /domain/intel` — Full domain intelligence: WHOIS, DNS, SSL, SPF/DKIM/DMARC, tech stack.\n- `POST /pdf/extract` — Convert a PDF (up to 50 pages) to clean Markdown. Rule-based, no OCR.\n- `POST /pdf/extract/large` — Convert a large PDF (up to 200 pages) to Markdown.\n- `POST /url/extract` — Fetch a URL and return clean Markdown (up to 100K chars).\n\n## Code usage\n\nAll endpoints accept x402 payments on Base mainnet (USDC, EIP-3009):\n\n```bash\ncurl -X POST https://mach402.dev/url/extract \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"url\": \"https://example.com\"}'\n```\n\nWithout a payment header, you receive `HTTP 402` with the price. Attach a signed USDC payment in the `X-PAYMENT` header to get the response.",
+      "endpoint_count": 7,
+      "featured_tags": [
+        "machina",
+        "code-scanner",
+        "email-validation",
+        "pdf-extraction",
+        "domain-intel",
+        "paid"
+      ],
+      "fqn": "machina",
+      "has_free_tier": false,
+      "has_metering": true,
+      "i18n": {
+        "zh-CN": {
+          "description": "## 功能说明\n\nMachina 在 Base 主网上通过 x402 提供八个机器对机器的实用端点。所有服务均基于规则、确定性、仅 CPU 运行——无 AI/LLM 推理，无上游 API 成本。\n\n## 适合场景\n\n- 需要对 Python 源代码进行安全和质量扫描的编码 Agent。\n- 在发送前验证邮箱可达性的外联和销售 Agent。\n- 从 PDF 或网页中提取干净 Markdown 的研究 Agent。\n- 需要域名 WHOIS、DNS、SSL 和邮件认证报告的合规与安全 Agent。\n\n## 端点\n\n- `POST /scan/python` — 扫描 Python 代码的安全漏洞、质量问题、复杂度指标和已知 CVE。\n- `POST /validate/email` — 验证单个邮箱：语法、MX、一次性域名、角色账户、全接收检测。\n- `POST /validate/email/bulk` — 一次验证最多 100 个邮箱。\n- `POST /domain/intel` — 完整域名情报：WHOIS、DNS、SSL、SPF/DKIM/DMARC、技术栈。\n- `POST /pdf/extract` — 将 PDF（最多 50 页）转换为干净的 Markdown。基于规则，无 OCR。\n- `POST /pdf/extract/large` — 将大型 PDF（最多 200 页）转换为 Markdown。\n- `POST /url/extract` — 抓取 URL 并返回干净的 Markdown（最多 100K 字符）。",
+          "mainTitle": "AI Agent 实用 API — 代码扫描、邮箱验证、PDF 和网页提取",
+          "subtitle": "按需付费的实用 API，适用于编码、外联、研究和合规 Agent。",
+          "title": "Machina",
+          "useCase": "适合 Agent 在扫描代码漏洞、验证邮箱、分析域名或从 PDF 和网页提取文本时使用。"
+        }
+      },
+      "is_featured": false,
+      "is_first_party": false,
+      "logo": "https://raw.githubusercontent.com/BofAI/x402-catalog/main/assets/logos/machina.svg",
+      "main_title": "Utility APIs for AI agents — code scanning, email validation, PDF & web extraction",
+      "main_title_zh": "AI Agent 实用 API — 代码扫描、邮箱验证、PDF 和网页提取",
+      "max_price_usd": 0.5,
+      "min_price_usd": 0.005,
+      "service_url": "https://mach402.dev",
+      "sha": "42695ea8a7b92e55360246c51bdc4ca1680c34a0a4767aad86898c4f0700cdf9",
+      "sub_title": "Pay-per-call utility endpoints for coding, outreach, research and compliance agents.",
+      "sub_title_zh": "按需付费的实用 API，适用于编码、外联、研究和合规 Agent。",
+      "subtitle": "Pay-per-call utility endpoints for coding, outreach, research and compliance agents.",
+      "title": "Machina",
+      "title_zh": "Machina",
+      "use_case": "Use when an agent needs to scan code for vulnerabilities, validate emails before outreach, profile a domain, or extract readable text from PDFs and web pages."
     },
     {
       "category": "finance",
