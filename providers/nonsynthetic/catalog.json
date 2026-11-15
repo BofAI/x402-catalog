@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "fqn": "nonsynthetic",
+  "title": "Nonsynthetic — Apex Edge",
+  "mainTitle": "Machine-payable security audits, treasury forensics & utility APIs",
+  "subtitle": "298 x402-priced routes for agents — audit verdicts, ERC-20 treasury census, corpus search — USDC on Base, no signup, receipts public.",
+  "description": "## What it does\n\nApex Edge is an agent-native commerce node serving 298 machine-payable routes over x402 v2 on Base (`eip155:8453`, USDC via EIP-3009 `transferWithAuthorization`). Flagship products are deterministic security and forensics tools — static audit checklists, LLM audit verdicts, token/contract risk screens, and signed ERC-20 treasury census reports. A free-taste tier (5 calls/day/IP on select utility routes) lets agents evaluate before paying; settled receipts are publicly verifiable.\n\n## Best for\n\n- Agents that need deterministic code-audit checklists or an LLM audit verdict before shipping or touching a contract.\n- x402 merchants and treasury operators reconciling USDC inflow — the census tools find orphan settles that bypassed receipt endpoints.\n- Agents needing a paid corpus search over 496 research documents on agent-commerce venues.\n\n## Endpoints\n\n- `POST /api/v1/recon/census` — Forensic treasury census: every inbound/outbound ERC-20 Transfer over a block range; finds orphan settles, top-8 counterparty enrichment, Ed25519-signed attestation — $20\n- `POST /api/v1/recon/scan` — Bounded (≤50k-block) treasury scan, Ed25519-signed; autonomous-budget tier — $2\n- `POST /api/v1/audit/verdict` — Single-pass LLM audit-lite verdict on submitted code with corroborated:false flagging — $0.25\n- `POST /api/v1/audit/checklist` — Static 32-item audit checklist — $0.05\n- `POST /api/v1/audit/address` — Token/contract heuristic risk screen (DexScreener liquidity + GoPlus honeypot/tax/proxy flags) — $0.02\n- `GET /api/v1/search` — Corpus search over the 496-doc research index — $0.01\n- `POST /mcp` — MCP tools/call; tools/list is free, per-tool parity with HTTP SKU prices ($0.002–$1.00)\n\n## Code usage\n\nEvery paid route answers HTTP 402 with an `accepts[]` array (x402 v2, `scheme: exact`, Base `eip155:8453`, USDC atomic units, `payTo` address). Settle via any x402 client — Coinbase CDP facilitator or PayAI — then replay the request with the payment payload. Machine catalog: `https://api.nonsynthetic.net/.well-known/x402`. Agent card (A2A v0.3.0, JWS-signed): `https://api.nonsynthetic.net/.well-known/agent-card.json`.\n\n## Provenance\n\n- ERC-8004 agent id `1179000` on `eip155:8453`\n- settled.tools seller record: `https://settled.tools/s/0xe70f099f0e139f8a2d8ac6e48f7457d99738b968`\n- Payout wallet `0xe70F099F0e139f8A2D8ac6E48f7457d99738B968` (Base)",
+  "useCase": "Agents buying deterministic security audits and treasury-forensic reconciliation per call, without accounts or API keys — a 402 challenge is the only onboarding.",
+  "i18n": {
+    "zh-CN": {
+      "title": "非合成 — Apex Edge",
+      "mainTitle": "机器支付安全审计、金库取证和实用 API",
+      "subtitle": "面向代理的 298 个 x402 定价路线 — 审计判决、ERC-20 财务普查、语料库搜索 — USDC on Base、无需注册、公开收据。",
+      "description": "Apex Edge 是一个代理本地商务节点，通过 Base 上的 x402 v2（eip155:8453，USDC 通过 EIP-3009）提供 298 条机器支付路由。旗舰产品是确定性安全和取证工具：静态审计清单、LLM 审计判决、代币合约风险屏幕和 Ed25519 签名的 ERC-20 财务普查报告。免费体验层（选定公用设施路线上每个 IP 每天 5 个呼叫）允许代理商在付款前进行评估；结算收据是可公开核实的。机器目录：https://api.nonsynthetic.net/.well-known/x402",
+      "useCase": "代理每次调用都购​​买确定性安全审计和财务取证核对，无需帐户或 API 密钥 - 402 挑战是唯一的入职方式。"
+    }
+  },
+  "logo": "https://api.nonsynthetic.net/favicon.ico",
+  "category": "security",
+  "chains": [
+    "eip155:8453"
+  ],
+  "isFirstParty": true,
+  "isFeatured": false,
+  "featuredTags": [
+    "x402",
+    "security",
+    "audit",
+    "treasury-forensics",
+    "usdc",
+    "base"
+  ],
+  "serviceUrl": "https://api.nonsynthetic.net",
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/v1/recon/census",
+      "url": "https://api.nonsynthetic.net/api/v1/recon/census",
+      "title": "Forensic Treasury Census",
+      "subtitle": "Full-range ERC-20 Transfer census with signed attestation",
+      "description": "Every inbound/outbound ERC-20 Transfer for a wallet over a block range; finds orphan settles that bypassed receipt endpoints, top-8 counterparty enrichment, Ed25519-signed attestation.",
+      "useCase": "x402 merchants and treasury operators reconciling USDC inflow against ledger records.",
+      "i18n": {
+        "zh-CN": {
+          "title": "法证财政部普查",
+          "subtitle": "带有签名证明的全方位 ERC-20 转账普查",
+          "description": "钱包在区块范围内的每次入站/出站 ERC-20 转账；发现绕过收据端点、前 8 位交易对手丰富、Ed25519 签名证明的孤儿和解。",
+          "useCase": "x402 商家和财务运营商将 USDC 流入与账本记录进行核对。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 20,
+      "maxPriceUsd": 20,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/recon/census"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/recon/scan",
+      "url": "https://api.nonsynthetic.net/api/v1/recon/scan",
+      "title": "Treasury Scan",
+      "subtitle": "Bounded ≤50k-block ERC-20 census, Ed25519-signed",
+      "description": "Fast bounded treasury scan (≤50,000 blocks) — inbound/outbound ERC-20 Transfer census, Ed25519-signed; autonomous-budget tier.",
+      "useCase": "Autonomous agents running budget-limited treasury reconciliation.",
+      "i18n": {
+        "zh-CN": {
+          "title": "国库扫描",
+          "subtitle": "有界 ≤50k 区块 ERC-20 普查，Ed25519 签名",
+          "description": "快速有界金库扫描（≤50,000 个区块）——入站/出站 ERC-20 转账普查，Ed25519 签名；自主预算层。",
+          "useCase": "自治代理运行预算有限的国库对账。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 2,
+      "maxPriceUsd": 2,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/recon/scan"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/audit/verdict",
+      "url": "https://api.nonsynthetic.net/api/v1/audit/verdict",
+      "title": "Audit Verdict",
+      "subtitle": "Single-pass LLM audit-lite on submitted code",
+      "description": "Evidence-backed findings with corroborated:false flagging — an audit-lite verdict, not a full audit engagement.",
+      "useCase": "Agents gating code or contract interactions on a cheap risk verdict.",
+      "i18n": {
+        "zh-CN": {
+          "title": "审计结论",
+          "subtitle": "对提交的代码进行单次 LLM 精简审核",
+          "description": "有证据支持的调查结果并得到证实：虚假标记——轻审计结论，而不是完整的审计活动。",
+          "useCase": "代理以低廉的风险判决来控制代码或合约交互。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.25,
+      "maxPriceUsd": 0.25,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/audit/verdict"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/audit/checklist",
+      "url": "https://api.nonsynthetic.net/api/v1/audit/checklist",
+      "title": "Audit Checklist",
+      "subtitle": "Static 32-item security audit checklist",
+      "description": "Deterministic 32-item audit checklist — same output every call, no model variance.",
+      "useCase": "CI/agent pipelines needing a fixed audit gate artifact.",
+      "i18n": {
+        "zh-CN": {
+          "title": "审核清单",
+          "subtitle": "静态32项安全审核清单",
+          "description": "确定性 32 项审核清单 — 每次调用的输出相同，没有模型差异。",
+          "useCase": "CI/代理管道需要固定的审计门工件。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.05,
+      "maxPriceUsd": 0.05,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/audit/checklist"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/audit/address",
+      "url": "https://api.nonsynthetic.net/api/v1/audit/address",
+      "title": "Address Risk Screen",
+      "subtitle": "Token/contract heuristic risk screen",
+      "description": "DexScreener liquidity + GoPlus honeypot/tax/proxy flags — a heuristic screen, not an audit.",
+      "useCase": "Trading agents screening a token contract before moving liquidity.",
+      "i18n": {
+        "zh-CN": {
+          "title": "解决风险筛查",
+          "subtitle": "代币/合约启发式风险筛选",
+          "description": "DexScreener 流动性 + GoPlus 蜜罐/税收/代理标志 - 启发式筛选，而不是审计。",
+          "useCase": "交易代理在转移流动性之前筛选代币合约。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.02,
+      "maxPriceUsd": 0.02,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/audit/address"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search",
+      "url": "https://api.nonsynthetic.net/api/v1/search",
+      "title": "Corpus Search",
+      "subtitle": "496-document research index",
+      "description": "Corpus search over a 496-document research index covering agent-commerce venues and probes.",
+      "useCase": "Agents researching x402 venues, registries and monetization surfaces.",
+      "i18n": {
+        "zh-CN": {
+          "title": "语料库搜索",
+          "subtitle": "496-文献研究索引",
+          "description": "语料库搜索包含 496 个文档的研究索引，涵盖代理商务场所和调查。",
+          "useCase": "代理研究 x402 场地、注册和货币化表面。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.01,
+      "maxPriceUsd": 0.01,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/api/v1/search"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/mcp",
+      "url": "https://api.nonsynthetic.net/mcp",
+      "title": "MCP Tools",
+      "subtitle": "MCP tools/call — 19 tools, per-tool parity with HTTP SKUs",
+      "description": "Model Context Protocol endpoint — tools/list is free; per-tool pricing matches HTTP SKUs ($0.002–$1.00).",
+      "useCase": "MCP-native clients paying per tool call over x402.",
+      "i18n": {
+        "zh-CN": {
+          "title": "MCP 工具",
+          "subtitle": "MCP 工具/调用 — 19 个工具，每个工具与 HTTP SKU 相同",
+          "description": "模型上下文协议端点——工具/列表是免费的；每个工具的定价与 HTTP SKU 匹配（0.002 美元 - 1.00 美元）。",
+          "useCase": "MCP 原生客户端为每次工具调用支付超过 402 倍的费用。"
+        }
+      },
+      "metered": true,
+      "minPriceUsd": 0.002,
+      "maxPriceUsd": 1,
+      "x402Routes": [
+        {
+          "provider": "nonsynthetic",
+          "network": "eip155:8453",
+          "scheme": "exact",
+          "assetTransferMethod": "eip3009",
+          "url": "https://api.nonsynthetic.net/mcp"
+        }
+      ]
+    }
+  ],
+  "status": {
+    "catalog": "listed",
+    "gateway": "unknown",
+    "payment": "mainnet",
+    "upstream": "public"
+  }
+}
